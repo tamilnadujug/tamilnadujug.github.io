@@ -1,9 +1,3 @@
-# sathishk.github.io
-Profile Page Sample
+# Tamilnadu Java User Group
 
-## Setup
-
-```sh
-git submodule add https://github.com/techatpark/my-resume.git themes/my-resume
-hugo server
-```
+Website
