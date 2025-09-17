@@ -169,7 +169,7 @@
 
       container.innerHTML = chapterLeaders.map((college, index) => `
         <div class="col-12 mb-4">
-          <div class="college-list-card animate__animated animate__fadeInUp" style="animation-delay: ${index * 0.1}s" data-college-index="${index}">
+          <div class="college-list-card animate__animated animate__fadeInUp" style="animation-delay: ${index * 0.1}s" data-college-index="${index}" onclick="toggleCollegeDetails(${index})">
             <div class="college-summary">
               <div class="college-info">
                 <div class="college-header-info">
@@ -198,11 +198,11 @@
                   </div>
                 </div>
                 <div class="college-actions">
-                  <button class="btn btn-outline-primary expand-btn" onclick="toggleCollegeDetails(${index})">
+                  <button class="btn expand-btn" onclick="event.stopPropagation(); toggleCollegeDetails(${index})">
                     <i class="bi bi-chevron-down"></i>
                     <span>View Details</span>
                   </button>
-                  <button class="btn btn-outline-secondary history-btn ms-2" onclick="toggleCollegeHistory(${index})">
+                  <button class="btn history-btn ms-2" onclick="event.stopPropagation(); toggleCollegeHistory(${index})">
                     <i class="bi bi-clock-history"></i>
                     <span>History</span>
                   </button>
@@ -617,26 +617,39 @@
       border-radius: 2px;
     }
 
-    /* College List Cards */
+    /* College List Cards - New Design */
     .college-list-card {
-      background: #fff;
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+      border-radius: 24px;
+      box-shadow: 
+        0 4px 20px rgba(0, 0, 0, 0.08),
+        0 1px 3px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
       overflow: hidden;
-      transition: all 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(10px);
-      margin-bottom: 1.5rem;
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+      border: 2px solid transparent;
+      backdrop-filter: blur(20px);
+      margin-bottom: 2.5rem;
+      position: relative;
+      transform-style: preserve-3d;
+      cursor: pointer;
     }
 
+
     .college-list-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+      transform: translateY(-12px) rotateX(5deg) rotateY(2deg);
+      box-shadow: 
+        0 25px 50px rgba(102, 126, 234, 0.2),
+        0 10px 30px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
     }
 
     .college-summary {
-      padding: 1.5rem;
-      border-bottom: 1px solid #f0f0f0;
+      padding: 2.5rem;
+      border-bottom: none;
+      background: transparent;
+      position: relative;
+      z-index: 2;
     }
 
     .college-info {
@@ -656,40 +669,77 @@
 
     .college-logo-container {
       position: relative;
-      margin-right: 1.5rem;
+      margin-right: 2rem;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
     .college-logo {
-      width: 60px;
-      height: 60px;
-      border-radius: 12px;
+      width: 80px;
+      height: 80px;
+      border-radius: 20px;
       object-fit: contain;
-      background: #fff;
-      padding: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
+      background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+      padding: 12px;
+      box-shadow: 
+        0 8px 25px rgba(102, 126, 234, 0.15),
+        0 3px 10px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      border: 2px solid rgba(102, 126, 234, 0.1);
     }
 
     .college-logo:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      transform: scale(1.1) rotateY(10deg);
+      box-shadow: 
+        0 15px 35px rgba(102, 126, 234, 0.25),
+        0 5px 15px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+      border-color: rgba(102, 126, 234, 0.3);
     }
 
     .college-icon {
-      font-size: 2.5rem;
-      color: #667eea;
-      opacity: 0.9;
+      font-size: 3rem;
+      color: white;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      border-radius: 12px;
-      color: white;
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #667eea 100%);
+      border-radius: 20px;
+      box-shadow: 
+        0 8px 25px rgba(102, 126, 234, 0.3),
+        0 3px 10px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .college-icon::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transform: rotate(45deg);
+      transition: all 0.6s ease;
+    }
+
+    .college-icon:hover::before {
+      transform: rotate(45deg) translate(100%, 100%);
+    }
+
+    .college-icon:hover {
+      transform: scale(1.1) rotateY(10deg);
+      box-shadow: 
+        0 15px 35px rgba(102, 126, 234, 0.4),
+        0 5px 15px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
     }
 
     .college-details {
@@ -698,18 +748,26 @@
     }
 
     .college-name {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin: 0 0 0.5rem 0;
-      color: #2c3e50;
+      font-size: 1.75rem;
+      font-weight: 800;
+      margin: 0 0 0.75rem 0;
+      background: linear-gradient(135deg, #2c3e50 0%, #667eea 50%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
       word-wrap: break-word;
       overflow-wrap: break-word;
+      position: relative;
     }
 
     .college-location {
       color: #6c757d;
-      margin: 0 0 1rem 0;
-      font-size: 0.95rem;
+      margin: 0 0 1.5rem 0;
+      font-size: 1rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
     .college-stats {
@@ -720,14 +778,42 @@
     }
 
     .stat-badge {
-      background: linear-gradient(135deg, #667eea, #764ba2);
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #667eea 100%);
       color: white;
-      padding: 0.25rem 0.75rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      font-size: 0.85rem;
+      font-weight: 600;
       display: inline-flex;
       align-items: center;
+      box-shadow: 
+        0 4px 15px rgba(102, 126, 234, 0.3),
+        0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-badge::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .stat-badge:hover::before {
+      left: 100%;
+    }
+
+    .stat-badge:hover {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 
+        0 6px 20px rgba(102, 126, 234, 0.4),
+        0 3px 8px rgba(0, 0, 0, 0.15);
     }
 
     .college-actions {
@@ -735,39 +821,73 @@
     }
 
     .expand-btn {
-      border-radius: 25px;
-      padding: 0.5rem 1.5rem;
-      font-weight: 500;
+      border-radius: 30px;
+      padding: 0.75rem 2rem;
+      font-weight: 600;
       transition: all 0.3s ease;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      min-height: 44px;
+      gap: 0.75rem;
+      min-height: 50px;
       touch-action: manipulation;
+      background: #f8f9fa;
+      border: 2px solid #e9ecef;
+      color: #495057;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
     .expand-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .expand-btn:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .expand-btn.btn-primary {
+      background: #667eea;
+      border-color: #667eea;
+      color: white;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    }
+
+    .expand-btn.btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
     }
 
     .college-details-content {
-      padding: 2rem;
-      background: #f8f9fa;
-      border-top: 1px solid #e9ecef;
+      padding: 2.5rem;
+      background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+      border-top: 1px solid rgba(102, 126, 234, 0.1);
     }
 
     .college-history-content {
-      padding: 2rem;
-      background: #f8f9fa;
-      border-top: 1px solid #e9ecef;
+      padding: 2.5rem;
+      background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+      border-top: 1px solid rgba(102, 126, 234, 0.1);
     }
 
     .history-section {
       background: white;
-      border-radius: 15px;
-      padding: 2rem;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      padding: 3rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      border: 1px solid rgba(102, 126, 234, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .history-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #667eea, #764ba2);
     }
 
     .history-title {
@@ -802,23 +922,45 @@
 
     .history-item {
       display: flex;
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
       position: relative;
+      padding: 1.5rem;
+      background: #f8f9fa;
+      border-radius: 15px;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(102, 126, 234, 0.1);
+    }
+
+    .history-item:hover {
+      transform: translateX(5px);
+      box-shadow: 0 5px 20px rgba(102, 126, 234, 0.15);
+      background: white;
+    }
+
+    .history-item:last-child {
+      margin-bottom: 0;
     }
 
     .history-photo {
-      width: 60px;
-      height: 60px;
+      width: 70px;
+      height: 70px;
       border-radius: 50%;
       overflow: hidden;
       margin-right: 1.5rem;
       position: relative;
       z-index: 2;
       background: white;
-      border: 3px solid #667eea;
+      border: 4px solid #667eea;
       display: flex;
       align-items: center;
       justify-content: center;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .history-item:hover .history-photo {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
     }
 
     .leader-photo {
@@ -840,39 +982,43 @@
 
     .history-content {
       flex: 1;
-      background: white;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      border-left: 4px solid #667eea;
+      background: transparent;
+      padding: 0;
+      border-radius: 0;
+      box-shadow: none;
+      border-left: none;
     }
 
     .history-name {
       color: #2c3e50;
       font-weight: 700;
       margin-bottom: 0.5rem;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
     }
 
     .history-designation {
       color: #6c757d;
       font-weight: 500;
       margin-bottom: 0.5rem;
-      font-size: 0.95rem;
+      font-size: 1rem;
     }
 
     .history-tenure {
       color: #667eea;
       font-weight: 600;
       margin-bottom: 1rem;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
+      background: rgba(102, 126, 234, 0.1);
+      padding: 0.25rem 0.75rem;
+      border-radius: 15px;
+      display: inline-block;
     }
 
     .history-about {
       color: #495057;
       line-height: 1.6;
       margin-bottom: 1rem;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
     }
 
     .history-achievements {
@@ -891,49 +1037,72 @@
     }
 
     .history-btn {
-      min-height: 44px;
+      min-height: 50px;
       touch-action: manipulation;
+      border-radius: 30px;
+      padding: 0.75rem 2rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      background: #f8f9fa;
+      border: 2px solid #e9ecef;
+      color: #495057;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
-    /* Leader Cards */
+    .history-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .history-btn:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .history-btn.btn-secondary {
+      background: #6c757d;
+      border-color: #6c757d;
+      color: white;
+      box-shadow: 0 4px 15px rgba(108, 117, 125, 0.3);
+    }
+
+    .history-btn.btn-secondary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(108, 117, 125, 0.4);
+    }
+
+    /* Leader Cards - New Design */
     .leader-card {
-      background: #f8f9fa;
-      border-radius: 15px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      border-left: 4px solid transparent;
-      transition: all 0.3s ease;
+      background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+      border-radius: 24px;
+      padding: 2.5rem;
+      margin-bottom: 2.5rem;
+      border: 2px solid transparent;
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
       position: relative;
       overflow: hidden;
+      box-shadow: 
+        0 8px 30px rgba(0, 0, 0, 0.1),
+        0 2px 8px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      transform-style: preserve-3d;
     }
 
-    .leader-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #667eea, #764ba2);
-      transform: scaleX(0);
-      transition: transform 0.3s ease;
-    }
-
-    .leader-card:hover::before {
-      transform: scaleX(1);
-    }
 
     .faculty-leader {
-      border-left-color: #667eea;
+      border-left: 6px solid #667eea;
     }
 
     .student-leader {
-      border-left-color: #764ba2;
+      border-left: 6px solid #764ba2;
     }
 
     .leader-card:hover {
-      transform: translateX(5px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      transform: translateY(-8px) rotateX(3deg) rotateY(1deg);
+      box-shadow: 
+        0 20px 40px rgba(102, 126, 234, 0.2),
+        0 8px 20px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
     }
 
     .leader-header {
@@ -943,23 +1112,52 @@
     }
 
     .leader-avatar {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+      border-radius: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
-      margin-right: 1rem;
+      font-size: 2rem;
+      margin-right: 1.5rem;
       color: white;
+      box-shadow: 
+        0 8px 25px rgba(102, 126, 234, 0.3),
+        0 3px 10px rgba(0, 0, 0, 0.2);
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .leader-avatar::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transform: rotate(45deg);
+      transition: all 0.6s ease;
+    }
+
+    .leader-avatar:hover::before {
+      transform: rotate(45deg) translate(100%, 100%);
     }
 
     .faculty-avatar {
-      background: linear-gradient(135deg, #667eea, #764ba2);
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #667eea 100%);
     }
 
     .student-avatar {
-      background: linear-gradient(135deg, #764ba2, #667eea);
+      background: linear-gradient(135deg, #764ba2 0%, #667eea 50%, #764ba2 100%);
+    }
+
+    .leader-card:hover .leader-avatar {
+      transform: scale(1.1) rotateY(10deg);
+      box-shadow: 
+        0 12px 35px rgba(102, 126, 234, 0.4),
+        0 5px 15px rgba(0, 0, 0, 0.3);
     }
 
     .leader-info {
@@ -1300,20 +1498,25 @@
       }
       
       .leader-card:hover {
-        transform: translateX(2px);
+        transform: translateY(-3px) scale(1.01);
       }
       
       .college-list-card:hover {
-        transform: translateY(-2px);
+        transform: translateY(-4px) scale(1.01);
       }
       
       .college-details-content,
       .college-history-content {
-        padding: 1rem;
+        padding: 1.5rem;
       }
       
       .history-section {
+        padding: 2rem;
+      }
+      
+      .history-item {
         padding: 1rem;
+        margin-bottom: 1.5rem;
       }
       
       .history-item {
@@ -1330,7 +1533,8 @@
       }
       
       .leader-card {
-        padding: 1rem;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
       }
       
       .expertise-tags,
@@ -1374,14 +1578,14 @@
       }
       
       .college-logo {
-        width: 50px;
-        height: 50px;
+        width: 60px;
+        height: 60px;
       }
       
       .college-icon {
-        font-size: 2rem;
-        width: 50px;
-        height: 50px;
+        font-size: 2.5rem;
+        width: 60px;
+        height: 60px;
       }
       
       .college-logo-container {
@@ -1409,7 +1613,7 @@
       }
       
       .college-summary {
-        padding: 1rem;
+        padding: 1.5rem;
       }
       
       .leader-header {
@@ -1474,14 +1678,14 @@
       }
       
       .college-logo {
-        width: 40px;
-        height: 40px;
+        width: 50px;
+        height: 50px;
       }
       
       .college-icon {
-        width: 40px;
-        height: 40px;
-        font-size: 1.5rem;
+        width: 50px;
+        height: 50px;
+        font-size: 2rem;
       }
       
       .college-logo-container {
