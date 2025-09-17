@@ -25,12 +25,7 @@ export default defineConfig(({ mode }) => {
         input: {
           ...getHtmlInputs(resolve(__dirname, './'))
         }
-      },
-      // Ensure static assets are copied to dist
-      assetsDir: 'assets',
-      copyPublicDir: true
-    },
-    // Ensure data folder and other static assets are available
-    publicDir: 'public'
+      }
+    }
   }
 })
