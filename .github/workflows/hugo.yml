@@ -29,6 +29,25 @@ jobs:
           npm install
           npm run build:staging --if-present
 
+      - name: Prepare deployment files
+        run: |
+          # Create dist directory if it doesn't exist
+          mkdir -p ./dist
+          
+          # Copy all necessary folders and files
+          cp -r ./data ./dist/ 2>/dev/null || echo "No data folder found"
+          cp -r ./public ./dist/ 2>/dev/null || echo "No public folder found"
+          cp -r ./assets ./dist/ 2>/dev/null || echo "No assets folder found"
+          
+          # Copy any additional static files that might be needed
+          cp -r ./*.html ./dist/ 2>/dev/null || echo "No HTML files to copy"
+          cp -r ./*.css ./dist/ 2>/dev/null || echo "No CSS files to copy"
+          cp -r ./*.js ./dist/ 2>/dev/null || echo "No JS files to copy"
+          
+          # List contents of dist folder for verification
+          echo "Contents of dist folder:"
+          ls -la ./dist/
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
