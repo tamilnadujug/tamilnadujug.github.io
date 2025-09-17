@@ -1,0 +1,366 @@
+{
+  "communityStats": {
+    "totalColleges": 4,
+    "totalLeaders": 8,
+    "totalStudents": 11200,
+    "totalEvents": 90,
+    "activeChapters": 4,
+    "upcomingEvents": 14
+  },
+  "chapterLeaders": [
+    {
+      "collegeName": "Sri Eshwar College of Engineering",
+      "collegeLogo": "assets/logos/sece-logo.svg",
+      "collegeLocation": "Coimbatore, Tamil Nadu",
+      "establishedYear": "2008",
+      "studentCount": "1200",
+      "chapterEstablished": "2020",
+      "upcomingEvents": 3,
+      "totalEvents": 15,
+      "specializations": ["Computer Science", "Information Technology", "Artificial Intelligence"],
+      "facultyLeader": {
+        "name": "Dr. Rajesh Kumar",
+        "designation": "Professor & Head of CSE",
+        "experience": "15+ years",
+        "expertise": ["Java Technologies", "Spring Framework", "Microservices"],
+        "about": "Experienced faculty in Computer Science with passion in community building. Led 20+ Java workshops and mentored 500+ students.",
+        "achievements": ["Oracle Java Champion", "Best Faculty Award 2023", "Published 25+ Research Papers"],
+        "photo": "assets/photos/dr-rajesh-kumar.svg",
+        "contact": {
+          "email": "rajesh.kumar@sece.ac.in",
+          "phone": "+91-9876543210"
+        },
+        "socialProfiles": {
+          "linkedin": "https://linkedin.com/in/drrajeshkumar",
+          "twitter": "https://twitter.com/drrajeshkumar",
+          "github": "https://github.com/drrajeshkumar",
+          "website": "https://drrajeshkumar.dev"
+        }
+      },
+      "studentLeader": {
+        "name": "Hari Nikesh",
+        "year": "3rd Year CSE",
+        "cgpa": "9.2",
+        "experience": "2 years in JUG",
+        "skills": ["Java", "Spring Boot", "React", "Docker"],
+        "about": "Active student chapter leader focused on growing student participation. Organized 10+ coding competitions and hackathons.",
+        "achievements": ["Hackathon Winner 2023", "Student Ambassador", "Open Source Contributor"],
+        "photo": "assets/photos/hari-nikesh.svg",
+        "contact": {
+          "email": "hari.nikesh@sece.ac.in",
+          "phone": "+91-9876543211"
+        },
+        "socialProfiles": {
+          "linkedin": "https://linkedin.com/in/harinikesh",
+          "twitter": "https://twitter.com/harinikesh",
+          "github": "https://github.com/harinikesh",
+          "portfolio": "https://harinikesh.dev"
+        }
+      },
+      "chapterLeaderHistory": {
+        "facultyLeaders": [
+          {
+            "name": "Dr. Rajesh Kumar",
+            "designation": "Professor & Head of CSE",
+            "tenure": "2020 - Present",
+            "photo": "assets/photos/dr-rajesh-kumar.svg",
+            "about": "Current faculty leader with 15+ years of experience in Java technologies.",
+            "achievements": ["Oracle Java Champion", "Best Faculty Award 2023"]
+          },
+          {
+            "name": "Prof. Suresh Kumar",
+            "designation": "Associate Professor",
+            "tenure": "2018 - 2020",
+            "photo": "assets/photos/prof-suresh-kumar.svg",
+            "about": "Former faculty leader who established the chapter in 2018.",
+            "achievements": ["Chapter Founder", "Industry Expert"]
+          }
+        ],
+        "studentLeaders": [
+          {
+            "name": "Hari Nikesh",
+            "year": "3rd Year CSE",
+            "tenure": "2023 - Present",
+            "photo": "assets/photos/hari-nikesh.svg",
+            "about": "Current student leader focused on community growth.",
+            "achievements": ["Hackathon Winner 2023", "Student Ambassador"]
+          },
+          {
+            "name": "Priya Sharma",
+            "year": "Graduated 2023",
+            "tenure": "2021 - 2023",
+            "photo": "assets/photos/priya-sharma.svg",
+            "about": "Former student leader who organized 15+ workshops.",
+            "achievements": ["Google Summer of Code", "Tech Lead"]
+          },
+          {
+            "name": "Arjun Kumar",
+            "year": "Graduated 2022",
+            "tenure": "2020 - 2021",
+            "photo": "assets/photos/arjun-kumar.svg",
+            "about": "Pioneer student leader who helped establish the chapter.",
+            "achievements": ["Chapter Co-founder", "Open Source Contributor"]
+          }
+        ]
+      }
+    },
+    {
+      "collegeName": "Kongu Engineering College",
+      "collegeLogo": "assets/logos/kongu-logo.svg",
+      "collegeLocation": "Erode, Tamil Nadu",
+      "establishedYear": "1983",
+      "studentCount": "2000",
+      "chapterEstablished": "2019",
+      "upcomingEvents": 2,
+      "totalEvents": 22,
+      "specializations": ["Computer Science", "Software Engineering", "Data Science"],
+      "facultyLeader": {
+        "name": "Prof. Kamalesh V",
+        "designation": "Associate Professor",
+        "experience": "12+ years",
+        "expertise": ["Java EE", "Spring Security", "Cloud Computing"],
+        "about": "Faculty expert in Software Development with focus on student engagement. Mentored 300+ students in Java technologies.",
+        "achievements": ["Microsoft MVP", "Industry Expert", "Patent Holder"],
+        "photo": "assets/photos/prof-kamalesh-v.svg",
+        "contact": {
+          "email": "kamalesh.v@kongu.ac.in",
+          "phone": "+91-9876543212"
+        },
+        "socialProfiles": {
+          "linkedin": "https://linkedin.com/in/profkamalesh",
+          "twitter": "https://twitter.com/profkamalesh",
+          "github": "https://github.com/profkamalesh"
+        }
+      },
+      "studentLeader": {
+        "name": "Rithika S",
+        "year": "4th Year CSE",
+        "cgpa": "9.5",
+        "experience": "3 years in JUG",
+        "skills": ["Java", "Spring", "Angular", "AWS"],
+        "about": "Student leader organizing workshops and events for community growth. Led 15+ technical sessions.",
+        "achievements": ["Google Summer of Code", "Tech Lead", "Community Builder"],
+        "photo": "assets/photos/rithika-s.svg",
+        "contact": {
+          "email": "rithika.s@kongu.ac.in",
+          "phone": "+91-9876543213"
+        },
+        "socialProfiles": {
+          "linkedin": "https://linkedin.com/in/rithikas",
+          "twitter": "https://twitter.com/rithikas",
+          "github": "https://github.com/rithikas"
+        }
+      },
+      "chapterLeaderHistory": {
+        "facultyLeaders": [
+          {
+            "name": "Prof. Kamalesh V",
+            "designation": "Associate Professor",
+            "tenure": "2019 - Present",
+            "photo": "assets/photos/prof-kamalesh-v.svg",
+            "about": "Current faculty leader with expertise in Java EE and cloud technologies.",
+            "achievements": ["Microsoft MVP", "Industry Expert"]
+          },
+          {
+            "name": "Dr. Meera Devi",
+            "designation": "Professor",
+            "tenure": "2017 - 2019",
+            "photo": "assets/photos/dr-meera-devi.svg",
+            "about": "Former faculty leader who initiated the chapter at Kongu.",
+            "achievements": ["Chapter Founder", "Research Scholar"]
+          }
+        ],
+        "studentLeaders": [
+          {
+            "name": "Rithika S",
+            "year": "4th Year CSE",
+            "tenure": "2022 - Present",
+            "photo": "assets/photos/rithika-s.svg",
+            "about": "Current student leader organizing technical sessions.",
+            "achievements": ["Google Summer of Code", "Tech Lead"]
+          },
+          {
+            "name": "Suresh Kumar",
+            "year": "Graduated 2022",
+            "tenure": "2020 - 2022",
+            "photo": "assets/photos/suresh-kumar.svg",
+            "about": "Former student leader who expanded community reach.",
+            "achievements": ["Hackathon Winner", "Community Builder"]
+          }
+        ]
+      }
+    },
+    {
+      "collegeName": "Anna University",
+      "collegeLogo": "assets/logos/anna-university-logo.svg",
+      "collegeLocation": "Chennai, Tamil Nadu",
+      "establishedYear": "1978",
+      "studentCount": "5000",
+      "chapterEstablished": "2018",
+      "upcomingEvents": 5,
+      "totalEvents": 35,
+      "specializations": ["Computer Science", "Information Technology", "Software Engineering", "AI/ML"],
+      "facultyLeader": {
+        "name": "Dr. Priya Sharma",
+        "designation": "Professor & Dean",
+        "experience": "20+ years",
+        "expertise": ["Java Technologies", "Distributed Systems", "Open Source"],
+        "about": "Professor specializing in Java technologies and open source contributions. Published 50+ research papers and books.",
+        "achievements": ["IEEE Fellow", "Oracle Java Champion", "Author of 3 Books"],
+        "photo": "assets/photos/dr-priya-sharma.svg",
+        "contact": {
+          "email": "priya.sharma@annauniv.edu",
+          "phone": "+91-9876543214"
+        },
+        "socialProfiles": {
+          "linkedin": "https://linkedin.com/in/drpriyasharma",
+          "github": "https://github.com/drpriyasharma",
+          "website": "https://drpriyasharma.ac.in"
+        }
+      },
+      "studentLeader": {
+        "name": "Arjun Kumar",
+        "year": "2nd Year CSE",
+        "cgpa": "9.8",
+        "experience": "1.5 years in JUG",
+        "skills": ["Java", "Spring Boot", "React", "Kubernetes", "DevOps"],
+        "about": "Tech enthusiast leading student initiatives and hackathons. Built 5+ open source projects.",
+        "achievements": ["Hackathon Winner", "Open Source Contributor", "Tech Speaker"],
+        "photo": "assets/photos/arjun-kumar.svg",
+        "contact": {
+          "email": "arjun.kumar@annauniv.edu",
+          "phone": "+91-9876543215"
+        },
+        "socialProfiles": {
+          "linkedin": "https://linkedin.com/in/arjunkumar",
+          "twitter": "https://twitter.com/arjunkumar",
+          "github": "https://github.com/arjunkumar",
+          "portfolio": "https://arjunkumar.dev"
+        }
+      },
+      "chapterLeaderHistory": {
+        "facultyLeaders": [
+          {
+            "name": "Dr. Priya Sharma",
+            "designation": "Professor & Dean",
+            "tenure": "2018 - Present",
+            "photo": "assets/photos/dr-priya-sharma.svg",
+            "about": "Current faculty leader with extensive research background.",
+            "achievements": ["IEEE Fellow", "Oracle Java Champion"]
+          },
+          {
+            "name": "Prof. Rajesh Kumar",
+            "designation": "Professor",
+            "tenure": "2015 - 2018",
+            "photo": "assets/photos/prof-rajesh-kumar.svg",
+            "about": "Former faculty leader who established the chapter.",
+            "achievements": ["Chapter Founder", "Industry Expert"]
+          }
+        ],
+        "studentLeaders": [
+          {
+            "name": "Arjun Kumar",
+            "year": "2nd Year CSE",
+            "tenure": "2023 - Present",
+            "photo": "assets/photos/arjun-kumar.svg",
+            "about": "Current student leader with DevOps expertise.",
+            "achievements": ["Hackathon Winner", "Open Source Contributor"]
+          },
+          {
+            "name": "Sneha Patel",
+            "year": "Graduated 2023",
+            "tenure": "2021 - 2023",
+            "photo": "assets/photos/sneha-patel.svg",
+            "about": "Former student leader who organized major events.",
+            "achievements": ["Google Summer of Code", "Tech Speaker"]
+          }
+        ]
+      }
+    },
+    {
+      "collegeName": "PSG College of Technology",
+      "collegeLogo": "assets/logos/psg-logo.svg",
+      "collegeLocation": "Coimbatore, Tamil Nadu",
+      "establishedYear": "1951",
+      "studentCount": "3000",
+      "chapterEstablished": "2021",
+      "upcomingEvents": 4,
+      "totalEvents": 18,
+      "specializations": ["Computer Science", "Information Technology", "Cyber Security"],
+      "facultyLeader": {
+        "name": "Dr. Suresh Menon",
+        "designation": "Professor",
+        "experience": "18+ years",
+        "expertise": ["Java Enterprise", "Spring Cloud", "Security"],
+        "about": "Expert in Java enterprise applications and security. Conducted 30+ industry workshops.",
+        "achievements": ["Security Expert", "Industry Consultant", "Research Scholar"],
+        "photo": "assets/photos/dr-suresh-menon.svg",
+        "contact": {
+          "email": "suresh.menon@psgtech.ac.in",
+          "phone": "+91-9876543216"
+        },
+        "socialProfiles": {
+          "linkedin": "https://linkedin.com/in/sureshmenon",
+          "github": "https://github.com/sureshmenon"
+        }
+      },
+      "studentLeader": {
+        "name": "Priya Lakshmi",
+        "year": "3rd Year CSE",
+        "cgpa": "9.3",
+        "experience": "2 years in JUG",
+        "skills": ["Java", "Spring", "Vue.js", "MongoDB"],
+        "about": "Passionate about Java and community building. Organized 12+ coding workshops.",
+        "achievements": ["Coding Competition Winner", "Student Mentor", "Tech Blogger"],
+        "photo": "assets/photos/priya-lakshmi.svg",
+        "contact": {
+          "email": "priya.lakshmi@psgtech.ac.in",
+          "phone": "+91-9876543217"
+        },
+        "socialProfiles": {
+          "linkedin": "https://linkedin.com/in/priyalakshmi",
+          "twitter": "https://twitter.com/priyalakshmi",
+          "github": "https://github.com/priyalakshmi"
+        }
+      },
+      "chapterLeaderHistory": {
+        "facultyLeaders": [
+          {
+            "name": "Dr. Suresh Menon",
+            "designation": "Professor",
+            "tenure": "2021 - Present",
+            "photo": "assets/photos/dr-suresh-menon.svg",
+            "about": "Current faculty leader with security expertise.",
+            "achievements": ["Security Expert", "Industry Consultant"]
+          },
+          {
+            "name": "Prof. Lakshmi Devi",
+            "designation": "Associate Professor",
+            "tenure": "2019 - 2021",
+            "photo": "assets/photos/prof-lakshmi-devi.svg",
+            "about": "Former faculty leader who initiated the chapter.",
+            "achievements": ["Chapter Founder", "Research Scholar"]
+          }
+        ],
+        "studentLeaders": [
+          {
+            "name": "Priya Lakshmi",
+            "year": "3rd Year CSE",
+            "tenure": "2022 - Present",
+            "photo": "assets/photos/priya-lakshmi.svg",
+            "about": "Current student leader organizing workshops.",
+            "achievements": ["Coding Competition Winner", "Student Mentor"]
+          },
+          {
+            "name": "Vikram Raj",
+            "year": "Graduated 2022",
+            "tenure": "2021 - 2022",
+            "photo": "assets/photos/vikram-raj.svg",
+            "about": "Former student leader who built community presence.",
+            "achievements": ["Hackathon Winner", "Tech Blogger"]
+          }
+        ]
+      }
+    }
+  ]
+}
