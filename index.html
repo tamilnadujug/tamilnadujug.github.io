@@ -4,16 +4,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tamilnadu Java User Group</title>
+  <meta name="description" content="Tamilnadu Java User Group - Bringing Java to students and fresh engineering professionals across Tamil Nadu through campus meetups, workshops, and community building." />
+  <title>Tamilnadu Java User Group | Community for Java Developers</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="src/scss/styles.scss" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
-<body style="position: relative;">
+<body>
   <!-- Navigation Bar -->
-  <nav class="navbar navbar-expand-lg navbar-light">
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top">
     <div class="container">
-      <img src="tamil_jug.jpeg" alt="Tamil JUG Logo" style="width:50px;">
+      <img src="tamil_jug.jpeg" alt="Tamil JUG Logo" style="width:50px; height:50px; object-fit:cover; border-radius:8px;">
       <a class="navbar-brand fw-bold" href="index.html">Tamilnadu JUG</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,171 +31,378 @@
             <a class="nav-link" href="blogs.html">Blogs</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="chapter-leaders.html">ChapterLeads</a>
-          </li>
-           <li class="nav-item">
-            <a class="nav-link " href="#">OpenSource</a>
+            <a class="nav-link" href="chapter-leaders.html">Chapter Leaders</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="events.html">Events</a>
           </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="login.html">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="register.html">Register</a>
-          </li> -->
-          
         </ul>
       </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <section class="bg-gradient text-white text-center py-5"
-    style="background: linear-gradient(135deg, #d32f2f, #f57c00);">
-    <div class="container">
-      <img src="public/tamil_jug.jpeg" alt="Tamil JUG Logo" class="logo mb-3"
-        style="width:120px; border-radius:50%; box-shadow:0 4px 24px rgba(0,0,0,0.15);">
-      <h1 class="display-4 fw-bold mb-3">Tamilnadu Java User Group</h1>
-      <p class="lead mb-4">AI-powered community for Java developers, students, and professors across Tamil Nadu</p>
-      <a href="#" class="btn btn-lg btn-light fw-bold px-4 py-2">Join Now</a>
-      <div class="row mt-5">
-        <div class="col-md-4">
-          <h2 class="fw-bold">10,000+</h2>
-          <p>Members</p>
+  <section class="hero-section text-white text-center py-5 position-relative overflow-hidden">
+    <div class="hero-bg"></div>
+    <div class="container position-relative">
+      <div class="hero-content">
+        <img src="public/tamil_jug.jpeg" alt="Tamil JUG Logo" class="hero-logo mb-4">
+        <h1 class="display-3 fw-bold mb-4">Tamilnadu Java User Group</h1>
+        <p class="lead mb-4 fs-4">Bringing Java to students and fresh engineering professionals across Tamil Nadu</p>
+        <p class="mb-5 fs-5">A unique Java User Group with a special focus on students, teachers, and community building</p>
+        <div class="hero-buttons">
+          <a href="events.html" class="btn btn-lg btn-light fw-bold px-5 py-3 me-3 mb-3">Join Our Events</a>
+          <a href="chapter-leaders.html" class="btn btn-lg btn-outline-light fw-bold px-5 py-3 mb-3">Meet Our Leaders</a>
         </div>
-        <div class="col-md-4">
-          <h2 class="fw-bold">95%</h2>
-          <p>Community Satisfaction</p>
-        </div>
-        <div class="col-md-4">
-          <h2 class="fw-bold">50+</h2>
-          <p>Events Hosted</p>
+        <div class="row mt-5 pt-4">
+          <div class="col-md-3 col-6 mb-4">
+            <div class="stat-card">
+              <h2 class="fw-bold mb-2" id="statColleges">4</h2>
+              <p class="mb-0">Participating Colleges</p>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 mb-4">
+            <div class="stat-card">
+              <h2 class="fw-bold mb-2" id="statLeaders">8</h2>
+              <p class="mb-0">Chapter Leaders</p>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 mb-4">
+            <div class="stat-card">
+              <h2 class="fw-bold mb-2" id="statEvents">90+</h2>
+              <p class="mb-0">Events Organized</p>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 mb-4">
+            <div class="stat-card">
+              <h2 class="fw-bold mb-2" id="statStudents">11,200+</h2>
+              <p class="mb-0">Students Reached</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="events" class="bg-light">
+  <!-- About Section -->
+  <section id="about" class="py-5">
     <div class="container">
-      <div class="section-card">
-        <h2 class="text-center mb-4">About Us</h2>
-        <div>
-          <p>
-            The purpose of this JUG is to provide a forum to share ideas, discuss and to promote Java and JVM.
-            Anybody with an interest in Java & JVM is encouraged to join. We meet once a month. The meetings
-            will include tech talks, workshops, code jams on various topics related to Java. Come, connect and
-            collaborate at the BOJUG home page, the mailing list, slack and facebook and be a part of something
-            awesome. We are a group of Java JVM developers in Bangalore, engineers (to say the least) we hope to create
-            a
-            thriving Java community in Bangalore. Java being open sourced is easily one of the greatest piece of
-            news in recent memory for us developers. Now, Java will be adopted even more widely than it was.
-            Part of being open source means to build communities. Communities of developers, users, experts and
-            beginners, which are needed for the greater adoption of Java. These communities are the life-line of
-            any open source product, and as users, it is our responsibility to strengthen Java's life-line.
-
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <h2 class="display-5 fw-bold mb-4 section-title">About Tamilnadu JUG</h2>
+          <p class="lead mb-4">
+            Tamil JUG is a unique Java User Group with a special focus on bringing Java to students and fresh engineering professionals. 
+            Drawing from our experiences with various JUGs, our working model prioritizes students and community growth.
           </p>
+          <p class="mb-4">
+            We provide a forum to share ideas, discuss, and promote Java and JVM technologies. Anyone with an interest in Java & JVM is 
+            encouraged to join. Our meetings include tech talks, workshops, and code jams on various topics related to Java.
+          </p>
+          <div class="d-flex gap-3">
+            <a href="https://www.linkedin.com/company/tamil-jug/" target="_blank" class="btn btn-primary btn-lg">
+              <i class="bi bi-linkedin me-2"></i>Follow on LinkedIn
+            </a>
+            <a href="events.html" class="btn btn-outline-primary btn-lg">View Events</a>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="about-image-card">
+            <div class="row g-3">
+              <div class="col-6">
+                <div class="feature-icon-card">
+                  <i class="bi bi-mortarboard-fill"></i>
+                  <h5>Students First</h5>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="feature-icon-card">
+                  <i class="bi bi-people-fill"></i>
+                  <h5>Community Driven</h5>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="feature-icon-card">
+                  <i class="bi bi-building"></i>
+                  <h5>Campus Meetups</h5>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="feature-icon-card">
+                  <i class="bi bi-code-slash"></i>
+                  <h5>Open Source</h5>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Our Mission Section -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center display-5 fw-bold mb-5 section-title">Our Mission & Approach</h2>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="mission-card h-100">
+            <div class="mission-icon">
+              <i class="bi bi-geo-alt-fill"></i>
+            </div>
+            <h4 class="fw-bold mb-3">Campus Meetups</h4>
+            <p>We conduct JUG meetups directly at college campuses, making them accessible to students who cannot reach major cities due to location and financial constraints.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="mission-card h-100">
+            <div class="mission-icon">
+              <i class="bi bi-trophy-fill"></i>
+            </div>
+            <h4 class="fw-bold mb-3">Building Leaders</h4>
+            <p>Each college nominates one male and one female student as Chapter Leads. These leaders organize and manage meetups, fostering a community of Java enthusiasts.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="mission-card h-100">
+            <div class="mission-icon">
+              <i class="bi bi-person-badge-fill"></i>
+            </div>
+            <h4 class="fw-bold mb-3">Enabling Teachers</h4>
+            <p>Teachers play a crucial role in connecting with students. We run special programs to enable teachers to effectively teach Java and mentor students.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="mission-card h-100">
+            <div class="mission-icon">
+              <i class="bi bi-github"></i>
+            </div>
+            <h4 class="fw-bold mb-3">Open Source</h4>
+            <p>We promote Java-based open source projects among students and teachers, providing them with real-world experiences and opportunities to contribute.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Features Section -->
-  <section class="pt-0 bg-light">
-    <div class="container">
-      <h2 class="text-center mb-5">Why Join Tamilnadu JUG?</h2>
-      <div class="row text-center">
-        <div class="col-md-4 mb-4">
-          <div class="section-card h-100">
-            <img src="https://konfhub.com/img/events-party.svg" alt="Events" style="height:60px;">
-            <h5 class="mt-3">Events & Meetups</h5>
-            <p>Regular Java meetups, workshops, and hackathons across Tamil Nadu.</p>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="section-card h-100">
-            <img src="https://konfhub.com/img/magic-wand.svg" alt="Community" style="height:60px;">
-            <h5 class="mt-3">Community & Networking</h5>
-            <p>Connect with professionals, students, and professors. Grow your network.</p>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="section-card h-100">
-            <img src="https://konfhub.com/img/star-count.svg" alt="Blogs" style="height:60px;">
-            <h5 class="mt-3">OpenSource</h5>
-            <p>Access curated blogs, tutorials, and open-source projects.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials Section -->
   <section class="py-5">
     <div class="container">
-      <h2 class="text-center mb-5">What Our Members Say</h2>
-      <div class="row justify-content-center">
-        <div class="col-md-6">
-          <div class="section-card">
-            <p class="mb-1">"Tamilnadu JUG helped me connect with top Java professionals and boosted my career!"</p>
-            <span class="fw-bold">- Student Member</span>
+      <h2 class="text-center display-5 fw-bold mb-5 section-title">Why Join Tamilnadu JUG?</h2>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card h-100">
+            <div class="feature-icon">
+              <i class="bi bi-calendar-event-fill"></i>
+            </div>
+            <h5 class="fw-bold mt-3 mb-3">Events & Meetups</h5>
+            <p>Regular Java meetups, workshops, and hackathons across Tamil Nadu. Connect with industry experts and fellow developers.</p>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="section-card">
-            <p class="mb-1">"The events and workshops are top-notch and very inclusive for academia."</p>
-            <span class="fw-bold">- Professor Member</span>
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card h-100">
+            <div class="feature-icon">
+              <i class="bi bi-people-fill"></i>
+            </div>
+            <h5 class="fw-bold mt-3 mb-3">Community & Networking</h5>
+            <p>Connect with professionals, students, and professors. Grow your network and learn from experienced Java developers.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card h-100">
+            <div class="feature-icon">
+              <i class="bi bi-book-fill"></i>
+            </div>
+            <h5 class="fw-bold mt-3 mb-3">Learning Resources</h5>
+            <p>Access curated blogs, tutorials, and learning materials. Stay updated with the latest Java technologies and best practices.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card h-100">
+            <div class="feature-icon">
+              <i class="bi bi-code-square"></i>
+            </div>
+            <h5 class="fw-bold mt-3 mb-3">Hands-on Workshops</h5>
+            <p>Participate in practical coding sessions, hackathons, and hands-on workshops to enhance your Java skills.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card h-100">
+            <div class="feature-icon">
+              <i class="bi bi-trophy-fill"></i>
+            </div>
+            <h5 class="fw-bold mt-3 mb-3">Career Growth</h5>
+            <p>Get mentorship, career guidance, and opportunities to showcase your projects. Build your portfolio with real-world experience.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card h-100">
+            <div class="feature-icon">
+              <i class="bi bi-github"></i>
+            </div>
+            <h5 class="fw-bold mt-3 mb-3">Open Source Projects</h5>
+            <p>Contribute to Java-based open source projects. Gain real-world experience and make a meaningful impact in the Java ecosystem.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Partner Logos Section -->
-  <section class="pt-0 bg-light">
-    <div class="container text-center">
-      <h2 class="mb-4">Trusted By</h2>
-      <div class="d-flex flex-wrap justify-content-center align-items-center gap-4">
-        <img src="https://d2nnrpx7gk2my2.cloudfront.net/files/672c7ff54b0c040009beb9a8/RedHat.svg" alt="RedHat"
-          style="height:40px;">
-        <img src="https://d2nnrpx7gk2my2.cloudfront.net/files/672c7ffb4b0c040009beb9b0/aws.svg" alt="AWS"
-          style="height:40px;">
-        <img src="https://d2nnrpx7gk2my2.cloudfront.net/files/672c80004b0c040009beb9b8/microsoft.svg" alt="Microsoft"
-          style="height:40px;">
-        <img src="https://d2nnrpx7gk2my2.cloudfront.net/files/672c7fff4b0c040009beb9b6/jetbrains.svg" alt="JetBrains"
-          style="height:40px;">
-        <img src="https://d2nnrpx7gk2my2.cloudfront.net/files/672c7ffc4b0c040009beb9b2/GDG.svg" alt="GDG"
-          style="height:40px;">
+  <!-- Recent Blogs Section -->
+  <section class="py-5 bg-light" id="recent-blogs">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center mb-5">
+        <h2 class="display-5 fw-bold section-title mb-0">Latest Blogs</h2>
+        <a href="blogs.html" class="btn btn-outline-primary">View All Blogs <i class="bi bi-arrow-right ms-2"></i></a>
+      </div>
+      <div class="row g-4" id="recentBlogsContainer">
+        <div class="col-12 text-center">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming Events Section -->
+  <section class="py-5">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center mb-5">
+        <h2 class="display-5 fw-bold section-title mb-0">Upcoming Events</h2>
+        <a href="events.html" class="btn btn-outline-primary">View All Events <i class="bi bi-arrow-right ms-2"></i></a>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="event-card h-100">
+            <div class="event-date">
+              <span class="event-month">Nov</span>
+              <span class="event-day">08</span>
+            </div>
+            <div class="event-content">
+              <h5 class="fw-bold mb-2">JavaFest 2025</h5>
+              <p class="text-muted mb-2"><i class="bi bi-geo-alt-fill me-2"></i>Infosys, Bangalore</p>
+              <p class="mb-3">India's largest Java conference featuring talks on Java 25, Spring AI, and modern Java development.</p>
+              <a href="events.html" class="btn btn-sm btn-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="event-card h-100">
+            <div class="event-date">
+              <span class="event-month">Nov</span>
+              <span class="event-day">01</span>
+            </div>
+            <div class="event-content">
+              <h5 class="fw-bold mb-2">November Meetup</h5>
+              <p class="text-muted mb-2"><i class="bi bi-geo-alt-fill me-2"></i>Thoughtworks, Coimbatore</p>
+              <p class="mb-3">Tech talks on Spring AI and writing better APIs with Java. Interactive sessions and networking.</p>
+              <a href="events.html" class="btn btn-sm btn-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="event-card h-100">
+            <div class="event-date">
+              <span class="event-month">Dec</span>
+              <span class="event-day">15</span>
+            </div>
+            <div class="event-content">
+              <h5 class="fw-bold mb-2">Campus Workshop</h5>
+              <p class="text-muted mb-2"><i class="bi bi-geo-alt-fill me-2"></i>Multiple Campuses</p>
+              <p class="mb-3">Hands-on Java workshops at various college campuses across Tamil Nadu.</p>
+              <a href="events.html" class="btn btn-sm btn-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer>
+  <footer class="footer-section">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 text-md-start text-center mb-2 mb-md-0">
-          <p>&copy; 2025 Tamilnadu Java User Group. All Rights Reserved.</p>
+        <div class="col-md-6 text-md-start text-center mb-3 mb-md-0">
+          <p class="mb-0">&copy; 2025 Tamilnadu Java User Group. All Rights Reserved.</p>
         </div>
         <div class="col-md-6 text-md-end text-center">
-          <a href="https://www.linkedin.com/company/tamil-jug/" target="_blank" class="me-3">LinkedIn</a>
-          <a href="#" >Github</a>
+          <a href="https://www.linkedin.com/company/tamil-jug/" target="_blank" class="footer-link me-3">
+            <i class="bi bi-linkedin me-1"></i>LinkedIn
+          </a>
+          <a href="#" class="footer-link">
+            <i class="bi bi-github me-1"></i>Github
+          </a>
         </div>
       </div>
-      <!-- <div class="row mt-3">
-        <div class="col text-center">
-          <form class="d-inline-flex gap-2">
-            <input type="email" class="form-control" placeholder="Subscribe to our newsletter" style="width:275px;">
-            <button type="submit" class="btn btn-danger">Subscribe</button>
-          </form>
-        </div>
-      </div> -->
     </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="src/js/main.js"></script>
+  <script>
+    // Load community stats
+    document.addEventListener('DOMContentLoaded', async function() {
+      try {
+        const response = await fetch('data/chapter-leaders.json');
+        if (response.ok) {
+          const data = await response.json();
+          if (data.communityStats) {
+            document.getElementById('statColleges').textContent = data.communityStats.totalColleges;
+            document.getElementById('statLeaders').textContent = data.communityStats.totalLeaders;
+            document.getElementById('statEvents').textContent = data.communityStats.totalEvents + '+';
+            document.getElementById('statStudents').textContent = data.communityStats.totalStudents.toLocaleString() + '+';
+          }
+        }
+      } catch (error) {
+        console.error('Error loading stats:', error);
+      }
+
+      // Load recent blogs
+      loadRecentBlogs();
+    });
+
+    async function loadRecentBlogs() {
+      try {
+        const response = await fetch('data/blogs.json');
+        if (!response.ok) throw new Error('Failed to load blogs');
+        const data = await response.json();
+        const blogs = data.blogs.slice(0, 3);
+        const container = document.getElementById('recentBlogsContainer');
+        
+        if (blogs.length === 0) {
+          container.innerHTML = '<div class="col-12 text-center"><p class="text-muted">No blogs available yet.</p></div>';
+          return;
+        }
+
+        container.innerHTML = blogs.map(blog => `
+          <div class="col-md-4">
+            <div class="blog-card h-100">
+              <div class="blog-image">
+                <img src="${blog.featuredImage}" alt="${blog.title}" onerror="this.src='public/tamil_jug.jpeg'">
+              </div>
+              <div class="blog-content">
+                <div class="blog-meta">
+                  <span class="blog-date"><i class="bi bi-calendar3 me-1"></i>${new Date(blog.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                  <span class="blog-read-time"><i class="bi bi-clock me-1"></i>${blog.readTime}</span>
+                </div>
+                <h5 class="blog-title"><a href="blog.html?id=${blog.id}">${blog.title}</a></h5>
+                <p class="blog-excerpt">${blog.excerpt}</p>
+                <div class="blog-tags">
+                  ${blog.tags.map(tag => `<span class="blog-tag">${tag}</span>`).join('')}
+                </div>
+                <a href="blog.html?id=${blog.id}" class="btn btn-sm btn-outline-primary mt-3">Read More <i class="bi bi-arrow-right ms-1"></i></a>
+              </div>
+            </div>
+          </div>
+        `).join('');
+      } catch (error) {
+        console.error('Error loading recent blogs:', error);
+        document.getElementById('recentBlogsContainer').innerHTML = 
+          '<div class="col-12 text-center"><p class="text-muted">Unable to load blogs. Please try again later.</p></div>';
+      }
+    }
+  </script>
 </body>
 
 </html>
+

@@ -1,0 +1,70 @@
+{
+  "blogs": [
+    {
+      "id": "getting-started-with-java",
+      "title": "How to Get Started with Java",
+      "author": "Hari Nikesh R",
+      "authorRole": "Software Engineer & TNJUG Organizer",
+      "date": "2025-01-15",
+      "excerpt": "Beginner tips and resources for new Java developers. Learn the fundamentals and start your Java journey today.",
+      "content": "<h3>1. Why Learn Java?</h3><ul><li><b>Beginner-Friendly</b> → Easy to read and write.</li><li><b>Platform Independent</b> → \"Write Once, Run Anywhere\" (WORA).</li><li><b>Strong Community Support</b> → Tutorials, forums, and projects.</li><li><b>Career Opportunities</b> → Always in demand for web, mobile, backend.</li></ul><h3>2. Set Up Your Development Environment</h3><ol><li>Install <b>JDK</b> from Oracle or OpenJDK.</li><li>Choose an IDE → IntelliJ, Eclipse, NetBeans, or VS Code.</li><li>Run your first program:</li></ol><pre class=\"bg-dark text-white p-3 rounded\"><code>public class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, Java!\");\n    }\n}</code></pre><h3>3. Learn the Core Java Basics</h3><ul><li>Variables and Data Types</li><li>Operators</li><li>Control Statements (if, loops, switch)</li><li>Methods (functions)</li><li>OOP (Classes, Objects, Inheritance, etc.)</li></ul><h3>4. Practice with Small Projects</h3><p>Start with mini projects like:</p><ul><li>Calculator</li><li>Number Guessing Game</li><li>To-do List (arrays)</li><li>Student Record System</li></ul><h3>5. Use the Right Resources</h3><ul><li><b>Books:</b> Head First Java, Java: A Beginner's Guide</li><li><b>Websites:</b> W3Schools, GeeksforGeeks, Oracle Docs</li><li><b>Courses:</b> Udemy, Coursera</li></ul><h4>6. Keep Practicing and Growing</h4><p>Explore advanced topics like:</p><ul><li>Collections Framework (List, Set, Map)</li><li>Streams & Lambda Expressions</li><li>JavaFX / Swing</li><li>Spring Boot</li><li>Android Development</li></ul><div class=\"alert alert-success mt-4\"><b>Final Tip:</b> Don't rush! Code daily, build projects, and grow step by step.</div>",
+      "tags": ["Beginner", "Java Basics", "Tutorial"],
+      "category": "Learning",
+      "readTime": "5 min read",
+      "featuredImage": "public/tamil_jug.jpeg"
+    },
+    {
+      "id": "javafest-2025-recap",
+      "title": "JavaFest 2025: A Community Celebration",
+      "author": "Kishore G",
+      "authorRole": "TNJUG Organizer",
+      "date": "2025-01-10",
+      "excerpt": "Highlights and key takeaways from JavaFest 2025 at Infosys Bangalore. A memorable journey bringing together Java enthusiasts from across Tamil Nadu.",
+      "content": "<h3>An Unforgettable Journey</h3><p>As part of the Tamilnadu JUG, our organizers arranged special bus trips from Coimbatore, Madurai, and Chennai to the Infosys Campus, Bangalore, where JavaFest 2025 was held. It was truly an unforgettable experience.</p><h3>Community Collaboration</h3><p>During the journey, industrial experts and students came together, collaborated, shared ideas, and had so much fun. There was music, dancing, and a lot of learning through conversations that bridged experience and enthusiasm.</p><h3>Key Highlights</h3><ul><li>Special bus trips organized from multiple cities</li><li>Engaging sessions on Java 25, Spring AI, and modern Java development</li><li>Networking opportunities with industry experts</li><li>Autographed books from Java authors</li><li>Community building across regions</li></ul><h3>Thank You</h3><p>A big thanks to all organizers, volunteers, and participants who made this possible. Let's keep this momentum going and continue building a stronger, more connected Java community in Tamil Nadu.</p>",
+      "tags": ["Events", "JavaFest", "Community"],
+      "category": "Events",
+      "readTime": "4 min read",
+      "featuredImage": "public/tamil_jug.jpeg"
+    },
+    {
+      "id": "spring-ai-practical-usage",
+      "title": "Spring AI – Practical Usage Notes",
+      "author": "Saravana",
+      "authorRole": "Java Expert & Speaker",
+      "date": "2025-01-05",
+      "excerpt": "Learn how to integrate AI capabilities into your Spring applications with practical examples and best practices.",
+      "content": "<h3>Introduction to Spring AI</h3><p>Spring AI provides a powerful framework for integrating artificial intelligence capabilities into Spring applications. This session covered practical usage patterns and real-world implementations.</p><h3>Key Features</h3><ul><li>Easy integration with AI models</li><li>Support for multiple AI providers</li><li>Streamlined API for common AI tasks</li><li>Built-in support for embeddings and vector stores</li></ul><h3>Practical Examples</h3><p>We explored how to use Spring AI for:</p><ul><li>Text generation and completion</li><li>Document processing and analysis</li><li>Chatbot development</li><li>Content summarization</li></ul><h3>Best Practices</h3><p>When implementing Spring AI in your projects:</p><ul><li>Start with simple use cases</li><li>Handle errors gracefully</li><li>Optimize for performance</li><li>Consider cost implications</li></ul>",
+      "tags": ["Spring AI", "Advanced", "Tutorial"],
+      "category": "Learning",
+      "readTime": "6 min read",
+      "featuredImage": "public/tamil_jug.jpeg"
+    },
+    {
+      "id": "writing-better-apis",
+      "title": "Writing Better APIs with Java",
+      "author": "Sathish Kumar Thiyagarajan",
+      "authorRole": "Java Architect & Speaker",
+      "date": "2024-12-28",
+      "excerpt": "Best practices for designing and implementing RESTful APIs using Java and Spring Boot. Learn from real-world examples.",
+      "content": "<h3>API Design Principles</h3><p>Good API design is crucial for building maintainable and scalable applications. This session covered essential principles for writing better APIs.</p><h3>RESTful Best Practices</h3><ul><li>Use proper HTTP methods (GET, POST, PUT, DELETE)</li><li>Follow RESTful naming conventions</li><li>Implement proper status codes</li><li>Version your APIs</li><li>Provide clear error messages</li></ul><h3>Spring Boot Implementation</h3><p>We discussed how to leverage Spring Boot features for API development:</p><ul><li>Spring Data REST for rapid API creation</li><li>Validation and error handling</li><li>Security best practices</li><li>Documentation with Swagger/OpenAPI</li></ul><h3>Performance Optimization</h3><ul><li>Implement pagination for large datasets</li><li>Use caching where appropriate</li><li>Optimize database queries</li><li>Consider async processing for heavy operations</li></ul>",
+      "tags": ["API Design", "Spring Boot", "Best Practices"],
+      "category": "Learning",
+      "readTime": "7 min read",
+      "featuredImage": "public/tamil_jug.jpeg"
+    },
+    {
+      "id": "campus-meetup-november-2025",
+      "title": "November Meetup at Thoughtworks, Coimbatore",
+      "author": "Hari Nikesh R",
+      "authorRole": "TNJUG Organizer",
+      "date": "2024-12-20",
+      "excerpt": "Recap of our successful November meetup featuring sessions on Spring AI and API design. A great success with enthusiastic participation.",
+      "content": "<h3>Event Overview</h3><p>The November Meetup at Thoughtworks, Coimbatore was a great success! A heartfelt thanks to Thoughtworks for providing the wonderful venue and to all the enthusiastic participants who made the event lively and insightful.</p><h3>Sessions Covered</h3><ul><li><b>Spring AI – Practical Usage Notes</b> by Saravana</li><li><b>Writing Better APIs with Java</b> by Sathish Kumar Thiyagarajan</li></ul><h3>Key Takeaways</h3><p>Both sessions were highly interactive and knowledge-packed, providing practical insights into modern Java development practices.</p><h3>Community Impact</h3><p>This meetup demonstrated the strength of our community and the value of bringing together Java professionals and learners. We look forward to more such opportunities to learn, collaborate, and grow together!</p>",
+      "tags": ["Events", "Meetup", "Coimbatore"],
+      "category": "Events",
+      "readTime": "3 min read",
+      "featuredImage": "public/tamil_jug.jpeg"
+    }
+  ]
+}
+

@@ -14,9 +14,9 @@
 
 <body style="position: relative;">
   <!-- Navigation Bar -->
-  <nav class="navbar navbar-expand-lg navbar-light">
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top">
     <div class="container">
-      <img src="tamil_jug.jpeg" alt="Tamil JUG Logo" style="width:50px;">
+      <img src="tamil_jug.jpeg" alt="Tamil JUG Logo" style="width:50px; height:50px; object-fit:cover; border-radius:8px;">
       <a class="navbar-brand fw-bold" href="index.html">Tamilnadu JUG</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,10 +31,7 @@
             <a class="nav-link" href="blogs.html">Blogs</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="chapter-leaders.html">ChapterLeads</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">OpenSource</a>
+            <a class="nav-link active" href="chapter-leaders.html">Chapter Leaders</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="events.html">Events</a>
@@ -113,15 +110,19 @@
   </section>
 
   <!-- Footer -->
-  <footer>
+  <footer class="footer-section">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 text-md-start text-center mb-2 mb-md-0">
-          <p>&copy; 2025 Tamilnadu Java User Group. All Rights Reserved.</p>
+        <div class="col-md-6 text-md-start text-center mb-3 mb-md-0">
+          <p class="mb-0">&copy; 2025 Tamilnadu Java User Group. All Rights Reserved.</p>
         </div>
         <div class="col-md-6 text-md-end text-center">
-          <a href="https://www.linkedin.com/company/tamil-jug/" target="_blank" class="me-3">LinkedIn</a>
-          <a href="#">Github</a>
+          <a href="https://www.linkedin.com/company/tamil-jug/" target="_blank" class="footer-link me-3">
+            <i class="bi bi-linkedin me-1"></i>LinkedIn
+          </a>
+          <a href="#" class="footer-link">
+            <i class="bi bi-github me-1"></i>Github
+          </a>
         </div>
       </div>
     </div>
