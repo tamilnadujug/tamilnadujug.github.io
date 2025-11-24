@@ -170,54 +170,46 @@
 
       container.innerHTML = chapterLeaders.map((college, index) => `
         <div class="col-12 mb-4">
-          <div class="college-list-card animate__animated animate__fadeInUp" style="animation-delay: ${index * 0.1}s" data-college-index="${index}" onclick="toggleCollegeDetails(${index})">
-            <div class="college-summary">
-              <div class="college-info">
-                <div class="college-header-info">
-                  <div class="college-logo-container">
-                    <img src="${college.collegeLogo}" alt="${college.collegeName} Logo" class="college-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="college-icon" style="display: none;">
-                      <i class="bi bi-building"></i>
-                    </div>
+          <article class="college-card animate__animated animate__fadeInUp" style="animation-delay: ${index * 0.1}s" data-college-index="${index}">
+            <header class="college-card__head">
+              <div class="college-card__identity">
+                <div>
+                  <h4 class="college-name mb-1">${college.collegeName}</h4>
+                  <p class="college-location mb-2">
+                    <i class="bi bi-geo-alt-fill me-1"></i>${college.collegeLocation}
+                  </p>
+                  <div class="college-meta">
+                    <span class="meta-pill">
+                      <i class="bi bi-people-fill me-1"></i>${college.studentCount} Students
+                    </span>
+                    <span class="meta-pill">
+                      <i class="bi bi-calendar-event me-1"></i>Est. ${college.establishedYear}
+                    </span>
+                    <span class="meta-pill">
+                      <i class="bi bi-trophy me-1"></i>${college.totalEvents} Events
+                    </span>
                   </div>
-                  <div class="college-details">
-                    <h4 class="college-name">${college.collegeName}</h4>
-                    <p class="college-location">
-                      <i class="bi bi-geo-alt-fill me-1"></i>${college.collegeLocation}
-                    </p>
-                    <div class="college-stats">
-                      <span class="stat-badge">
-                        <i class="bi bi-people-fill me-1"></i>${college.studentCount} Students
-                      </span>
-                      <span class="stat-badge">
-                        <i class="bi bi-calendar-event me-1"></i>Est. ${college.establishedYear}
-                      </span>
-                      <span class="stat-badge">
-                        <i class="bi bi-trophy me-1"></i>${college.totalEvents} Events
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="college-actions">
-                  <button class="btn expand-btn" onclick="event.stopPropagation(); toggleCollegeDetails(${index})">
-                    <i class="bi bi-chevron-down"></i>
-                    <span>View Details</span>
-                  </button>
-                  <button class="btn history-btn ms-2" onclick="event.stopPropagation(); toggleCollegeHistory(${index})">
-                    <i class="bi bi-clock-history"></i>
-                    <span>History</span>
-                  </button>
                 </div>
               </div>
-            </div>
-            
+              <div class="college-card__actions">
+                <button class="btn btn-outline-primary btn-sm" data-role="details-btn" onclick="event.stopPropagation(); toggleCollegeDetails(${index})">
+                  <i class="bi bi-people me-1"></i>
+                  <span>Leaders</span>
+                </button>
+                <button class="btn btn-outline-secondary btn-sm" data-role="history-btn" onclick="event.stopPropagation(); toggleCollegeHistory(${index})">
+                  <i class="bi bi-clock-history me-1"></i>
+                  <span>History</span>
+                </button>
+              </div>
+            </header>
+
             <div class="college-details-content" id="details-${index}" style="display: none;">
               <div class="row">
                 <div class="col-md-6 mb-4">
                   <div class="leader-card faculty-leader">
                     <div class="leader-header">
-                      <div class="leader-avatar faculty-avatar">
-                        <i class="bi bi-person-badge-fill"></i>
+                      <div class="leader-avatar faculty-avatar" aria-hidden="true">
+                        <span>${getInitials(college.facultyLeader.name)}</span>
                       </div>
                       <div class="leader-info">
                         <h6 class="leader-role">Faculty Leader</h6>
@@ -265,8 +257,8 @@
                 <div class="col-md-6 mb-4">
                   <div class="leader-card student-leader">
                     <div class="leader-header">
-                      <div class="leader-avatar student-avatar">
-                        <i class="bi bi-person-fill"></i>
+                      <div class="leader-avatar student-avatar" aria-hidden="true">
+                        <span>${getInitials(college.studentLeader.name)}</span>
                       </div>
                       <div class="leader-info">
                         <h6 class="leader-role">Student Leader</h6>
@@ -360,11 +352,8 @@
                       <div class="history-timeline">
                         ${college.chapterLeaderHistory.facultyLeaders.map(leader => `
                           <div class="history-item">
-                            <div class="history-photo">
-                              <img src="${leader.photo}" alt="${leader.name}" class="leader-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                              <div class="leader-photo-placeholder" style="display: none;">
-                                <i class="bi bi-person-fill"></i>
-                              </div>
+                            <div class="history-avatar" aria-hidden="true">
+                              <span>${getInitials(leader.name)}</span>
                             </div>
                             <div class="history-content">
                               <h6 class="history-name">${leader.name}</h6>
@@ -391,11 +380,8 @@
                       <div class="history-timeline">
                         ${college.chapterLeaderHistory.studentLeaders.map(leader => `
                           <div class="history-item">
-                            <div class="history-photo">
-                              <img src="${leader.photo}" alt="${leader.name}" class="leader-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                              <div class="leader-photo-placeholder" style="display: none;">
-                                <i class="bi bi-person-fill"></i>
-                              </div>
+                            <div class="history-avatar" aria-hidden="true">
+                              <span>${getInitials(leader.name)}</span>
                             </div>
                             <div class="history-content">
                               <h6 class="history-name">${leader.name}</h6>
@@ -445,66 +431,70 @@
         `).join('');
     }
 
+    function getInitials(name = '') {
+      return name
+        .split(' ')
+        .filter(Boolean)
+        .map(part => part[0])
+        .slice(0, 2)
+        .join('')
+        .toUpperCase() || 'TJ';
+    }
+
     // Toggle college details
     function toggleCollegeDetails(index) {
       const detailsElement = document.getElementById(`details-${index}`);
       const historyElement = document.getElementById(`history-${index}`);
-      const expandBtn = document.querySelector(`[data-college-index="${index}"] .expand-btn`);
-      const historyBtn = document.querySelector(`[data-college-index="${index}"] .history-btn`);
-      const chevronIcon = expandBtn.querySelector('i');
-      const buttonText = expandBtn.querySelector('span');
+      const card = document.querySelector(`[data-college-index="${index}"]`);
+      const expandBtn = card.querySelector('[data-role="details-btn"]');
+      const historyBtn = card.querySelector('[data-role="history-btn"]');
       
       if (detailsElement.style.display === 'none') {
         detailsElement.style.display = 'block';
         historyElement.style.display = 'none';
         detailsElement.classList.add('animate__animated', 'animate__fadeInDown');
-        chevronIcon.classList.remove('bi-chevron-down');
-        chevronIcon.classList.add('bi-chevron-up');
-        buttonText.textContent = 'Hide Details';
         expandBtn.classList.remove('btn-outline-primary');
         expandBtn.classList.add('btn-primary');
+        expandBtn.querySelector('span').textContent = 'Hide Leaders';
+        expandBtn.querySelector('i').className = 'bi bi-eye-slash me-1';
         historyBtn.classList.remove('btn-secondary');
         historyBtn.classList.add('btn-outline-secondary');
-        historyBtn.querySelector('i').className = 'bi bi-clock-history';
+        historyBtn.querySelector('i').className = 'bi bi-clock-history me-1';
         historyBtn.querySelector('span').textContent = 'History';
       } else {
         detailsElement.style.display = 'none';
-        chevronIcon.classList.remove('bi-chevron-up');
-        chevronIcon.classList.add('bi-chevron-down');
-        buttonText.textContent = 'View Details';
         expandBtn.classList.remove('btn-primary');
         expandBtn.classList.add('btn-outline-primary');
+        expandBtn.querySelector('span').textContent = 'Leaders';
+        expandBtn.querySelector('i').className = 'bi bi-people me-1';
       }
     }
 
     function toggleCollegeHistory(index) {
       const detailsElement = document.getElementById(`details-${index}`);
       const historyElement = document.getElementById(`history-${index}`);
-      const expandBtn = document.querySelector(`[data-college-index="${index}"] .expand-btn`);
-      const historyBtn = document.querySelector(`[data-college-index="${index}"] .history-btn`);
-      const historyIcon = historyBtn.querySelector('i');
-      const historyText = historyBtn.querySelector('span');
+      const card = document.querySelector(`[data-college-index="${index}"]`);
+      const expandBtn = card.querySelector('[data-role="details-btn"]');
+      const historyBtn = card.querySelector('[data-role="history-btn"]');
       
       if (historyElement.style.display === 'none') {
         historyElement.style.display = 'block';
         detailsElement.style.display = 'none';
         historyElement.classList.add('animate__animated', 'animate__fadeInDown');
-        historyIcon.classList.remove('bi-clock-history');
-        historyIcon.classList.add('bi-x-circle');
-        historyText.textContent = 'Hide History';
         historyBtn.classList.remove('btn-outline-secondary');
         historyBtn.classList.add('btn-secondary');
+        historyBtn.querySelector('i').className = 'bi bi-eye-slash me-1';
+        historyBtn.querySelector('span').textContent = 'Hide History';
         expandBtn.classList.remove('btn-primary');
         expandBtn.classList.add('btn-outline-primary');
-        expandBtn.querySelector('i').className = 'bi bi-chevron-down';
-        expandBtn.querySelector('span').textContent = 'View Details';
+        expandBtn.querySelector('i').className = 'bi bi-people me-1';
+        expandBtn.querySelector('span').textContent = 'Leaders';
       } else {
         historyElement.style.display = 'none';
-        historyIcon.classList.remove('bi-x-circle');
-        historyIcon.classList.add('bi-clock-history');
-        historyText.textContent = 'History';
         historyBtn.classList.remove('btn-secondary');
         historyBtn.classList.add('btn-outline-secondary');
+        historyBtn.querySelector('i').className = 'bi bi-clock-history me-1';
+        historyBtn.querySelector('span').textContent = 'History';
       }
     }
 
@@ -618,263 +608,98 @@
       border-radius: 2px;
     }
 
-    /* College List Cards - New Design */
-    .college-list-card {
-      background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
-      border-radius: 24px;
-      box-shadow: 
-        0 4px 20px rgba(0, 0, 0, 0.08),
-        0 1px 3px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
-      overflow: hidden;
-      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-      border: 2px solid transparent;
-      backdrop-filter: blur(20px);
-      margin-bottom: 2.5rem;
-      position: relative;
-      transform-style: preserve-3d;
-      cursor: pointer;
+    /* College Cards */
+    .college-card {
+      background: #fff;
+      border: 1px solid #e4e7ec;
+      border-radius: 18px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      padding: 1.5rem 1.75rem;
     }
 
-
-    .college-list-card:hover {
-      transform: translateY(-12px) rotateX(5deg) rotateY(2deg);
-      box-shadow: 
-        0 25px 50px rgba(102, 126, 234, 0.2),
-        0 10px 30px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    .college-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 25px 55px rgba(102, 126, 234, 0.15);
     }
 
-    .college-summary {
-      padding: 2.5rem;
-      border-bottom: none;
-      background: transparent;
-      position: relative;
-      z-index: 2;
-    }
-
-    .college-info {
+    .college-card__head {
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      align-items: center;
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: 1.5rem;
+      border-bottom: 1px solid #f1f3f8;
+      padding-bottom: 1.25rem;
     }
 
-    .college-header-info {
+    .college-card__identity {
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      gap: 0.35rem;
       flex: 1;
-      min-width: 0;
-    }
-
-    .college-logo-container {
-      position: relative;
-      margin-right: 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .college-logo {
-      width: 80px;
-      height: 80px;
-      border-radius: 20px;
-      object-fit: contain;
-      background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
-      padding: 12px;
-      box-shadow: 
-        0 8px 25px rgba(102, 126, 234, 0.15),
-        0 3px 10px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
-      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-      border: 2px solid rgba(102, 126, 234, 0.1);
-    }
-
-    .college-logo:hover {
-      transform: scale(1.1) rotateY(10deg);
-      box-shadow: 
-        0 15px 35px rgba(102, 126, 234, 0.25),
-        0 5px 15px rgba(0, 0, 0, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.9);
-      border-color: rgba(102, 126, 234, 0.3);
-    }
-
-    .college-icon {
-      font-size: 3rem;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 80px;
-      height: 80px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #667eea 100%);
-      border-radius: 20px;
-      box-shadow: 
-        0 8px 25px rgba(102, 126, 234, 0.3),
-        0 3px 10px rgba(0, 0, 0, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .college-icon::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-      transform: rotate(45deg);
-      transition: all 0.6s ease;
-    }
-
-    .college-icon:hover::before {
-      transform: rotate(45deg) translate(100%, 100%);
-    }
-
-    .college-icon:hover {
-      transform: scale(1.1) rotateY(10deg);
-      box-shadow: 
-        0 15px 35px rgba(102, 126, 234, 0.4),
-        0 5px 15px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    }
-
-    .college-details {
-      flex: 1;
-      min-width: 0;
+      min-width: 260px;
     }
 
     .college-name {
-      font-size: 1.75rem;
-      font-weight: 800;
-      margin: 0 0 0.75rem 0;
-      background: linear-gradient(135deg, #2c3e50 0%, #667eea 50%, #764ba2 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      word-wrap: break-word;
-      overflow-wrap: break-word;
-      position: relative;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+      color: #1f2a37;
     }
 
     .college-location {
-      color: #6c757d;
-      margin: 0 0 1.5rem 0;
-      font-size: 1rem;
-      font-weight: 500;
+      color: #6b7280;
+      font-size: 0.95rem;
       display: flex;
       align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .college-meta {
+      display: flex;
+      flex-wrap: wrap;
       gap: 0.5rem;
     }
 
-    .college-stats {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .stat-badge {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #667eea 100%);
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 25px;
-      font-size: 0.85rem;
-      font-weight: 600;
+    .meta-pill {
       display: inline-flex;
       align-items: center;
-      box-shadow: 
-        0 4px 15px rgba(102, 126, 234, 0.3),
-        0 2px 5px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .stat-badge::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: left 0.5s ease;
-    }
-
-    .stat-badge:hover::before {
-      left: 100%;
-    }
-
-    .stat-badge:hover {
-      transform: translateY(-2px) scale(1.05);
-      box-shadow: 
-        0 6px 20px rgba(102, 126, 234, 0.4),
-        0 3px 8px rgba(0, 0, 0, 0.15);
-    }
-
-    .college-actions {
-      margin-left: 1rem;
-    }
-
-    .expand-btn {
-      border-radius: 30px;
-      padding: 0.75rem 2rem;
+      gap: 0.4rem;
+      padding: 0.35rem 0.9rem;
+      font-size: 0.85rem;
       font-weight: 600;
-      transition: all 0.3s ease;
+      color: #4b5563;
+      background: #f5f6fb;
+      border-radius: 999px;
+    }
+
+    .college-card__actions {
       display: flex;
-      align-items: center;
       gap: 0.75rem;
-      min-height: 50px;
-      touch-action: manipulation;
-      background: #f8f9fa;
-      border: 2px solid #e9ecef;
-      color: #495057;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      flex-wrap: wrap;
     }
 
-    .expand-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    .college-card__actions .btn {
+      min-width: 130px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
     }
 
-    .expand-btn:active {
-      transform: translateY(0);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .expand-btn.btn-primary {
-      background: #667eea;
-      border-color: #667eea;
-      color: white;
-      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-    }
-
-    .expand-btn.btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-    }
-
-    .college-details-content {
-      padding: 2.5rem;
-      background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-      border-top: 1px solid rgba(102, 126, 234, 0.1);
-    }
-
+    .college-details-content,
     .college-history-content {
-      padding: 2.5rem;
-      background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-      border-top: 1px solid rgba(102, 126, 234, 0.1);
+      padding-top: 1.5rem;
+      margin-top: 1.25rem;
+      border-top: 1px solid #f1f3f8;
     }
 
     .history-section {
       background: white;
       border-radius: 20px;
-      padding: 3rem;
+      padding: 2rem;
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
       border: 1px solid rgba(102, 126, 234, 0.1);
       position: relative;
@@ -942,43 +767,19 @@
       margin-bottom: 0;
     }
 
-    .history-photo {
-      width: 70px;
-      height: 70px;
+    .history-avatar {
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
-      overflow: hidden;
-      margin-right: 1.5rem;
-      position: relative;
-      z-index: 2;
-      background: white;
-      border: 4px solid #667eea;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
-      transition: all 0.3s ease;
-    }
-
-    .history-item:hover .history-photo {
-      transform: scale(1.05);
-      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
-    }
-
-    .leader-photo {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .leader-photo-placeholder {
-      width: 100%;
-      height: 100%;
+      margin-right: 1rem;
       background: linear-gradient(135deg, #667eea, #764ba2);
-      color: white;
+      color: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
+      font-weight: 700;
+      font-size: 1rem;
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
     }
 
     .history-content {
@@ -1074,36 +875,27 @@
 
     /* Leader Cards - New Design */
     .leader-card {
-      background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
-      border-radius: 24px;
-      padding: 2.5rem;
-      margin-bottom: 2.5rem;
-      border: 2px solid transparent;
-      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-      position: relative;
-      overflow: hidden;
-      box-shadow: 
-        0 8px 30px rgba(0, 0, 0, 0.1),
-        0 2px 8px rgba(0, 0, 0, 0.05),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
-      transform-style: preserve-3d;
+      background: #fff;
+      border-radius: 18px;
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid #e9ecef;
+      transition: box-shadow 0.25s ease, transform 0.25s ease;
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
     }
 
 
     .faculty-leader {
-      border-left: 6px solid #667eea;
+      border-left: 4px solid #667eea;
     }
 
     .student-leader {
-      border-left: 6px solid #764ba2;
+      border-left: 4px solid #764ba2;
     }
 
     .leader-card:hover {
-      transform: translateY(-8px) rotateX(3deg) rotateY(1deg);
-      box-shadow: 
-        0 20px 40px rgba(102, 126, 234, 0.2),
-        0 8px 20px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+      transform: translateY(-4px);
+      box-shadow: 0 18px 30px rgba(102, 126, 234, 0.18);
     }
 
     .leader-header {
@@ -1113,52 +905,23 @@
     }
 
     .leader-avatar {
-      width: 70px;
-      height: 70px;
-      border-radius: 20px;
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2rem;
-      margin-right: 1.5rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-right: 1.25rem;
       color: white;
-      box-shadow: 
-        0 8px 25px rgba(102, 126, 234, 0.3),
-        0 3px 10px rgba(0, 0, 0, 0.2);
-      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-      position: relative;
-      overflow: hidden;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      box-shadow: 0 10px 20px rgba(102, 126, 234, 0.35);
     }
 
-    .leader-avatar::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transform: rotate(45deg);
-      transition: all 0.6s ease;
-    }
-
-    .leader-avatar:hover::before {
-      transform: rotate(45deg) translate(100%, 100%);
-    }
-
-    .faculty-avatar {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #667eea 100%);
-    }
-
-    .student-avatar {
-      background: linear-gradient(135deg, #764ba2 0%, #667eea 50%, #764ba2 100%);
-    }
-
-    .leader-card:hover .leader-avatar {
-      transform: scale(1.1) rotateY(10deg);
-      box-shadow: 
-        0 12px 35px rgba(102, 126, 234, 0.4),
-        0 5px 15px rgba(0, 0, 0, 0.3);
+    .leader-avatar span {
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .leader-info {
@@ -1452,18 +1215,18 @@
         max-width: 50%;
       }
       
-      .college-info {
+      .college-card__head {
         flex-direction: column;
         align-items: flex-start;
         gap: 1rem;
       }
       
-      .college-actions {
-        margin-left: 0;
+      .college-card__actions {
         width: 100%;
+        justify-content: flex-start;
       }
       
-      .expand-btn {
+      .college-card__actions .btn {
         width: 100%;
         justify-content: center;
       }
@@ -1483,12 +1246,12 @@
         max-width: 50%;
       }
       
-      .college-stats {
+      .college-meta {
         justify-content: center;
         gap: 0.5rem;
       }
       
-      .stat-badge {
+      .meta-pill {
         font-size: 0.75rem;
         padding: 0.2rem 0.6rem;
       }
@@ -1502,7 +1265,7 @@
         transform: translateY(-3px) scale(1.01);
       }
       
-      .college-list-card:hover {
+      .college-card:hover {
         transform: translateY(-4px) scale(1.01);
       }
       
@@ -1525,7 +1288,7 @@
         text-align: center;
       }
       
-      .history-photo {
+      .history-avatar {
         margin: 0 auto 1rem auto;
       }
       
@@ -1578,21 +1341,6 @@
         font-size: 1.25rem;
       }
       
-      .college-logo {
-        width: 60px;
-        height: 60px;
-      }
-      
-      .college-icon {
-        font-size: 2.5rem;
-        width: 60px;
-        height: 60px;
-      }
-      
-      .college-logo-container {
-        margin-right: 1rem;
-      }
-      
       .stat-item {
         padding: 1rem;
       }
@@ -1613,8 +1361,8 @@
         font-size: 1rem;
       }
       
-      .college-summary {
-        padding: 1.5rem;
+      .college-card {
+        padding: 1.25rem;
       }
       
       .leader-header {
@@ -1661,13 +1409,13 @@
         padding-right: 0.75rem;
       }
       
-      .college-stats {
+      .college-meta {
         flex-direction: column;
         align-items: center;
         gap: 0.5rem;
       }
       
-      .stat-badge {
+      .meta-pill {
         width: 100%;
         justify-content: center;
       }
@@ -1678,22 +1426,7 @@
         justify-content: center;
       }
       
-      .college-logo {
-        width: 50px;
-        height: 50px;
-      }
-      
-      .college-icon {
-        width: 50px;
-        height: 50px;
-        font-size: 2rem;
-      }
-      
-      .college-logo-container {
-        margin-right: 0.75rem;
-      }
-      
-      .history-photo {
+      .history-avatar {
         width: 50px;
         height: 50px;
       }
@@ -1726,9 +1459,6 @@
       50% { transform: translateY(-10px); }
     }
 
-    .college-card:hover .college-icon {
-      animation: float 2s ease-in-out infinite;
-    }
 
     /* Scroll animations */
     .animate__fadeInUp {
