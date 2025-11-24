@@ -104,31 +104,6 @@ body {
     object-fit: cover;
   }
 
-  .stat-card {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 2rem 1.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease;
-
-    &:hover {
-      transform: translateY(-5px);
-      background: rgba(255, 255, 255, 0.2);
-    }
-
-    h2 {
-      font-size: 3rem;
-      font-weight: 800;
-      margin-bottom: 0.5rem;
-    }
-
-    p {
-      font-size: 1rem;
-      opacity: 0.9;
-    }
-  }
-
   .btn-light {
     background: white;
     color: $primary-color;
@@ -612,14 +587,6 @@ section {
     .hero-logo {
       width: 120px;
       height: 120px;
-    }
-
-    .stat-card {
-      padding: 1.5rem 1rem;
-
-      h2 {
-        font-size: 2rem;
-      }
     }
   }
 

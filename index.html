@@ -54,32 +54,6 @@
           <a href="events.html" class="btn btn-lg btn-light fw-bold px-5 py-3 me-3 mb-3">Join Our Events</a>
           <a href="chapter-leaders.html" class="btn btn-lg btn-outline-light fw-bold px-5 py-3 mb-3">Meet Our Leaders</a>
         </div>
-        <div class="row mt-5 pt-4">
-          <div class="col-md-3 col-6 mb-4">
-            <div class="stat-card">
-              <h2 class="fw-bold mb-2" id="statColleges">4</h2>
-              <p class="mb-0">Participating Colleges</p>
-            </div>
-          </div>
-          <div class="col-md-3 col-6 mb-4">
-            <div class="stat-card">
-              <h2 class="fw-bold mb-2" id="statLeaders">8</h2>
-              <p class="mb-0">Chapter Leaders</p>
-            </div>
-          </div>
-          <div class="col-md-3 col-6 mb-4">
-            <div class="stat-card">
-              <h2 class="fw-bold mb-2" id="statEvents">90+</h2>
-              <p class="mb-0">Events Organized</p>
-            </div>
-          </div>
-          <div class="col-md-3 col-6 mb-4">
-            <div class="stat-card">
-              <h2 class="fw-bold mb-2" id="statStudents">11,200+</h2>
-              <p class="mb-0">Students Reached</p>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -368,24 +342,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="src/js/main.js"></script>
   <script>
-    // Load community stats
-    document.addEventListener('DOMContentLoaded', async function() {
-      try {
-        const response = await fetch('data/chapter-leaders.json');
-        if (response.ok) {
-          const data = await response.json();
-          if (data.communityStats) {
-            document.getElementById('statColleges').textContent = data.communityStats.totalColleges;
-            document.getElementById('statLeaders').textContent = data.communityStats.totalLeaders;
-            document.getElementById('statEvents').textContent = data.communityStats.totalEvents + '+';
-            document.getElementById('statStudents').textContent = data.communityStats.totalStudents.toLocaleString() + '+';
-          }
-        }
-      } catch (error) {
-        console.error('Error loading stats:', error);
-      }
-
-      // Load recent blogs
+    document.addEventListener('DOMContentLoaded', function() {
       loadRecentBlogs();
     });
 
