@@ -40,6 +40,9 @@
           <li class="nav-item">
             <a class="nav-link" href="events.html">Events</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#cfp">CFP</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -57,6 +60,117 @@
         <div class="hero-buttons">
           <a href="events.html" class="btn btn-lg btn-light fw-bold px-5 py-3 me-3 mb-3">Join Our Events</a>
           <a href="chapter-leaders.html" class="btn btn-lg btn-outline-light fw-bold px-5 py-3 mb-3">Meet Our Leaders</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Speaker Invite Banner -->
+  <section class="speaker-banner py-4">
+    <div class="container">
+      <div class="speaker-banner__content">
+        <div class="speaker-banner__badge">
+          <span class="pulse-dot"></span>
+          Want to speak in Tamil Nadu Java User Group?
+        </div>
+        <div class="speaker-banner__cta">
+          <p class="mb-0">Share your story, best practices, or live demos with 1,500+ Java enthusiasts across the state.</p>
+          <a class="btn btn-light btn-lg mt-3 mt-lg-0" href="#cfp">
+            <i class="bi bi-megaphone-fill me-2"></i>Explore CFP details
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CFP Section -->
+  <section class="cfp-section py-5" id="cfp">
+    <div class="container">
+      <div class="section-header text-center mb-5">
+        <p class="cfp-kicker mb-2">
+          <i class="bi bi-stars me-2"></i>Call For Proposals
+        </p>
+        <h2 class="display-5 fw-bold mb-3">Take the Tamil Nadu JUG Stage</h2>
+        <p class="lead text-muted">We are curating deep-dive sessions, lightning talks, hands-on labs, and community showcases from practitioners like you.</p>
+      </div>
+
+      <div class="cfp-card row g-4 align-items-center mb-5">
+        <div class="col-lg-5">
+          <div class="cfp-highlight-card h-100">
+            <h3 class="fw-bold mb-3">Submit your CFP</h3>
+            <p class="mb-4">Pick from in-person campus meetups or statewide virtual sessions. We welcome content around JVM languages, architecture, AI, cloud-native, career stories, and community impact.</p>
+            <ul class="list-unstyled cfp-list mb-4">
+              <li><i class="bi bi-check-circle-fill me-2"></i>15–40 min sessions or full workshops</li>
+              <li><i class="bi bi-check-circle-fill me-2"></i>Inclusive review panel with rolling approvals</li>
+              <li><i class="bi bi-check-circle-fill me-2"></i>Mentorship to polish decks and demos</li>
+            </ul>
+            <a class="btn btn-gradient btn-lg w-100" href="https://forms.gle/JyZSxfGk8mE3KMMH6" target="_blank" rel="noopener noreferrer">
+              <i class="bi bi-box-arrow-up-right me-2"></i>Open CFP Form
+            </a>
+            <small class="d-block mt-3 text-muted text-center">You will be redirected to Google Forms</small>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="cfp-steps">
+            <div class="cfp-step">
+              <div class="step-number">01</div>
+              <div>
+                <h5>Outline your idea</h5>
+                <p>Craft a crisp abstract, list 3 takeaways, and mention your target audience level.</p>
+              </div>
+            </div>
+            <div class="cfp-step">
+              <div class="step-number">02</div>
+              <div>
+                <h5>Share supportive links</h5>
+                <p>Add GitHub repos, slide decks, or demo videos so we understand your narrative style.</p>
+              </div>
+            </div>
+            <div class="cfp-step">
+              <div class="step-number">03</div>
+              <div>
+                <h5>Meet our reviewers</h5>
+                <p>We reply within 7 days with feedback, pairing you with a mentor if you want dry runs.</p>
+              </div>
+            </div>
+            <div class="cfp-step">
+              <div class="step-number">04</div>
+              <div>
+                <h5>Deliver with impact</h5>
+                <p>Show up with your unique style— we take care of community outreach, recordings, and post-talk amplification.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="cfp-info-card">
+            <div class="cfp-info-icon">
+              <i class="bi bi-people-fill"></i>
+            </div>
+            <h5>Community Spotlight</h5>
+            <p>Top-rated sessions are featured on our home page, YouTube, and partner newsletters to boost your reach.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="cfp-info-card">
+            <div class="cfp-info-icon">
+              <i class="bi bi-globe-americas"></i>
+            </div>
+            <h5>Campus & Virtual Slots</h5>
+            <p>Choose from 12+ campus chapters or statewide virtual broadcasts. Hybrid demos get priority scheduling.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="cfp-info-card">
+            <div class="cfp-info-icon">
+              <i class="bi bi-award-fill"></i>
+            </div>
+            <h5>Speaker Perks</h5>
+            <p>Pro speaker kit, souvenir, LinkedIn shoutouts, and mentorship opportunities with senior Java leaders.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -345,6 +459,207 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="src/js/main.js"></script>
+  <style>
+    .speaker-banner {
+      background: linear-gradient(120deg, rgba(102, 126, 234, 0.08), rgba(118, 75, 162, 0.1));
+      border-bottom: 1px solid rgba(102, 126, 234, 0.15);
+    }
+
+    .speaker-banner__content {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+
+    @media (min-width: 992px) {
+      .speaker-banner__content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+      }
+    }
+
+    .speaker-banner__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 999px;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .speaker-banner__cta p {
+      font-size: 1rem;
+      color: #1f2a37;
+    }
+
+    .pulse-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ff6b6b;
+      animation: pulse 1.4s infinite;
+      display: inline-flex;
+    }
+
+    .btn-gradient {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border: none;
+      color: #fff;
+      box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
+    }
+
+    .btn-gradient:hover {
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .cfp-section {
+      position: relative;
+    }
+
+    .cfp-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      max-width: 900px;
+      height: 100%;
+      background: radial-gradient(circle, rgba(102, 126, 234, 0.12) 0%, transparent 70%);
+      z-index: -1;
+      filter: blur(20px);
+    }
+
+    .cfp-kicker {
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #667eea;
+    }
+
+    .cfp-card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 2.5rem;
+      box-shadow: 0 25px 80px rgba(15, 23, 42, 0.12);
+      border: 1px solid rgba(102, 126, 234, 0.15);
+    }
+
+    .cfp-highlight-card {
+      background: linear-gradient(135deg, #232526 0%, #414345 100%);
+      border-radius: 20px;
+      padding: 2rem;
+      color: #f1f5f9;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cfp-highlight-card::after {
+      content: '';
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 50%;
+      bottom: -50px;
+      right: -50px;
+    }
+
+    .cfp-highlight-card h3 {
+      color: #fff;
+    }
+
+    .cfp-list li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      font-weight: 500;
+      color: #e9ecef;
+    }
+
+    .cfp-list i {
+      color: #28d17c;
+    }
+
+    .cfp-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .cfp-step {
+      background: #f8f9ff;
+      border-radius: 18px;
+      padding: 1.5rem;
+      display: flex;
+      gap: 1rem;
+      border: 1px solid rgba(102, 126, 234, 0.15);
+    }
+
+    .step-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .cfp-step h5 {
+      margin-bottom: 0.35rem;
+      color: #1f2a37;
+    }
+
+    .cfp-step p {
+      margin: 0;
+      color: #4b5563;
+      font-size: 0.95rem;
+    }
+
+    .cfp-info-card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 1.5rem;
+      height: 100%;
+      border: 1px solid rgba(229, 231, 235, 0.9);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    .cfp-info-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: rgba(102, 126, 234, 0.12);
+      color: #667eea;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 992px) {
+      .cfp-card {
+        padding: 1.5rem;
+      }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.8); opacity: 0.6; }
+      50% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(0.8); opacity: 0.6; }
+    }
+  </style>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       loadRecentBlogs();
