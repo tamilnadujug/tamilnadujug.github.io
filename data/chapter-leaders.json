@@ -9,6 +9,49 @@
   },
   "chapterLeaders": [
     {
+      "collegeName": "PSNA College of Engineering and Technology",
+      "collegeLogo": "assets/logos/psna-logo.png",
+      "collegeLocation": "Dindigul, Tamil Nadu",
+      "establishedYear": "1984",
+      "studentCount": "6500",
+      "chapterEstablished": "2026",
+      "specializations": ["Computer Science and Business Systems", "Computer Science", "Information Technology", "Artificial Intelligence", "Cyber Security"],
+      "facultyLeader": {
+        "name": "Dr. S. Pavalarajan",
+        "designation": "Professor & Head of CSBS",
+        "experience": "26+ years",
+        "expertise": ["Java Technologies", "Wireless Sensor Networks", "Cloud computing"],
+        "about": "A distinguished Academic Leader and Researcher with over 26 years of excellence in Computer Science and Business Systems",
+        "achievements": ["8 Ph.D. Scholars awarded", "9 Software Copyrights Granted", "Published 50+ Research Papers"],
+        "photo": "assets/photos/dr-s-pavalarajan.svg",
+        "contact": {
+          "email": "hodcsbs@psnacet.edu.in",
+          "phone": "+91-9842195669"
+        },
+        "socialProfiles": {
+          "linkedin": "https://www.linkedin.com/in/pavalarajan",
+          "twitter": "https://twitter.com/pavalarajan",
+          "website": "https://sites.google.com/site/drspavalarajan"
+        }
+      },
+      "studentLeader": {
+        "name": "MADHAN R",
+        "year": "2nd Year CSBS",
+        "cgpa": "9.3",
+        "skills": ["Java", "Python", "HTML", "CSS"],
+        "about": "I'm a Computer Science student and aspiring Full-Stack Developer with a strong interest in building software that solves real-world business problems.",
+        "achievements": ["Open Source Contributor", "Full Stack Developer"],
+        "photo": "assets/photos/madhan.svg",
+        "contact": {
+          "email": "madhanr25cb@psnacet.edu.in",
+          "phone": "+91-9342093736"
+        },
+        "socialProfiles": {
+          "linkedin": "https://www.linkedin.com/in/madhan-r-94563038b/"
+        }
+      }
+    },
+    {
       "collegeName": "Sri Eshwar College of Engineering",
       "collegeLogo": "assets/logos/sece-logo.svg",
       "collegeLocation": "Coimbatore, Tamil Nadu",
