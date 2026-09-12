@@ -225,7 +225,8 @@ button, input, select, textarea {
     padding: 0.75rem 1rem;
   }
 
-  .nav-actions .btn-luma {
+  .nav-actions .btn-luma,
+  .nav-actions .btn-whatsapp {
     display: none;
   }
 }
@@ -280,6 +281,22 @@ button, input, select, textarea {
 .btn-luma:hover {
   transform: translateY(-1px);
   box-shadow: 0 6px 16px rgba(231, 111, 81, 0.4);
+}
+
+.btn-whatsapp {
+  background: #25D366;
+  color: #0b0f19 !important;
+  font-weight: 600;
+  border: 1px solid #25D366;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+}
+
+.btn-whatsapp:hover {
+  background: #20BA5A;
+  border-color: #20BA5A;
+  color: #000000 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
 }
 
 .btn-dark {
@@ -771,7 +788,9 @@ button, input, select, textarea {
   overflow: hidden;
 }
 
-.event-card-footer {
+.event-card-footer,
+.chapter-card-footer,
+.oss-card-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -798,7 +817,7 @@ button, input, select, textarea {
   height: 56px;
   object-fit: contain;
   border-radius: var(--radius-sm);
-  background-color: var(--bg-subtle);
+  background-color: #ffffff;
   padding: 4px;
 }
 

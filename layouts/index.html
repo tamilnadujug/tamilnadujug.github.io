@@ -17,6 +17,7 @@
     </p>
 
     <div class="hero-cta-group">
+      <!--
       <a href="{{ "/events/" | relURL }}" class="btn btn-primary btn-lg">
         <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
         <span>Explore Meetups</span>
@@ -25,35 +26,35 @@
       <a href="{{ .Site.Params.luma_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-luma btn-lg">
         <span>RSVP on Luma ↗</span>
       </a>
+      -->
 
-      <a href="{{ "/chapters/" | relURL }}" class="btn btn-outline btn-lg" style="color: #ffffff; border-color: rgba(255,255,255,0.25);">
+      <a href="{{ "/chapters/" | relURL }}" class="btn btn-primary btn-lg">
         <span>Find a Chapter</span>
+      </a>
+
+      {{ with .Site.Params.luma_url }}
+      <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="btn btn-luma btn-lg">
+        <span>Luma Events ↗</span>
+      </a>
+      {{ end }}
+
+      {{ with .Site.Params.social.whatsapp }}
+      <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">
+        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2m.01 1.67c4.54 0 8.24 3.7 8.24 8.24 0 2.2-.86 4.27-2.42 5.82a8.18 8.18 0 01-5.82 2.42c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 01-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24m4.52 11.64c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44s-.56-1.35-.77-1.85c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.61c.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.17-.48-.29z"/></svg>
+        <span>Join WhatsApp Group ↗</span>
+      </a>
+      {{ end }}
+
+      <a href="{{ "/open-source/" | relURL }}" class="btn btn-outline btn-lg" style="color: #ffffff; border-color: rgba(255,255,255,0.25);">
+        <span>Open Source Lab</span>
       </a>
     </div>
 
-    <!-- Quick Stats -->
-    <div class="hero-stats">
-      <div class="stat-item">
-        <span class="stat-number">5+</span>
-        <span class="stat-label">College Chapters</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-number">90+</span>
-        <span class="stat-label">Meetups &amp; Labs</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-number">11.2k+</span>
-        <span class="stat-label">Engineers &amp; Students</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-number">100%</span>
-        <span class="stat-label">Community Driven</span>
-      </div>
-    </div>
+
   </div>
 </section>
 
-<!-- Next Meetup Spotlight -->
+<!--
 {{ $upcomingEvents := where (where .Site.RegularPages "Section" "events") ".Params.status" "in" (slice "upcoming" "featured") }}
 {{ $nextMeetup := index (sort $upcomingEvents "Date" "asc") 0 }}
 
@@ -108,7 +109,6 @@
 </section>
 {{ end }}
 
-<!-- Upcoming Events Section -->
 <section class="section">
   <div class="container">
     <div class="section-header">
@@ -128,11 +128,12 @@
 
     <div class="section-actions">
       <a href="{{ "/events/" | relURL }}" class="btn btn-outline">
-        <span>View All Events &amp; Past Archives →</span>
+        <span>View All Events →</span>
       </a>
     </div>
   </div>
 </section>
+-->
 
 <!-- Chapters Section -->
 <section class="section section-subtle">
@@ -143,9 +144,9 @@
       <p class="section-desc">TNJUG chapters bridge academia and industry by pairing faculty mentors, student organizers, and tech lead mentors to deliver hands-on Java labs.</p>
     </div>
 
-    <div class="grid grid-cols-3">
+    <div class="grid grid-cols-2">
       {{ $chapters := where .Site.RegularPages "Section" "chapters" }}
-      {{ range first 3 (sort $chapters "Params.established_year" "desc") }}
+      {{ range $chapters.ByWeight }}
         {{ partial "chapter-card.html" . }}
       {{ end }}
     </div>
@@ -194,34 +195,10 @@
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
           <span>Submit a Talk Proposal (CFP)</span>
         </a>
-        <a href="{{ "/speakers/" | relURL }}" class="btn btn-outline btn-lg">
-          <span>Explore Speaker Guidelines</span>
+        <a href="{{ "/community/#propose-a-talk" | relURL }}" class="btn btn-outline btn-lg">
+          <span>Speaker &amp; CFP Guidelines</span>
         </a>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- Latest Updates / Blog -->
-<section class="section section-subtle">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-kicker">Knowledge &amp; Recaps</span>
-      <h2 class="section-title">Latest Updates &amp; Articles</h2>
-      <p class="section-desc">Technical tutorials, meetup recaps, and announcements from Java practitioners and student contributors.</p>
-    </div>
-
-    <div class="grid grid-cols-3">
-      {{ $posts := where .Site.RegularPages "Section" "posts" }}
-      {{ range first 3 (sort $posts "Date" "desc") }}
-        {{ partial "post-card.html" . }}
-      {{ end }}
-    </div>
-
-    <div class="section-actions">
-      <a href="{{ "/posts/" | relURL }}" class="btn btn-outline">
-        <span>Read All Articles on the Blog →</span>
-      </a>
     </div>
   </div>
 </section>

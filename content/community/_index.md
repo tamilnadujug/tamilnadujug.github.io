@@ -15,12 +15,23 @@ Our community brings together:
 
 ---
 
-### External Event Registration via Luma
+<div id="whatsapp-community"></div>
 
-> **Important Note on Event Registration**:
-> TNJUG does not operate a proprietary ticketing or registration server. All official meetup registrations, seat reservations, calendar syncs, and check-in QR codes are powered directly through our verified **[Luma Calendar Hub](https://lu.ma/tamiljug)**.
->
-> When browsing our [Events list](/events/), click the **RSVP on Luma** button on any upcoming session to register.
+### Join the Official WhatsApp Community
+
+Connect directly with software engineers, open-source lab mentors, collegiate faculty, and student developers across Tamil Nadu. Get real-time technical discussions, architecture brainstorming, and chapter announcements:
+
+> 💬 **[Join the Tamil Nadu Java User Groups WhatsApp Community](https://chat.whatsapp.com/F8mxbc4oigd2s35SprCW5k)**
+
+---
+
+<div id="events-calendar"></div>
+
+### Community Events & Meetup Registrations
+
+All official TNJUG meetups, conferences, hands-on workshops, and attendee passes are managed through our verified Luma Calendar:
+
+> 🎟️ **[Browse & RSVP on our Official Luma Calendar Hub](https://luma.com/calendar/manage/cal-pUXuk1OFUWQFQEk)**
 
 ---
 
@@ -78,5 +89,5 @@ Yes! TNJUG is 100% free and open to everyone. Meetups and workshops are free of 
 #### Do I need to be an expert to attend?
 No. Our sessions cater to both curious beginners and seasoned principal engineers.
 
-#### Where are meetups announced first?
-All upcoming meetups are published on our **[Luma Calendar](https://lu.ma/tamiljug)** and shared on our **[LinkedIn Page](https://www.linkedin.com/company/tamil-jug/)**.
+#### Where are community announcements published first?
+All major community initiatives, chapter onboarding updates, and tech articles are shared on our **[LinkedIn Page](https://www.linkedin.com/company/tamil-jug/)**.

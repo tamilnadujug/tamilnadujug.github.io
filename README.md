@@ -3,7 +3,7 @@
 The official, production-quality website for the **Tamil Nadu Java User Group (TNJUG)**, built with [Hugo](https://gohugo.io/).
 
 - **Presentation / Content**: Hugo (Extended) + Vanilla CSS (zero framework bloat, fast load times).
-- **Registration & Ticketing**: External via [Luma](https://lu.ma/tamiljug). No proprietary registration or backend database required.
+- **Registration & Ticketing**: External via [Luma](https://luma.com/calendar/manage/cal-pUXuk1OFUWQFQEk). No proprietary registration or backend database required.
 - **Deployment**: Automated GitHub Actions workflow deploying to GitHub Pages.
 
 ---
@@ -19,32 +19,24 @@ tamilnadujug.github.io/
 │   ├── chapters.md            # Archetype for college chapters
 │   ├── events.md              # Archetype for meetups & workshops
 │   ├── leaders.md             # Archetype for core team & chapter leads
-│   ├── open-source.md         # Archetype for OSS projects
-│   ├── posts.md               # Archetype for blog articles
-│   └── speakers.md            # Archetype for speaker profiles
+│   └── open-source.md         # Archetype for OSS projects
 ├── assets/
 │   └── css/
 │       └── style.css          # Design system & responsive styles
 ├── content/                   # Markdown content collections
-│   ├── archives/              # Past events & recap records
 │   ├── chapters/              # College & regional chapters
 │   ├── community/             # Values, Code of Conduct & CFP guidelines
 │   ├── events/                # Upcoming & past meetups (with Luma links)
 │   ├── leaders/               # Core team and chapter leadership
-│   ├── open-source/           # Community open-source projects
-│   ├── posts/                 # Technical tutorials & announcements
-│   └── speakers/              # Speaker catalog & CFP prompt
+│   └── open-source/           # Community open-source projects
 ├── layouts/                   # Hugo templates & reusable partials
 │   ├── _default/              # baseof.html, single.html, list.html
-│   ├── archives/              # Archive catalog layout
 │   ├── chapters/              # Chapter list & single layout
 │   ├── community/             # Community guide layout
 │   ├── events/                # Events list (upcoming/past tabs) & single layout
 │   ├── leaders/               # Leaders layout (Core + Chapter leads)
 │   ├── open-source/           # Open source projects layout
 │   ├── partials/              # Modular cards: event, chapter, leader, etc.
-│   ├── posts/                 # Blog post list & single view
-│   ├── speakers/              # Speaker directory layout
 │   └── index.html             # Homepage layout
 ├── static/                    # Static assets copied directly to site root
 │   ├── images/
@@ -148,14 +140,10 @@ title: "Government College of Technology"
 college_name: "Government College of Technology"
 city: "Coimbatore"
 established_year: "2026"
-student_count: "2500"
 logo: "/logos/gct-logo.svg"    # Place logo file inside static/logos/
 status: "Active Chapter"
 email: "chapter@gct.ac.in"
 description: "Student chapter focusing on JVM internals, Spring Boot, and open source."
-specializations:
-  - "Computer Science"
-  - "Information Technology"
 faculty_leader:
   name: "Dr. Faculty Name"
   designation: "Associate Professor & Head"
@@ -185,7 +173,7 @@ Create a markdown file in `content/leaders/<leader-name>.md`:
 title: "Karthik Subramanian"
 role: "Community Organizer"
 type: "core"                   # "core" for Core Team, "chapter" for Chapter Leaders
-chapter: "TNJUG Central Hub"   # Or college name for chapter leads
+chapter: "Tamil Nadu Java User Groups"   # Or college name for chapter leads
 bio: "Staff engineer passionate about Java community building, mentorship, and high-concurrency systems."
 photo: "/photos/karthik.svg"   # Place avatar inside static/photos/
 linkedin: "https://linkedin.com/in/karthik"

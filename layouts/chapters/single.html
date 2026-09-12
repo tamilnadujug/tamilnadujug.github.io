@@ -39,35 +39,74 @@
     {{ end }}
 
     <!-- Chapter Leadership Section -->
-    <h2 style="margin-top: 2.5rem; margin-bottom: 1.5rem;">Chapter Leadership</h2>
-    <div class="grid grid-cols-2" style="gap: 1.5rem; margin-bottom: 2.5rem;">
-      {{ with .Params.faculty_leader }}
-      <div class="card" style="padding: 1.5rem;">
-        <span class="badge badge-primary" style="align-self: flex-start; margin-bottom: 0.75rem;">Faculty Advisor</span>
-        <h3 style="font-size: 1.2rem; margin-bottom: 0.25rem;">{{ .name }}</h3>
-        <div style="color: var(--color-primary); font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem;">{{ .designation }}</div>
-        {{ with .experience }}<div style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.5rem;">{{ . }}</div>{{ end }}
-        <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1rem;">{{ .about }}</p>
-        {{ with .email }}
-        <a href="mailto:{{ . }}" class="btn btn-outline btn-sm">Email Advisor</a>
+    {{ $chapterName := .Title }}
+    {{ $chapterLeaders := where (where .Site.RegularPages "Section" "leaders") ".Params.chapter" $chapterName }}
+    {{ if gt (len $chapterLeaders) 0 }}
+      <h2 style="margin-top: 2.5rem; margin-bottom: 1.5rem;">Chapter Leadership &amp; Representatives</h2>
+      <div class="grid grid-cols-2" style="gap: 1.5rem; margin-bottom: 2.5rem;">
+        {{ range $chapterLeaders }}
+        <div class="card" style="padding: 1.5rem; display: flex; flex-direction: column;">
+          <span class="badge {{ if in .Params.role "Professional" }}badge-primary{{ else }}badge-info{{ end }}" style="align-self: flex-start; margin-bottom: 0.75rem;">
+            {{ .Params.role | default "Chapter Representative" }}
+          </span>
+          <h3 style="font-size: 1.2rem; margin-bottom: 0.25rem;">{{ .Title }}</h3>
+          <div style="color: var(--color-primary); font-size: 0.85rem; font-weight: 600; margin-bottom: 0.25rem;">{{ .Params.designation }}</div>
+          {{ with .Params.experience }}<div style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.5rem;">Experience: {{ . }}</div>{{ end }}
+          <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1rem; flex-grow: 1;">{{ .Params.bio }}</p>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: auto;">
+            {{ with .Params.email }}
+            <a href="mailto:{{ . }}" class="btn btn-outline btn-sm">Email</a>
+            {{ end }}
+            {{ with .Params.linkedin }}
+            <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">LinkedIn ↗</a>
+            {{ end }}
+          </div>
+        </div>
         {{ end }}
       </div>
-      {{ end }}
+    {{ else if or .Params.faculty_leader .Params.student_leader }}
+      <h2 style="margin-top: 2.5rem; margin-bottom: 1.5rem;">Chapter Leadership</h2>
+      <div class="grid grid-cols-2" style="gap: 1.5rem; margin-bottom: 2.5rem;">
+        {{ with .Params.faculty_leader }}
+        <div class="card" style="padding: 1.5rem;">
+          <span class="badge badge-primary" style="align-self: flex-start; margin-bottom: 0.75rem;">Faculty Advisor</span>
+          <h3 style="font-size: 1.2rem; margin-bottom: 0.25rem;">{{ .name }}</h3>
+          <div style="color: var(--color-primary); font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem;">{{ .designation }}</div>
+          {{ with .experience }}<div style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.5rem;">{{ . }}</div>{{ end }}
+          <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1rem;">{{ .about }}</p>
+          {{ with .email }}
+          <a href="mailto:{{ . }}" class="btn btn-outline btn-sm">Email Advisor</a>
+          {{ end }}
+        </div>
+        {{ end }}
 
-      {{ with .Params.student_leader }}
-      <div class="card" style="padding: 1.5rem;">
-        <span class="badge badge-info" style="align-self: flex-start; margin-bottom: 0.75rem;">Student Lead</span>
-        <h3 style="font-size: 1.2rem; margin-bottom: 0.25rem;">{{ .name }}</h3>
-        <div style="color: var(--color-primary); font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem;">{{ .year }}</div>
-        <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1rem;">{{ .about }}</p>
-        {{ with .email }}
-        <a href="mailto:{{ . }}" class="btn btn-outline btn-sm">Email Lead</a>
+        {{ with .Params.student_leader }}
+        <div class="card" style="padding: 1.5rem;">
+          <span class="badge badge-info" style="align-self: flex-start; margin-bottom: 0.75rem;">Student Lead</span>
+          <h3 style="font-size: 1.2rem; margin-bottom: 0.25rem;">{{ .name }}</h3>
+          <div style="color: var(--color-primary); font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem;">{{ .year }}</div>
+          <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1rem;">{{ .about }}</p>
+          {{ with .email }}
+          <a href="mailto:{{ . }}" class="btn btn-outline btn-sm">Email Lead</a>
+          {{ end }}
+        </div>
         {{ end }}
       </div>
-      {{ end }}
-    </div>
+    {{ else }}
+      <h2 style="margin-top: 2.5rem; margin-bottom: 1.5rem;">Chapter Leadership</h2>
+      <div class="card" style="padding: 2rem; margin-bottom: 2.5rem; text-align: center; background: var(--bg-surface);">
+        <span class="badge badge-neutral" style="margin-bottom: 0.75rem;">Status</span>
+        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--text-primary);">Yet to be decided</h3>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); max-width: 540px; margin: 0 auto 1.25rem;">
+          Faculty advisors and student representatives for this institution chapter are currently in the process of nomination.
+        </p>
+        <a href="mailto:geetha.cse@kongu.edu?subject=Chapter%20Leadership%20Nomination%20-%20{{ .Title }}" class="btn btn-primary btn-sm">
+          Nominate a Chapter Leader
+        </a>
+      </div>
+    {{ end }}
 
-    <!-- Chapter Events -->
+    <!--
     {{ $chapterName := .Title }}
     {{ $chapterEvents := where (where .Site.RegularPages "Section" "events") ".Params.chapter" $chapterName }}
     {{ if gt (len $chapterEvents) 0 }}
@@ -78,6 +117,7 @@
         {{ end }}
       </div>
     {{ end }}
+    -->
   </div>
 
   <!-- Sidebar -->
@@ -90,13 +130,6 @@
           <strong>{{ .Params.city }}, Tamil Nadu</strong>
         </div>
 
-        {{ with .Params.student_count }}
-        <div>
-          <div style="color: var(--text-muted); font-size: 0.75rem;">CAMPUS REACH</div>
-          <strong>{{ . }}+ Students</strong>
-        </div>
-        {{ end }}
-
         {{ with .Params.email }}
         <div>
           <div style="color: var(--text-muted); font-size: 0.75rem;">CONTACT</div>
@@ -106,16 +139,6 @@
       </div>
     </div>
 
-    {{ with .Params.specializations }}
-    <div class="sidebar-widget">
-      <h4 class="sidebar-widget-title">Key Focus Areas</h4>
-      <div style="display: flex; flex-wrap: wrap; gap: 0.35rem;">
-        {{ range . }}
-        <span class="tech-tag">{{ . }}</span>
-        {{ end }}
-      </div>
-    </div>
-    {{ end }}
 
     <div class="sidebar-widget">
       <h4 class="sidebar-widget-title">Join Chapter Activities</h4>

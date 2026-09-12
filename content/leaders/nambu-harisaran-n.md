@@ -1,0 +1,17 @@
+---
+title: "Nambu Harisaran N"
+role: "Campus Leader"
+type: "chapter"
+chapter: "PSNA College of Engineering and Technology"
+designation: "2nd Year CSBS • Technical Lead"
+email: "nambuharisaran123@gmail.com"
+phone: "+91 9787721111"
+city: "Madurai"
+bio: "Connecting students with modern technology, learning, and collaboration opportunities through campus workshops, real-world projects, and community meetups."
+activities: "Tech talks, Workshops, Student sessions, Hackathons, Campus events"
+photo: "/photos/nambu-harisaran-n.svg"
+linkedin: "https://www.linkedin.com/in/nambuharisaran"
+github: ""
+twitter: ""
+website: ""
+---

@@ -1,0 +1,18 @@
+---
+title: "Giridharan R"
+role: "Campus Leader"
+type: "chapter"
+chapter: "Sri Eshwar College of Engineering"
+designation: "Assistant Professor & Training Head, CSE"
+experience: "11 years"
+email: "giridharan.r@sece.ac.in"
+phone: "8940213161"
+city: "Coimbatore"
+bio: "Leading campus Java initiatives, conducting training, organizing student hackathons, and empowering future engineers with industry-grade software practices."
+activities: "Tech talks, Workshops, Student sessions, Hackathons, Campus events"
+photo: "/photos/giridharan-r.png"
+linkedin: "https://www.linkedin.com/in/giridharan-rajendran-4393941a"
+github: ""
+twitter: ""
+website: ""
+---

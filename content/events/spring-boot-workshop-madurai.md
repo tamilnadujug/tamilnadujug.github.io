@@ -9,7 +9,7 @@ description: "Comprehensive hands-on workshop covering Spring Boot 3 fundamental
 speaker: "TNJUG Technical Core Team"
 event_type: "Workshop"
 chapter: "TNJUG Core Hub"
-luma_url: "https://lu.ma/tamiljug"
+luma_url: "https://luma.com/calendar/manage/cal-pUXuk1OFUWQFQEk"
 recording_url: ""
 slides_url: "https://github.com/tamilnadujug"
 photos_url: "https://linkedin.com/company/tamil-jug"

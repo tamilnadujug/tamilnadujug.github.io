@@ -24,13 +24,13 @@ tagline = "Where Tamil Nadu's Java professionals, campus chapters, and students 
 keywords = ["Java", "TNJUG", "Tamil Nadu Java User Group", "Spring Boot", "JVM", "Java Meetups Tamil Nadu", "Luma", "Open Source Java", "Chennai Java", "Coimbatore Java"]
 logo = "/tamil_jug.jpeg"
 favicon = "/tamil_jug.jpeg"
-luma_url = "https://lu.ma/tamiljug"
+luma_url = "https://luma.com/calendar/manage/cal-pUXuk1OFUWQFQEk"
 cfp_url = "https://forms.gle/JyZSxfGk8mE3KMMH6"
 
 [params.social]
 linkedin = "https://www.linkedin.com/company/tamil-jug/"
 github = "https://github.com/tamilnadujug"
-twitter = "https://twitter.com/tamilnadujug"
+whatsapp = "https://chat.whatsapp.com/F8mxbc4oigd2s35SprCW5k"
 email = "contact@tamilnadujug.org"
 
 [[menu.main]]
@@ -39,9 +39,10 @@ url = "/"
 weight = 1
 
 [[menu.main]]
-name = "Events"
-url = "/events/"
+name = "Events ↗"
+url = "https://luma.com/calendar/manage/cal-pUXuk1OFUWQFQEk"
 weight = 2
+
 
 [[menu.main]]
 name = "Chapters"
@@ -54,26 +55,11 @@ url = "/leaders/"
 weight = 4
 
 [[menu.main]]
-name = "Speakers"
-url = "/speakers/"
-weight = 5
-
-[[menu.main]]
 name = "Community"
 url = "/community/"
-weight = 6
+weight = 5
 
 [[menu.main]]
 name = "Open Source"
 url = "/open-source/"
-weight = 7
-
-[[menu.main]]
-name = "Blog"
-url = "/posts/"
-weight = 8
-
-[[menu.main]]
-name = "Archives"
-url = "/archives/"
-weight = 9
+weight = 6

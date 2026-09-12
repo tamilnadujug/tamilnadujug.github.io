@@ -9,7 +9,7 @@ description: "A 10-hour state-wide coding hackathon where student teams built op
 speaker: "Panel of Industry Mentors"
 event_type: "Hackathon"
 chapter: "Sri Eshwar College of Engineering"
-luma_url: "https://lu.ma/tamiljug"
+luma_url: "https://luma.com/calendar/manage/cal-pUXuk1OFUWQFQEk"
 recording_url: ""
 slides_url: "https://github.com/tamilnadujug"
 photos_url: "https://linkedin.com/company/tamil-jug"

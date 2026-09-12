@@ -3,26 +3,17 @@ title: "Sri Eshwar College of Engineering"
 college_name: "Sri Eshwar College of Engineering"
 city: "Coimbatore"
 established_year: "2020"
-student_count: "1200"
-logo: "/logos/sece-logo.svg"
+logo: "/logos/sece-logo.png"
 status: "Active Chapter"
-email: "rajesh.kumar@sece.ac.in"
+email: "giridharan.r@sece.ac.in"
+weight: 3
 description: "Active engineering chapter in Coimbatore running regular hands-on Java labs, Spring Boot study circles, and tech hackathons."
-specializations:
-  - "Computer Science"
-  - "Information Technology"
-  - "Artificial Intelligence"
 faculty_leader:
-  name: "Dr. Rajesh Kumar"
-  designation: "Professor & Head of CSE"
-  experience: "15+ years"
-  about: "Experienced faculty in Computer Science with deep expertise in Spring Framework, microservices, and student community mentorship."
-  email: "rajesh.kumar@sece.ac.in"
-student_leader:
-  name: "Hari Nikesh R"
-  year: "3rd Year CSE"
-  about: "Active student organizer and open source developer focused on growing student community participation, hackathons, and technical meetups."
-  email: "hari.nikesh@sece.ac.in"
+  name: "Giridharan R"
+  designation: "Assistant Professor & Training Head, CSE"
+  experience: "11 years"
+  about: "Leading campus Java initiatives, conducting training, organizing student hackathons, and empowering future engineers with industry-grade software practices."
+  email: "giridharan.r@sece.ac.in"
 ---
 
 ### About SECE Chapter

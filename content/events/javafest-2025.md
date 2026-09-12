@@ -9,7 +9,7 @@ description: "India's largest Java gathering featuring talks on Java 25, Spring 
 speaker: "Industry Tech Leads & Java Champions"
 event_type: "Conference"
 chapter: "TNJUG Core Hub"
-luma_url: "https://lu.ma/tamiljug"
+luma_url: "https://luma.com/calendar/manage/cal-pUXuk1OFUWQFQEk"
 recording_url: ""
 slides_url: ""
 photos_url: ""

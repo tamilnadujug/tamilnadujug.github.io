@@ -23,7 +23,18 @@
     {{ end }}
   </p>
 
-  {{ if or .Params.faculty_leader .Params.student_leader }}
+  {{ $chapterName := .Title }}
+  {{ $chapterLeaders := where (where site.RegularPages "Section" "leaders") ".Params.chapter" $chapterName }}
+  {{ if gt (len $chapterLeaders) 0 }}
+  <div class="chapter-leaders-preview">
+    {{ range first 2 $chapterLeaders }}
+    <div class="chapter-leader-row">
+      <span class="chapter-leader-role">{{ if in .Params.role "Professional" }}Faculty Lead{{ else }}Campus Lead{{ end }}</span>
+      <span class="chapter-leader-name">{{ .Title }}</span>
+    </div>
+    {{ end }}
+  </div>
+  {{ else if or .Params.faculty_leader .Params.student_leader }}
   <div class="chapter-leaders-preview">
     {{ with .Params.faculty_leader }}
     <div class="chapter-leader-row">
@@ -38,9 +49,16 @@
     </div>
     {{ end }}
   </div>
+  {{ else }}
+  <div class="chapter-leaders-preview">
+    <div class="chapter-leader-row">
+      <span class="chapter-leader-role">Leadership</span>
+      <span class="chapter-leader-name" style="color: var(--text-muted); font-style: italic;">Yet to be decided</span>
+    </div>
+  </div>
   {{ end }}
 
-  <div class="event-card-footer">
+  <div class="chapter-card-footer">
     <a href="{{ .RelPermalink }}" class="btn btn-outline btn-sm">
       Chapter Profile
     </a>

@@ -9,7 +9,7 @@ description: "Successfully conducted tech sessions on Spring AI architecture and
 speaker: "Saravana & Sathish Kumar Thiyagarajan"
 event_type: "Meetup"
 chapter: "Sri Eshwar College of Engineering"
-luma_url: "https://lu.ma/tamiljug"
+luma_url: "https://luma.com/calendar/manage/cal-pUXuk1OFUWQFQEk"
 recording_url: "https://youtube.com/@tamilnadujug"
 slides_url: "https://github.com/tamilnadujug"
 photos_url: "https://linkedin.com/company/tamil-jug"
