@@ -1,0 +1,17 @@
+---
+title: "Aswinsudhan K"
+role: "Campus Leader"
+type: "chapter"
+chapter: "PSNA College of Engineering and Technology"
+designation: "2nd Year CSBS • Graphical Designer"
+email: "aswinharisudhan@gmail.com"
+phone: "7010110231"
+city: "Dindigul"
+bio: "Improving Java mastery, organizing workshops, coding events, and technical sessions while building an active developer community and driving visual design."
+activities: "Tech talks, Workshops, Student sessions, Hackathons, Campus events"
+photo: "/photos/aswinsudhan-k.svg"
+linkedin: ""
+github: ""
+twitter: ""
+website: ""
+---

@@ -1,0 +1,53 @@
+<header class="site-header">
+  <div class="container nav-container">
+    <a href="{{ "/" | relURL }}" class="brand-link" aria-label="TNJUG Home">
+      <img src="{{ "/tamil_jug.jpeg" | relURL }}" alt="Tamil Nadu Java User Group" class="brand-logo" width="44" height="44">
+      <span>Tamil Nadu JUG</span>
+    </a>
+
+    <nav aria-label="Primary Navigation">
+      <ul class="nav-menu" id="nav-menu">
+        {{ range .Site.Menus.main }}
+        <li>
+          <a href="{{ if strings.HasPrefix .URL "http" }}{{ .URL }}{{ else }}{{ .URL | relURL }}{{ end }}" {{ if strings.HasPrefix .URL "http" }}target="_blank" rel="noopener noreferrer"{{ end }} class="nav-link{{ if eq $.RelPermalink .URL }} active{{ end }}">
+            {{ .Name }}
+          </a>
+        </li>
+        {{ end }}
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      {{ with .Site.Params.luma_url }}
+      <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="btn btn-luma btn-sm" aria-label="Luma Calendar">
+        <span>Luma Events</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+      </a>
+      {{ end }}
+
+      {{ with .Site.Params.social.whatsapp }}
+      <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm" aria-label="Join WhatsApp Group">
+        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2m.01 1.67c4.54 0 8.24 3.7 8.24 8.24 0 2.2-.86 4.27-2.42 5.82a8.18 8.18 0 01-5.82 2.42c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 01-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24m4.52 11.64c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44s-.56-1.35-.77-1.85c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.61c.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.17-.48-.29z"/></svg>
+        <span>WhatsApp</span>
+      </a>
+      {{ end }}
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<script>
+  (function() {
+    var toggle = document.getElementById('nav-toggle');
+    var menu = document.getElementById('nav-menu');
+    if (toggle && menu) {
+      toggle.addEventListener('click', function() {
+        var isOpen = menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', isOpen);
+      });
+    }
+  })();
+</script>

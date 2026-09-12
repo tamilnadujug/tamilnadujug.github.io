@@ -1,0 +1,18 @@
+---
+title: "Vignesh Chandrasekhar"
+role: "Chapter Leader (Professional)"
+type: "chapter"
+chapter: "VET Institute of Arts and Science"
+designation: "Innovation Hub Lead & Coding Club Coordinator"
+experience: "6 years"
+email: "innovation@vetias.ac.in"
+phone: "9843344014"
+city: "Erode"
+bio: "Inspiring student developers, building vibrant campus communities, and creating meaningful opportunities for learning, competitive coding, and open collaboration."
+activities: "Tech talks, Workshops, Student sessions, Hackathons, Panel discussions, Campus events"
+photo: "/photos/vignesh-chandrasekhar.png"
+linkedin: "https://www.linkedin.com/in/vignesh-chandrasekhar"
+github: ""
+twitter: ""
+website: ""
+---

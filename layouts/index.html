@@ -1,0 +1,258 @@
+{{ define "main" }}
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container hero-content">
+    <div class="hero-pill">
+      <span class="hero-pill-dot"></span>
+      <span>Official Java User Group • Tamil Nadu, India</span>
+    </div>
+
+    <h1 class="hero-title">
+      Where Tamil Nadu's <span class="highlight">Java Ecosystem</span> Connects &amp; Builds.
+    </h1>
+
+    <p class="hero-subtitle">
+      A grassroots community uniting enterprise engineers, campus chapters, faculty champions, and student programmers to advance modern Java, Spring Boot, cloud architecture, and open source across Tamil Nadu.
+    </p>
+
+    <div class="hero-cta-group">
+      <!--
+      <a href="{{ "/events/" | relURL }}" class="btn btn-primary btn-lg">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+        <span>Explore Meetups</span>
+      </a>
+
+      <a href="{{ .Site.Params.luma_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-luma btn-lg">
+        <span>RSVP on Luma ↗</span>
+      </a>
+      -->
+
+      <a href="{{ "/chapters/" | relURL }}" class="btn btn-primary btn-lg">
+        <span>Find a Chapter</span>
+      </a>
+
+      {{ with .Site.Params.luma_url }}
+      <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="btn btn-luma btn-lg">
+        <span>Luma Events ↗</span>
+      </a>
+      {{ end }}
+
+      {{ with .Site.Params.social.whatsapp }}
+      <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">
+        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2m.01 1.67c4.54 0 8.24 3.7 8.24 8.24 0 2.2-.86 4.27-2.42 5.82a8.18 8.18 0 01-5.82 2.42c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 01-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24m4.52 11.64c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44s-.56-1.35-.77-1.85c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.61c.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.17-.48-.29z"/></svg>
+        <span>Join WhatsApp Group ↗</span>
+      </a>
+      {{ end }}
+
+      <a href="{{ "/open-source/" | relURL }}" class="btn btn-outline btn-lg" style="color: #ffffff; border-color: rgba(255,255,255,0.25);">
+        <span>Open Source Lab</span>
+      </a>
+    </div>
+
+
+  </div>
+</section>
+
+<!--
+{{ $upcomingEvents := where (where .Site.RegularPages "Section" "events") ".Params.status" "in" (slice "upcoming" "featured") }}
+{{ $nextMeetup := index (sort $upcomingEvents "Date" "asc") 0 }}
+
+{{ with $nextMeetup }}
+<section class="container" style="position: relative; z-index: 20;">
+  <div class="spotlight-banner">
+    <div class="spotlight-date">
+      <span class="spotlight-date-month">{{ .Date.Format "Jan" }}</span>
+      <span class="spotlight-date-day">{{ .Date.Format "02" }}</span>
+      <span class="spotlight-date-year">{{ .Date.Format "2006" }}</span>
+    </div>
+
+    <div class="spotlight-info">
+      <div class="spotlight-meta">
+        <span class="badge badge-live">Next Featured Event</span>
+        {{ with .Params.event_type }}
+        <span class="badge badge-neutral" style="background: rgba(255,255,255,0.1); color: #fff;">{{ . }}</span>
+        {{ end }}
+        {{ with .Params.city }}
+        <span class="spotlight-meta-item">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          {{ . }}
+        </span>
+        {{ end }}
+      </div>
+
+      <h2 class="spotlight-title">
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </h2>
+
+      <p class="spotlight-desc">
+        {{ with .Params.description }}{{ . }}{{ else }}{{ .Summary | plainify }}{{ end }}
+      </p>
+    </div>
+
+    <div class="spotlight-cta">
+      {{ with .Params.luma_url }}
+      <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="btn btn-luma btn-lg">
+        <span>RSVP on Luma</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+      </a>
+      {{ else }}
+      <a href="{{ $.Site.Params.luma_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-luma btn-lg">
+        <span>Register on Luma</span>
+      </a>
+      {{ end }}
+      <a href="{{ .RelPermalink }}" style="font-size: 0.85rem; color: #94a3b8; text-decoration: underline;">
+        View event agenda &amp; venue details →
+      </a>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-kicker">Gatherings &amp; Workshops</span>
+      <h2 class="section-title">Upcoming Meetups &amp; Sessions</h2>
+      <p class="section-desc">Join our in-person and hybrid meetups across Coimbatore, Chennai, Madurai, Dindigul, and partner college campuses.</p>
+    </div>
+
+    <div class="grid grid-cols-3">
+      {{ $events := where (where .Site.RegularPages "Section" "events") ".Params.status" "upcoming" }}
+      {{ range first 3 (sort $events "Date" "asc") }}
+        {{ partial "event-card.html" . }}
+      {{ else }}
+        <p style="color: var(--text-muted); grid-column: 1 / -1;">No upcoming meetups scheduled right now. Check back shortly or browse our past events!</p>
+      {{ end }}
+    </div>
+
+    <div class="section-actions">
+      <a href="{{ "/events/" | relURL }}" class="btn btn-outline">
+        <span>View All Events →</span>
+      </a>
+    </div>
+  </div>
+</section>
+-->
+
+<!-- Chapters Section -->
+<section class="section section-subtle" id="chapters-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-kicker">Campus &amp; City Hubs</span>
+      <h2 class="section-title">Community Chapters</h2>
+      <p class="section-desc">TNJUG chapters bridge academia and industry by pairing faculty mentors, student organizers, and tech lead mentors to deliver hands-on Java labs.</p>
+    </div>
+
+    {{ $chapters := where .Site.RegularPages "Section" "chapters" }}
+    <div class="grid grid-cols-3" id="home-chapters-grid">
+      {{ range $index, $chapter := $chapters.ByWeight }}
+      <div class="chapter-item{{ if ge $index 3 }} is-hidden{{ end }}" data-chapter-index="{{ $index }}">
+        {{ partial "chapter-card.html" . }}
+      </div>
+      {{ end }}
+    </div>
+
+    <div class="section-actions" style="display: flex; gap: 1rem; justify-content: center; align-items: center; flex-wrap: wrap;">
+      {{ if gt (len $chapters) 3 }}
+      <button id="toggle-chapters-btn" class="btn btn-primary" type="button" aria-expanded="false">
+        <span id="toggle-chapters-text">Show More Chapters ({{ sub (len $chapters) 3 }})</span>
+        <svg id="toggle-chapters-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition: transform 0.2s ease;">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+      {{ end }}
+      <a href="{{ "/chapters/" | relURL }}" class="btn btn-outline">
+        <span>Explore All Chapters &amp; How to Start One →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function() {
+    var btn = document.getElementById('toggle-chapters-btn');
+    if (!btn) return;
+    var textSpan = document.getElementById('toggle-chapters-text');
+    var icon = document.getElementById('toggle-chapters-icon');
+    var extraChapters = document.querySelectorAll('.chapter-item[data-chapter-index]');
+    var defaultText = textSpan.textContent;
+    var isExpanded = false;
+
+    btn.addEventListener('click', function() {
+      isExpanded = !isExpanded;
+      btn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+
+      extraChapters.forEach(function(item) {
+        var idx = parseInt(item.getAttribute('data-chapter-index'), 10);
+        if (idx >= 3) {
+          if (isExpanded) {
+            item.classList.remove('is-hidden');
+            item.classList.add('is-revealed');
+          } else {
+            item.classList.add('is-hidden');
+            item.classList.remove('is-revealed');
+          }
+        }
+      });
+
+      if (isExpanded) {
+        textSpan.textContent = 'Show Less';
+        if (icon) icon.style.transform = 'rotate(180deg)';
+      } else {
+        textSpan.textContent = defaultText;
+        if (icon) icon.style.transform = 'rotate(0deg)';
+        var section = document.getElementById('chapters-section');
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
+  })();
+</script>
+
+<!-- Community Leaders Section -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-kicker">Volunteers &amp; Mentors</span>
+      <h2 class="section-title">Community Leaders</h2>
+      <p class="section-desc">Meet the core organizers, faculty leads, and student builders driving TNJUG initiatives across Tamil Nadu.</p>
+    </div>
+
+    <div class="grid grid-cols-4">
+      {{ $leaders := where .Site.RegularPages "Section" "leaders" }}
+      {{ range first 4 $leaders }}
+        {{ partial "leader-card.html" . }}
+      {{ end }}
+    </div>
+
+    <div class="section-actions">
+      <a href="{{ "/leaders/" | relURL }}" class="btn btn-outline">
+        <span>View Core Team &amp; Chapter Leads →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CFP Callout Banner -->
+<section class="section" style="padding-top: 0;">
+  <div class="container">
+    <div class="callout-box">
+      <span class="badge badge-primary" style="margin-bottom: 0.75rem;">Call for Speakers</span>
+      <h3>Share Your Story on the TNJUG Stage</h3>
+      <p>Have you solved an interesting JVM concurrency puzzle, built a high-throughput Spring Boot service, or implemented Spring AI? We welcome first-time and seasoned speakers alike.</p>
+      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a href="{{ .Site.Params.cfp_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+          <span>Submit a Talk Proposal (CFP)</span>
+        </a>
+        <a href="{{ "/community/#propose-a-talk" | relURL }}" class="btn btn-outline btn-lg">
+          <span>Speaker &amp; CFP Guidelines</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}

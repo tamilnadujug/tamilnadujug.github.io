@@ -1,0 +1,18 @@
+---
+title: "K Haripriya"
+role: "Chapter Leader (Professional)"
+type: "chapter"
+chapter: "PSNA College of Engineering and Technology"
+designation: "Assistant Professor"
+experience: "13 years"
+email: "haripriyame@psnacet.edu.in"
+phone: "8098995858"
+city: "Dindigul"
+bio: "Building a strong student community to learn Java together, guide students with technical resources, and create collaborative spaces for hands-on project excellence."
+activities: "Tech talks, Student sessions, Hackathons, Campus events"
+photo: "/photos/k-haripriya.png"
+linkedin: "https://www.linkedin.com/in/haripriya-k-9912bb91"
+github: ""
+twitter: ""
+website: ""
+---

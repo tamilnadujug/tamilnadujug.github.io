@@ -1,0 +1,18 @@
+---
+title: "Dr. D. Karthika"
+role: "Chapter Leader (Professional)"
+type: "chapter"
+chapter: "VET Institute of Arts and Science"
+designation: "Programme Lead, School of Computing"
+experience: "16 years"
+email: "karthikad@vetias.ac.in"
+phone: "9524057206"
+city: "Erode"
+bio: "Creating opportunities for students to learn, collaborate, innovate, and grow through active tech communities, high student engagement, and future-ready academic initiatives."
+activities: "Tech talks, Workshops, Student sessions, Hackathons, Panel discussions, Campus events"
+photo: "/photos/dr-d-karthika.svg"
+linkedin: "https://www.linkedin.com/in/karthika-keerthivasan-82805944"
+github: ""
+twitter: ""
+website: ""
+---

@@ -1,0 +1,85 @@
+<div class="card event-card{{ if .Params.featured }} featured{{ end }}">
+  <div class="event-card-header">
+    <div class="event-card-date-badge">
+      <span class="month">{{ .Date.Format "Jan" }}</span>
+      <span class="day">{{ .Date.Format "02" }}</span>
+    </div>
+
+    <div style="display: flex; gap: 0.4rem; align-items: center;">
+      {{ with .Params.event_type }}
+      <span class="badge badge-info">{{ . }}</span>
+      {{ end }}
+
+      {{ if eq .Params.status "upcoming" }}
+      <span class="badge badge-success">Upcoming</span>
+      {{ else if eq .Params.status "past" }}
+      <span class="badge badge-neutral">Completed</span>
+      {{ else if eq .Params.status "sold-out" }}
+      <span class="badge badge-warning">Waitlist</span>
+      {{ end }}
+    </div>
+  </div>
+
+  <h3 class="event-card-title">
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+  </h3>
+
+  <div class="event-card-meta">
+    {{ if or .Params.start_time .Params.end_time }}
+    <div class="event-card-meta-item">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+      <span>{{ .Params.start_time }}{{ with .Params.end_time }} – {{ . }}{{ end }}</span>
+    </div>
+    {{ end }}
+
+    {{ with .Params.venue }}
+    <div class="event-card-meta-item">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+      <span>{{ . }}{{ with $.Params.city }}, {{ . }}{{ end }}</span>
+    </div>
+    {{ end }}
+
+    {{ with .Params.speaker }}
+    <div class="event-card-meta-item">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+      <span>Speaker: {{ . }}</span>
+    </div>
+    {{ end }}
+  </div>
+
+  <p class="event-card-desc">
+    {{ with .Params.description }}
+      {{ . }}
+    {{ else }}
+      {{ .Summary | plainify | truncate 130 }}
+    {{ end }}
+  </p>
+
+  <div class="event-card-footer">
+    <a href="{{ .RelPermalink }}" class="btn btn-outline btn-sm">
+      Details
+    </a>
+
+    {{ if eq .Params.status "upcoming" }}
+      {{ with .Params.luma_url }}
+      <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="btn btn-luma btn-sm">
+        <span>RSVP on Luma</span>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+      </a>
+      {{ else }}
+      <a href="{{ $.Site.Params.luma_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-luma btn-sm">
+        <span>RSVP on Luma</span>
+      </a>
+      {{ end }}
+    {{ else }}
+      <div style="display: flex; gap: 0.35rem;">
+        {{ with .Params.slides_url }}
+        <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" title="View Slides">Slides</a>
+        {{ end }}
+        {{ with .Params.recording_url }}
+        <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" title="Watch Recording">Watch</a>
+        {{ end }}
+      </div>
+    {{ end }}
+  </div>
+</div>

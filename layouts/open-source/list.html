@@ -1,0 +1,305 @@
+{{ define "main" }}
+<div class="article-header">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="{{ "/" | relURL }}">Home</a>
+      <span>/</span>
+      <span>Open Source</span>
+    </div>
+    <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem;">
+      <span class="badge badge-primary">Ecosystem</span>
+      <span class="badge badge-success">Open Source Lab</span>
+    </div>
+    <h1 class="article-title">Open Source Initiatives &amp; The Open Source Lab</h1>
+    <p class="section-desc">
+      Connecting academic learning with production industry software engineering through real-world open-source contributions, hands-on internships, hardware prototyping, and community leadership across Tamil Nadu.
+    </p>
+  </div>
+</div>
+
+<div class="container" style="margin-bottom: 4rem;">
+
+  <!-- Featured Initiative: The Open Source Lab -->
+  <div class="card" style="padding: 2.5rem; margin-bottom: 3.5rem; background: linear-gradient(135deg, var(--bg-surface) 0%, rgba(231, 111, 81, 0.04) 100%); border: 1px solid var(--border-color);">
+    <div class="grid grid-cols-2" style="gap: 2.5rem; align-items: center;">
+      <div>
+        <span class="section-kicker">Flagship Initiative</span>
+        <h2 style="font-size: 1.85rem; font-weight: 800; margin-bottom: 1rem; color: var(--text-primary); line-height: 1.25;">
+          The Open Source Lab at Kongu Engineering College
+        </h2>
+        <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
+          Established as an academic-industry partnership in collaboration with the <strong>Tamil Nadu Java User Group (TNJUG)</strong> and <strong>Department of Computer Science and Engineering, Kongu Engineering College</strong>, the Open Source Lab provides students with a transformative software engineering environment.
+        </p>
+        <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
+          Initiated by <strong>Rohan J</strong> and guided by dedicated industry architects and faculty leaders, students build production-grade open-source platforms, intern at cutting-edge tech firms, engage with district administration, and mentor peer developers across the state.
+        </p>
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <a href="#projects" class="btn btn-primary btn-sm">Explore Projects</a>
+          <a href="#phases" class="btn btn-outline btn-sm">Program Structure</a>
+          <a href="#milestones" class="btn btn-outline btn-sm">Field Milestones</a>
+        </div>
+      </div>
+      <div>
+        <img src="{{ "/images/open-source/oslab-collaborative-learning.jpg" | relURL }}" alt="Open Source Lab Collaborative Team" style="width: 100%; height: 320px; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-md);" loading="lazy">
+        <div style="font-size: 0.8rem; color: var(--text-muted); text-align: center; margin-top: 0.5rem;">
+          Open Source Lab inaugural team collaborating at Kongu Engineering College
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Program Phases Overview -->
+  <div id="phases" style="margin-bottom: 4rem;">
+    <div class="section-header" style="margin-bottom: 2rem;">
+      <span class="section-kicker">Curriculum</span>
+      <h2 class="section-title">The 6-Phase Learning Roadmap</h2>
+      <p class="section-desc">
+        A progressive software engineering pathway combining intensive technical bootcamps, architectural team structures, remote open-source workflows, and real-world internships.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-3" style="gap: 1.5rem;">
+      <!-- Phase 1 -->
+      <div class="card" style="padding: 1.75rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+          <span class="badge badge-primary">Phase 1</span>
+          <span style="font-size: 0.8rem; color: var(--color-success); font-weight: 600;">Completed</span>
+        </div>
+        <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem;">Foundation &amp; Java Core</h3>
+        <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1rem;">
+          Intensive training in modern semantic HTML, CSS layouts, Java OOP principles, exception handling, data structures, and project directory structuring.
+        </p>
+        <div style="font-size: 0.8rem; color: var(--text-muted);">
+          <strong>Mentors:</strong> Rohan J, Muthuraman A, Thirumurugan
+        </div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="card" style="padding: 1.75rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+          <span class="badge badge-primary">Phase 2</span>
+          <span style="font-size: 0.8rem; color: var(--color-success); font-weight: 600;">Completed</span>
+        </div>
+        <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem;">Team Domains &amp; Architecture</h3>
+        <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1rem;">
+          Advanced DSA, Git version control, Docker containerization, DBMS design seminars, and domain-specialized teams (DevOps, Frontend, Backend, Full Stack).
+        </p>
+        <div style="font-size: 0.8rem; color: var(--text-muted);">
+          <strong>Mentors:</strong> Sathish Kumar Thiyagarajan, Hari Nikesh R, Shoban Babu Karri
+        </div>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="card" style="padding: 1.75rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+          <span class="badge badge-primary">Phase 3</span>
+          <span style="font-size: 0.8rem; color: var(--color-success); font-weight: 600;">Completed</span>
+        </div>
+        <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem;">OSS &amp; Industry Internships</h3>
+        <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1rem;">
+          Independent remote open-source development on <strong>TNEBooks</strong>, daily morning peer-teaching sessions, and industry internships in Chennai, Trichy, Ramanathapuram, and Tirunelveli.
+        </p>
+        <div style="font-size: 0.8rem; color: var(--text-muted);">
+          <strong>Mentors:</strong> Industry Partner Mentors &amp; TNJUG Core
+        </div>
+      </div>
+    </div>
+
+    <!-- Internship Placements Breakdown -->
+    <div class="card" style="margin-top: 1.75rem; padding: 2rem; background: var(--bg-surface);">
+      <h4 style="font-size: 1.1rem; margin-bottom: 1rem; color: var(--color-primary);">Phase 3 Internship Cohorts</h4>
+      <div class="grid grid-cols-4" style="gap: 1.25rem; font-size: 0.875rem;">
+        <div>
+          <strong>Chennai — Virdhi Tech Lab</strong>
+          <div style="color: var(--text-secondary); margin-top: 0.25rem;">Keerthana R &amp; Sindhu D</div>
+          <div style="color: var(--text-muted); font-size: 0.8rem;">UI/UX, AI Prompt Engineering, Softech Ashram</div>
+        </div>
+        <div>
+          <strong>Trichy — Grand Anicut Solutions</strong>
+          <div style="color: var(--text-secondary); margin-top: 0.25rem;">Kaviamudhan K S &amp; Atitiya Ram S</div>
+          <div style="color: var(--text-muted); font-size: 0.8rem;">CAN Protocol, JVM Bytecode, JNI, OSGi Apache Felix</div>
+        </div>
+        <div>
+          <strong>Ramanathapuram — Fieldwork</strong>
+          <div style="color: var(--text-secondary); margin-top: 0.25rem;">Rakhul M, Kaviamudhan K S, Atitiya Ram S</div>
+          <div style="color: var(--text-muted); font-size: 0.8rem;">TNEBooks Field Review, Hardware Servicing, 100 Schools</div>
+        </div>
+        <div>
+          <strong>Tirunelveli — Roriri IT Park</strong>
+          <div style="color: var(--text-secondary); margin-top: 0.25rem;">Kavin S</div>
+          <div style="color: var(--text-muted); font-size: 0.8rem;">Database Developer Intern, Project Architecture</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Key Open Source Projects Grid -->
+  <div id="projects" style="margin-bottom: 4rem;">
+    <div class="section-header" style="margin-bottom: 2rem;">
+      <span class="section-kicker">Repositories</span>
+      <h2 class="section-title">Open Source Projects</h2>
+      <p class="section-desc">
+        Explore production codebases, developer libraries, educational tools, and system engineering labs created and maintained by the TNJUG community.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2" style="gap: 1.75rem; margin-bottom: 2.5rem;">
+      {{ range .RegularPages }}
+        {{ partial "oss-card.html" . }}
+      {{ end }}
+    </div>
+  </div>
+
+  <!-- Milestones & Field Engagement Highlights -->
+  <div id="milestones" style="margin-bottom: 4rem;">
+    <div class="section-header" style="margin-bottom: 2rem;">
+      <span class="section-kicker">Impact &amp; Outreach</span>
+      <h2 class="section-title">Field Milestones &amp; Community Engagement</h2>
+      <p class="section-desc">
+        From presentations to District Collectors to live conference talks, the Open Source Lab directly connects student engineers with governance and industry.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-3" style="gap: 1.5rem; margin-bottom: 2.5rem;">
+      <!-- Milestone 1: Ramanathapuram District Collector -->
+      <div class="card" style="overflow: hidden;">
+        <img src="{{ "/images/open-source/collector-ramanathapuram-presentation.jpg" | relURL }}" alt="Meeting Ramanathapuram District Collector" style="width: 100%; height: 210px; object-fit: cover;" loading="lazy">
+        <div style="padding: 1.25rem;">
+          <span class="badge badge-primary" style="margin-bottom: 0.5rem;">100 Schools Expansion</span>
+          <h4 style="font-size: 1.05rem; margin-bottom: 0.4rem;">Ramanathapuram District Collector</h4>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
+            Presented TNEBooks to <strong>Thiru. M. Sivaguru Prabhakaran, I.A.S.</strong>, securing official permission to deploy digital educational materials across 50 government and 50 aided schools.
+          </p>
+        </div>
+      </div>
+
+      <!-- Milestone 2: EPAM Systems Java AI Meetup -->
+      <div class="card" style="overflow: hidden;">
+        <img src="{{ "/images/open-source/meetup-epam-coimbatore-sqlbuilder.jpg" | relURL }}" alt="Presenting SQLBuilder at EPAM Systems" style="width: 100%; height: 210px; object-fit: cover;" loading="lazy">
+        <div style="padding: 1.25rem;">
+          <span class="badge badge-primary" style="margin-bottom: 0.5rem;">Industry Speakers</span>
+          <h4 style="font-size: 1.05rem; margin-bottom: 0.4rem;">EPAM Systems Java AI Meetup</h4>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
+            Student developers Keerthana Rajendran and Sindhu Dhanashekaran presented the <strong>SQLBuilder</strong> open-source project to industry engineers, earning the <em>Book of Appreciation</em>.
+          </p>
+        </div>
+      </div>
+
+      <!-- Milestone 3: HackFusion & Erode Collector -->
+      <div class="card" style="overflow: hidden;">
+        <img src="{{ "/images/open-source/hackfusion-erode-collector.jpg" | relURL }}" alt="HackFusion 2026 with Erode District Collector" style="width: 100%; height: 210px; object-fit: cover;" loading="lazy">
+        <div style="padding: 1.25rem;">
+          <span class="badge badge-primary" style="margin-bottom: 0.5rem;">Governance &amp; TOSS</span>
+          <h4 style="font-size: 1.05rem; margin-bottom: 0.4rem;">HackFusion &amp; Erode Collector</h4>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
+            Demonstrated TNEBooks to <strong>Thiru. S. Kandasamy, IAS</strong> (Erode District Collector) at VETIAS, and showcased the initiative to <strong>Samir Kamerkar</strong> (Engineering Director at Canonical) at TOSS 2026.
+          </p>
+        </div>
+      </div>
+
+      <!-- Milestone 4: School Outreach & User Testing -->
+      <div class="card" style="overflow: hidden;">
+        <img src="{{ "/images/open-source/school-visit-model-school.jpg" | relURL }}" alt="School Outreach and Teacher Mentoring" style="width: 100%; height: 210px; object-fit: cover;" loading="lazy">
+        <div style="padding: 1.25rem;">
+          <span class="badge badge-primary" style="margin-bottom: 0.5rem;">Field Validation</span>
+          <h4 style="font-size: 1.05rem; margin-bottom: 0.4rem;">Grassroots Classroom Outreach</h4>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
+            Fieldwork at Government Model School, Thinaikulam Govt School, and Kongu Matric HSS (Uthukuli), gathering feedback directly from educators and mentoring high-school students.
+          </p>
+        </div>
+      </div>
+
+      <!-- Milestone 5: Green Lab Establishment -->
+      <div class="card" style="overflow: hidden;">
+        <img src="{{ "/images/open-source/green-lab-innovation-space.jpg" | relURL }}" alt="Green Lab Prototyping Space" style="width: 100%; height: 210px; object-fit: cover;" loading="lazy">
+        <div style="padding: 1.25rem;">
+          <span class="badge badge-primary" style="margin-bottom: 0.5rem;">Hardware &amp; IoT</span>
+          <h4 style="font-size: 1.05rem; margin-bottom: 0.4rem;">Green Lab Establishment</h4>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
+            Created a dedicated hardware &amp; prototyping lab at Kongu Engineering College under the guidance of Ram Prakash to build embedded CAN systems and hardware-software prototypes.
+          </p>
+        </div>
+      </div>
+
+      <!-- Milestone 6: Inter-Collegiate Expansion & PSNA Workshop -->
+      <div class="card" style="overflow: hidden;">
+        <img src="{{ "/images/open-source/oslab-inauguration-gce-erode.jpg" | relURL }}" alt="Open Source Lab Inauguration at GCE Erode" style="width: 100%; height: 210px; object-fit: cover;" loading="lazy">
+        <div style="padding: 1.25rem;">
+          <span class="badge badge-primary" style="margin-bottom: 0.5rem;">Expansion</span>
+          <h4 style="font-size: 1.05rem; margin-bottom: 0.4rem;">Inter-Collegiate Lab Expansion</h4>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
+            Inauguration of the Open Source Lab at Government College of Engineering, Erode (IRTT), and 1-week student-led workshop at PSNA College of Engineering and Technology.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Meetups Attendance & Industry Insights -->
+    <div class="card" style="padding: 2rem; background: var(--bg-surface);">
+      <h4 style="font-size: 1.15rem; margin-bottom: 1rem; color: var(--color-primary);">Industry Meetups &amp; Technical Conferences Attended</h4>
+      <div class="grid grid-cols-4" style="gap: 1.5rem; font-size: 0.875rem;">
+        <div>
+          <img src="{{ "/images/open-source/meetup-contentstack-chennai.jpg" | relURL }}" alt="Contentstack Meetup" style="width: 100%; height: 120px; object-fit: cover; border-radius: var(--radius-sm); margin-bottom: 0.5rem;" loading="lazy">
+          <strong>Contentstack, Chennai</strong>
+          <p style="color: var(--text-secondary); font-size: 0.8rem; margin-top: 0.25rem;">
+            Deep-dive sessions on Ollama, Local AI model hosting, cost optimization, and AI across SDLC.
+          </p>
+        </div>
+        <div>
+          <img src="{{ "/images/open-source/meetup-devon-bengaluru.jpg" | relURL }}" alt="DevOn Bengaluru Meetup" style="width: 100%; height: 120px; object-fit: cover; border-radius: var(--radius-sm); margin-bottom: 0.5rem;" loading="lazy">
+          <strong>DevOn, Bengaluru</strong>
+          <p style="color: var(--text-secondary); font-size: 0.8rem; margin-top: 0.25rem;">
+            Model Context Protocol (MCP) in Spring Boot by AWS, multimodal Java AI agents, and agentic workflows.
+          </p>
+        </div>
+        <div>
+          <img src="{{ "/images/open-source/meetup-oracle-bengaluru.jpg" | relURL }}" alt="Oracle Tech Hub Meetup" style="width: 100%; height: 120px; object-fit: cover; border-radius: var(--radius-sm); margin-bottom: 0.5rem;" loading="lazy">
+          <strong>Oracle Tech Hub, Bengaluru</strong>
+          <p style="color: var(--text-secondary); font-size: 0.8rem; margin-top: 0.25rem;">
+            JEP 528 crash analysis with jcmd, JDK 25+ features, Post-Quantum Cryptography, and Auto-Tunable ZGC.
+          </p>
+        </div>
+        <div>
+          <img src="{{ "/images/open-source/award-star-contributor-kongu.jpg" | relURL }}" alt="Star Contributor Award" style="width: 100%; height: 120px; object-fit: cover; border-radius: var(--radius-sm); margin-bottom: 0.5rem;" loading="lazy">
+          <strong>Recognition &amp; Awards</strong>
+          <p style="color: var(--text-secondary); font-size: 0.8rem; margin-top: 0.25rem;">
+            Star Contributor Award presented to Kaviamudhan K S; Book of Appreciation to Sindhu D &amp; Keerthana R.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Acknowledgments & Mentorship Section -->
+  <div class="card" style="padding: 2.25rem; background: var(--bg-surface); border: 1px solid var(--border-color);">
+    <h3 style="font-size: 1.3rem; margin-bottom: 0.75rem; color: var(--text-primary);">Special Thanks &amp; Acknowledgments</h3>
+    <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+      The success of the Open Source Lab Initiative has been made possible by the dedicated mentorship and support of:
+    </p>
+    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+      <span class="tech-tag">Rohan J</span>
+      <span class="tech-tag">Hari Nikesh R</span>
+      <span class="tech-tag">Sathish Kumar Thiyagarajan</span>
+      <span class="tech-tag">Raghavan (Saravanan Muthu)</span>
+      <span class="tech-tag">Ravindran Sivam</span>
+      <span class="tech-tag">Shoban Babu Karri</span>
+      <span class="tech-tag">Muthuraman A</span>
+      <span class="tech-tag">Thirumurugan</span>
+      <span class="tech-tag">Samir Kamerkar (Canonical)</span>
+      <span class="tech-tag">Dr. M. Geetha (Head of Chapters)</span>
+      <span class="tech-tag">Dr. PCD. Kalaivaani</span>
+      <span class="tech-tag">Rajadurai Krishnamoorthy</span>
+      <span class="tech-tag">Anand Babu</span>
+      <span class="tech-tag">Ram Prakash</span>
+      <span class="tech-tag">Sundararajan G</span>
+      <span class="tech-tag">Sai Mounik</span>
+      <span class="tech-tag">Vignesh Chandrasekhar</span>
+      <span class="tech-tag">Sankarraman (Sankar) Vedagiri</span>
+    </div>
+    <div style="font-size: 0.85rem; color: var(--text-muted); border-top: 1px solid var(--border-color); padding-top: 1rem;">
+      <strong>Inaugural Student Cohort (11 CSE Engineers):</strong> Kaviamudhan K S, Keerthana R, Sindhu D, Atitiya Ram S, Sri harinii K, Rakhul M, Kruba Sagari S, Kanishka S, Madhuvarshini R, Kavin S, and Joshya Deffy D.
+    </div>
+  </div>
+
+</div>
+{{ end }}
