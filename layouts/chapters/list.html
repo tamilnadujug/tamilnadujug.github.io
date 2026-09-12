@@ -50,7 +50,7 @@
 
   <!-- Active Chapters Grid -->
   <div class="grid grid-cols-3" style="margin-bottom: 4rem;">
-    {{ range .RegularPages }}
+    {{ range .RegularPages.ByWeight }}
       {{ partial "chapter-card.html" . }}
     {{ end }}
   </div>

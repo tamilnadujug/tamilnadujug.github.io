@@ -867,6 +867,36 @@ button, input, select, textarea {
   color: var(--text-primary);
 }
 
+/* Chapter Item Wrapper for Home Page Toggle */
+.chapter-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.chapter-item > .card {
+  flex: 1;
+  height: 100%;
+}
+
+.chapter-item.is-hidden {
+  display: none !important;
+}
+
+.chapter-item.is-revealed {
+  animation: chapterFadeIn 0.3s ease-out forwards;
+}
+
+@keyframes chapterFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Leader Card */
 .leader-card {
   padding: 1.5rem;

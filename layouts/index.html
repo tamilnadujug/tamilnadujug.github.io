@@ -136,7 +136,7 @@
 -->
 
 <!-- Chapters Section -->
-<section class="section section-subtle">
+<section class="section section-subtle" id="chapters-section">
   <div class="container">
     <div class="section-header">
       <span class="section-kicker">Campus &amp; City Hubs</span>
@@ -144,20 +144,72 @@
       <p class="section-desc">TNJUG chapters bridge academia and industry by pairing faculty mentors, student organizers, and tech lead mentors to deliver hands-on Java labs.</p>
     </div>
 
-    <div class="grid grid-cols-2">
-      {{ $chapters := where .Site.RegularPages "Section" "chapters" }}
-      {{ range $chapters.ByWeight }}
+    {{ $chapters := where .Site.RegularPages "Section" "chapters" }}
+    <div class="grid grid-cols-3" id="home-chapters-grid">
+      {{ range $index, $chapter := $chapters.ByWeight }}
+      <div class="chapter-item{{ if ge $index 3 }} is-hidden{{ end }}" data-chapter-index="{{ $index }}">
         {{ partial "chapter-card.html" . }}
+      </div>
       {{ end }}
     </div>
 
-    <div class="section-actions">
+    <div class="section-actions" style="display: flex; gap: 1rem; justify-content: center; align-items: center; flex-wrap: wrap;">
+      {{ if gt (len $chapters) 3 }}
+      <button id="toggle-chapters-btn" class="btn btn-primary" type="button" aria-expanded="false">
+        <span id="toggle-chapters-text">Show More Chapters ({{ sub (len $chapters) 3 }})</span>
+        <svg id="toggle-chapters-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition: transform 0.2s ease;">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+      {{ end }}
       <a href="{{ "/chapters/" | relURL }}" class="btn btn-outline">
         <span>Explore All Chapters &amp; How to Start One →</span>
       </a>
     </div>
   </div>
 </section>
+
+<script>
+  (function() {
+    var btn = document.getElementById('toggle-chapters-btn');
+    if (!btn) return;
+    var textSpan = document.getElementById('toggle-chapters-text');
+    var icon = document.getElementById('toggle-chapters-icon');
+    var extraChapters = document.querySelectorAll('.chapter-item[data-chapter-index]');
+    var defaultText = textSpan.textContent;
+    var isExpanded = false;
+
+    btn.addEventListener('click', function() {
+      isExpanded = !isExpanded;
+      btn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+
+      extraChapters.forEach(function(item) {
+        var idx = parseInt(item.getAttribute('data-chapter-index'), 10);
+        if (idx >= 3) {
+          if (isExpanded) {
+            item.classList.remove('is-hidden');
+            item.classList.add('is-revealed');
+          } else {
+            item.classList.add('is-hidden');
+            item.classList.remove('is-revealed');
+          }
+        }
+      });
+
+      if (isExpanded) {
+        textSpan.textContent = 'Show Less';
+        if (icon) icon.style.transform = 'rotate(180deg)';
+      } else {
+        textSpan.textContent = defaultText;
+        if (icon) icon.style.transform = 'rotate(0deg)';
+        var section = document.getElementById('chapters-section');
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
+  })();
+</script>
 
 <!-- Community Leaders Section -->
 <section class="section">
