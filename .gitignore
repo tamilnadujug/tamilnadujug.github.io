@@ -115,3 +115,8 @@ package-lock.json
 
 
 engine-*
+
+# Hugo
+public/
+resources/_gen/
+.hugo_build.lock

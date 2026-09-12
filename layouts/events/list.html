@@ -1,0 +1,65 @@
+{{ define "main" }}
+<div class="article-header">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="{{ "/" | relURL }}">Home</a>
+      <span>/</span>
+      <span>Events</span>
+    </div>
+    <h1 class="article-title">Events &amp; Meetups</h1>
+    <p class="section-desc">
+      Join our community-driven meetups, hands-on masterclasses, conferences, and student hackathons across Tamil Nadu. Event registration is powered by Luma.
+    </p>
+  </div>
+</div>
+
+<div class="container" style="margin-bottom: 4rem;">
+  <!-- Upcoming Events Section -->
+  <div class="section-header" style="margin-bottom: 1.5rem;">
+    <span class="section-kicker">Calendar</span>
+    <h2 class="section-title">Upcoming Gatherings</h2>
+  </div>
+
+  {{ $upcoming := where .RegularPages ".Params.status" "upcoming" }}
+  <div class="grid grid-cols-3" style="margin-bottom: 3.5rem;">
+    {{ range (sort $upcoming "Date" "asc") }}
+      {{ partial "event-card.html" . }}
+    {{ else }}
+      <div class="card" style="grid-column: 1 / -1; text-align: center; padding: 3rem;">
+        <h3 style="margin-bottom: 0.5rem;">No Upcoming Events Currently Scheduled</h3>
+        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">We are finalizing details for our next Java meetup! Check out our Luma calendar or propose a talk below.</p>
+        <div>
+          <a href="{{ .Site.Params.luma_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-luma">
+            Follow on Luma ↗
+          </a>
+        </div>
+      </div>
+    {{ end }}
+  </div>
+
+  <!-- Past Events Section -->
+  <div class="section-header" id="past-events" style="margin-bottom: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+    <span class="section-kicker">Archives</span>
+    <h2 class="section-title">Past Events &amp; Meetup Recaps</h2>
+    <p class="section-desc">Browse slides, recordings, and photo archives from our past events.</p>
+  </div>
+
+  {{ $past := where .RegularPages ".Params.status" "past" }}
+  <div class="grid grid-cols-3">
+    {{ range (sort $past "Date" "desc") }}
+      {{ partial "event-card.html" . }}
+    {{ end }}
+  </div>
+
+  <!-- CFP Callout -->
+  <div style="margin-top: 4rem;">
+    <div class="callout-box">
+      <h3>Have an idea for a talk or workshop?</h3>
+      <p>Whether you want to present on modern JDK features, GraalVM, Spring Boot, or reactive streams, we'd love to host you.</p>
+      <a href="{{ .Site.Params.cfp_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
+        Submit a Talk via CFP Form
+      </a>
+    </div>
+  </div>
+</div>
+{{ end }}

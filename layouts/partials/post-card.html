@@ -1,0 +1,35 @@
+<div class="card post-card">
+  <div class="post-card-meta">
+    <span>{{ .Date.Format "Jan 02, 2006" }}</span>
+    {{ with .Params.category }}
+    <span>•</span>
+    <span class="badge badge-primary">{{ . }}</span>
+    {{ end }}
+    <span>•</span>
+    <span>{{ .ReadingTime }} min read</span>
+  </div>
+
+  <h3 class="post-card-title">
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+  </h3>
+
+  <p class="post-card-excerpt">
+    {{ with .Params.excerpt }}
+      {{ . }}
+    {{ else }}
+      {{ .Summary | plainify | truncate 130 }}
+    {{ end }}
+  </p>
+
+  <div class="event-card-footer">
+    <div class="post-card-author">
+      {{ with .Params.author }}
+        By {{ . }}
+      {{ end }}
+    </div>
+
+    <a href="{{ .RelPermalink }}" class="btn btn-outline btn-sm">
+      Read Post →
+    </a>
+  </div>
+</div>

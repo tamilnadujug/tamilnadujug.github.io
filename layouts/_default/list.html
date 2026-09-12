@@ -1,0 +1,28 @@
+{{ define "main" }}
+<div class="article-header">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="{{ "/" | relURL }}">Home</a>
+      <span>/</span>
+      <span>{{ .Title }}</span>
+    </div>
+    <h1 class="article-title">{{ .Title }}</h1>
+    {{ with .Description }}
+    <p class="section-desc">{{ . }}</p>
+    {{ end }}
+  </div>
+</div>
+
+<div class="container" style="margin-bottom: 4rem;">
+  <div class="grid grid-cols-3">
+    {{ range .Pages }}
+      <div class="card">
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.5rem;">
+          {{ .Summary | plainify | truncate 120 }}
+        </p>
+      </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

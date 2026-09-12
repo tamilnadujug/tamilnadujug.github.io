@@ -1,0 +1,63 @@
+{{ define "main" }}
+<div class="article-header">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="{{ "/" | relURL }}">Home</a>
+      <span>/</span>
+      <span>Chapters</span>
+    </div>
+    <h1 class="article-title">TNJUG Chapters</h1>
+    <p class="section-desc">
+      Empowering students and faculty across Tamil Nadu's premier technical institutions. Each chapter pairs academic leaders with industry mentors to deliver hands-on Java workshops, OSS sprints, and masterclasses.
+    </p>
+  </div>
+</div>
+
+<div class="container" style="margin-bottom: 4rem;">
+  <!-- Active Chapters Grid -->
+  <div class="grid grid-cols-3" style="margin-bottom: 4rem;">
+    {{ range .RegularPages }}
+      {{ partial "chapter-card.html" . }}
+    {{ end }}
+  </div>
+
+  <!-- Chapter Benefits / How It Works -->
+  <div class="card" style="padding: 2.5rem; background: var(--bg-surface); margin-bottom: 3.5rem;">
+    <div class="section-header" style="margin-bottom: 2rem;">
+      <span class="section-kicker">Academic &amp; Industry Partnership</span>
+      <h2 class="section-title">How TNJUG Chapters Operate</h2>
+      <p class="section-desc">We combine academic rigour with modern JVM practices used by production teams.</p>
+    </div>
+
+    <div class="grid grid-cols-3" style="gap: 2rem;">
+      <div>
+        <div style="font-size: 1.75rem; margin-bottom: 0.5rem; color: var(--color-primary);">01.</div>
+        <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Faculty Leadership</h4>
+        <p style="font-size: 0.9rem; color: var(--text-secondary);">Department heads and senior professors mentor chapter initiatives and integrate practical modern Java topics into departmental labs.</p>
+      </div>
+
+      <div>
+        <div style="font-size: 1.75rem; margin-bottom: 0.5rem; color: var(--color-primary);">02.</div>
+        <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Student Organizers</h4>
+        <p style="font-size: 0.9rem; color: var(--text-secondary);">Passionate student developers host peer coding sessions, hackathons, and coordinate logistics with state-wide TNJUG organizers.</p>
+      </div>
+
+      <div>
+        <div style="font-size: 1.75rem; margin-bottom: 0.5rem; color: var(--color-primary);">03.</div>
+        <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Industry Mentors</h4>
+        <p style="font-size: 0.9rem; color: var(--text-secondary);">Architects and senior engineers visit campus or dial in to conduct JVM performance clinics, Spring AI labs, and career guidance.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Launch a Chapter Callout -->
+  <div class="callout-box">
+    <span class="badge badge-primary" style="margin-bottom: 0.75rem;">Expansion</span>
+    <h3>Start a TNJUG Chapter at Your Institution</h3>
+    <p>Are you a faculty member or student enthusiastic about bringing enterprise Java learning and industry mentorship to your campus?</p>
+    <a href="mailto:{{ .Site.Params.social.email }}?subject=New%20TNJUG%20Chapter%20Inquiry" class="btn btn-primary btn-lg">
+      Reach Out to Start a Chapter
+    </a>
+  </div>
+</div>
+{{ end }}

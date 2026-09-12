@@ -1,0 +1,57 @@
+{{ define "main" }}
+<div class="article-header">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="{{ "/" | relURL }}">Home</a>
+      <span>/</span>
+      <span>Leaders</span>
+    </div>
+    <h1 class="article-title">Community Leaders</h1>
+    <p class="section-desc">
+      Meet the dedicated volunteers, industry organizers, faculty champions, and student leads fostering the Tamil Nadu Java User Group ecosystem.
+    </p>
+  </div>
+</div>
+
+<div class="container" style="margin-bottom: 4rem;">
+  <!-- Core Team Section -->
+  <div class="section-header" style="margin-bottom: 2rem;">
+    <span class="section-kicker">Organizers</span>
+    <h2 class="section-title">Core Community Team</h2>
+    <p class="section-desc">The coordinating team responsible for community partnerships, speaker curation, events calendar, and state-wide initiatives.</p>
+  </div>
+
+  {{ $coreLeaders := where .RegularPages ".Params.type" "core" }}
+  <div class="grid grid-cols-4" style="margin-bottom: 4rem;">
+    {{ range $coreLeaders }}
+      {{ partial "leader-card.html" . }}
+    {{ end }}
+  </div>
+
+  <!-- Chapter Leaders Section -->
+  <div class="section-header" style="margin-bottom: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+    <span class="section-kicker">Institution Leads</span>
+    <h2 class="section-title">Chapter Leaders &amp; Faculty Mentors</h2>
+    <p class="section-desc">Faculty advisors and student leaders driving Java communities across universities and engineering colleges.</p>
+  </div>
+
+  {{ $chapterLeaders := where .RegularPages ".Params.type" "chapter" }}
+  <div class="grid grid-cols-4">
+    {{ range $chapterLeaders }}
+      {{ partial "leader-card.html" . }}
+    {{ end }}
+  </div>
+
+  <!-- Volunteer Callout -->
+  <div style="margin-top: 4rem;">
+    <div class="callout-box">
+      <span class="badge badge-primary" style="margin-bottom: 0.75rem;">Get Involved</span>
+      <h3>Become a TNJUG Community Volunteer</h3>
+      <p>Passionate about organizing tech meetups, designing graphics, mentoring students, or managing open source repos? Join our volunteer team.</p>
+      <a href="mailto:{{ .Site.Params.social.email }}?subject=Volunteering%20with%20TNJUG" class="btn btn-primary btn-lg">
+        Join the Volunteer Team
+      </a>
+    </div>
+  </div>
+</div>
+{{ end }}

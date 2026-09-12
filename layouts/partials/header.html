@@ -1,0 +1,45 @@
+<header class="site-header">
+  <div class="container nav-container">
+    <a href="{{ "/" | relURL }}" class="brand-link" aria-label="TNJUG Home">
+      <img src="{{ "/tamil_jug.jpeg" | relURL }}" alt="Tamil Nadu Java User Group" class="brand-logo" width="44" height="44">
+      <span>Tamil Nadu JUG</span>
+      <span class="brand-tag">Community</span>
+    </a>
+
+    <nav aria-label="Primary Navigation">
+      <ul class="nav-menu" id="nav-menu">
+        {{ range .Site.Menus.main }}
+        <li>
+          <a href="{{ .URL | relURL }}" class="nav-link{{ if eq $.RelPermalink .URL }} active{{ end }}">
+            {{ .Name }}
+          </a>
+        </li>
+        {{ end }}
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="{{ .Site.Params.luma_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-luma btn-sm" aria-label="Luma Calendar">
+        <span>Luma Events</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+      </a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<script>
+  (function() {
+    var toggle = document.getElementById('nav-toggle');
+    var menu = document.getElementById('nav-menu');
+    if (toggle && menu) {
+      toggle.addEventListener('click', function() {
+        var isOpen = menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', isOpen);
+      });
+    }
+  })();
+</script>

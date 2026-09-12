@@ -1,0 +1,35 @@
+{{ define "main" }}
+<div class="article-header">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="{{ "/" | relURL }}">Home</a>
+      <span>/</span>
+      <span>Speakers</span>
+    </div>
+    <h1 class="article-title">Speakers &amp; Practitioners</h1>
+    <p class="section-desc">
+      Industry architects, staff engineers, open-source maintainers, and community practitioners who have shared their experience on the TNJUG stage.
+    </p>
+  </div>
+</div>
+
+<div class="container" style="margin-bottom: 4rem;">
+  <div class="grid grid-cols-2" style="margin-bottom: 4rem;">
+    {{ range .RegularPages }}
+      {{ partial "speaker-card.html" . }}
+    {{ end }}
+  </div>
+
+  <!-- CFP Callout -->
+  <div class="callout-box">
+    <span class="badge badge-primary" style="margin-bottom: 0.75rem;">Call for Speakers</span>
+    <h3>Want to Speak at Tamil Nadu JUG?</h3>
+    <p>
+      We actively welcome developers, engineering leaders, and student researchers to present practical technical sessions. We support speakers with review sessions and slide feedback.
+    </p>
+    <a href="{{ .Site.Params.cfp_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
+      Submit Talk Proposal via CFP Form
+    </a>
+  </div>
+</div>
+{{ end }}

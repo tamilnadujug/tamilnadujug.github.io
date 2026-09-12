@@ -1,0 +1,43 @@
+{{ define "main" }}
+<div class="article-header">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="{{ "/" | relURL }}">Home</a>
+      <span>/</span>
+      <span>Archives</span>
+    </div>
+    <h1 class="article-title">Community Archives</h1>
+    <p class="section-desc">
+      A historical record of all past meetups, presentation slides, conference recordings, and blog updates from the Tamil Nadu Java User Group.
+    </p>
+  </div>
+</div>
+
+<div class="container" style="margin-bottom: 4rem;">
+  <!-- Past Events Table / Cards -->
+  <div class="section-header" style="margin-bottom: 1.5rem;">
+    <span class="section-kicker">Chronological</span>
+    <h2 class="section-title">Past Meetups &amp; Sessions</h2>
+  </div>
+
+  {{ $pastEvents := where (where .Site.RegularPages "Section" "events") ".Params.status" "past" }}
+  <div class="grid grid-cols-3" style="margin-bottom: 4rem;">
+    {{ range (sort $pastEvents "Date" "desc") }}
+      {{ partial "event-card.html" . }}
+    {{ end }}
+  </div>
+
+  <!-- Past Articles / Updates -->
+  <div class="section-header" style="margin-bottom: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+    <span class="section-kicker">Publications</span>
+    <h2 class="section-title">Past Articles &amp; Recaps</h2>
+  </div>
+
+  <div class="grid grid-cols-3">
+    {{ $allPosts := where .Site.RegularPages "Section" "posts" }}
+    {{ range (sort $allPosts "Date" "desc") }}
+      {{ partial "post-card.html" . }}
+    {{ end }}
+  </div>
+</div>
+{{ end }}

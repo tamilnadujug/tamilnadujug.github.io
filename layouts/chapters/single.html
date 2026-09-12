@@ -1,0 +1,131 @@
+{{ define "main" }}
+<div class="article-header">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="{{ "/" | relURL }}">Home</a>
+      <span>/</span>
+      <a href="{{ "/chapters/" | relURL }}">Chapters</a>
+      <span>/</span>
+      <span>{{ .Title }}</span>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+      {{ with .Params.logo }}
+      <img src="{{ . | relURL }}" alt="{{ $.Title }}" class="chapter-logo" width="80" height="80" style="width: 80px; height: 80px;">
+      {{ end }}
+
+      <div>
+        <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem;">
+          <span class="badge badge-success">{{ .Params.status | default "Active Chapter" }}</span>
+          {{ with .Params.established_year }}
+          <span class="badge badge-neutral">Chapter Est. {{ . }}</span>
+          {{ end }}
+        </div>
+        <h1 class="article-title" style="margin-bottom: 0.25rem;">{{ .Title }}</h1>
+        <div style="color: var(--text-secondary); font-size: 1.05rem;">
+          {{ .Params.college_name | default .Title }} • {{ .Params.city }}, Tamil Nadu
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container article-layout">
+  <div class="prose">
+    {{ if .Content }}
+      {{ .Content }}
+    {{ else }}
+      <p>{{ .Params.description }}</p>
+    {{ end }}
+
+    <!-- Chapter Leadership Section -->
+    <h2 style="margin-top: 2.5rem; margin-bottom: 1.5rem;">Chapter Leadership</h2>
+    <div class="grid grid-cols-2" style="gap: 1.5rem; margin-bottom: 2.5rem;">
+      {{ with .Params.faculty_leader }}
+      <div class="card" style="padding: 1.5rem;">
+        <span class="badge badge-primary" style="align-self: flex-start; margin-bottom: 0.75rem;">Faculty Advisor</span>
+        <h3 style="font-size: 1.2rem; margin-bottom: 0.25rem;">{{ .name }}</h3>
+        <div style="color: var(--color-primary); font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem;">{{ .designation }}</div>
+        {{ with .experience }}<div style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.5rem;">{{ . }}</div>{{ end }}
+        <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1rem;">{{ .about }}</p>
+        {{ with .email }}
+        <a href="mailto:{{ . }}" class="btn btn-outline btn-sm">Email Advisor</a>
+        {{ end }}
+      </div>
+      {{ end }}
+
+      {{ with .Params.student_leader }}
+      <div class="card" style="padding: 1.5rem;">
+        <span class="badge badge-info" style="align-self: flex-start; margin-bottom: 0.75rem;">Student Lead</span>
+        <h3 style="font-size: 1.2rem; margin-bottom: 0.25rem;">{{ .name }}</h3>
+        <div style="color: var(--color-primary); font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem;">{{ .year }}</div>
+        <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1rem;">{{ .about }}</p>
+        {{ with .email }}
+        <a href="mailto:{{ . }}" class="btn btn-outline btn-sm">Email Lead</a>
+        {{ end }}
+      </div>
+      {{ end }}
+    </div>
+
+    <!-- Chapter Events -->
+    {{ $chapterName := .Title }}
+    {{ $chapterEvents := where (where .Site.RegularPages "Section" "events") ".Params.chapter" $chapterName }}
+    {{ if gt (len $chapterEvents) 0 }}
+      <h2>Events at this Chapter</h2>
+      <div class="grid grid-cols-2" style="margin-top: 1.25rem;">
+        {{ range $chapterEvents }}
+          {{ partial "event-card.html" . }}
+        {{ end }}
+      </div>
+    {{ end }}
+  </div>
+
+  <!-- Sidebar -->
+  <aside>
+    <div class="sidebar-widget">
+      <h4 class="sidebar-widget-title">Chapter Overview</h4>
+      <div style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.9rem;">
+        <div>
+          <div style="color: var(--text-muted); font-size: 0.75rem;">LOCATION</div>
+          <strong>{{ .Params.city }}, Tamil Nadu</strong>
+        </div>
+
+        {{ with .Params.student_count }}
+        <div>
+          <div style="color: var(--text-muted); font-size: 0.75rem;">CAMPUS REACH</div>
+          <strong>{{ . }}+ Students</strong>
+        </div>
+        {{ end }}
+
+        {{ with .Params.email }}
+        <div>
+          <div style="color: var(--text-muted); font-size: 0.75rem;">CONTACT</div>
+          <a href="mailto:{{ . }}" style="color: var(--color-primary); word-break: break-all;">{{ . }}</a>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+
+    {{ with .Params.specializations }}
+    <div class="sidebar-widget">
+      <h4 class="sidebar-widget-title">Key Focus Areas</h4>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.35rem;">
+        {{ range . }}
+        <span class="tech-tag">{{ . }}</span>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    <div class="sidebar-widget">
+      <h4 class="sidebar-widget-title">Join Chapter Activities</h4>
+      <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">
+        Students &amp; faculty members from this campus can participate in upcoming campus labs and study groups.
+      </p>
+      <a href="{{ .Site.Params.luma_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-luma btn-sm" style="width: 100%;">
+        View On Luma Calendar ↗
+      </a>
+    </div>
+  </aside>
+</div>
+{{ end }}

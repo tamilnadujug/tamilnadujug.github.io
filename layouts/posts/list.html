@@ -1,0 +1,23 @@
+{{ define "main" }}
+<div class="article-header">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="{{ "/" | relURL }}">Home</a>
+      <span>/</span>
+      <span>Blog &amp; Updates</span>
+    </div>
+    <h1 class="article-title">Community Blog &amp; Articles</h1>
+    <p class="section-desc">
+      Tutorials, architectural insights, community news, and event recaps contributed by Tamil Nadu Java User Group organizers, speakers, and student developers.
+    </p>
+  </div>
+</div>
+
+<div class="container" style="margin-bottom: 4rem;">
+  <div class="grid grid-cols-3">
+    {{ range .Paginator.Pages }}
+      {{ partial "post-card.html" . }}
+    {{ end }}
+  </div>
+</div>
+{{ end }}
