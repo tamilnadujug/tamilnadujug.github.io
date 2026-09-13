@@ -20,6 +20,8 @@ student_leader:
   year: "2nd Year CSBS • Technical Lead"
   about: "Connecting students with modern technology, learning, and collaboration opportunities through campus workshops, projects, and events."
   email: "nambuharisaran123@gmail.com"
+  photo: "/photos/nambu-harisaran-n.png"
+  website: "https://hari.aqro.in"
 ---
 
 ### About PSNA Chapter
