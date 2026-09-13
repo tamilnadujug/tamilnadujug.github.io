@@ -9,13 +9,13 @@
       <span>{{ .Title }}</span>
     </div>
 
-    <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+    <div class="chapter-single-header">
       {{ with .Params.logo }}
-      <img src="{{ . | relURL }}" alt="{{ $.Title }}" class="chapter-logo" width="80" height="80" style="width: 80px; height: 80px;">
+      <img src="{{ . | relURL }}" alt="{{ $.Title }}" class="chapter-logo chapter-single-logo" width="80" height="80">
       {{ end }}
 
-      <div>
-        <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem;">
+      <div class="chapter-single-meta">
+        <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap;">
           <span class="badge badge-success">{{ .Params.status | default "Active Chapter" }}</span>
           {{ with .Params.established_year }}
           <span class="badge badge-neutral">Chapter Est. {{ . }}</span>
@@ -46,16 +46,16 @@
       <div class="grid grid-cols-2" style="gap: 1.5rem; margin-bottom: 2.5rem;">
         {{ range $chapterLeaders }}
         {{ $lead := . }}
-        <div class="card" style="padding: 1.5rem; display: flex; flex-direction: column;">
-          <div style="display: flex; gap: 1.25rem; align-items: center; margin-bottom: 1rem;">
+        <div class="card chapter-lead-card">
+          <div class="chapter-lead-header">
             {{ with .Params.photo }}
-            <img src="{{ . | relURL }}" alt="{{ $lead.Title }}" class="leader-avatar" width="80" height="80" style="width: 80px; height: 80px; margin-bottom: 0; flex-shrink: 0; object-fit: cover; border: 2px solid var(--color-primary-light);">
+            <img src="{{ . | relURL }}" alt="{{ $lead.Title }}" class="chapter-lead-avatar" width="80" height="80">
             {{ else }}
-            <div class="leader-avatar" style="width: 80px; height: 80px; margin-bottom: 0; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.35rem; color: var(--color-primary); border: 2px solid var(--color-primary-light);">
+            <div class="chapter-lead-avatar chapter-lead-placeholder">
               {{ substr $lead.Title 0 2 }}
             </div>
             {{ end }}
-            <div style="flex: 1; min-width: 0;">
+            <div class="chapter-lead-info">
               <span class="badge {{ if in .Params.role "Professional" }}badge-primary{{ else }}badge-info{{ end }}" style="display: inline-block; margin-bottom: 0.35rem;">
                 {{ .Params.role | default "Chapter Representative" }}
               </span>
@@ -65,7 +65,7 @@
             </div>
           </div>
           <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1rem; flex-grow: 1;">{{ .Params.bio }}</p>
-          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: auto;">
+          <div class="chapter-lead-actions">
             {{ with .Params.email }}
             <a href="mailto:{{ . }}" class="btn btn-outline btn-sm">Email</a>
             {{ end }}
@@ -84,16 +84,16 @@
       <div class="grid grid-cols-2" style="gap: 1.5rem; margin-bottom: 2.5rem;">
         {{ with .Params.faculty_leader }}
         {{ $fl := . }}
-        <div class="card" style="padding: 1.5rem; display: flex; flex-direction: column;">
-          <div style="display: flex; gap: 1.25rem; align-items: center; margin-bottom: 1rem;">
+        <div class="card chapter-lead-card">
+          <div class="chapter-lead-header">
             {{ with .photo }}
-            <img src="{{ . | relURL }}" alt="{{ $fl.name }}" class="leader-avatar" width="80" height="80" style="width: 80px; height: 80px; margin-bottom: 0; flex-shrink: 0; object-fit: cover; border: 2px solid var(--color-primary-light);">
+            <img src="{{ . | relURL }}" alt="{{ $fl.name }}" class="chapter-lead-avatar" width="80" height="80">
             {{ else }}
-            <div class="leader-avatar" style="width: 80px; height: 80px; margin-bottom: 0; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.35rem; color: var(--color-primary); border: 2px solid var(--color-primary-light);">
+            <div class="chapter-lead-avatar chapter-lead-placeholder">
               {{ substr $fl.name 0 2 }}
             </div>
             {{ end }}
-            <div style="flex: 1; min-width: 0;">
+            <div class="chapter-lead-info">
               <span class="badge badge-primary" style="display: inline-block; margin-bottom: 0.35rem;">Faculty Advisor</span>
               <h3 style="font-size: 1.2rem; margin-bottom: 0.25rem;">{{ .name }}</h3>
               <div style="color: var(--color-primary); font-size: 0.85rem; font-weight: 600;">{{ .designation }}</div>
@@ -102,7 +102,7 @@
           </div>
           <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1rem; flex-grow: 1;">{{ .about }}</p>
           {{ with .email }}
-          <div style="margin-top: auto;">
+          <div class="chapter-lead-actions">
             <a href="mailto:{{ . }}" class="btn btn-outline btn-sm">Email Advisor</a>
           </div>
           {{ end }}
@@ -111,16 +111,16 @@
 
         {{ with .Params.student_leader }}
         {{ $sl := . }}
-        <div class="card" style="padding: 1.5rem; display: flex; flex-direction: column;">
-          <div style="display: flex; gap: 1.25rem; align-items: center; margin-bottom: 1rem;">
+        <div class="card chapter-lead-card">
+          <div class="chapter-lead-header">
             {{ with .photo }}
-            <img src="{{ . | relURL }}" alt="{{ $sl.name }}" class="leader-avatar" width="80" height="80" style="width: 80px; height: 80px; margin-bottom: 0; flex-shrink: 0; object-fit: cover; border: 2px solid var(--color-primary-light);">
+            <img src="{{ . | relURL }}" alt="{{ $sl.name }}" class="chapter-lead-avatar" width="80" height="80">
             {{ else }}
-            <div class="leader-avatar" style="width: 80px; height: 80px; margin-bottom: 0; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.35rem; color: var(--color-primary); border: 2px solid var(--color-primary-light);">
+            <div class="chapter-lead-avatar chapter-lead-placeholder">
               {{ substr $sl.name 0 2 }}
             </div>
             {{ end }}
-            <div style="flex: 1; min-width: 0;">
+            <div class="chapter-lead-info">
               <span class="badge badge-info" style="display: inline-block; margin-bottom: 0.35rem;">Student Lead</span>
               <h3 style="font-size: 1.2rem; margin-bottom: 0.25rem;">{{ .name }}</h3>
               <div style="color: var(--color-primary); font-size: 0.85rem; font-weight: 600;">{{ .designation | default .year }}</div>
@@ -128,7 +128,7 @@
             </div>
           </div>
           <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1rem; flex-grow: 1;">{{ .about }}</p>
-          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: auto;">
+          <div class="chapter-lead-actions">
             {{ with .email }}
             <a href="mailto:{{ . }}" class="btn btn-outline btn-sm">Email Lead</a>
             {{ end }}
