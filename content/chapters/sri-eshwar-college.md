@@ -2,7 +2,7 @@
 title: "Sri Eshwar College of Engineering"
 college_name: "Sri Eshwar College of Engineering"
 city: "Coimbatore"
-established_year: "2020"
+established_year: "2024"
 logo: "/logos/sece-logo.png"
 status: "Active Chapter"
 email: "giridharan.r@sece.ac.in"
@@ -19,4 +19,4 @@ faculty_leader:
 
 ### About SECE Chapter
 
-Established in 2020, the Sri Eshwar College of Engineering chapter has hosted over 15 meetups and workshops, engaging hundreds of aspiring software engineers.
+Established in 2024, the Sri Eshwar College of Engineering chapter has hosted over 15 meetups and workshops, engaging hundreds of aspiring software engineers.
