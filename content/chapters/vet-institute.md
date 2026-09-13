@@ -14,12 +14,14 @@ faculty_leader:
   experience: "16 years"
   about: "Creating opportunities for students to learn, collaborate, innovate, and grow through active tech communities, high student engagement, and future-ready academic initiatives."
   email: "karthikad@vetias.ac.in"
+  photo: "/photos/dr-d-karthika.png"
 student_leader:
   name: "Vignesh Chandrasekhar"
   designation: "Innovation Hub Lead"
   experience: "6 years"
   about: "Inspiring student developers, building vibrant campus communities, and creating meaningful opportunities for learning, competitive coding, and open collaboration."
   email: "innovation@vetias.ac.in"
+  photo: "/photos/vignesh-chandrasekhar.png"
 ---
 
 ### About the Chapter

@@ -28,24 +28,42 @@
   {{ if gt (len $chapterLeaders) 0 }}
   <div class="chapter-leaders-preview">
     {{ range first 2 $chapterLeaders }}
+    {{ $lead := . }}
     <div class="chapter-leader-row">
       <span class="chapter-leader-role">{{ if in .Params.role "Professional" }}Faculty Lead{{ else }}Campus Lead{{ end }}</span>
-      <span class="chapter-leader-name">{{ .Title }}</span>
+      <span class="chapter-leader-name">
+        {{ with .Params.photo }}
+        <img src="{{ . | relURL }}" alt="{{ $lead.Title }}" class="chapter-leader-avatar" width="22" height="22" loading="lazy">
+        {{ end }}
+        <span>{{ .Title }}</span>
+      </span>
     </div>
     {{ end }}
   </div>
   {{ else if or .Params.faculty_leader .Params.student_leader }}
   <div class="chapter-leaders-preview">
     {{ with .Params.faculty_leader }}
+    {{ $fl := . }}
     <div class="chapter-leader-row">
       <span class="chapter-leader-role">Faculty Lead</span>
-      <span class="chapter-leader-name">{{ .name }}</span>
+      <span class="chapter-leader-name">
+        {{ with .photo }}
+        <img src="{{ . | relURL }}" alt="{{ $fl.name }}" class="chapter-leader-avatar" width="22" height="22" loading="lazy">
+        {{ end }}
+        <span>{{ .name }}</span>
+      </span>
     </div>
     {{ end }}
     {{ with .Params.student_leader }}
+    {{ $sl := . }}
     <div class="chapter-leader-row">
       <span class="chapter-leader-role">Student Lead</span>
-      <span class="chapter-leader-name">{{ .name }}</span>
+      <span class="chapter-leader-name">
+        {{ with .photo }}
+        <img src="{{ . | relURL }}" alt="{{ $sl.name }}" class="chapter-leader-avatar" width="22" height="22" loading="lazy">
+        {{ end }}
+        <span>{{ .name }}</span>
+      </span>
     </div>
     {{ end }}
   </div>

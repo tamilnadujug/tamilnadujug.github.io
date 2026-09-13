@@ -14,6 +14,7 @@ faculty_leader:
   experience: "11 years"
   about: "Leading campus Java initiatives, conducting training, organizing student hackathons, and empowering future engineers with industry-grade software practices."
   email: "giridharan.r@sece.ac.in"
+  photo: "/photos/giridharan-r.png"
 ---
 
 ### About SECE Chapter

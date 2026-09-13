@@ -865,6 +865,19 @@ button, input, select, textarea {
 .chapter-leader-name {
   font-weight: 600;
   color: var(--text-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.chapter-leader-avatar {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-surface);
+  flex-shrink: 0;
 }
 
 /* Chapter Item Wrapper for Home Page Toggle */

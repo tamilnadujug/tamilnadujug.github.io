@@ -14,6 +14,7 @@ faculty_leader:
   experience: "26+ years"
   about: "Distinguished Academic Leader promoting Java, open-source technologies, and collaborative learning among students."
   email: "hodcsbs@psnacet.edu.in"
+  photo: "/photos/dr-s-pavalarajan.png"
 student_leader:
   name: "Nambu Harisaran N"
   year: "2nd Year CSBS • Technical Lead"
