@@ -20,7 +20,7 @@
 <div class="container" style="margin-bottom: 4rem;">
 
   <!-- Featured Initiative: The Open Source Lab -->
-  <div class="card" style="padding: 2.5rem; margin-bottom: 3.5rem; background: linear-gradient(135deg, var(--bg-surface) 0%, rgba(231, 111, 81, 0.04) 100%); border: 1px solid var(--border-color);">
+  <div class="card os-flagship-card">
     <div class="grid grid-cols-2" style="gap: 2.5rem; align-items: center;">
       <div>
         <span class="section-kicker">Flagship Initiative</span>
@@ -33,14 +33,14 @@
         <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
           Initiated by <strong>Rohan J</strong> and guided by dedicated industry architects and faculty leaders, students build production-grade open-source platforms, intern at cutting-edge tech firms, engage with district administration, and mentor peer developers across the state.
         </p>
-        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+        <div class="os-flagship-actions" style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
           <a href="#projects" class="btn btn-primary btn-sm">Explore Projects</a>
           <a href="#phases" class="btn btn-outline btn-sm">Program Structure</a>
           <a href="#milestones" class="btn btn-outline btn-sm">Field Milestones</a>
         </div>
       </div>
       <div>
-        <img src="{{ "/images/open-source/oslab-collaborative-learning.jpg" | relURL }}" alt="Open Source Lab Collaborative Team" style="width: 100%; height: 320px; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-md);" loading="lazy">
+        <img src="{{ "/images/open-source/oslab-collaborative-learning.jpg" | relURL }}" alt="Open Source Lab Collaborative Team" class="os-flagship-img" loading="lazy">
         <div style="font-size: 0.8rem; color: var(--text-muted); text-align: center; margin-top: 0.5rem;">
           Open Source Lab inaugural team collaborating at Kongu Engineering College
         </div>
@@ -60,7 +60,7 @@
 
     <div class="grid grid-cols-3" style="gap: 1.5rem;">
       <!-- Phase 1 -->
-      <div class="card" style="padding: 1.75rem;">
+      <div class="card os-phase-card">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
           <span class="badge badge-primary">Phase 1</span>
           <span style="font-size: 0.8rem; color: var(--color-success); font-weight: 600;">Completed</span>
@@ -75,7 +75,7 @@
       </div>
 
       <!-- Phase 2 -->
-      <div class="card" style="padding: 1.75rem;">
+      <div class="card os-phase-card">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
           <span class="badge badge-primary">Phase 2</span>
           <span style="font-size: 0.8rem; color: var(--color-success); font-weight: 600;">Completed</span>
@@ -90,7 +90,7 @@
       </div>
 
       <!-- Phase 3 -->
-      <div class="card" style="padding: 1.75rem;">
+      <div class="card os-phase-card">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
           <span class="badge badge-primary">Phase 3</span>
           <span style="font-size: 0.8rem; color: var(--color-success); font-weight: 600;">Completed</span>
@@ -106,7 +106,7 @@
     </div>
 
     <!-- Internship Placements Breakdown -->
-    <div class="card" style="margin-top: 1.75rem; padding: 2rem; background: var(--bg-surface);">
+    <div class="card os-internships-card">
       <h4 style="font-size: 1.1rem; margin-bottom: 1rem; color: var(--color-primary);">Phase 3 Internship Cohorts</h4>
       <div class="grid grid-cols-4" style="gap: 1.25rem; font-size: 0.875rem;">
         <div>
@@ -162,9 +162,9 @@
 
     <div class="grid grid-cols-3" style="gap: 1.5rem; margin-bottom: 2.5rem;">
       <!-- Milestone 1: Ramanathapuram District Collector -->
-      <div class="card" style="overflow: hidden;">
-        <img src="{{ "/images/open-source/collector-ramanathapuram-presentation.jpg" | relURL }}" alt="Meeting Ramanathapuram District Collector" style="width: 100%; height: 210px; object-fit: cover;" loading="lazy">
-        <div style="padding: 1.25rem;">
+      <div class="card milestone-card">
+        <img src="{{ "/images/open-source/collector-ramanathapuram-presentation.jpg" | relURL }}" alt="Meeting Ramanathapuram District Collector" class="milestone-img" loading="lazy">
+        <div class="milestone-body">
           <span class="badge badge-primary" style="margin-bottom: 0.5rem;">100 Schools Expansion</span>
           <h4 style="font-size: 1.05rem; margin-bottom: 0.4rem;">Ramanathapuram District Collector</h4>
           <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
@@ -174,9 +174,9 @@
       </div>
 
       <!-- Milestone 2: EPAM Systems Java AI Meetup -->
-      <div class="card" style="overflow: hidden;">
-        <img src="{{ "/images/open-source/meetup-epam-coimbatore-sqlbuilder.jpg" | relURL }}" alt="Presenting SQLBuilder at EPAM Systems" style="width: 100%; height: 210px; object-fit: cover;" loading="lazy">
-        <div style="padding: 1.25rem;">
+      <div class="card milestone-card">
+        <img src="{{ "/images/open-source/meetup-epam-coimbatore-sqlbuilder.jpg" | relURL }}" alt="Presenting SQLBuilder at EPAM Systems" class="milestone-img" loading="lazy">
+        <div class="milestone-body">
           <span class="badge badge-primary" style="margin-bottom: 0.5rem;">Industry Speakers</span>
           <h4 style="font-size: 1.05rem; margin-bottom: 0.4rem;">EPAM Systems Java AI Meetup</h4>
           <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
@@ -186,9 +186,9 @@
       </div>
 
       <!-- Milestone 3: HackFusion & Erode Collector -->
-      <div class="card" style="overflow: hidden;">
-        <img src="{{ "/images/open-source/hackfusion-erode-collector.jpg" | relURL }}" alt="HackFusion 2026 with Erode District Collector" style="width: 100%; height: 210px; object-fit: cover;" loading="lazy">
-        <div style="padding: 1.25rem;">
+      <div class="card milestone-card">
+        <img src="{{ "/images/open-source/hackfusion-erode-collector.jpg" | relURL }}" alt="HackFusion 2026 with Erode District Collector" class="milestone-img" loading="lazy">
+        <div class="milestone-body">
           <span class="badge badge-primary" style="margin-bottom: 0.5rem;">Governance &amp; TOSS</span>
           <h4 style="font-size: 1.05rem; margin-bottom: 0.4rem;">HackFusion &amp; Erode Collector</h4>
           <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
@@ -198,9 +198,9 @@
       </div>
 
       <!-- Milestone 4: School Outreach & User Testing -->
-      <div class="card" style="overflow: hidden;">
-        <img src="{{ "/images/open-source/school-visit-model-school.jpg" | relURL }}" alt="School Outreach and Teacher Mentoring" style="width: 100%; height: 210px; object-fit: cover;" loading="lazy">
-        <div style="padding: 1.25rem;">
+      <div class="card milestone-card">
+        <img src="{{ "/images/open-source/school-visit-model-school.jpg" | relURL }}" alt="School Outreach and Teacher Mentoring" class="milestone-img" loading="lazy">
+        <div class="milestone-body">
           <span class="badge badge-primary" style="margin-bottom: 0.5rem;">Field Validation</span>
           <h4 style="font-size: 1.05rem; margin-bottom: 0.4rem;">Grassroots Classroom Outreach</h4>
           <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
@@ -210,9 +210,9 @@
       </div>
 
       <!-- Milestone 5: Green Lab Establishment -->
-      <div class="card" style="overflow: hidden;">
-        <img src="{{ "/images/open-source/green-lab-innovation-space.jpg" | relURL }}" alt="Green Lab Prototyping Space" style="width: 100%; height: 210px; object-fit: cover;" loading="lazy">
-        <div style="padding: 1.25rem;">
+      <div class="card milestone-card">
+        <img src="{{ "/images/open-source/green-lab-innovation-space.jpg" | relURL }}" alt="Green Lab Prototyping Space" class="milestone-img" loading="lazy">
+        <div class="milestone-body">
           <span class="badge badge-primary" style="margin-bottom: 0.5rem;">Hardware &amp; IoT</span>
           <h4 style="font-size: 1.05rem; margin-bottom: 0.4rem;">Green Lab Establishment</h4>
           <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
@@ -222,9 +222,9 @@
       </div>
 
       <!-- Milestone 6: Inter-Collegiate Expansion & PSNA Workshop -->
-      <div class="card" style="overflow: hidden;">
-        <img src="{{ "/images/open-source/oslab-inauguration-gce-erode.jpg" | relURL }}" alt="Open Source Lab Inauguration at GCE Erode" style="width: 100%; height: 210px; object-fit: cover;" loading="lazy">
-        <div style="padding: 1.25rem;">
+      <div class="card milestone-card">
+        <img src="{{ "/images/open-source/oslab-inauguration-gce-erode.jpg" | relURL }}" alt="Open Source Lab Inauguration at GCE Erode" class="milestone-img" loading="lazy">
+        <div class="milestone-body">
           <span class="badge badge-primary" style="margin-bottom: 0.5rem;">Expansion</span>
           <h4 style="font-size: 1.05rem; margin-bottom: 0.4rem;">Inter-Collegiate Lab Expansion</h4>
           <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
@@ -235,7 +235,7 @@
     </div>
 
     <!-- Meetups Attendance & Industry Insights -->
-    <div class="card" style="padding: 2rem; background: var(--bg-surface);">
+    <div class="card os-meetups-card">
       <h4 style="font-size: 1.15rem; margin-bottom: 1rem; color: var(--color-primary);">Industry Meetups &amp; Technical Conferences Attended</h4>
       <div class="grid grid-cols-4" style="gap: 1.5rem; font-size: 0.875rem;">
         <div>
@@ -271,7 +271,7 @@
   </div>
 
   <!-- Acknowledgments & Mentorship Section -->
-  <div class="card" style="padding: 2.25rem; background: var(--bg-surface); border: 1px solid var(--border-color);">
+  <div class="card os-thanks-card">
     <h3 style="font-size: 1.3rem; margin-bottom: 0.75rem; color: var(--text-primary);">Special Thanks &amp; Acknowledgments</h3>
     <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
       The success of the Open Source Lab Initiative has been made possible by the dedicated mentorship and support of:
