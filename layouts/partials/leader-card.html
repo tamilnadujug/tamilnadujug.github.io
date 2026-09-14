@@ -1,13 +1,17 @@
-<div class="card leader-card">
-  {{ with .Params.photo }}
-  <img src="{{ . | relURL }}" alt="{{ $.Title }}" class="leader-avatar" width="96" height="96" loading="lazy">
-  {{ else }}
-  <div class="leader-avatar" style="display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.5rem;color:var(--color-primary);">
-    {{ substr .Title 0 2 }}
-  </div>
-  {{ end }}
+<div class="card leader-card" onclick="if (!event.target.closest('a')) { window.location.href='{{ .RelPermalink }}'; }" style="cursor: pointer;">
+  <a href="{{ .RelPermalink }}" class="leader-avatar-link" aria-label="View {{ .Title }} profile">
+    {{ with .Params.photo }}
+    <img src="{{ . | relURL }}" alt="{{ $.Title }}" class="leader-avatar" width="96" height="96" loading="lazy">
+    {{ else }}
+    <div class="leader-avatar" style="display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.5rem;color:var(--color-primary);">
+      {{ substr .Title 0 2 }}
+    </div>
+    {{ end }}
+  </a>
 
-  <h3 class="leader-name">{{ .Title }}</h3>
+  <h3 class="leader-name">
+    <a href="{{ .RelPermalink }}" style="color: inherit; text-decoration: none;">{{ .Title }}</a>
+  </h3>
   <div class="leader-role">{{ .Params.role }}</div>
   
   {{ with .Params.chapter }}
@@ -56,4 +60,8 @@
     </a>
     {{ end }}
   </div>
+
+  <a href="{{ .RelPermalink }}" class="btn btn-outline btn-sm leader-card-profile-btn">
+    View Profile →
+  </a>
 </div>

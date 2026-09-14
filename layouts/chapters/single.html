@@ -46,34 +46,39 @@
       <div class="grid grid-cols-2" style="gap: 1.5rem; margin-bottom: 2.5rem;">
         {{ range $chapterLeaders }}
         {{ $lead := . }}
-        <div class="card chapter-lead-card">
+        <div class="card chapter-lead-card" onclick="if (!event.target.closest('a')) { window.location.href='{{ .RelPermalink }}'; }" style="cursor: pointer;">
           <div class="chapter-lead-header">
-            {{ with .Params.photo }}
-            <img src="{{ . | relURL }}" alt="{{ $lead.Title }}" class="chapter-lead-avatar" width="80" height="80">
-            {{ else }}
-            <div class="chapter-lead-avatar chapter-lead-placeholder">
-              {{ substr $lead.Title 0 2 }}
-            </div>
-            {{ end }}
+            <a href="{{ .RelPermalink }}" aria-label="View {{ $lead.Title }} profile">
+              {{ with .Params.photo }}
+              <img src="{{ . | relURL }}" alt="{{ $lead.Title }}" class="chapter-lead-avatar" width="80" height="80">
+              {{ else }}
+              <div class="chapter-lead-avatar chapter-lead-placeholder">
+                {{ substr $lead.Title 0 2 }}
+              </div>
+              {{ end }}
+            </a>
             <div class="chapter-lead-info">
               <span class="badge {{ if in .Params.role "Professional" }}badge-primary{{ else }}badge-info{{ end }}" style="display: inline-block; margin-bottom: 0.35rem;">
                 {{ .Params.role | default "Chapter Representative" }}
               </span>
-              <h3 style="font-size: 1.2rem; margin-bottom: 0.25rem;">{{ .Title }}</h3>
+              <h3 style="font-size: 1.2rem; margin-bottom: 0.25rem;">
+                <a href="{{ .RelPermalink }}" style="color: inherit; text-decoration: none;">{{ .Title }}</a>
+              </h3>
               <div style="color: var(--color-primary); font-size: 0.85rem; font-weight: 600;">{{ .Params.designation }}</div>
               {{ with .Params.experience }}<div style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.2rem;">Experience: {{ . }}</div>{{ end }}
             </div>
           </div>
           <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1rem; flex-grow: 1;">{{ .Params.bio }}</p>
           <div class="chapter-lead-actions">
-            {{ with .Params.email }}
-            <a href="mailto:{{ . }}" class="btn btn-outline btn-sm">Email</a>
-            {{ end }}
+            <a href="{{ .RelPermalink }}" class="btn btn-outline btn-sm">Profile →</a>
             {{ with .Params.linkedin }}
             <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">LinkedIn ↗</a>
             {{ end }}
             {{ with .Params.website }}
             <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Website ↗</a>
+            {{ end }}
+            {{ with .Params.email }}
+            <a href="mailto:{{ . }}" class="btn btn-outline btn-sm">Email</a>
             {{ end }}
           </div>
         </div>
