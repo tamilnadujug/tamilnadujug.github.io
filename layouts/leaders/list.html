@@ -21,7 +21,12 @@
     <p class="section-desc">The coordinating team responsible for community partnerships, speaker curation, events calendar, and state-wide initiatives.</p>
   </div>
 
-  {{ $coreLeaders := where .RegularPages ".Params.type" "core" }}
+  {{ $coreLeaders := slice }}
+  {{ range .RegularPages }}
+    {{ if or (eq .Params.leader_type "core") (eq .Params.type "core") }}
+      {{ $coreLeaders = $coreLeaders | append . }}
+    {{ end }}
+  {{ end }}
   <div class="grid grid-cols-4" style="margin-bottom: 4rem;">
     {{ range $coreLeaders }}
       {{ partial "leader-card.html" . }}
@@ -35,7 +40,12 @@
     <p class="section-desc">Faculty advisors and student leaders driving Java communities across universities and engineering colleges.</p>
   </div>
 
-  {{ $chapterLeaders := where .RegularPages ".Params.type" "chapter" }}
+  {{ $chapterLeaders := slice }}
+  {{ range .RegularPages }}
+    {{ if or (eq .Params.leader_type "chapter") (eq .Params.type "chapter") }}
+      {{ $chapterLeaders = $chapterLeaders | append . }}
+    {{ end }}
+  {{ end }}
   <div class="grid grid-cols-4">
     {{ range $chapterLeaders }}
       {{ partial "leader-card.html" . }}
