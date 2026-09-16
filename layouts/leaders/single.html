@@ -47,9 +47,20 @@
         {{ end }}
 
         {{ with .Params.chapter }}
+        {{ $leadChapter := . }}
+        {{ $matchedChapter := "" }}
+        {{ range where $.Site.RegularPages "Section" "chapters" }}
+          {{ if or (eq .Title $leadChapter) (eq .Params.college_name $leadChapter) (eq .File.TranslationBaseName $leadChapter) }}
+            {{ $matchedChapter = . }}
+          {{ end }}
+        {{ end }}
         <div class="leader-single-affiliation">
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l8-4 6 4v14"></path></svg>
-          <span>{{ . }}</span>
+          {{ if $matchedChapter }}
+          <a href="{{ $matchedChapter.RelPermalink }}" style="color: inherit; text-decoration: underline; text-underline-offset: 3px;" title="View Chapter">{{ $leadChapter }}</a>
+          {{ else }}
+          <span>{{ $leadChapter }}</span>
+          {{ end }}
         </div>
         {{ end }}
       </div>
@@ -193,9 +204,22 @@
         </div>
 
         {{ with .Params.chapter }}
+        {{ $leadChapter := . }}
+        {{ $matchedChapter := "" }}
+        {{ range where $.Site.RegularPages "Section" "chapters" }}
+          {{ if or (eq .Title $leadChapter) (eq .Params.college_name $leadChapter) (eq .File.TranslationBaseName $leadChapter) }}
+            {{ $matchedChapter = . }}
+          {{ end }}
+        {{ end }}
         <div class="leader-meta-row">
           <dt>Affiliation</dt>
-          <dd>{{ . }}</dd>
+          <dd>
+            {{ if $matchedChapter }}
+            <a href="{{ $matchedChapter.RelPermalink }}" style="color: var(--color-primary); font-weight: 600; text-decoration: none;">{{ $leadChapter }} →</a>
+            {{ else }}
+            {{ $leadChapter }}
+            {{ end }}
+          </dd>
         </div>
         {{ end }}
 

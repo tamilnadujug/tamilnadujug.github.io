@@ -23,47 +23,46 @@
     {{ end }}
   </p>
 
-  {{ $chapterName := .Title }}
-  {{ $chapterLeaders := where (where site.RegularPages "Section" "leaders") ".Params.chapter" $chapterName }}
-  {{ if gt (len $chapterLeaders) 0 }}
+  {{ $chapterTitle := .Title }}
+  {{ $collegeName := .Params.college_name | default "" }}
+  {{ $chapterSlug := .File.TranslationBaseName }}
+  {{ $allLeaders := where site.RegularPages "Section" "leaders" }}
+  {{ $chapterLeaders := slice }}
+  {{ range $allLeaders }}
+    {{ $leadChapter := .Params.chapter | default "" }}
+    {{ if or (eq $leadChapter $chapterTitle) (eq $leadChapter $collegeName) (eq $leadChapter $chapterSlug) }}
+      {{ $chapterLeaders = $chapterLeaders | append . }}
+    {{ end }}
+  {{ end }}
+
+  {{ $profLeaders := slice }}
+  {{ $otherLeaders := slice }}
+  {{ range $chapterLeaders }}
+    {{ if or (in .Params.role "Professional") (eq .Params.role "Head of Chapters") }}
+      {{ $profLeaders = $profLeaders | append . }}
+    {{ else }}
+      {{ $otherLeaders = $otherLeaders | append . }}
+    {{ end }}
+  {{ end }}
+  {{ $sortedLeaders := $profLeaders | append $otherLeaders }}
+
+  {{ if gt (len $sortedLeaders) 0 }}
   <div class="chapter-leaders-preview">
-    {{ range first 2 $chapterLeaders }}
+    {{ range first 2 $sortedLeaders }}
     {{ $lead := . }}
     <div class="chapter-leader-row">
-      <span class="chapter-leader-role">{{ if in .Params.role "Professional" }}Faculty Lead{{ else }}Campus Lead{{ end }}</span>
+      <span class="chapter-leader-role">{{ if or (in .Params.role "Professional") (eq .Params.role "Head of Chapters") }}Faculty Lead{{ else }}Campus Lead{{ end }}</span>
       <span class="chapter-leader-name">
         {{ with .Params.photo }}
         <img src="{{ . | relURL }}" alt="{{ $lead.Title }}" class="chapter-leader-avatar" width="22" height="22" loading="lazy">
         {{ end }}
-        <span>{{ .Title }}</span>
+        <a href="{{ .RelPermalink }}" style="color: inherit; text-decoration: none;">{{ .Title }}</a>
       </span>
     </div>
     {{ end }}
-  </div>
-  {{ else if or .Params.faculty_leader .Params.student_leader }}
-  <div class="chapter-leaders-preview">
-    {{ with .Params.faculty_leader }}
-    {{ $fl := . }}
-    <div class="chapter-leader-row">
-      <span class="chapter-leader-role">Faculty Lead</span>
-      <span class="chapter-leader-name">
-        {{ with .photo }}
-        <img src="{{ . | relURL }}" alt="{{ $fl.name }}" class="chapter-leader-avatar" width="22" height="22" loading="lazy">
-        {{ end }}
-        <span>{{ .name }}</span>
-      </span>
-    </div>
-    {{ end }}
-    {{ with .Params.student_leader }}
-    {{ $sl := . }}
-    <div class="chapter-leader-row">
-      <span class="chapter-leader-role">Student Lead</span>
-      <span class="chapter-leader-name">
-        {{ with .photo }}
-        <img src="{{ . | relURL }}" alt="{{ $sl.name }}" class="chapter-leader-avatar" width="22" height="22" loading="lazy">
-        {{ end }}
-        <span>{{ .name }}</span>
-      </span>
+    {{ if gt (len $sortedLeaders) 2 }}
+    <div style="font-size: 0.75rem; color: var(--text-muted); text-align: right; margin-top: 0.2rem;">
+      <a href="{{ $.RelPermalink }}" style="color: var(--color-primary); text-decoration: none; font-weight: 600;">+{{ sub (len $sortedLeaders) 2 }} more leader{{ if gt (sub (len $sortedLeaders) 2) 1 }}s{{ end }} →</a>
     </div>
     {{ end }}
   </div>
