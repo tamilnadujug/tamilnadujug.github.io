@@ -1,6 +1,6 @@
 ---
 title: "Giridharan R"
-role: "Campus Leader"
+role: "Chapter Leader (Professional)"
 leader_type: "chapter"
 chapter: "Sri Eshwar College of Engineering"
 designation: "Assistant Professor & Training Head, CSE"

@@ -39,12 +39,33 @@
     {{ end }}
 
     <!-- Chapter Leadership Section -->
-    {{ $chapterName := .Title }}
-    {{ $chapterLeaders := where (where .Site.RegularPages "Section" "leaders") ".Params.chapter" $chapterName }}
-    {{ if gt (len $chapterLeaders) 0 }}
+    {{ $chapterTitle := .Title }}
+    {{ $collegeName := .Params.college_name | default "" }}
+    {{ $chapterSlug := .File.TranslationBaseName }}
+    {{ $allLeaders := where .Site.RegularPages "Section" "leaders" }}
+    {{ $chapterLeaders := slice }}
+    {{ range $allLeaders }}
+      {{ $leadChapter := .Params.chapter | default "" }}
+      {{ if or (eq $leadChapter $chapterTitle) (eq $leadChapter $collegeName) (eq $leadChapter $chapterSlug) }}
+        {{ $chapterLeaders = $chapterLeaders | append . }}
+      {{ end }}
+    {{ end }}
+
+    {{ $profLeaders := slice }}
+    {{ $otherLeaders := slice }}
+    {{ range $chapterLeaders }}
+      {{ if or (in .Params.role "Professional") (eq .Params.role "Head of Chapters") }}
+        {{ $profLeaders = $profLeaders | append . }}
+      {{ else }}
+        {{ $otherLeaders = $otherLeaders | append . }}
+      {{ end }}
+    {{ end }}
+    {{ $sortedLeaders := $profLeaders | append $otherLeaders }}
+
+    {{ if gt (len $sortedLeaders) 0 }}
       <h2 style="margin-top: 2.5rem; margin-bottom: 1.5rem;">Chapter Leadership &amp; Representatives</h2>
       <div class="grid grid-cols-2" style="gap: 1.5rem; margin-bottom: 2.5rem;">
-        {{ range $chapterLeaders }}
+        {{ range $sortedLeaders }}
         {{ $lead := . }}
         <div class="card chapter-lead-card" onclick="if (!event.target.closest('a')) { window.location.href='{{ .RelPermalink }}'; }" style="cursor: pointer;">
           <div class="chapter-lead-header">
@@ -74,6 +95,9 @@
             {{ with .Params.linkedin }}
             <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">LinkedIn ↗</a>
             {{ end }}
+            {{ with .Params.github }}
+            <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">GitHub ↗</a>
+            {{ end }}
             {{ with .Params.website }}
             <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Website ↗</a>
             {{ end }}
@@ -84,79 +108,14 @@
         </div>
         {{ end }}
       </div>
-    {{ else if or .Params.faculty_leader .Params.student_leader }}
-      <h2 style="margin-top: 2.5rem; margin-bottom: 1.5rem;">Chapter Leadership</h2>
-      <div class="grid grid-cols-2" style="gap: 1.5rem; margin-bottom: 2.5rem;">
-        {{ with .Params.faculty_leader }}
-        {{ $fl := . }}
-        <div class="card chapter-lead-card">
-          <div class="chapter-lead-header">
-            {{ with .photo }}
-            <img src="{{ . | relURL }}" alt="{{ $fl.name }}" class="chapter-lead-avatar" width="80" height="80">
-            {{ else }}
-            <div class="chapter-lead-avatar chapter-lead-placeholder">
-              {{ substr $fl.name 0 2 }}
-            </div>
-            {{ end }}
-            <div class="chapter-lead-info">
-              <span class="badge badge-primary" style="display: inline-block; margin-bottom: 0.35rem;">Faculty Advisor</span>
-              <h3 style="font-size: 1.2rem; margin-bottom: 0.25rem;">{{ .name }}</h3>
-              <div style="color: var(--color-primary); font-size: 0.85rem; font-weight: 600;">{{ .designation }}</div>
-              {{ with .experience }}<div style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.2rem;">{{ . }}</div>{{ end }}
-            </div>
-          </div>
-          <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1rem; flex-grow: 1;">{{ .about }}</p>
-          {{ with .email }}
-          <div class="chapter-lead-actions">
-            <a href="mailto:{{ . }}" class="btn btn-outline btn-sm">Email Advisor</a>
-          </div>
-          {{ end }}
-        </div>
-        {{ end }}
-
-        {{ with .Params.student_leader }}
-        {{ $sl := . }}
-        <div class="card chapter-lead-card">
-          <div class="chapter-lead-header">
-            {{ with .photo }}
-            <img src="{{ . | relURL }}" alt="{{ $sl.name }}" class="chapter-lead-avatar" width="80" height="80">
-            {{ else }}
-            <div class="chapter-lead-avatar chapter-lead-placeholder">
-              {{ substr $sl.name 0 2 }}
-            </div>
-            {{ end }}
-            <div class="chapter-lead-info">
-              <span class="badge badge-info" style="display: inline-block; margin-bottom: 0.35rem;">Student Lead</span>
-              <h3 style="font-size: 1.2rem; margin-bottom: 0.25rem;">{{ .name }}</h3>
-              <div style="color: var(--color-primary); font-size: 0.85rem; font-weight: 600;">{{ .designation | default .year }}</div>
-              {{ with .experience }}<div style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.2rem;">{{ . }}</div>{{ end }}
-            </div>
-          </div>
-          <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1rem; flex-grow: 1;">{{ .about }}</p>
-          <div class="chapter-lead-actions">
-            {{ with .email }}
-            <a href="mailto:{{ . }}" class="btn btn-outline btn-sm">Email Lead</a>
-            {{ end }}
-            {{ with .website }}
-            <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Website ↗</a>
-            {{ end }}
-          </div>
-        </div>
-        {{ end }}
-      </div>
     {{ else }}
       <h2 style="margin-top: 2.5rem; margin-bottom: 1.5rem;">Chapter Leadership</h2>
-      <div class="card" style="padding: 2rem; margin-bottom: 2.5rem; text-align: center; background: var(--bg-surface);">
-        <span class="badge badge-neutral" style="margin-bottom: 0.75rem;">Status</span>
-        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--text-primary);">Yet to be decided</h3>
-        <p style="font-size: 0.9rem; color: var(--text-secondary); max-width: 540px; margin: 0 auto 1.25rem;">
-          Faculty advisors and student representatives for this institution chapter are currently in the process of nomination.
-        </p>
-        <a href="mailto:geetha.cse@kongu.edu?subject=Chapter%20Leadership%20Nomination%20-%20{{ .Title }}" class="btn btn-primary btn-sm">
-          Nominate a Chapter Leader
-        </a>
+      <div class="card" style="padding: 1.75rem; text-align: center; margin-bottom: 2.5rem; background-color: var(--bg-subtle);">
+        <p style="margin-bottom: 0.75rem; color: var(--text-secondary);">Chapter leadership representatives are currently being onboarded for this institution.</p>
+        <a href="mailto:{{ .Site.Params.social.email }}?subject=Leading%20Chapter%20-%20{{ .Title }}" class="btn btn-primary btn-sm">Join / Nominate Chapter Leads</a>
       </div>
     {{ end }}
+
 
     <!--
     {{ $chapterName := .Title }}

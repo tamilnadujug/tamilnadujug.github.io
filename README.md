@@ -144,17 +144,7 @@ logo: "/logos/gct-logo.svg"    # Place logo file inside static/logos/
 status: "Active Chapter"
 email: "chapter@gct.ac.in"
 description: "Student chapter focusing on JVM internals, Spring Boot, and open source."
-faculty_leader:
-  name: "Dr. Faculty Name"
-  designation: "Associate Professor & Head"
-  experience: "15+ years"
-  about: "Faculty advisor passionate about mentoring students in Java development."
-  email: "faculty@gct.ac.in"
-student_leader:
-  name: "Student Lead Name"
-  year: "3rd Year CSE"
-  about: "Student organizer coordinating local workshops and hackathons."
-  email: "lead@gct.ac.in"
+# Note: Leaders are managed in content/leaders/*.md and linked via `chapter: "..."`
 ---
 
 ### About the Chapter
