@@ -31,7 +31,10 @@
   {{ range $allLeaders }}
     {{ $leadChapter := .Params.chapter | default "" }}
     {{ if or (eq $leadChapter $chapterTitle) (eq $leadChapter $collegeName) (eq $leadChapter $chapterSlug) }}
-      {{ $chapterLeaders = $chapterLeaders | append . }}
+      {{ $status := .Params.status | default "active" }}
+      {{ if not (or (eq $status "past") (eq $status "archived") (eq $status "alumni")) }}
+        {{ $chapterLeaders = $chapterLeaders | append . }}
+      {{ end }}
     {{ end }}
   {{ end }}
 
