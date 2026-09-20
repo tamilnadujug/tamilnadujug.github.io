@@ -28,8 +28,19 @@
           <span class="badge badge-info">Chapter Leadership</span>
           {{ end }}
 
+          {{ $status := .Params.status | default "active" }}
+          {{ if or (eq $status "past") (eq $status "archived") (eq $status "alumni") }}
+          <span class="badge badge-warning">Leadership Archive</span>
+          {{ else }}
+          <span class="badge badge-success">Active Leader</span>
+          {{ end }}
+
           {{ with .Params.role }}
           <span class="badge badge-neutral">{{ . }}</span>
+          {{ end }}
+
+          {{ with .Params.tenure }}
+          <span class="badge badge-neutral">Tenure: {{ . }}{{ with $.Params.tenure_duration }} ({{ . }}){{ end }}</span>
           {{ end }}
 
           {{ with .Params.city }}
@@ -109,7 +120,10 @@
           <img src="{{ . | relURL }}" alt="{{ $matchedChapter.Title }}" style="width: 60px; height: 60px; object-fit: contain; border-radius: var(--radius-md); background: #fff; padding: 4px; border: 1px solid var(--border-color);">
           {{ end }}
           <div style="flex: 1; min-width: 240px;">
-            <span class="badge badge-success" style="margin-bottom: 0.35rem;">Collegiate Chapter</span>
+            {{ $leadStatus := $.Params.status | default "active" }}
+            <span class="badge {{ if or (eq $leadStatus "past") (eq $leadStatus "archived") (eq $leadStatus "alumni") }}badge-neutral{{ else }}badge-success{{ end }}" style="margin-bottom: 0.35rem;">
+              {{ if or (eq $leadStatus "past") (eq $leadStatus "archived") (eq $leadStatus "alumni") }}Past Chapter Affiliation{{ else }}Collegiate Chapter{{ end }}
+            </span>
             <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.25rem;">
               <a href="{{ .RelPermalink }}" style="color: var(--text-primary); text-decoration: none;">{{ .Title }}</a>
             </h3>
@@ -193,6 +207,25 @@
     <div class="sidebar-widget">
       <h3 class="sidebar-widget-title">Profile Summary</h3>
       <dl class="leader-meta-list">
+        <div class="leader-meta-row">
+          <dt>Status</dt>
+          <dd>
+            {{ $status := .Params.status | default "active" }}
+            {{ if or (eq $status "past") (eq $status "archived") (eq $status "alumni") }}
+            <span style="color: #d97706; font-weight: 600;">Completed Tenure (Archive)</span>
+            {{ else }}
+            <span style="color: #059669; font-weight: 600;">Active Leader</span>
+            {{ end }}
+          </dd>
+        </div>
+
+        {{ with .Params.tenure }}
+        <div class="leader-meta-row">
+          <dt>Tenure Period</dt>
+          <dd>{{ . }}{{ with $.Params.tenure_duration }} ({{ . }}){{ end }}</dd>
+        </div>
+        {{ end }}
+
         <div class="leader-meta-row">
           <dt>Role</dt>
           <dd>{{ .Params.role | default "Leader" }}</dd>
