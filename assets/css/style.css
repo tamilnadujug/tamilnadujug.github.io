@@ -998,6 +998,10 @@ button, input, select, textarea {
 .leader-chapter {
   font-size: 0.8rem;
   color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.leader-tenure-badge {
   margin-bottom: 0.75rem;
 }
 
@@ -1704,6 +1708,157 @@ button, input, select, textarea {
   gap: 0.5rem;
   flex-wrap: wrap;
   margin-top: auto;
+}
+
+.chapter-lead-card-archived {
+  background-color: var(--bg-subtle);
+  border: 1px dashed var(--border-color);
+  opacity: 0.95;
+}
+
+.chapter-lead-card-archived:hover {
+  opacity: 1;
+  border-color: rgba(231, 111, 81, 0.5);
+}
+
+.chapter-lead-card-archived .chapter-lead-avatar {
+  border-color: var(--border-color);
+}
+
+.leadership-archive-section {
+  margin-top: 2.25rem;
+  margin-bottom: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed var(--border-color);
+}
+
+/* Compact Leadership Archive Cards */
+.archive-card-compact {
+  padding: 0.9rem 1.1rem;
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.archive-card-compact:hover {
+  transform: translateY(-2px);
+  border-color: rgba(231, 111, 81, 0.4);
+  box-shadow: var(--shadow-sm);
+  background-color: var(--bg-card);
+}
+
+.archive-card-top {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.archive-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid var(--border-color);
+  background-color: var(--bg-card);
+}
+
+.archive-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-primary);
+  background-color: var(--color-primary-light);
+}
+
+.archive-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.archive-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.15rem;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.archive-name a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.archive-name a:hover {
+  color: var(--color-primary);
+}
+
+.archive-meta {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.archive-badges {
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 0.2rem;
+}
+
+.archive-bio {
+  font-size: 0.825rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.archive-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding-top: 0.45rem;
+  border-top: 1px solid var(--border-color);
+  margin-top: auto;
+}
+
+.archive-actions a {
+  position: relative;
+  z-index: 2;
+}
+
+.archive-socials {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.archive-social-link {
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.15s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.archive-social-link:hover {
+  color: var(--color-primary);
 }
 
 @media (max-width: 640px) {

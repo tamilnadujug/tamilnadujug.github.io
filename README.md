@@ -154,24 +154,53 @@ Detailed description of chapter facilities, upcoming student initiatives, and co
 
 ---
 
-## 5. How to Add a Leader
+## 5. How to Manage Leaders & Chapter Tenure
 
-Create a markdown file in `content/leaders/<leader-name>.md`:
+Leaders are managed in `content/leaders/<leader-name>.md`. TNJUG supports both **Core Community Organizers** and **Collegiate Chapter Leaders** (Faculty Advisors and Student Campus Leads).
 
+### Chapter Leader Tenure System
+- **Student Leaders**: Serve defined tenures varying from **1 month** to a maximum of **2 years** (e.g. 2 months, 6 months, 1 year).
+- **Faculty / Professional Mentors**: Serve ongoing or term-based tenures.
+- **Leadership Archive**: When a chapter leader completes their tenure, their profile and history remain permanently on the site in the **Leadership Archive**, detailing their exact service dates and duration.
+
+#### Adding an Active Chapter Leader
 ```markdown
 ---
-title: "Karthik Subramanian"
-role: "Community Organizer"
-type: "core"                   # "core" for Core Team, "chapter" for Chapter Leaders
-chapter: "Tamil Nadu Java User Groups"   # Or college name for chapter leads
-bio: "Staff engineer passionate about Java community building, mentorship, and high-concurrency systems."
-photo: "/photos/karthik.svg"   # Place avatar inside static/photos/
-linkedin: "https://linkedin.com/in/karthik"
-github: "https://github.com/karthik"
-twitter: "https://twitter.com/karthik"
-website: "https://karthik.dev"
+title: "Yuthistan A"
+role: "Campus Leader"
+leader_type: "chapter"         # "chapter" or "core"
+status: "active"               # "active" (currently serving)
+tenure: "2026 – Present"       # e.g., "Aug 2024 – Nov 2024", "2025 – Present"
+tenure_start: "2026"           # Optional start period
+tenure_end: "Present"          # Optional end period
+chapter: "Kongu Engineering College"  # Must match the college chapter Title
+designation: "2nd Year CSE • Executive Member, CSI"
+city: "Virudhunagar"
+bio: "..."
+photo: "/photos/yuthistan-a.png"
+linkedin: "https://linkedin.com/in/..."
+github: "https://github.com/..."
 ---
 ```
+
+#### Archiving a Former Chapter Leader
+When a leader completes their tenure (e.g., student graduates or completes their term):
+1. Change `status` to `"past"` (or `"archived"` / `"alumni"`).
+2. Update `tenure` and add optional `tenure_duration`:
+```markdown
+---
+title: "Prabu Dev"
+role: "Campus Leader"
+leader_type: "chapter"
+status: "past"                               # Moves to Leadership Archive
+tenure: "2024 – May 2025"                    # Exact period served
+tenure_duration: "1 year"                    # e.g. "2 months", "1 year"
+chapter: "Sri Eshwar College of Engineering"
+designation: "B.E. CSE • Former Campus Lead"
+...
+---
+```
+Once marked as `"past"`, they automatically appear under **Past Chapter Leaders & Alumni** on the chapter page and on the `/leaders/` archive directory.
 
 ---
 
