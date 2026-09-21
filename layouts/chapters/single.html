@@ -51,21 +51,35 @@
       {{ end }}
     {{ end }}
 
-    {{ $profLeaders := slice }}
-    {{ $otherLeaders := slice }}
+    {{ $activeLeaders := slice }}
+    {{ $pastLeaders := slice }}
     {{ range $chapterLeaders }}
-      {{ if or (in .Params.role "Professional") (eq .Params.role "Head of Chapters") }}
-        {{ $profLeaders = $profLeaders | append . }}
+      {{ $status := .Params.status | default "active" }}
+      {{ if or (eq $status "past") (eq $status "archived") (eq $status "alumni") }}
+        {{ $pastLeaders = $pastLeaders | append . }}
       {{ else }}
-        {{ $otherLeaders = $otherLeaders | append . }}
+        {{ $activeLeaders = $activeLeaders | append . }}
       {{ end }}
     {{ end }}
-    {{ $sortedLeaders := $profLeaders | append $otherLeaders }}
 
-    {{ if gt (len $sortedLeaders) 0 }}
-      <h2 style="margin-top: 2.5rem; margin-bottom: 1.5rem;">Chapter Leadership &amp; Representatives</h2>
+    {{ $profActive := slice }}
+    {{ $otherActive := slice }}
+    {{ range $activeLeaders }}
+      {{ if or (in .Params.role "Professional") (eq .Params.role "Head of Chapters") }}
+        {{ $profActive = $profActive | append . }}
+      {{ else }}
+        {{ $otherActive = $otherActive | append . }}
+      {{ end }}
+    {{ end }}
+    {{ $sortedActive := $profActive | append $otherActive }}
+
+    {{ if gt (len $sortedActive) 0 }}
+      <div style="margin-top: 2.5rem; margin-bottom: 1.5rem;">
+        <h2 style="margin-bottom: 0.25rem;">Current Chapter Leadership</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 0; font-size: 0.95rem;">Active faculty mentors and student leaders driving Java initiatives at {{ .Title }}.</p>
+      </div>
       <div class="grid grid-cols-2" style="gap: 1.5rem; margin-bottom: 2.5rem;">
-        {{ range $sortedLeaders }}
+        {{ range $sortedActive }}
         {{ $lead := . }}
         <div class="card chapter-lead-card" onclick="if (!event.target.closest('a')) { window.location.href='{{ .RelPermalink }}'; }" style="cursor: pointer;">
           <div class="chapter-lead-header">
@@ -79,9 +93,16 @@
               {{ end }}
             </a>
             <div class="chapter-lead-info">
-              <span class="badge {{ if in .Params.role "Professional" }}badge-primary{{ else }}badge-info{{ end }}" style="display: inline-block; margin-bottom: 0.35rem;">
-                {{ .Params.role | default "Chapter Representative" }}
-              </span>
+              <div style="display: flex; gap: 0.35rem; align-items: center; flex-wrap: wrap; margin-bottom: 0.35rem;">
+                <span class="badge {{ if in .Params.role "Professional" }}badge-primary{{ else }}badge-info{{ end }}">
+                  {{ .Params.role | default "Chapter Representative" }}
+                </span>
+                {{ with .Params.tenure }}
+                <span class="badge badge-success" title="Current Tenure Period">
+                  {{ . }}
+                </span>
+                {{ end }}
+              </div>
               <h3 style="font-size: 1.2rem; margin-bottom: 0.25rem;">
                 <a href="{{ .RelPermalink }}" style="color: inherit; text-decoration: none;">{{ .Title }}</a>
               </h3>
@@ -109,10 +130,30 @@
         {{ end }}
       </div>
     {{ else }}
-      <h2 style="margin-top: 2.5rem; margin-bottom: 1.5rem;">Chapter Leadership</h2>
+      <h2 style="margin-top: 2.5rem; margin-bottom: 1.5rem;">Current Chapter Leadership</h2>
       <div class="card" style="padding: 1.75rem; text-align: center; margin-bottom: 2.5rem; background-color: var(--bg-subtle);">
         <p style="margin-bottom: 0.75rem; color: var(--text-secondary);">Chapter leadership representatives are currently being onboarded for this institution.</p>
         <a href="mailto:{{ .Site.Params.social.email }}?subject=Leading%20Chapter%20-%20{{ .Title }}" class="btn btn-primary btn-sm">Join / Nominate Chapter Leads</a>
+      </div>
+    {{ end }}
+
+    {{/* Past Chapter Leaders / Leadership Archive */}}
+    {{ if gt (len $pastLeaders) 0 }}
+      <div class="leadership-archive-section">
+        <div style="margin-bottom: 1.25rem;">
+          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.2rem;">
+            <span class="badge badge-neutral" style="font-size: 0.7rem;">Archive</span>
+            <h2 style="margin: 0; font-size: 1.25rem;">Past Chapter Leaders &amp; Alumni</h2>
+          </div>
+          <p style="color: var(--text-secondary); margin: 0; font-size: 0.875rem;">
+            Honoring student leaders and faculty mentors who previously served and guided this collegiate chapter.
+          </p>
+        </div>
+        <div class="grid grid-cols-2" style="gap: 1rem; margin-bottom: 2rem;">
+          {{ range $pastLeaders }}
+            {{ partial "archive-leader-card.html" . }}
+          {{ end }}
+        </div>
       </div>
     {{ end }}
 

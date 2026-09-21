@@ -34,23 +34,45 @@
   </div>
 
   <!-- Chapter Leaders Section -->
-  <div class="section-header" style="margin-bottom: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-    <span class="section-kicker">Institution Leads</span>
-    <h2 class="section-title">Chapter Leaders &amp; Faculty Mentors</h2>
-    <p class="section-desc">Faculty advisors and student leaders driving Java communities across universities and engineering colleges.</p>
-  </div>
-
-  {{ $chapterLeaders := slice }}
+  {{ $activeChapterLeaders := slice }}
+  {{ $pastChapterLeaders := slice }}
   {{ range .RegularPages }}
     {{ if or (eq .Params.leader_type "chapter") (eq .Params.type "chapter") }}
-      {{ $chapterLeaders = $chapterLeaders | append . }}
+      {{ $status := .Params.status | default "active" }}
+      {{ if or (eq $status "past") (eq $status "archived") (eq $status "alumni") }}
+        {{ $pastChapterLeaders = $pastChapterLeaders | append . }}
+      {{ else }}
+        {{ $activeChapterLeaders = $activeChapterLeaders | append . }}
+      {{ end }}
     {{ end }}
   {{ end }}
-  <div class="grid grid-cols-4">
-    {{ range $chapterLeaders }}
+
+  <div class="section-header" style="margin-bottom: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+    <span class="section-kicker">Institution Leads</span>
+    <h2 class="section-title">Active Chapter Leaders &amp; Faculty Mentors</h2>
+    <p class="section-desc">Faculty advisors and student leaders actively driving Java communities across universities and engineering colleges.</p>
+  </div>
+
+  <div class="grid grid-cols-4" style="margin-bottom: 4rem;">
+    {{ range $activeChapterLeaders }}
       {{ partial "leader-card.html" . }}
     {{ end }}
   </div>
+
+  {{ if gt (len $pastChapterLeaders) 0 }}
+  <!-- Leadership Archive Section -->
+  <div class="section-header" style="margin-bottom: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+    <span class="section-kicker">Leadership Archive</span>
+    <h2 class="section-title">Former Chapter Leaders &amp; Alumni</h2>
+    <p class="section-desc">Honoring student leaders and faculty mentors who previously completed their tenure across our collegiate chapters.</p>
+  </div>
+
+  <div class="grid grid-cols-3" style="gap: 1.25rem;">
+    {{ range $pastChapterLeaders }}
+      {{ partial "archive-leader-card.html" . }}
+    {{ end }}
+  </div>
+  {{ end }}
 
   <!-- Volunteer Callout -->
   <div style="margin-top: 4rem;">

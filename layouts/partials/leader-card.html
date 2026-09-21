@@ -21,6 +21,15 @@
   </div>
   {{ end }}
 
+  {{ with .Params.tenure }}
+  <div class="leader-tenure-badge">
+    {{ $status := $.Params.status | default "active" }}
+    <span class="badge {{ if or (eq $status "past") (eq $status "archived") (eq $status "alumni") }}badge-warning{{ else }}badge-neutral{{ end }}" style="font-size: 0.7rem; padding: 0.15rem 0.5rem; text-transform: none; letter-spacing: normal;">
+      {{ if or (eq $status "past") (eq $status "archived") (eq $status "alumni") }}Served: {{ . }}{{ else }}Tenure: {{ . }}{{ end }}
+    </span>
+  </div>
+  {{ end }}
+
   <p class="leader-bio">
     {{ with .Params.bio }}
       {{ . }}
