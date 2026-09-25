@@ -2,7 +2,7 @@
 title: "Thirumurugan"
 role: "Core Member"
 leader_type: "core"
-designation: "Full Stack Developer, Dropthought"
+designation: "Lead Fullstack developer at Ventragate"
 chapter: "Tamil Nadu Java User Groups"
 city: "Chennai"
 experience: "8+ years"
@@ -19,7 +19,7 @@ weight: 6
 
 ### Community Leadership & Role
 
-Thirumurugan is a **Core Member of the Tamil Nadu Java User Group (TNJUG)** and a seasoned **Full Stack Developer at Dropthought**. He plays an active role in community operations, developer networking, technical event coordination, and state-wide developer meetups across Tamil Nadu.
+Thirumurugan is a **Core Member of the Tamil Nadu Java User Group (TNJUG)** and a seasoned **Lead Fullstack developer at Ventragate**. He plays an active role in community operations, developer networking, technical event coordination, and state-wide developer meetups across Tamil Nadu.
 
 As a core mentor within the **TNJUG Open Source Labs**, Thirumurugan mentors student cohorts through the **Foundation & Java Core** track, guiding upcoming engineers in object-oriented programming principles, project directory structures, clean code standards, and production-grade software delivery.
 
