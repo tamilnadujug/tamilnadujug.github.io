@@ -17,7 +17,6 @@ tamilnadujug.github.io/
 │       └── hugo.yml           # Automated GitHub Pages CI/CD pipeline
 ├── archetypes/                # Content templates for `hugo new`
 │   ├── chapters.md            # Archetype for college chapters
-│   ├── events.md              # Archetype for meetups & workshops
 │   ├── leaders.md             # Archetype for core team & chapter leads
 │   └── open-source.md         # Archetype for OSS projects
 ├── assets/
@@ -26,17 +25,15 @@ tamilnadujug.github.io/
 ├── content/                   # Markdown content collections
 │   ├── chapters/              # College & regional chapters
 │   ├── community/             # Values, Code of Conduct & CFP guidelines
-│   ├── events/                # Upcoming & past meetups (with Luma links)
 │   ├── leaders/               # Core team and chapter leadership
 │   └── open-source/           # Community open-source projects
 ├── layouts/                   # Hugo templates & reusable partials
 │   ├── _default/              # baseof.html, single.html, list.html
 │   ├── chapters/              # Chapter list & single layout
 │   ├── community/             # Community guide layout
-│   ├── events/                # Events list (upcoming/past tabs) & single layout
 │   ├── leaders/               # Leaders layout (Core + Chapter leads)
 │   ├── open-source/           # Open source projects layout
-│   ├── partials/              # Modular cards: event, chapter, leader, etc.
+│   ├── partials/              # Modular cards: chapter, leader, etc.
 │   └── index.html             # Homepage layout
 ├── static/                    # Static assets copied directly to site root
 │   ├── images/
@@ -89,44 +86,10 @@ Open `http://localhost:1313/` in your browser.
 
 ---
 
-## 3. How to Add an Event
+## 3. Events Management
 
-All event registrations are powered externally by **Luma**. To add a new event:
-
-### Option A: Using Hugo CLI
-
-```bash
-hugo new events/spring-ai-meetup.md
-```
-
-### Option B: Create Manually in `content/events/<slug>.md`
-
-```markdown
----
-title: "Spring AI & Modern Concurrency Meetup"
-date: 2026-11-20T10:00:00+05:30
-start_time: "10:00 AM"
-end_time: "01:30 PM"
-venue: "Sri Eshwar College Auditorium"
-city: "Coimbatore"
-description: "Hands-on masterclass on Spring AI vector stores and Loom virtual threads."
-speaker: "Speaker Name"
-event_type: "Meetup"          # Meetup | Workshop | Conference | Hackathon
-chapter: "Sri Eshwar College of Engineering"
-luma_url: "https://lu.ma/your-event-slug"  # Direct external Luma registration link
-recording_url: ""
-slides_url: ""
-photos_url: ""
-status: "upcoming"            # upcoming | past | sold-out
-featured: true                # Set true to spotlight on the homepage
----
-
-### Agenda
-
-- 10:00 AM: Welcome and community kick-off
-- 10:30 AM: Deep Dive Presentation
-- 12:30 PM: Networking & Q&A
-```
+All community meetups, hackathons, and RSVPs are managed directly on the official **Luma Calendar Hub**:
+👉 [https://luma.com/tamilnadu-jug](https://luma.com/tamilnadu-jug)
 
 ---
 

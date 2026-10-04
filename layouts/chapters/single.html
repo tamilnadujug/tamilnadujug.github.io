@@ -156,20 +156,6 @@
         </div>
       </div>
     {{ end }}
-
-
-    <!--
-    {{ $chapterName := .Title }}
-    {{ $chapterEvents := where (where .Site.RegularPages "Section" "events") ".Params.chapter" $chapterName }}
-    {{ if gt (len $chapterEvents) 0 }}
-      <h2>Events at this Chapter</h2>
-      <div class="grid grid-cols-2" style="margin-top: 1.25rem;">
-        {{ range $chapterEvents }}
-          {{ partial "event-card.html" . }}
-        {{ end }}
-      </div>
-    {{ end }}
-    -->
   </div>
 
   <!-- Sidebar -->
