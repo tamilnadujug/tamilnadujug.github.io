@@ -9,7 +9,7 @@ description: "Hands-on tech talks covering Spring AI integrations, RESTful API d
 speaker: "Saravana & Sathish Kumar Thiyagarajan"
 event_type: "Meetup"
 chapter: "Sri Eshwar College of Engineering"
-luma_url: "https://luma.com/calendar/manage/cal-pUXuk1OFUWQFQEk"
+luma_url: "https://luma.com/tamilnadu-jug"
 recording_url: ""
 slides_url: ""
 photos_url: ""

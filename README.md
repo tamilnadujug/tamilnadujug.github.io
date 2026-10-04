@@ -3,7 +3,7 @@
 The official, production-quality website for the **Tamil Nadu Java User Group (TNJUG)**, built with [Hugo](https://gohugo.io/).
 
 - **Presentation / Content**: Hugo (Extended) + Vanilla CSS (zero framework bloat, fast load times).
-- **Registration & Ticketing**: External via [Luma](https://luma.com/calendar/manage/cal-pUXuk1OFUWQFQEk). No proprietary registration or backend database required.
+- **Registration & Ticketing**: External via [Luma](https://luma.com/tamilnadu-jug). No proprietary registration or backend database required.
 - **Deployment**: Automated GitHub Actions workflow deploying to GitHub Pages.
 
 ---

@@ -9,7 +9,7 @@ description: "Hands-on labs delivered simultaneously across college chapters wit
 speaker: "TNJUG Core Technical Committee"
 event_type: "Workshop"
 chapter: "All Chapters"
-luma_url: "https://luma.com/calendar/manage/cal-pUXuk1OFUWQFQEk"
+luma_url: "https://luma.com/tamilnadu-jug"
 recording_url: ""
 slides_url: ""
 photos_url: ""

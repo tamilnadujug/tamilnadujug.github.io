@@ -31,7 +31,7 @@ Connect directly with software engineers, open-source lab mentors, collegiate fa
 
 All official TNJUG meetups, conferences, hands-on workshops, and attendee passes are managed through our verified Luma Calendar:
 
-> 🎟️ **[Browse & RSVP on our Official Luma Calendar Hub](https://luma.com/calendar/manage/cal-pUXuk1OFUWQFQEk)**
+> 🎟️ **[Browse & RSVP on our Official Luma Calendar Hub](https://luma.com/tamilnadu-jug)**
 
 ---
 
