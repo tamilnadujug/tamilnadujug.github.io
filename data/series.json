@@ -1,0 +1,91 @@
+[
+  {
+    "id": "S01",
+    "name": "Global Dev Wednesdays",
+    "tagline": "Virtual tech sessions connecting global engineering leaders with local community members.",
+    "description": "An interactive series featuring global software developers, researchers, open source builders, and tech authors sharing knowledge and practical insights directly with Tamil Nadu developers.",
+    "format": "Virtual / Global Live",
+    "events": [
+      "E23"
+    ]
+  },
+  {
+    "id": "S02",
+    "name": "Open Source Labs",
+    "tagline": "Student-focused open source clinics and real-world codebase contributions.",
+    "description": "Hands-on collaborative labs partnering with engineering institutions across Tamil Nadu (such as Kongu Engineering College) to mentor students in contributing to real-world Java open-source projects, including SQL Builder.",
+    "format": "In-Person / Hybrid Clinics",
+    "events": [
+      "E08",
+      "E09"
+    ]
+  },
+  {
+    "id": "S03",
+    "name": "Chapter Launch Series",
+    "tagline": "Expanding grassroots developer meetups to tier-2 tech hubs across Tamil Nadu.",
+    "description": "Dedicated chapter launch initiatives bringing deep-tech Java meetups and peer communities to cities beyond Chennai and Coimbatore, inaugurated with the Madurai Chapter Launch in October 2026.",
+    "format": "In-Person City Meetups",
+    "events": [
+      "E20"
+    ]
+  },
+  {
+    "id": "S04",
+    "name": "Faculty Enablement Series",
+    "tagline": "Empowering university faculty and educators with modern Java concepts and pedagogy.",
+    "description": "Collaborative training programs and workshops organized in partnership with leading state universities (such as Anna University) to upskill professors and lecturers on contemporary Java frameworks and concurrency.",
+    "format": "Online / Multi-day Workshops",
+    "events": [
+      "E16"
+    ]
+  },
+  {
+    "id": "S05",
+    "name": "Java AI Day Series",
+    "tagline": "Comprehensive full-day immersions into Spring AI, local LLMs, and autonomous agents.",
+    "description": "Full-day technical summits and hands-on workshops dedicated to running LLMs, AI agents, and enterprise AI workflows on the JVM, hosted across Chennai and Coimbatore.",
+    "format": "In-Person Full-Day Summits & Workshops",
+    "events": [
+      "E05",
+      "E07",
+      "E12",
+      "E14"
+    ]
+  },
+  {
+    "id": "S06",
+    "name": "Industry-Academia Bridge Series",
+    "tagline": "Connecting university students, professors, and industry leaders through panels and tours.",
+    "description": "A dialogue-driven program featuring panel discussions, volunteer coding camps, and roundtables (e.g. at VET Institute and Rameswaram) designed to bridge curricula with industry demands.",
+    "format": "Panels, Tours & Roundtables",
+    "events": [
+      "E10",
+      "E13",
+      "E17"
+    ]
+  },
+  {
+    "id": "S07",
+    "name": "JavaFest Community Participation",
+    "tagline": "Partnering with national JavaFest conferences for community cohorts and delegations.",
+    "description": "Community delegations, dedicated travel cohorts (like the Coimbatore-to-Bangalore community bus), and ticket allocations for national JavaFest conferences.",
+    "format": "Conference Delegation & Participation",
+    "events": [
+      "E01",
+      "E02",
+      "E21"
+    ]
+  },
+  {
+    "id": "S08",
+    "name": "DevCarnival Community Partnership",
+    "tagline": "Grassroots community collaboration with DevCarnival conference tracks.",
+    "description": "Community partnerships supporting multi-track software conferences, CFP curation, speaker representation, and community kickoff discussions (such as DevCarnival 2027 at Infosys Mahindra City).",
+    "format": "Conference Partnership & Tracks",
+    "events": [
+      "E18",
+      "E22"
+    ]
+  }
+]

@@ -4,153 +4,450 @@
     <div class="breadcrumb">
       <a href="{{ "/" | relURL }}">Home</a>
       <span>/</span>
-      <span>Past Events</span>
+      <span>Event Archive</span>
     </div>
-    <h1 class="article-title">{{ .Title | default "Past Events & Recaps" }}</h1>
+    <h1 class="article-title">Tamil Nadu JUG Event Archive</h1>
     <p class="section-desc">
-      {{ with .Description }}
-        {{ . }}
-      {{ else }}
-        Explore technical presentations, workshop takeaways, speaker notes, and photo memories from previous Tamil Nadu Java User Group (TNJUG) community events.
-      {{ end }}
+      A verified record of community meetups, hands-on workshops, campus labs, and developer conferences organized and supported by the Tamil Nadu Java User Group (TNJUG), compiled from the captured community post archive.
     </p>
+
+    <!-- Compact Count Badges / Stat Counters -->
+    <div class="archive-stats-row">
+      <div class="archive-stat-card">
+        <div class="archive-stat-icon-wrap">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+        </div>
+        <div>
+          <div class="archive-stat-num" id="stat-total-events">23</div>
+          <div class="archive-stat-label">Captured Events (17 Held, 6 Announced)</div>
+        </div>
+      </div>
+
+      <div class="archive-stat-card">
+        <div class="archive-stat-icon-wrap stat-series">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+        </div>
+        <div>
+          <div class="archive-stat-num">8</div>
+          <div class="archive-stat-label">Programs & Series (S01–S08)</div>
+        </div>
+      </div>
+
+      <div class="archive-stat-card">
+        <div class="archive-stat-icon-wrap stat-cities">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        </div>
+        <div>
+          <div class="archive-stat-num">8</div>
+          <div class="archive-stat-label">Regional Hubs & Online</div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
 <div class="container" style="margin-bottom: 4rem;">
-  {{ if .Content }}
-  <div class="card" style="margin-bottom: 2.5rem; background: var(--bg-surface);">
-    <div class="prose">
-      {{ .Content }}
+
+  <!-- Modest Source Note & Scope Disclaimer -->
+  <div class="archive-scope-note" role="note">
+    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+    <div>
+      <strong>Archive Scope & Data Note:</strong> This page documents the 23 community events (E01–E23) and 8 specialized programs (S01–S08) identified in the supplied 79-card LinkedIn capture. It reflects verified details preserved from this export and is not a complete record of every TNJUG event since 2024. Events with unverified calendar dates or years are organized in the dedicated <a href="#undated-section" style="text-decoration: underline; font-weight: 600;">Date not stated</a> section.
     </div>
   </div>
-  {{ end }}
 
-  {{/* Fetch all non-draft regular pages in the past-events section, sorted by event_date / date descending */}}
-  {{ $events := .RegularPages.ByDate.Reverse }}
+  {{/* Load structured data from hugo.Data.events and hugo.Data.series */}}
+  {{ $events := hugo.Data.events }}
+  {{ $series := hugo.Data.series }}
 
-  {{ if gt (len $events) 0 }}
-  <div class="grid grid-cols-3 past-events-grid" id="past-events-grid">
-    {{ range $events }}
-    <article class="card past-event-card">
-      <a href="{{ .RelPermalink }}" class="past-event-banner-link" aria-label="Read recap for {{ .Title }}">
-        {{ with .Params.banner }}
-        <div class="past-event-banner-wrap">
-          <img src="{{ . | relURL }}" alt="{{ $.Title }} banner" class="past-event-banner" loading="lazy">
+  <!-- Interactive Search and Multi-Facet Filter Panel -->
+  <div class="archive-filters-card" id="archive-filter-panel" aria-label="Filter TNJUG Events">
+    <div class="archive-search-row">
+      <div class="archive-search-box">
+        <span class="archive-search-icon" aria-hidden="true">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </span>
+        <input type="text" id="filter-search" class="archive-search-input" placeholder="Search events by title, speaker, topic, city, or E## ID..." aria-label="Search events">
+      </div>
+    </div>
+
+    <div class="archive-filter-facets">
+      <!-- Year Filter (Only verified supported years) -->
+      <div class="archive-filter-field">
+        <label for="filter-year">Year</label>
+        <select id="filter-year" class="archive-select">
+          <option value="all">All Years</option>
+          <option value="2027">2027</option>
+          <option value="2026">2026</option>
+          <option value="2025">2025</option>
+          <option value="undated">Date not stated</option>
+        </select>
+      </div>
+
+      <!-- City / Region Filter -->
+      <div class="archive-filter-field">
+        <label for="filter-city">City / Region</label>
+        <select id="filter-city" class="archive-select">
+          <option value="all">All Locations</option>
+          <option value="Chennai">Chennai</option>
+          <option value="Coimbatore">Coimbatore</option>
+          <option value="Madurai">Madurai</option>
+          <option value="Rameswaram">Rameswaram</option>
+          <option value="Perundurai">Perundurai</option>
+          <option value="Erode">Erode</option>
+          <option value="Bangalore">Bangalore</option>
+          <option value="Online">Online</option>
+        </select>
+      </div>
+
+      <!-- Format Filter -->
+      <div class="archive-filter-field">
+        <label for="filter-format">Format</label>
+        <select id="filter-format" class="archive-select">
+          <option value="all">All Formats</option>
+          <option value="In-Person">In-Person</option>
+          <option value="Online">Online</option>
+          <option value="In-Person / Hybrid">In-Person / Hybrid</option>
+        </select>
+      </div>
+
+      <!-- Status Filter -->
+      <div class="archive-filter-field">
+        <label for="filter-status">Status</label>
+        <select id="filter-status" class="archive-select">
+          <option value="all">All Statuses</option>
+          <option value="completed">Completed / Held</option>
+          <option value="upcoming">Upcoming</option>
+          <option value="announced">Announced / Planned</option>
+          <option value="unconfirmed">Completion not confirmed</option>
+        </select>
+      </div>
+
+      <!-- Series Filter -->
+      <div class="archive-filter-field">
+        <label for="filter-series">Series & Program</label>
+        <select id="filter-series" class="archive-select">
+          <option value="all">All Programs</option>
+          {{ range $series }}
+          <option value="{{ .id }}">{{ .id }}: {{ .name }}</option>
+          {{ end }}
+        </select>
+      </div>
+    </div>
+
+    <div class="archive-filter-meta">
+      <div id="filter-count-display" aria-live="polite">
+        Showing <strong>23</strong> of 23 captured events
+      </div>
+      <button type="button" id="btn-reset-filters" class="archive-reset-btn">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
+        <span>Reset Filters</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Empty Results Notice (Hidden by default) -->
+  <div id="archive-no-matches" class="archive-empty-results" style="display: none;">
+    <h4>No matching events found</h4>
+    <p>Try adjusting your search keywords, year, city, or status filter.</p>
+    <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('btn-reset-filters').click();">Reset All Filters</button>
+  </div>
+
+  <!-- SECTION 1: Chronological Timeline / Card Grid for Dated Events -->
+  <div id="dated-events-container">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--text-primary);">
+        Chronological Event Timeline
+      </h2>
+      <span style="font-size: 0.85rem; color: var(--text-muted);">Organized by confirmed event date</span>
+    </div>
+
+    <div class="archive-grid" id="dated-archive-grid">
+      {{ range $events }}
+      {{ if .has_date }}
+      {{ $ev := . }}
+      <article class="archive-card"
+               id="event-{{ $ev.id | lower }}"
+               data-id="{{ $ev.id }}"
+               data-title="{{ $ev.title | lower }}"
+               data-year="{{ $ev.year | default "undated" }}"
+               data-city="{{ $ev.city }}"
+               data-format="{{ $ev.format }}"
+               data-status="{{ $ev.status }}"
+               data-series="{{ $ev.series_id | default "none" }}"
+               data-search="{{ $ev.id | lower }} {{ $ev.title | lower }} {{ $ev.venue | lower }} {{ $ev.city | lower }} {{ range $ev.speakers }}{{ .name | lower }} {{ end }} {{ $ev.description | lower }}">
+
+        {{/* Visual Header: Image banner if provided, else text-led card header */}}
+        {{ if $ev.image }}
+        <div class="archive-card-image-wrap">
+          <img src="{{ $ev.image | relURL }}"
+               alt="{{ $ev.image_alt | default $ev.title }}"
+               class="archive-card-img"
+               loading="lazy"
+               onerror="this.closest('.archive-card-image-wrap').style.display='none'; this.closest('.archive-card').classList.add('is-text-led');">
         </div>
         {{ else }}
-        <div class="past-event-banner-wrap past-event-banner-fallback">
-          <div class="past-event-fallback-content">
-            <span class="badge badge-primary">TNJUG</span>
-            <div class="past-event-fallback-title">{{ .Title }}</div>
+        <div class="archive-card-text-header">
+          <span class="badge badge-primary">Tamilnadu JUG</span>
+          <span class="text-led-watermark">{{ $ev.format }}</span>
+        </div>
+        {{ end }}
+
+        <div class="archive-card-body">
+          <div class="archive-card-badges">
+            <span class="badge-event-id">{{ $ev.id }}</span>
+
+            {{ if eq $ev.status "completed" }}
+            <span class="badge-status-completed">{{ $ev.status_label | default "Completed" }}</span>
+            {{ else if eq $ev.status "upcoming" }}
+            <span class="badge-status-upcoming">{{ $ev.status_label | default "Upcoming" }}</span>
+            {{ else if eq $ev.status "announced" }}
+            <span class="badge-status-announced">{{ $ev.status_label | default "Announced" }}</span>
+            {{ else }}
+            <span class="badge-status-unconfirmed">{{ $ev.status_label | default "Unconfirmed" }}</span>
+            {{ end }}
+
+            <span class="badge-format">{{ $ev.format }}</span>
+
+            {{ with $ev.series_id }}
+            <a href="#series-{{ . | lower }}" class="badge-series-ref" title="Part of series {{ . }}">
+              {{ . }}
+            </a>
+            {{ end }}
+          </div>
+
+          <h3 class="archive-card-title">
+            {{ with $ev.recap_url }}
+            <a href="{{ . | relURL }}">{{ $ev.title }}</a>
+            {{ else }}
+            <span>{{ $ev.title }}</span>
+            {{ end }}
+          </h3>
+
+          <div class="archive-card-meta-list">
+            <div class="archive-card-meta-item">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              <span>{{ $ev.date_display }}</span>
+            </div>
+            <div class="archive-card-meta-item">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>{{ $ev.venue }}</span>
+            </div>
+          </div>
+
+          <p class="archive-card-desc">
+            {{ $ev.description }}
+          </p>
+
+          {{ with $ev.uncertainty_note }}
+          <div class="archive-uncertainty-note">
+            <strong>Note:</strong> {{ . }}
+          </div>
+          {{ end }}
+
+          {{ with $ev.speakers }}
+          <div class="archive-speakers-block">
+            <span class="archive-speakers-label">Speakers / Leaders:</span>
+            <span>
+              {{ range $idx, $sp := . }}
+                {{- if gt $idx 0 }}, {{ end }}{{ $sp.name }}{{ with $sp.role }} ({{ . }}){{ end -}}
+              {{ end }}
+            </span>
+          </div>
+          {{ end }}
+
+          <div class="archive-card-footer">
+            <span class="archive-source-tag">Source: Post(s) {{ delimit $ev.source_posts ", " }}</span>
+            <div class="archive-card-actions">
+              {{ with $ev.recap_url }}
+              <a href="{{ . | relURL }}" class="btn btn-primary btn-sm" aria-label="Read full recap for {{ $ev.title }}">
+                <span>Recap</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+              {{ end }}
+
+              {{ range $ev.links }}
+              <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+                <span>{{ .label }} ↗</span>
+              </a>
+              {{ end }}
+            </div>
           </div>
         </div>
-        {{ end }}
-      </a>
+      </article>
+      {{ end }}
+      {{ end }}
+    </div>
+  </div>
 
-      <div class="past-event-card-body">
-        <div class="past-event-tags">
-          {{ with .Params.event_type }}
-          <span class="badge badge-primary">{{ . }}</span>
-          {{ end }}
-          {{ with .Params.location }}
-          <span class="past-event-location-pill">
-            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-            <span>{{ . }}</span>
-          </span>
-          {{ end }}
+  <!-- SECTION 2: Dedicated "Date Not Stated" Section -->
+  <div class="archive-undated-section" id="undated-section">
+    <div class="archive-section-header">
+      <span class="archive-section-tag">Unverified Calendar Dates</span>
+      <h2 class="archive-section-title">Date Not Stated / Year Unverified Records</h2>
+      <p class="archive-section-desc">
+        The following 11 events were conducted or announced in the supplied capture, but their exact calendar dates or years were not specified in the source posts. To preserve factual accuracy, they are presented here with verified status notes rather than assigned guessed dates.
+      </p>
+    </div>
+
+    <div class="archive-grid" id="undated-archive-grid">
+      {{ range $events }}
+      {{ if not .has_date }}
+      {{ $ev := . }}
+      <article class="archive-card"
+               id="event-{{ $ev.id | lower }}"
+               data-id="{{ $ev.id }}"
+               data-title="{{ $ev.title | lower }}"
+               data-year="undated"
+               data-city="{{ $ev.city }}"
+               data-format="{{ $ev.format }}"
+               data-status="{{ $ev.status }}"
+               data-series="{{ $ev.series_id | default "none" }}"
+               data-search="{{ $ev.id | lower }} {{ $ev.title | lower }} {{ $ev.venue | lower }} {{ $ev.city | lower }} {{ range $ev.speakers }}{{ .name | lower }} {{ end }} {{ $ev.description | lower }}">
+
+        {{/* Visual Header */}}
+        {{ if $ev.image }}
+        <div class="archive-card-image-wrap">
+          <img src="{{ $ev.image | relURL }}"
+               alt="{{ $ev.image_alt | default $ev.title }}"
+               class="archive-card-img"
+               loading="lazy"
+               onerror="this.closest('.archive-card-image-wrap').style.display='none'; this.closest('.archive-card').classList.add('is-text-led');">
         </div>
-
-        <h3 class="past-event-card-title">
-          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        </h3>
-
-        {{ $displayDate := "" }}
-        {{ with .Params.event_date }}
-          {{ $displayDate = . }}
         {{ else }}
-          {{ if not .Date.IsZero }}
-            {{ $displayDate = .Date.Format "January 2, 2006" }}
-          {{ end }}
+        <div class="archive-card-text-header">
+          <span class="badge badge-primary">Tamilnadu JUG</span>
+          <span class="text-led-watermark">{{ $ev.format }}</span>
+        </div>
         {{ end }}
 
-        {{ if $displayDate }}
-        <div class="past-event-date-row">
-          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-          <time datetime="{{ with .Params.event_date }}{{ . }}{{ else }}{{ .Date.Format "2006-01-02" }}{{ end }}">
-            {{ if (findRE `^\d{4}-\d{2}-\d{2}$` $displayDate) }}
-              {{ time.Format "January 2, 2006" $displayDate }}
+        <div class="archive-card-body">
+          <div class="archive-card-badges">
+            <span class="badge-event-id">{{ $ev.id }}</span>
+
+            {{ if eq $ev.status "completed" }}
+            <span class="badge-status-completed">{{ $ev.status_label | default "Completed" }}</span>
+            {{ else if eq $ev.status "upcoming" }}
+            <span class="badge-status-upcoming">{{ $ev.status_label | default "Upcoming" }}</span>
+            {{ else if eq $ev.status "announced" }}
+            <span class="badge-status-announced">{{ $ev.status_label | default "Announced" }}</span>
             {{ else }}
-              {{ $displayDate }}
+            <span class="badge-status-unconfirmed">{{ $ev.status_label | default "Completion not confirmed" }}</span>
             {{ end }}
-          </time>
-          {{ with .Params.event_time }}
-          <span class="past-event-time-sep">•</span>
-          <span>{{ . }}</span>
-          {{ end }}
-        </div>
-        {{ end }}
 
-        <p class="past-event-card-summary">
-          {{ with .Params.summary }}
-            {{ . }}
-          {{ else }}
-            {{ .Summary | plainify | truncate 135 }}
+            <span class="badge-format">{{ $ev.format }}</span>
+
+            {{ with $ev.series_id }}
+            <a href="#series-{{ . | lower }}" class="badge-series-ref" title="Part of series {{ . }}">
+              {{ . }}
+            </a>
+            {{ end }}
+          </div>
+
+          <h3 class="archive-card-title">
+            {{ with $ev.recap_url }}
+            <a href="{{ . | relURL }}">{{ $ev.title }}</a>
+            {{ else }}
+            <span>{{ $ev.title }}</span>
+            {{ end }}
+          </h3>
+
+          <div class="archive-card-meta-list">
+            <div class="archive-card-meta-item">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              <span><em>{{ $ev.date_display }}</em></span>
+            </div>
+            <div class="archive-card-meta-item">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>{{ $ev.venue }}</span>
+            </div>
+          </div>
+
+          <p class="archive-card-desc">
+            {{ $ev.description }}
+          </p>
+
+          {{ with $ev.uncertainty_note }}
+          <div class="archive-uncertainty-note">
+            <strong>Uncertainty Note:</strong> {{ . }}
+          </div>
           {{ end }}
+
+          {{ with $ev.speakers }}
+          <div class="archive-speakers-block">
+            <span class="archive-speakers-label">Key Contributors:</span>
+            <span>
+              {{ range $idx, $sp := . }}
+                {{- if gt $idx 0 }}, {{ end }}{{ $sp.name }}{{ with $sp.role }} ({{ . }}){{ end -}}
+              {{ end }}
+            </span>
+          </div>
+          {{ end }}
+
+          <div class="archive-card-footer">
+            <span class="archive-source-tag">Source: Post(s) {{ delimit $ev.source_posts ", " }}</span>
+            <div class="archive-card-actions">
+              {{ with $ev.recap_url }}
+              <a href="{{ . | relURL }}" class="btn btn-primary btn-sm">
+                <span>Recap</span>
+              </a>
+              {{ end }}
+
+              {{ range $ev.links }}
+              <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+                <span>{{ .label }} ↗</span>
+              </a>
+              {{ end }}
+            </div>
+          </div>
+        </div>
+      </article>
+      {{ end }}
+      {{ end }}
+    </div>
+  </div>
+
+  <!-- SECTION 3: Dedicated "Series & Programs" Section (S01–S08) -->
+  <section class="archive-series-section" id="series-section" aria-labelledby="series-section-heading">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem;">
+      <div>
+        <span class="badge badge-primary" style="margin-bottom: 0.5rem;">Community Initiatives</span>
+        <h2 id="series-section-heading" style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.4rem;">
+          Specialized Series & Programs (S01–S08)
+        </h2>
+        <p style="font-size: 0.925rem; color: var(--text-secondary); max-width: 820px;">
+          TNJUG conducts targeted community programs alongside standalone meetups. These recurring initiatives represent strategic partnerships, campus clinics, and developer enablement efforts across Tamil Nadu.
         </p>
+      </div>
+    </div>
 
-        {{ with .Params.speakers }}
-        <div class="past-event-speakers-mini">
-          <span class="past-event-speakers-label">Speakers:</span>
-          <span class="past-event-speakers-names">
-            {{ range $idx, $sp := . }}
-              {{- if gt $idx 0 }}, {{ end }}{{ $sp.name -}}
+    <div class="archive-series-grid">
+      {{ range $series }}
+      <div class="archive-series-card" id="series-{{ .id | lower }}">
+        <span class="archive-series-id-badge">{{ .id }} • {{ .format }}</span>
+        <h3 class="archive-series-title">{{ .name }}</h3>
+        <p class="archive-series-desc">{{ .description }}</p>
+
+        <div class="archive-series-events-wrap">
+          <div class="archive-series-events-label">Associated Event Records:</div>
+          <div class="archive-series-events-pills">
+            {{ range .events }}
+            <a href="#event-{{ . | lower }}" class="archive-series-event-pill" onclick="filterByEventId('{{ . }}')" title="View {{ . }} card">
+              {{ . }}
+            </a>
             {{ end }}
-          </span>
-        </div>
-        {{ end }}
-
-        <div class="past-event-card-footer">
-          <a href="{{ .RelPermalink }}" class="btn btn-primary btn-sm past-event-read-btn">
-            <span>Read Recap</span>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </a>
-          {{ with .Params.slides_url }}
-          <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" aria-label="Slides">
-            <span>Slides ↗</span>
-          </a>
-          {{ end }}
+          </div>
         </div>
       </div>
-    </article>
-    {{ end }}
-  </div>
-  {{ else }}
-  <!-- Empty State when no events are published -->
-  <div class="card past-events-empty-state">
-    <div class="empty-state-icon">
-      <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line><circle cx="12" cy="15" r="2"></circle></svg>
-    </div>
-    <h3>No Event Recaps Published Yet</h3>
-    <p>We are actively organizing community meetups, collegiate hackathons, and technical clinics across Tamil Nadu. Stay tuned as we publish talk recordings and session summaries!</p>
-    <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem;">
-      {{ with .Site.Params.luma_url }}
-      <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-        <span>Browse Upcoming Events on Luma ↗</span>
-      </a>
       {{ end }}
-      <a href="{{ "/" | relURL }}" class="btn btn-outline">
-        <span>Back to Home</span>
-      </a>
     </div>
-  </div>
-  {{ end }}
+  </section>
 
-  <!-- Propose a talk / Join upcoming CTA banner -->
-  <div class="callout-box" style="margin-top: 3.5rem;">
+  <!-- Propose a talk / CFP CTA Banner -->
+  <div class="callout-box" style="margin-top: 4rem;">
     <span class="badge badge-primary" style="margin-bottom: 0.75rem;">Community Speakers</span>
-    <h3>Want to Speak at an Upcoming TNJUG Meetup?</h3>
-    <p>Whether you're an enterprise engineer, open-source maintainer, educator, or student builder with a Java story to share, we welcome session proposals.</p>
+    <h3>Want to Present at an Upcoming TNJUG Meetup?</h3>
+    <p>Whether you're an enterprise engineer, open-source maintainer, academic faculty, or student builder with a Java story to share, session proposals are welcome across all chapters.</p>
     <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
       <a href="{{ .Site.Params.cfp_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
         Submit a Talk (CFP) ↗
@@ -162,5 +459,140 @@
       {{ end }}
     </div>
   </div>
+
 </div>
+
+<!-- Client-side Interactive Multi-Facet Search & Filtering Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const searchInput = document.getElementById('filter-search');
+  const yearSelect = document.getElementById('filter-year');
+  const citySelect = document.getElementById('filter-city');
+  const formatSelect = document.getElementById('filter-format');
+  const statusSelect = document.getElementById('filter-status');
+  const seriesSelect = document.getElementById('filter-series');
+  const resetBtn = document.getElementById('btn-reset-filters');
+  const countDisplay = document.getElementById('filter-count-display');
+  const noMatchesNotice = document.getElementById('archive-no-matches');
+  const datedSection = document.getElementById('dated-events-container');
+  const undatedSection = document.getElementById('undated-section');
+
+  const allCards = Array.from(document.querySelectorAll('.archive-card'));
+  const totalCount = allCards.length;
+
+  function applyFilters() {
+    const query = searchInput.value.trim().toLowerCase();
+    const yearVal = yearSelect.value;
+    const cityVal = citySelect.value;
+    const formatVal = formatSelect.value;
+    const statusVal = statusSelect.value;
+    const seriesVal = seriesSelect.value;
+
+    let visibleCount = 0;
+    let datedVisible = 0;
+    let undatedVisible = 0;
+
+    allCards.forEach(function (card) {
+      const cardSearch = card.getAttribute('data-search') || '';
+      const cardYear = card.getAttribute('data-year') || '';
+      const cardCity = card.getAttribute('data-city') || '';
+      const cardFormat = card.getAttribute('data-format') || '';
+      const cardStatus = card.getAttribute('data-status') || '';
+      const cardSeries = card.getAttribute('data-series') || '';
+      const isDated = (cardYear !== 'undated');
+
+      // Check text search
+      const matchesQuery = !query || cardSearch.includes(query);
+
+      // Check year
+      const matchesYear = (yearVal === 'all') || (cardYear === yearVal);
+
+      // Check city
+      const matchesCity = (cityVal === 'all') || (cardCity === cityVal);
+
+      // Check format
+      const matchesFormat = (formatVal === 'all') || (cardFormat === formatVal);
+
+      // Check status
+      const matchesStatus = (statusVal === 'all') || (cardStatus === statusVal);
+
+      // Check series
+      const matchesSeries = (seriesVal === 'all') || (cardSeries === seriesVal);
+
+      const isMatch = matchesQuery && matchesYear && matchesCity && matchesFormat && matchesStatus && matchesSeries;
+
+      if (isMatch) {
+        card.classList.remove('is-hidden');
+        visibleCount++;
+        if (isDated) {
+          datedVisible++;
+        } else {
+          undatedVisible++;
+        }
+      } else {
+        card.classList.add('is-hidden');
+      }
+    });
+
+    // Update counter
+    countDisplay.innerHTML = 'Showing <strong>' + visibleCount + '</strong> of ' + totalCount + ' captured events';
+
+    // Toggle empty state
+    if (visibleCount === 0) {
+      noMatchesNotice.style.display = 'block';
+    } else {
+      noMatchesNotice.style.display = 'none';
+    }
+
+    // Toggle container headers if 0 items in that section
+    if (datedSection) {
+      datedSection.style.display = (datedVisible > 0 || (visibleCount === 0 && yearVal !== 'undated')) ? 'block' : 'none';
+    }
+    if (undatedSection) {
+      undatedSection.style.display = (undatedVisible > 0 || (visibleCount === 0 && yearVal === 'undated')) ? 'block' : 'none';
+    }
+  }
+
+  // Event listeners
+  searchInput.addEventListener('input', applyFilters);
+  yearSelect.addEventListener('change', applyFilters);
+  citySelect.addEventListener('change', applyFilters);
+  formatSelect.addEventListener('change', applyFilters);
+  statusSelect.addEventListener('change', applyFilters);
+  seriesSelect.addEventListener('change', applyFilters);
+
+  resetBtn.addEventListener('click', function () {
+    searchInput.value = '';
+    yearSelect.value = 'all';
+    citySelect.value = 'all';
+    formatSelect.value = 'all';
+    statusSelect.value = 'all';
+    seriesSelect.value = 'all';
+    applyFilters();
+  });
+
+  // Global helper for series event pills
+  window.filterByEventId = function(eventId) {
+    // Reset filters and search for the specific event ID
+    searchInput.value = eventId;
+    yearSelect.value = 'all';
+    citySelect.value = 'all';
+    formatSelect.value = 'all';
+    statusSelect.value = 'all';
+    seriesSelect.value = 'all';
+    applyFilters();
+    const target = document.getElementById('event-' + eventId.toLowerCase());
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      target.style.transition = 'box-shadow 0.3s ease, border-color 0.3s ease';
+      target.style.borderColor = 'var(--color-primary)';
+      target.style.boxShadow = '0 0 0 4px var(--color-primary-glow)';
+      setTimeout(function() {
+        target.style.borderColor = '';
+        target.style.boxShadow = '';
+      }, 2000);
+    }
+  };
+});
+</script>
 {{ end }}
