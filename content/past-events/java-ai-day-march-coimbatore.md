@@ -6,6 +6,7 @@ location: "EPAM Systems, Coimbatore"
 event_type: "Full-Day Community Event"
 summary: "A full-day community conference hosted by Tamilnadu JUG at EPAM Systems covering OpenJDK contributions, Hands-on Spring AI, Java's evolution in the AI era, autonomous AI agents, and a Java 25 quiz."
 registration_url: "https://luma.com/00kwt75i"
+banner: "/images/archive/e07.jpg"
 speakers:
   - name: "Samir Kamerkar"
     organization: "Canonical"

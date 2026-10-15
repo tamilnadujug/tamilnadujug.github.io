@@ -7,6 +7,7 @@ location: "Online"
 event_type: "Online Meetup"
 summary: "A two-hour deep-dive online session featuring Java Champion A N M 'Bazlur' Rahman exploring Modern Java Concurrency with practical knowledge, interactive discussions, and community participation."
 registration_url: "https://luma.com/zx05vfzh"
+banner: "/images/archive/e19.jpg"
 speakers:
   - name: "A N M 'Bazlur' Rahman"
     role: "Java Champion"

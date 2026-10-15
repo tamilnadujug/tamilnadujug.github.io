@@ -6,6 +6,7 @@ location: "Contentstack, Chennai"
 event_type: "Community Meetup"
 summary: "A Chennai community meetup at Contentstack featuring sessions on running local LLMs with Java & Ollama, AI cost optimization, and AI-driven changes across the software development lifecycle (SDLC)."
 registration_url: "https://luma.com/m3k5ag6p"
+banner: "/images/archive/e14.jpg"
 speakers:
   - name: "Sai Mounik"
     role: "Community Speaker"

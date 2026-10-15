@@ -7,6 +7,7 @@ location: "Excelencia, Pinnacle Building, Taramani, Chennai"
 event_type: "Hands-on Workshop"
 summary: "An in-person, hands-on workshop in Chennai covering Spring AI concepts, Model Context Protocol (MCP), and model security with Spring Boot."
 registration_url: "https://luma.com/lhkherw6"
+banner: "/images/archive/e05.jpg"
 speakers:
   - name: "Udayani V"
     organization: "Broadcom"

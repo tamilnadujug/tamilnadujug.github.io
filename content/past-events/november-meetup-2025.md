@@ -6,7 +6,7 @@ location: "Thoughtworks, Coimbatore"
 event_type: "Community Meetup"
 summary: "Community meetup hosted by Tamilnadu JUG at Thoughtworks, Coimbatore in November 2025."
 registration_url: "https://lnkd.in/gaMe6iEb"
-banner: "https://media.licdn.com/dms/image/v2/D5622AQH7NHpfXwvBZQ/feedshare-image-high-res/B56Zole4UtI0Ao-/0/1761565445617?e=1793232000&v=beta&t=X4444Xw0cfGwMB4cRl5S0wVlMBSjii7zR7zZHHbk8kg"
+banner: "/images/archive/e03.jpg"
 speakers:
   - name: "Saravana"
     role: "Community Speaker"
