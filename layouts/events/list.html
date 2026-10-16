@@ -11,20 +11,13 @@
       {{ with .Description }}
         {{ . }}
       {{ else }}
-        Explore upcoming gatherings and previous Tamil Nadu Java User Group (TNJUG) events across Chennai, Coimbatore, Madurai, and campus chapters.
+        Explore upcoming meetups, conferences, and workshops, plus recaps of past Tamil Nadu Java User Group (TNJUG) events across Chennai, Coimbatore, Madurai, and campus chapters.
       {{ end }}
     </p>
   </div>
 </div>
 
 <div class="container" style="margin-bottom: 4rem;">
-  {{ if .Content }}
-  <div class="card" style="margin-bottom: 2.5rem; background: var(--bg-surface);">
-    <div class="prose">
-      {{ .Content }}
-    </div>
-  </div>
-  {{ end }}
 
   {{/* Separate all event pages into Upcoming and Past events */}}
   {{ $allEvents := .RegularPages }}
