@@ -1,17 +1,35 @@
 {{ define "main" }}
+{{ $isUpcoming := eq .Params.event_status "upcoming" }}
+{{ $lumaUrl := "" }}
+{{ if and .Params.luma_url (strings.Contains .Params.luma_url "luma") }}
+  {{ $lumaUrl = .Params.luma_url }}
+{{ else if and .Params.registration_url (strings.Contains .Params.registration_url "luma") }}
+  {{ $lumaUrl = .Params.registration_url }}
+{{ end }}
+
 <div class="article-header past-event-header">
   <div class="container">
-    <div class="breadcrumb">
-      <a href="{{ "/" | relURL }}">Home</a>
-      <span>/</span>
-      <a href="{{ "/past-events/" | relURL }}">Past Events</a>
-      <span>/</span>
-      <span>{{ .Title }}</span>
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
+      <div class="breadcrumb" style="margin-bottom: 0;">
+        <a href="{{ "/" | relURL }}">Home</a>
+        <span>/</span>
+        <a href="{{ "/events/" | relURL }}">Events</a>
+        <span>/</span>
+        <span>{{ .Title }}</span>
+      </div>
+      <a href="{{ "/events/" | relURL }}" class="btn btn-outline btn-sm" style="display: inline-flex; align-items: center; gap: 0.35rem;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        <span>Back to Events</span>
+      </a>
     </div>
 
     <div class="past-event-hero">
       <div class="past-event-header-badges">
+        {{ if $isUpcoming }}
+        <span class="badge badge-primary">Upcoming</span>
+        {{ else }}
         <span class="badge badge-success">Completed Event</span>
+        {{ end }}
         {{ with .Params.event_type }}
         <span class="badge badge-primary">{{ . }}</span>
         {{ end }}
@@ -71,6 +89,20 @@
           </div>
         </div>
         {{ end }}
+
+        {{ if $lumaUrl }}
+        <div class="past-event-meta-item" style="margin-left: auto;">
+          {{ if $isUpcoming }}
+          <a href="{{ $lumaUrl }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+            <span>Register ↗</span>
+          </a>
+          {{ else }}
+          <a href="{{ $lumaUrl }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+            <span>View on Luma ↗</span>
+          </a>
+          {{ end }}
+        </div>
+        {{ end }}
       </div>
     </div>
   </div>
@@ -84,14 +116,14 @@
     </div>
     {{ end }}
 
-    <!-- Markdown Content / Recap Body -->
+    <!-- Markdown Content / Description Body -->
     {{ if .Content }}
     <section class="past-event-body-content">
       {{ .Content }}
     </section>
     {{ end }}
 
-    <!-- Highlights Section (if provided in front matter) -->
+    <!-- Highlights Section (if provided in existing front matter) -->
     {{ with .Params.highlights }}
     <section class="past-event-highlights-section">
       <div class="section-header" style="margin-bottom: 1.5rem; text-align: left;">
@@ -111,7 +143,7 @@
     </section>
     {{ end }}
 
-    <!-- Speakers Section -->
+    <!-- Speakers Section (if provided in existing front matter) -->
     {{ with .Params.speakers }}
     <section class="past-event-speakers-section">
       <div class="section-header" style="margin-bottom: 1.5rem; text-align: left;">
@@ -142,12 +174,11 @@
           </div>
         </div>
         {{ end }}
-
       </div>
     </section>
     {{ end }}
 
-    <!-- Photo Gallery Section -->
+    <!-- Photo Gallery Section (if provided in existing front matter) -->
     {{ with .Params.gallery }}
     <section class="past-event-gallery-section">
       <div class="section-header" style="margin-bottom: 1.5rem; text-align: left;">
@@ -167,27 +198,41 @@
     </section>
     {{ end }}
 
-    <!-- Resources, Slides & Recordings Section -->
-    {{ $hasResources := or .Params.recording_url .Params.livestream_url .Params.ama_url .Params.slides_url .Params.repo_url .Params.registration_url }}
-    {{ if $hasResources }}
+    <!-- Links & Resources Section -->
+    {{ $hasOtherResources := or .Params.recording_url .Params.livestream_url .Params.ama_url .Params.slides_url .Params.repo_url }}
+    {{ if or $lumaUrl $hasOtherResources }}
     <section class="past-event-resources-section">
       <div class="section-header" style="margin-bottom: 1.25rem; text-align: left;">
-        <span class="section-kicker">Artifacts</span>
+        <span class="section-kicker">Links</span>
         <h2 class="section-title" style="font-size: 1.5rem;">Session Materials &amp; Links</h2>
       </div>
       <div class="card past-event-resources-card">
         <div class="past-event-resource-links">
+          {{ if $lumaUrl }}
+            {{ if $isUpcoming }}
+            <a href="{{ $lumaUrl }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              <span>Register ↗</span>
+            </a>
+            {{ else }}
+            <a href="{{ $lumaUrl }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              <span>View on Luma ↗</span>
+            </a>
+            {{ end }}
+          {{ end }}
+
           {{ with .Params.recording_url }}
-          <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+          <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
             <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
             <span>Watch Recording ↗</span>
           </a>
           {{ end }}
 
           {{ with .Params.livestream_url }}
-          <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+          <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
             <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-            <span>Livestream Stream / Archive ↗</span>
+            <span>Livestream Archive ↗</span>
           </a>
           {{ end }}
 
@@ -211,34 +256,32 @@
             <span>Code Repository ↗</span>
           </a>
           {{ end }}
-
-          {{ with .Params.registration_url }}
-          <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" style="color: var(--text-muted);">
-            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
-            <span>Original Event Listing (Historical) ↗</span>
-          </a>
-          {{ end }}
         </div>
       </div>
     </section>
     {{ end }}
 
-
-    <!-- Bottom Navigation / Back Button -->
+    <!-- Bottom Navigation / Simple Back to Events button -->
     <div class="past-event-bottom-nav">
-      <a href="{{ "/past-events/" | relURL }}" class="btn btn-outline">
+      <a href="{{ "/events/" | relURL }}" class="btn btn-outline" style="display: inline-flex; align-items: center; gap: 0.5rem;">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-        <span>Back to All Past Events</span>
+        <span>Back to Events</span>
       </a>
-      {{ with .Site.Params.cfp_url }}
-      <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-        <span>Propose a Talk for Next Meetup ↗</span>
-      </a>
+      {{ if $lumaUrl }}
+        {{ if $isUpcoming }}
+        <a href="{{ $lumaUrl }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <span>Register ↗</span>
+        </a>
+        {{ else }}
+        <a href="{{ $lumaUrl }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <span>View on Luma ↗</span>
+        </a>
+        {{ end }}
       {{ end }}
     </div>
   </main>
 
-  <!-- Sidebar: Event Quick Info & Community Channels -->
+  <!-- Sidebar: Event Quick Info -->
   <aside class="sidebar past-event-sidebar">
     <div class="card">
       <h3 style="font-size: 1.15rem; margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">Event Overview</h3>
@@ -274,26 +317,38 @@
         </div>
         {{ end }}
         <div class="leader-meta-row">
-          <dt>Community</dt>
-          <dd>Tamil Nadu JUG</dd>
+          <dt>Status</dt>
+          <dd>
+            {{ if $isUpcoming }}
+              <span class="badge badge-primary" style="font-size: 0.75rem;">Upcoming</span>
+            {{ else }}
+              <span class="badge badge-success" style="font-size: 0.75rem;">Completed</span>
+            {{ end }}
+          </dd>
         </div>
       </dl>
+
+      {{ if $lumaUrl }}
+      <div style="margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+        {{ if $isUpcoming }}
+        <a href="{{ $lumaUrl }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="width: 100%; justify-content: center;">
+          <span>Register ↗</span>
+        </a>
+        {{ else }}
+        <a href="{{ $lumaUrl }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="width: 100%; justify-content: center;">
+          <span>View on Luma ↗</span>
+        </a>
+        {{ end }}
+      </div>
+      {{ end }}
     </div>
 
-    <!-- Upcoming Events Prompt -->
-    <div class="card" style="background: linear-gradient(135deg, rgba(231,111,81,0.06), rgba(42,157,143,0.06)); border-color: rgba(231,111,81,0.25);">
-      <h4 style="font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--color-primary);">Join Upcoming Events</h4>
-      <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1rem;">RSVP for upcoming Tamil Nadu Java User Group meetups, workshops, and college hackathons on Luma.</p>
-      {{ with .Site.Params.luma_url }}
-      <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="btn btn-luma btn-sm" style="width: 100%; justify-content: center; margin-bottom: 0.5rem;">
-        <span>Luma Calendar Hub ↗</span>
+    <!-- Quick Return Link in Sidebar -->
+    <div class="card" style="background-color: var(--bg-surface);">
+      <a href="{{ "/events/" | relURL }}" class="btn btn-outline btn-sm" style="width: 100%; justify-content: center; display: inline-flex; align-items: center; gap: 0.4rem;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        <span>Back to Events</span>
       </a>
-      {{ end }}
-      {{ with .Site.Params.social.whatsapp }}
-      <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm" style="width: 100%; justify-content: center;">
-        <span>Join WhatsApp Community ↗</span>
-      </a>
-      {{ end }}
     </div>
   </aside>
 </div>

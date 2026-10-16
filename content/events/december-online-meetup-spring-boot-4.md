@@ -4,8 +4,12 @@ date: 2025-12-20
 event_date: "2025-12-20"
 location: "Online (Google Meet)"
 event_type: "Online Meetup"
+event_status: "past"
+aliases:
+  - /past-events/december-online-meetup-spring-boot-4/
 summary: "An online community session exploring upcoming Spring Boot 4 updates, runtime performance improvements, and implications for modern Java development."
 registration_url: "https://luma.com/1hm003j8"
+luma_url: "https://luma.com/1hm003j8"
 banner: "/images/archive/e04.jpg"
 meeting_url: "https://lnkd.in/gaY6NZFb"
 speakers:

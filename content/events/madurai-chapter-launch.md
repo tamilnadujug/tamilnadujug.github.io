@@ -5,9 +5,13 @@ event_date: "2026-10-02"
 event_time: "9:30 AM onwards"
 location: "Dot Com Infoway, Madurai"
 event_type: "Chapter Launch & Meetup"
+event_status: "past"
+aliases:
+  - /past-events/madurai-chapter-launch/
 summary: "The official launch and inaugural meetup of the TNJUG Madurai Chapter, featuring deep-dive technical sessions on JVM performance at scale, modern garbage collection, and reliable agentic AI workflows."
 banner: "/images/past-events/madurai-chapter-launch/banner.jpg"
 registration_url: "https://luma.com/okjqahv6"
+luma_url: "https://luma.com/okjqahv6"
 speakers:
   - name: "Vaibhav Choudhary"
     role: "OpenJDK Author & JVM Engineer (20+ yrs exp, Salesforce)"

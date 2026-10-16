@@ -4,6 +4,9 @@ date: 2025-11-01
 event_date: "November 2025"
 location: "Thoughtworks, Coimbatore"
 event_type: "Community Meetup"
+event_status: "past"
+aliases:
+  - /past-events/november-meetup-2025/
 summary: "Community meetup hosted by Tamilnadu JUG at Thoughtworks, Coimbatore in November 2025."
 registration_url: "https://lnkd.in/gaMe6iEb"
 banner: "/images/archive/e03.jpg"

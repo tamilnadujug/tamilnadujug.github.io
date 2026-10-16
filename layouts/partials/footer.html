@@ -32,10 +32,8 @@
       <div class="footer-col">
         <h5>Programs</h5>
         <ul class="footer-links">
-          {{ with .Site.Params.luma_url }}
-          <li><a href="{{ . }}" target="_blank" rel="noopener noreferrer">Luma Events Calendar ↗</a></li>
-          {{ end }}
-          <li><a href="{{ "/past-events/" | relURL }}">Past Events &amp; Recaps</a></li>
+          <li><a href="{{ "/events/" | relURL }}">Upcoming Events</a></li>
+          <li><a href="{{ "/events/#past-events" | relURL }}">Past Events &amp; Recaps</a></li>
           <li><a href="{{ .Site.Params.cfp_url }}" target="_blank" rel="noopener noreferrer">Submit a Talk (CFP)</a></li>
           <li><a href="{{ "/open-source/" | relURL }}">Open Source Labs</a></li>
         </ul>

@@ -4,8 +4,12 @@ date: 2026-03-07
 event_date: "2026-03-07"
 location: "EPAM Systems, Coimbatore"
 event_type: "Full-Day Community Event"
+event_status: "past"
+aliases:
+  - /past-events/java-ai-day-march-coimbatore/
 summary: "A full-day community conference hosted by Tamilnadu JUG at EPAM Systems covering OpenJDK contributions, Hands-on Spring AI, Java's evolution in the AI era, autonomous AI agents, and a Java 25 quiz."
 registration_url: "https://luma.com/00kwt75i"
+luma_url: "https://luma.com/00kwt75i"
 banner: "/images/archive/e07.jpg"
 speakers:
   - name: "Samir Kamerkar"

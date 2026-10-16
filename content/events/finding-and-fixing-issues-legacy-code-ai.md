@@ -5,9 +5,13 @@ event_date: "2026-08-06"
 event_time: "5:30 PM onwards"
 location: "Thoughtworks, Coimbatore"
 event_type: "Community Meetup"
+event_status: "past"
+aliases:
+  - /past-events/finding-and-fixing-issues-legacy-code-ai/
 summary: "An in-person evening meetup at Thoughtworks Coimbatore featuring Java Champion Dr. Venkat Subramaniam on inspecting, understanding, and modernizing legacy codebases using AI-based tools."
 banner: "/images/archive/e15.jpg"
 registration_url: "https://luma.com/uc832cgi"
+luma_url: "https://luma.com/uc832cgi"
 speakers:
   - name: "Dr. Venkat Subramaniam"
     role: "Java Champion & Founder, Agile Developer Inc."
