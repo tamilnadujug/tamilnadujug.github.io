@@ -33,7 +33,7 @@ We may collect personal data directly from you or through trusted third-party co
 - **Community Registration & Event Attendance**: When you register for our meetups, workshops, conferences, or collegiate chapter events (e.g., via Luma or event check-in forms), we may collect your name, email address, phone number, organization or college/university affiliation, designation/year of study, city, and dietary or accessibility preferences if requested for in-person catering.
 - **Call for Proposals (CFP) & Speaker Submissions**: When you submit a talk or workshop proposal via our CFP forms (e.g., Google Forms), we collect your name, email address, contact number, professional bio, session title, abstract, slide links, LinkedIn profile, GitHub handle, and profile picture.
 - **Chapter Leadership & Volunteer Applications**: When faculty advisors, campus student leaders, or community organizers apply to lead or establish a collegiate chapter, we collect your name, institutional email, phone number, college/department affiliation, city, LinkedIn/GitHub profiles, photo, and statement of interest.
-- **Direct Correspondence**: When you reach out to us via email (`contact@tamilnadujug.org`) or web forms for inquiries, chapter onboarding, or feedback, we retain your message and contact details to respond to you.
+- **Direct Correspondence**: When you reach out to us via email (`contact.us@tamilnadujug.org`) or web forms for inquiries, chapter onboarding, or feedback, we retain your message and contact details to respond to you.
 
 #### B. Information Collected Automatically
 - **Technical & Log Data**: When you browse our website, our hosting platform (such as GitHub Pages) may automatically log standard technical data, including your Internet Protocol (IP) address, browser type, operating system, referring URLs, and timestamps. This data is used solely for technical diagnostics, site security, and abuse prevention.
@@ -108,7 +108,7 @@ Under the Digital Personal Data Protection Act, 2023 (DPDPA) and applicable Indi
 - **Right to Withdraw Consent**: Where processing is based on your consent, you may withdraw your consent at any time without affecting the lawfulness of processing carried out prior to withdrawal.
 - **Right to Grievance Redressal**: You have the right to seek resolution of any grievance or query concerning the processing of your data through our designated Grievance Officer.
 
-To exercise any of these rights, please email us at **[contact@tamilnadujug.org](mailto:contact@tamilnadujug.org)** with the subject line *"Data Subject Request"*.
+To exercise any of these rights, please email us at **[contact.us@tamilnadujug.org](mailto:contact.us@tamilnadujug.org)** with the subject line *"Data Subject Request"*.
 
 ---
 
@@ -124,7 +124,7 @@ In compliance with the **Information Technology Act, 2000** and the **Informatio
 
 - **Organization**: Tamil Nadu Java User Group (TNJUG)
 - **Designation**: Community Grievance & Privacy Officer
-- **Email**: [contact@tamilnadujug.org](mailto:contact@tamilnadujug.org)
+- **Email**: [contact.us@tamilnadujug.org](mailto:contact.us@tamilnadujug.org)
 - **Website**: [tamilnadujug.github.io](https://tamilnadujug.github.io)
 - **Region**: Tamil Nadu, India
 

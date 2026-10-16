@@ -46,7 +46,7 @@ TNJUG is dedicated to providing a harassment-free, welcoming, and safe learning 
 - **Share Knowledge Generously**: Welcome questions from learners and junior colleagues.
 - **Respect Commercial Boundaries**: TNJUG is a technical, educational forum. Direct vendor pitches, unsolicited recruitment spam, or product marketing without educational substance are not allowed during meetups.
 
-To report any code of conduct violation, please email **[conduct@tamilnadujug.org](mailto:contact@tamilnadujug.org)**.
+To report any code of conduct violation, please email **[contact.us@tamilnadujug.org](mailto:contact.us@tamilnadujug.org)**.
 
 ---
 
@@ -75,7 +75,7 @@ Are you interested in launching a TNJUG chapter at your university, or hosting a
 3. Dedicated lab space or seminar hall with projector and internet connectivity.
 4. Commitment to host at least two technical meetups or hands-on labs per academic semester.
 
-Reach out to our organizing committee at **[contact@tamilnadujug.org](mailto:contact@tamilnadujug.org)** to begin the chapter onboarding process.
+Reach out to our organizing committee at **[contact.us@tamilnadujug.org](mailto:contact.us@tamilnadujug.org)** to begin the chapter onboarding process.
 
 ---
 
