@@ -95,7 +95,8 @@ The **[jChampions Conference](https://jchampionsconf.com)** is an annual global,
   </a>
 </div>
 
-> 🌐 **Conference Website & Registration:** [https://jchampionsconf.com](https://jchampionsconf.com)
+> 🌐 **Conference Website & Registration:** [https://jchampionsconf.com](https://jchampionsconf.com)  
+> 📺 **Watch Past Sessions (6 Years Archive):** [https://youtube.com/@JChampionsConf/streams](https://youtube.com/@JChampionsConf/streams)
 
 ---
 
