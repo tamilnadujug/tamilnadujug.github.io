@@ -79,9 +79,9 @@ Reach out to our organizing committee at **[contact.us@tamilnadujug.org](mailto:
 
 ---
 
-<div id="community-partners"></div>
-
-### Community Partners & Global Alliances
+<div id="community-partners" style="scroll-margin-top: calc(var(--header-height) + 2rem); margin-top: 1.5rem;">
+  <h3 style="margin-top: 0;">Community Partners &amp; Global Alliances</h3>
+</div>
 
 TNJUG actively collaborates with global developer conferences, open source bodies, and peer Java communities to connect developers and students in Tamil Nadu with international speakers and technical forums.
 

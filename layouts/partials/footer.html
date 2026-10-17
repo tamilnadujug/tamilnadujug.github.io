@@ -73,3 +73,26 @@
     </div>
   </div>
 </footer>
+
+<script>
+  // Ensure reliable scrolling to hash targets (including across page redirections)
+  (function() {
+    function scrollToHash() {
+      if (!window.location.hash) return;
+      var rawHash = window.location.hash.substring(1);
+      var target = document.getElementById(rawHash);
+      if (target) {
+        setTimeout(function() {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 120);
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      window.addEventListener('DOMContentLoaded', scrollToHash);
+    } else {
+      scrollToHash();
+    }
+    window.addEventListener('hashchange', scrollToHash);
+  })();
+</script>
