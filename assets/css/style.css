@@ -2323,3 +2323,92 @@ button, input, select, textarea {
   border-color: var(--color-primary);
 }
 
+/* ==========================================================================
+   Heading Anchor Links & Homepage Section Navigation
+   ========================================================================== */
+
+/* Ensure smooth scroll margin for any anchor target with sticky header */
+[id] {
+  scroll-margin-top: calc(var(--header-height) + 1.5rem);
+}
+
+.section-title,
+.callout-box h3,
+.hero-title {
+  position: relative;
+}
+
+.heading-anchor {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.5rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.75em;
+  opacity: 0;
+  transition: opacity 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.section-title:hover .heading-anchor,
+.callout-box h3:hover .heading-anchor,
+.hero-title:hover .heading-anchor,
+.heading-anchor:focus {
+  opacity: 0.6;
+}
+
+.heading-anchor:hover {
+  opacity: 1 !important;
+  color: var(--color-primary);
+  transform: scale(1.15);
+}
+
+/* Home Section Navigation Bar */
+.home-section-nav {
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.85rem 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.home-section-nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.home-section-nav-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-right: 0.25rem;
+}
+
+.home-section-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.home-section-pill:hover {
+  color: var(--color-primary);
+  background-color: var(--color-primary-light);
+  border-color: var(--color-primary);
+  transform: translateY(-1px);
+}
+

@@ -35,7 +35,7 @@
           {{ with .Site.Params.luma_url }}
           <li><a href="{{ . }}" target="_blank" rel="noopener noreferrer">Luma Events Calendar ↗</a></li>
           {{ end }}
-          <li><a href="{{ .Site.Params.cfp_url }}" target="_blank" rel="noopener noreferrer">Submit a Talk (CFP)</a></li>
+          <li><a href="{{ "/#call-for-speakers" | relURL }}">Call for Speakers (CFP)</a></li>
           <li><a href="{{ "/open-source/" | relURL }}">Open Source Labs</a></li>
         </ul>
       </div>
@@ -43,10 +43,10 @@
       <div class="footer-col">
         <h5>Community</h5>
         <ul class="footer-links">
-          <li><a href="{{ "/chapters/" | relURL }}">College Chapters</a></li>
-          <li><a href="{{ "/leaders/" | relURL }}">Core Team & Leads</a></li>
+          <li><a href="{{ "/#community-chapters" | relURL }}">Campus Chapters</a></li>
+          <li><a href="{{ "/#community-leaders" | relURL }}">Community Leaders</a></li>
+          <li><a href="{{ "/#community-partners" | relURL }}">Community Partners</a></li>
           <li><a href="{{ "/community/" | relURL }}">About Community</a></li>
-          <li><a href="{{ "/community/#community-partners" | relURL }}">Community Partners</a></li>
           <li><a href="{{ "/community/#code-of-conduct" | relURL }}">Code of Conduct</a></li>
           <li><a href="{{ "/privacy-policy/" | relURL }}">Privacy Policy</a></li>
         </ul>
@@ -62,7 +62,7 @@
           <li><a href="{{ . }}" target="_blank" rel="noopener noreferrer" style="color: #25D366; font-weight: 600;">Join WhatsApp Group ↗</a></li>
           {{ end }}
           <li><a href="https://github.com/tamilnadujug/tamilnadujug.github.io" target="_blank" rel="noopener noreferrer">Contribute to Website ↗</a></li>
-          <li><a href="{{ .Site.Params.cfp_url }}" target="_blank" rel="noopener noreferrer">Propose a Talk ↗</a></li>
+          <li><a href="{{ "/#call-for-speakers" | relURL }}">Propose a Talk ↗</a></li>
         </ul>
       </div>
     </div>
