@@ -2247,6 +2247,107 @@ button, input, select, textarea {
    Scoped styling adhering to TNJUG design system tokens
    ========================================================================== */
 
+/* Next Upcoming Event Banner (Direct to Luma) */
+.upcoming-luma-banner {
+  margin-bottom: 3.5rem;
+  padding: 2rem 2.25rem;
+  background: linear-gradient(135deg, var(--bg-surface) 0%, rgba(231, 111, 81, 0.05) 100%);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.upcoming-luma-banner-content {
+  flex: 1;
+  min-width: 280px;
+}
+
+.upcoming-luma-banner-badges {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.upcoming-luma-banner-title {
+  font-size: 1.45rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.upcoming-luma-banner-title a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.upcoming-luma-banner-title a:hover {
+  color: var(--color-primary);
+}
+
+.upcoming-luma-banner-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-bottom: 0.6rem;
+}
+
+.upcoming-luma-banner-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.upcoming-luma-banner-desc {
+  margin: 0;
+  font-size: 0.925rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  max-width: 680px;
+}
+
+.upcoming-luma-banner-action {
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.upcoming-luma-banner-hint {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.4rem;
+}
+
+@media (max-width: 640px) {
+  .upcoming-luma-banner {
+    padding: 1.5rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem;
+  }
+  .upcoming-luma-banner-action {
+    text-align: left;
+  }
+  .upcoming-luma-banner-action .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .upcoming-luma-banner-hint {
+    text-align: center;
+  }
+}
+
 /* Past Events Listing Grid */
 .past-events-grid {
   gap: 1.75rem;
