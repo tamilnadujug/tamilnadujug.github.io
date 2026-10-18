@@ -34,7 +34,7 @@
         <ul class="footer-links">
           <li><a href="{{ "/events/" | relURL }}">Upcoming Events</a></li>
           <li><a href="{{ "/events/#past-events" | relURL }}">Past Events &amp; Recaps</a></li>
-          <li><a href="{{ .Site.Params.cfp_url }}" target="_blank" rel="noopener noreferrer">Submit a Talk (CFP)</a></li>
+          <li><a href="{{ "/#call-for-speakers" | relURL }}">Call for Speakers (CFP)</a></li>
           <li><a href="{{ "/open-source/" | relURL }}">Open Source Labs</a></li>
         </ul>
       </div>
@@ -42,8 +42,9 @@
       <div class="footer-col">
         <h5>Community</h5>
         <ul class="footer-links">
-          <li><a href="{{ "/chapters/" | relURL }}">College Chapters</a></li>
-          <li><a href="{{ "/leaders/" | relURL }}">Core Team & Leads</a></li>
+          <li><a href="{{ "/#community-chapters" | relURL }}">Campus Chapters</a></li>
+          <li><a href="{{ "/#community-leaders" | relURL }}">Community Leaders</a></li>
+          <li><a href="{{ "/#community-partners" | relURL }}">Community Partners</a></li>
           <li><a href="{{ "/community/" | relURL }}">About Community</a></li>
           <li><a href="{{ "/community/#code-of-conduct" | relURL }}">Code of Conduct</a></li>
           <li><a href="{{ "/privacy-policy/" | relURL }}">Privacy Policy</a></li>
@@ -60,7 +61,7 @@
           <li><a href="{{ . }}" target="_blank" rel="noopener noreferrer" style="color: #25D366; font-weight: 600;">Join WhatsApp Group ↗</a></li>
           {{ end }}
           <li><a href="https://github.com/tamilnadujug/tamilnadujug.github.io" target="_blank" rel="noopener noreferrer">Contribute to Website ↗</a></li>
-          <li><a href="{{ .Site.Params.cfp_url }}" target="_blank" rel="noopener noreferrer">Propose a Talk ↗</a></li>
+          <li><a href="{{ "/#call-for-speakers" | relURL }}">Propose a Talk ↗</a></li>
         </ul>
       </div>
     </div>
@@ -71,3 +72,26 @@
     </div>
   </div>
 </footer>
+
+<script>
+  // Ensure reliable scrolling to hash targets (including across page redirections)
+  (function() {
+    function scrollToHash() {
+      if (!window.location.hash) return;
+      var rawHash = window.location.hash.substring(1);
+      var target = document.getElementById(rawHash);
+      if (target) {
+        setTimeout(function() {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 120);
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      window.addEventListener('DOMContentLoaded', scrollToHash);
+    } else {
+      scrollToHash();
+    }
+    window.addEventListener('hashchange', scrollToHash);
+  })();
+</script>

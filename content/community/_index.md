@@ -76,6 +76,26 @@ Are you interested in launching a TNJUG chapter at your university, or hosting a
 4. Commitment to host at least two technical meetups or hands-on labs per academic semester.
 
 Reach out to our organizing committee at **[contact.us@tamilnadujug.org](mailto:contact.us@tamilnadujug.org)** to begin the chapter onboarding process.
+---
+
+<div id="community-partners" style="scroll-margin-top: calc(var(--header-height) + 2rem); margin-top: 1.5rem;">
+  <h3 style="margin-top: 0;">Community Partners &amp; Global Alliances</h3>
+</div>
+
+TNJUG actively collaborates with global developer conferences, open source bodies, and peer Java communities to connect developers and students in Tamil Nadu with international speakers and technical forums.
+
+#### Featured Partner: jChampions Conference
+
+The **[jChampions Conference](https://jchampionsconf.com)** is an annual global, completely free virtual conference organized entirely by Java Champions. It features presentations from leading international Java experts, JVM architects, and open source maintainers for over 14 million Java engineers worldwide.
+
+<div class="community-partner-banner">
+  <a href="https://jchampionsconf.com" target="_blank" rel="noopener noreferrer">
+    <img src="/logos/jchampions-community-banner.png" alt="jChampions Conference - Free Community Java Conference" width="2100" height="600" />
+  </a>
+</div>
+
+> 🌐 **Conference Website & Registration:** [https://jchampionsconf.com](https://jchampionsconf.com)  
+> 📺 **Watch Past Sessions (6 Years Archive):** [https://youtube.com/@JChampionsConf/streams](https://youtube.com/@JChampionsConf/streams)
 
 ---
 
