@@ -19,93 +19,37 @@
 
 <div class="container" style="margin-bottom: 4rem;">
 
-  {{/* Separate all event pages into Upcoming and Past events */}}
+  {{/* Collect past events */}}
   {{ $allEvents := .RegularPages }}
-  {{ $upcomingEvents := slice }}
   {{ $pastEvents := slice }}
   {{ range $allEvents }}
-    {{ if eq .Params.event_status "upcoming" }}
-      {{ $upcomingEvents = $upcomingEvents | append . }}
-    {{ else }}
+    {{ if ne .Params.event_status "upcoming" }}
       {{ $pastEvents = $pastEvents | append . }}
     {{ end }}
   {{ end }}
-  {{ $upcomingEvents = sort $upcomingEvents "Date" "asc" }}
   {{ $pastEvents = sort $pastEvents "Date" "desc" }}
 
-  <!-- =========================================================================
-       Next Upcoming Event Banner (Direct to Luma)
-       ========================================================================= -->
-  {{ $nextEvent := index $upcomingEvents 0 }}
-  {{ $nextLumaUrl := "" }}
-  {{ with $nextEvent }}
-    {{ if and .Params.luma_url (strings.Contains .Params.luma_url "luma") }}
-      {{ $nextLumaUrl = .Params.luma_url }}
-    {{ else if and .Params.registration_url (strings.Contains .Params.registration_url "luma") }}
-      {{ $nextLumaUrl = .Params.registration_url }}
-    {{ end }}
-  {{ end }}
-  {{ if not $nextLumaUrl }}
-    {{ $nextLumaUrl = .Site.Params.luma_url }}
-  {{ end }}
+  {{/* TNJUG Luma Calendar / Organizer URL */}}
+  {{ $lumaCalendarUrl := .Site.Params.luma_url | default "https://luma.com/tamilnadu-jug" }}
 
+  <!-- =========================================================================
+       Permanent TNJUG Events Banner (Direct to Luma Calendar)
+       ========================================================================= -->
   <div class="card upcoming-luma-banner">
     <div class="upcoming-luma-banner-content">
-      <div class="upcoming-luma-banner-badges">
-        <span class="badge badge-primary">Next Upcoming Event</span>
-        <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">RSVP on Luma</span>
-      </div>
-
-      {{ with $nextEvent }}
       <h2 class="upcoming-luma-banner-title">
-        <a href="{{ $nextLumaUrl }}" target="_blank" rel="noopener noreferrer">
-          {{ .Title }} ↗
-        </a>
-      </h2>
-
-      {{ $displayDate := "" }}
-      {{ with .Params.event_date }}
-        {{ $displayDate = . }}
-      {{ else }}
-        {{ if not .Date.IsZero }}
-          {{ $displayDate = .Date.Format "January 2, 2006" }}
-        {{ end }}
-      {{ end }}
-
-      <div class="upcoming-luma-banner-meta">
-        {{ if $displayDate }}
-        <span class="upcoming-luma-banner-meta-item">
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-          <span>{{ $displayDate }}{{ with .Params.event_time }} • {{ . }}{{ end }}</span>
-        </span>
-        {{ end }}
-
-        {{ with .Params.location }}
-        <span class="upcoming-luma-banner-meta-item">
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-          <span>{{ . }}</span>
-        </span>
-        {{ end }}
-      </div>
-
-      <p class="upcoming-luma-banner-desc">
-        {{ with .Params.summary }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 135 }}{{ end }}
-      </p>
-      {{ else }}
-      <h2 class="upcoming-luma-banner-title">
-        <a href="{{ $nextLumaUrl }}" target="_blank" rel="noopener noreferrer">
-          Tamil Nadu Java User Group on Luma ↗
+        <a href="{{ $lumaCalendarUrl }}" target="_blank" rel="noopener noreferrer">
+          Tamilnadu JUG Events
         </a>
       </h2>
       <p class="upcoming-luma-banner-desc">
-        Stay tuned for our upcoming meetups, workshops, and conferences across Tamil Nadu. View schedules and RSVP directly on Luma.
+        Join the Tamil Nadu Java User Group for upcoming meetups, workshops, and community events.
       </p>
-      {{ end }}
     </div>
 
     <div class="upcoming-luma-banner-action">
-      <a href="{{ $nextLumaUrl }}" target="_blank" rel="noopener noreferrer" class="btn btn-luma btn-lg" style="white-space: nowrap; display: inline-flex; align-items: center; gap: 0.5rem;" aria-label="Register on Luma (opens in new tab)">
-        <span>Register on Luma</span>
+      <a href="{{ $lumaCalendarUrl }}" target="_blank" rel="noopener noreferrer" class="btn btn-luma btn-lg" style="white-space: nowrap; display: inline-flex; align-items: center; gap: 0.5rem;" aria-label="Explore events on Luma (opens in new tab)">
+        <span>Explore events on Luma</span>
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
       </a>
       <span class="upcoming-luma-banner-hint">Opens in Luma Calendar ↗</span>
