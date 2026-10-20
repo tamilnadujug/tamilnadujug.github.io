@@ -1,0 +1,183 @@
+{{ define "main" }}
+<div class="article-header">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="{{ "/" | relURL }}">Home</a>
+      <span>/</span>
+      <span>Events</span>
+    </div>
+    <h1 class="article-title">{{ .Title | default "Events" }}</h1>
+    <p class="section-desc">
+      {{ with .Description }}
+        {{ . }}
+      {{ else }}
+        Explore upcoming meetups, conferences, and workshops, plus recaps of past Tamil Nadu Java User Group (TNJUG) events across Chennai, Coimbatore, Madurai, and campus chapters.
+      {{ end }}
+    </p>
+  </div>
+</div>
+
+<div class="container" style="margin-bottom: 4rem;">
+
+  {{/* Collect past events */}}
+  {{ $allEvents := .RegularPages }}
+  {{ $pastEvents := slice }}
+  {{ range $allEvents }}
+    {{ if ne .Params.event_status "upcoming" }}
+      {{ $pastEvents = $pastEvents | append . }}
+    {{ end }}
+  {{ end }}
+  {{ $pastEvents = sort $pastEvents "Date" "desc" }}
+
+  {{/* TNJUG Luma Calendar / Organizer URL */}}
+  {{ $lumaCalendarUrl := .Site.Params.luma_url | default "https://luma.com/tamilnadu-jug" }}
+
+  <!-- =========================================================================
+       Permanent TNJUG Events Banner (Direct to Luma Calendar)
+       ========================================================================= -->
+  <div class="card upcoming-luma-banner">
+    <div class="upcoming-luma-banner-content">
+      <h2 class="upcoming-luma-banner-title">
+        <a href="{{ $lumaCalendarUrl }}" target="_blank" rel="noopener noreferrer">
+          Tamilnadu JUG Events
+        </a>
+      </h2>
+      <p class="upcoming-luma-banner-desc">
+        Join the Tamil Nadu Java User Group for upcoming meetups, workshops, and community events.
+      </p>
+    </div>
+
+    <div class="upcoming-luma-banner-action">
+      <a href="{{ $lumaCalendarUrl }}" target="_blank" rel="noopener noreferrer" class="btn btn-luma btn-lg" style="white-space: nowrap; display: inline-flex; align-items: center; gap: 0.5rem;" aria-label="Explore events on Luma (opens in new tab)">
+        <span>Explore events on Luma</span>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+      </a>
+      <span class="upcoming-luma-banner-hint">Opens in Luma Calendar ↗</span>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       Past Events Section
+       ========================================================================= -->
+  <section id="past-events">
+    <div class="section-header" style="text-align: left; margin-bottom: 1.75rem;">
+      <span class="section-kicker">Archive</span>
+      <h2 class="section-title" style="font-size: 1.75rem;">Past Events</h2>
+      <p class="section-desc" style="margin-left: 0;">Summaries, speaker notes, and recaps from previously conducted community gatherings.</p>
+    </div>
+
+    {{ if gt (len $pastEvents) 0 }}
+    <div class="grid grid-cols-3 past-events-grid" id="past-events-grid">
+      {{ range $pastEvents }}
+      {{ $eventTitle := .Title }}
+      {{ $lumaUrl := "" }}
+      {{ if and .Params.luma_url (strings.Contains .Params.luma_url "luma") }}
+        {{ $lumaUrl = .Params.luma_url }}
+      {{ else if and .Params.registration_url (strings.Contains .Params.registration_url "luma") }}
+        {{ $lumaUrl = .Params.registration_url }}
+      {{ end }}
+
+      <article class="card past-event-card">
+        <a href="{{ .RelPermalink }}" class="past-event-banner-link" aria-label="Read recap for {{ $eventTitle }}">
+          {{ with .Params.banner }}
+          <div class="past-event-banner-wrap">
+            <img src="{{ . | relURL }}" alt="{{ $eventTitle }}" class="past-event-banner" loading="lazy">
+          </div>
+          {{ else }}
+          <div class="past-event-banner-wrap past-event-banner-fallback">
+            <div class="past-event-fallback-content">
+              <span class="badge badge-primary">TNJUG</span>
+              <div class="past-event-fallback-title">{{ $eventTitle }}</div>
+            </div>
+          </div>
+          {{ end }}
+        </a>
+
+        <div class="past-event-card-body">
+          <div class="past-event-tags">
+            {{ with .Params.event_type }}
+            <span class="badge badge-primary">{{ . }}</span>
+            {{ end }}
+            {{ with .Params.location }}
+            <span class="past-event-location-pill">
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>{{ . }}</span>
+            </span>
+            {{ end }}
+          </div>
+
+          <h3 class="past-event-card-title">
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </h3>
+
+          {{ $displayDate := "" }}
+          {{ with .Params.event_date }}
+            {{ $displayDate = . }}
+          {{ else }}
+            {{ if not .Date.IsZero }}
+              {{ $displayDate = .Date.Format "January 2, 2006" }}
+            {{ end }}
+          {{ end }}
+
+          {{ if $displayDate }}
+          <div class="past-event-date-row">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            <time datetime="{{ with .Params.event_date }}{{ . }}{{ else }}{{ .Date.Format "2006-01-02" }}{{ end }}">
+              {{ if (findRE `^\d{4}-\d{2}-\d{2}$` $displayDate) }}
+                {{ time.Format "January 2, 2006" $displayDate }}
+              {{ else }}
+                {{ $displayDate }}
+              {{ end }}
+            </time>
+            {{ with .Params.event_time }}
+            <span class="past-event-time-sep">•</span>
+            <span>{{ . }}</span>
+            {{ end }}
+          </div>
+          {{ end }}
+
+          <p class="past-event-card-summary">
+            {{ with .Params.summary }}
+              {{ . }}
+            {{ else }}
+              {{ .Summary | plainify | truncate 135 }}
+            {{ end }}
+          </p>
+
+          {{ with .Params.speakers }}
+          <div class="past-event-speakers-mini">
+            <span class="past-event-speakers-label">Speakers:</span>
+            <span class="past-event-speakers-names">
+              {{ range $idx, $sp := . }}
+                {{- if gt $idx 0 }}, {{ end }}{{ $sp.name -}}
+              {{ end }}
+            </span>
+          </div>
+          {{ end }}
+
+          <div class="past-event-card-footer">
+            <a href="{{ .RelPermalink }}" class="btn btn-outline btn-sm">
+              <span>View Details →</span>
+            </a>
+            {{ if $lumaUrl }}
+            <a href="{{ $lumaUrl }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+              <span>View on Luma ↗</span>
+            </a>
+            {{ end }}
+          </div>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+    {{ else }}
+    <div class="card past-events-empty-state">
+      <div class="empty-state-icon">
+        <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line><circle cx="12" cy="15" r="2"></circle></svg>
+      </div>
+      <h3>No Past Events Listed</h3>
+      <p>Stay tuned as we archive and publish recaps of our events.</p>
+    </div>
+    {{ end }}
+  </section>
+</div>
+{{ end }}

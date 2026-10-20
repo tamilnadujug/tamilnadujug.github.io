@@ -76,7 +76,6 @@ Are you interested in launching a TNJUG chapter at your university, or hosting a
 4. Commitment to host at least two technical meetups or hands-on labs per academic semester.
 
 Reach out to our organizing committee at **[contact.us@tamilnadujug.org](mailto:contact.us@tamilnadujug.org)** to begin the chapter onboarding process.
-
 ---
 
 <div id="community-partners" style="scroll-margin-top: calc(var(--header-height) + 2rem); margin-top: 1.5rem;">

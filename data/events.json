@@ -1,0 +1,1017 @@
+[
+  {
+    "id": "E22",
+    "title": "DevCarnival 2027",
+    "date_display": "January 8–9, 2027",
+    "date_iso": "2027-01-08",
+    "year": "2027",
+    "has_date": true,
+    "venue": "Infosys Mahindra City, Chennai",
+    "city": "Chennai",
+    "format": "In-Person",
+    "category": "Conference",
+    "status": "upcoming",
+    "status_label": "Upcoming / Partner Conference",
+    "series_id": "S08",
+    "series_name": "DevCarnival Community Partnership",
+    "source_posts": [
+      3,
+      5,
+      6,
+      7,
+      12
+    ],
+    "image_asset_keys": [
+      "1791709202572",
+      "1791478979286",
+      "1790923340645",
+      "1791092869099",
+      "1790243690045"
+    ],
+    "image": "/images/archive/e22.jpg",
+    "image_alt": "Official poster for DevCarnival 2027 at Infosys Mahindra City Chennai",
+    "speakers": [
+      {
+        "name": "Samir Kamerkar",
+        "role": "Canonical"
+      },
+      {
+        "name": "Mutheeshwaran S",
+        "role": "Infosys"
+      }
+    ],
+    "description": "Major upcoming 2-day developer conference in Chennai bringing together 100+ projects across multiple tracks, with Tamilnadu JUG as official Community Partner. Call for Proposals (CFP) opened.",
+    "uncertainty_note": "Upcoming partner conference scheduled for January 8–9, 2027; TNJUG is Community Partner.",
+    "links": [],
+    "recap_url": null
+  },
+  {
+    "id": "E23",
+    "title": "Global Dev Wednesdays — first session with Nitin Avula",
+    "date_display": "October 14, 2026",
+    "date_iso": "2026-10-14",
+    "year": "2026",
+    "has_date": true,
+    "venue": "Online (LinkedIn Live / Virtual)",
+    "city": "Online",
+    "format": "Online",
+    "category": "Webinar",
+    "status": "upcoming",
+    "status_label": "Upcoming",
+    "series_id": "S01",
+    "series_name": "Global Dev Wednesdays",
+    "source_posts": [
+      2,
+      4
+    ],
+    "image_asset_keys": [
+      "1791372502262",
+      "1758898147342"
+    ],
+    "image": null,
+    "image_alt": null,
+    "speakers": [
+      {
+        "name": "Nitin Avula",
+        "role": "Featured Global Speaker"
+      }
+    ],
+    "description": "Inaugural session of the Global Dev Wednesdays series by Tamilnadu JUG, featuring Nitin Avula for an interactive virtual discussion accessible directly to community members.",
+    "uncertainty_note": "Upcoming virtual session scheduled for October 14, 2026 at 9:00 PM IST.",
+    "links": [],
+    "recap_url": null
+  },
+  {
+    "id": "E20",
+    "title": "TNJUG Madurai Chapter Launch / first Madurai Meetup",
+    "date_display": "October 2, 2026",
+    "date_iso": "2026-10-02",
+    "year": "2026",
+    "has_date": true,
+    "venue": "Dot Com Infoway, Madurai",
+    "city": "Madurai",
+    "format": "In-Person",
+    "category": "Chapter Launch & Meetup",
+    "status": "completed",
+    "status_label": "Completed",
+    "series_id": "S03",
+    "series_name": "Chapter Launch Series",
+    "source_posts": [
+      8,
+      9,
+      10,
+      11,
+      13,
+      15
+    ],
+    "image_asset_keys": [
+      "1790852479083",
+      "1790839410513",
+      "1791002992271",
+      "1791002994149",
+      "1791002992858",
+      "1791002995434",
+      "1791002990670",
+      "1791002990331",
+      "1791002990957",
+      "1791002994264",
+      "1790763081022",
+      "1790690935842"
+    ],
+    "image": "/images/archive/e20.jpg",
+    "image_alt": "Official poster and attendees at the TNJUG Madurai Chapter Launch at Dot Com Infoway",
+    "speakers": [
+      {
+        "name": "Vaibhav Choudhary",
+        "role": "Principal Engineer, JVM Engineering"
+      },
+      {
+        "name": "Pawan Chawdhary",
+        "role": "Principal Engineer, Java Engineering"
+      },
+      {
+        "name": "Abdul Salam Mohamed Kani",
+        "role": "Engineering Director, Financial Services"
+      }
+    ],
+    "description": "Inaugural offline meetup marking the official launch of the TNJUG Madurai Chapter, organized in association with the Tamil Nadu AI Association (TNAIA) at Dot Com Infoway in the Temple City.",
+    "uncertainty_note": "None; confirmed conducted on October 2, 2026 in Madurai.",
+    "links": [],
+    "recap_url": "/past-events/madurai-chapter-launch/"
+  },
+  {
+    "id": "E19",
+    "title": "September Meetup — Modern Java Concurrency",
+    "date_display": "September 19, 2026",
+    "date_iso": "2026-09-19",
+    "year": "2026",
+    "has_date": true,
+    "venue": "Online",
+    "city": "Online",
+    "format": "Online",
+    "category": "Webinar",
+    "status": "completed",
+    "status_label": "Completed",
+    "series_id": null,
+    "series_name": null,
+    "source_posts": [
+      14,
+      24
+    ],
+    "image_asset_keys": [
+      "1789922427278",
+      "1789922430403",
+      "1789275838308"
+    ],
+    "image": "/images/archive/e19.jpg",
+    "image_alt": "Virtual meetup slide featuring A N M 'Bazlur' Rahman presenting Modern Java Concurrency",
+    "speakers": [
+      {
+        "name": "A N M 'Bazlur' Rahman",
+        "role": "Java Champion & Author"
+      }
+    ],
+    "description": "Two-hour online masterclass by Java Champion A N M 'Bazlur' Rahman delving into Java 21+ virtual threads, Structured Concurrency, Scoped Values, and modern multi-threading design.",
+    "uncertainty_note": "None; confirmed conducted online on September 19, 2026.",
+    "links": [],
+    "recap_url": "/past-events/september-meetup-modern-java-concurrency/"
+  },
+  {
+    "id": "E12",
+    "title": "Java AI Hackathon 2026 (Banfico-hosted)",
+    "date_display": "July 25, 2026",
+    "date_iso": "2026-07-25",
+    "year": "2026",
+    "has_date": true,
+    "venue": "Chennai (Hosted by Banfico)",
+    "city": "Chennai",
+    "format": "In-Person",
+    "category": "Hackathon",
+    "status": "announced",
+    "status_label": "Announced / Partner Hackathon",
+    "series_id": "S05",
+    "series_name": "Java AI Day Series",
+    "source_posts": [
+      26,
+      27
+    ],
+    "image_asset_keys": [
+      "1783399982359"
+    ],
+    "image": "/images/archive/e12.jpg",
+    "image_alt": "Banner for Java AI Hackathon 2026 hosted by Banfico with ₹85,000 prize pool",
+    "speakers": [],
+    "description": "FinTech and AI hackathon hosted by Banfico with a ₹85,000 prize pool, challenging builders to create banking solutions using Banking APIs, Java, Spring Boot, and AI. Promoted by Tamilnadu JUG as community partner.",
+    "uncertainty_note": "Partner-hosted event by Banfico; promoted by TNJUG in this capture.",
+    "links": [],
+    "recap_url": null
+  },
+  {
+    "id": "E14",
+    "title": "Tamilnadu JUG Chennai May Meetup — Java + AI",
+    "date_display": "May 30, 2026",
+    "date_iso": "2026-05-30",
+    "year": "2026",
+    "has_date": true,
+    "venue": "Contentstack Office, Chennai",
+    "city": "Chennai",
+    "format": "In-Person",
+    "category": "Meetup",
+    "status": "completed",
+    "status_label": "Completed",
+    "series_id": "S05",
+    "series_name": "Java AI Day Series",
+    "source_posts": [
+      22,
+      49,
+      60,
+      61,
+      62
+    ],
+    "image_asset_keys": [
+      "1780395011920",
+      "1780395012134",
+      "1780395018267",
+      "1780395018846",
+      "1780395018953",
+      "1780395016802",
+      "1780395020498",
+      "1783926461507",
+      "1779615990152",
+      "1779125765769",
+      "1778696887256"
+    ],
+    "image": "/images/archive/e14.jpg",
+    "image_alt": "Attendees and speakers during the Chennai May Meetup at Contentstack Chennai",
+    "speakers": [
+      {
+        "name": "Sai Mounik",
+        "role": "Software Engineer"
+      },
+      {
+        "name": "Yagapriyan G",
+        "role": "SDE II, Arcadia"
+      }
+    ],
+    "description": "In-person meetup at Contentstack Chennai featuring sessions on running local LLMs with Java + Ollama for privacy-focused AI applications, followed by production engineering lessons in Spring Boot.",
+    "uncertainty_note": "None; confirmed conducted May 30, 2026 at Contentstack Chennai.",
+    "links": [],
+    "recap_url": "/past-events/chennai-meetup-java-spring-boot-local-llms/"
+  },
+  {
+    "id": "E07",
+    "title": "Java AI Day — March Edition",
+    "date_display": "March 7, 2026",
+    "date_iso": "2026-03-07",
+    "year": "2026",
+    "has_date": true,
+    "venue": "EPAM Systems, Coimbatore",
+    "city": "Coimbatore",
+    "format": "In-Person",
+    "category": "Summit / Workshop",
+    "status": "completed",
+    "status_label": "Completed",
+    "series_id": "S05",
+    "series_name": "Java AI Day Series",
+    "source_posts": [
+      31,
+      32,
+      45,
+      46,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73
+    ],
+    "image_asset_keys": [
+      "1772934739470",
+      "1772934738407",
+      "1772934733205",
+      "1772934733046",
+      "1772934733210",
+      "1772934733203",
+      "1772934733045",
+      "1772790279032",
+      "1772790284624",
+      "1772948973931",
+      "1772790099471",
+      "1772454082184",
+      "1772266401134",
+      "1772255858816",
+      "1772189898649",
+      "1772167693228",
+      "1772020262954",
+      "1771921478207"
+    ],
+    "image": "/images/archive/e07.jpg",
+    "image_alt": "Audience and speakers gathered for Java AI Day March Edition at EPAM Systems Coimbatore",
+    "speakers": [
+      {
+        "name": "Samir Kamerkar",
+        "role": "Canonical"
+      },
+      {
+        "name": "Dinesh Kumar Ilangovan",
+        "role": "Senior Engineer"
+      },
+      {
+        "name": "Gireesh Punathil",
+        "role": "IBM Master Inventor"
+      },
+      {
+        "name": "Muthukumaran N",
+        "role": "KLA"
+      },
+      {
+        "name": "SHAAMA M",
+        "role": "Software Engineer"
+      }
+    ],
+    "description": "Full-day immersion in enterprise Java and AI hosted at EPAM Systems Coimbatore with speaker support from Bangalore JUG. Covered open-source contributions, autonomous engineering agents, Java's JEP evolution, and hands-on Spring AI exercises. Featured a 'Java 25 in Practice' quiz and community book distribution of engineering titles.",
+    "uncertainty_note": "None; confirmed held on March 7, 2026 at EPAM Systems Coimbatore.",
+    "links": [
+      {
+        "label": "Luma Registration",
+        "url": "https://luma.com/00kwt75i"
+      }
+    ],
+    "recap_url": "/past-events/java-ai-day-march-coimbatore/"
+  },
+  {
+    "id": "E06",
+    "title": "Modern Programming Paradigms with Venkat Subramaniam (plus AMA)",
+    "date_display": "February 7, 2026",
+    "date_iso": "2026-02-07",
+    "year": "2026",
+    "has_date": true,
+    "venue": "Sri Eshwar College of Engineering, Coimbatore",
+    "city": "Coimbatore",
+    "format": "In-Person / Hybrid",
+    "category": "Meetup",
+    "status": "completed",
+    "status_label": "Completed",
+    "series_id": null,
+    "series_name": null,
+    "source_posts": [
+      34,
+      35,
+      38,
+      50,
+      51,
+      52,
+      56,
+      57,
+      75
+    ],
+    "image_asset_keys": [
+      "1770568963919",
+      "1770568967455",
+      "1770568979000",
+      "1770568962390",
+      "1770568960398",
+      "1770568958453",
+      "1770568972587",
+      "1770568972321",
+      "1768667517540",
+      "1768667514587",
+      "1768667514962",
+      "1791200966285",
+      "1777544301406",
+      "1774678226135",
+      "1770440333769",
+      "1769756661652"
+    ],
+    "image": "/images/archive/e06.jpg",
+    "image_alt": "Dr. Venkat Subramaniam addressing engineers and students at Sri Eshwar College Coimbatore",
+    "speakers": [
+      {
+        "name": "Dr. Venkat Subramaniam",
+        "role": "Award-winning Author, Founder Agile Developer Inc."
+      }
+    ],
+    "description": "Keynote and deep technical session on 'OOP vs. Data-Oriented Programming' followed by an interactive Ask Me Anything (AMA) session, hosted at Sri Eshwar College of Engineering Coimbatore and broadcast live on YouTube.",
+    "uncertainty_note": "None; confirmed conducted February 7, 2026 from 10:00 AM to 11:30 AM IST.",
+    "links": [
+      {
+        "label": "Luma Event Page",
+        "url": "https://luma.com/646tiqot"
+      }
+    ],
+    "recap_url": "/past-events/modern-programming-paradigms-venkat-subramaniam/"
+  },
+  {
+    "id": "E05",
+    "title": "Spring AI Hands-on Workshop — Chennai",
+    "date_display": "January 31, 2026",
+    "date_iso": "2026-01-31",
+    "year": "2026",
+    "has_date": true,
+    "venue": "Excelencia Office, Pinnacle Building, Taramani, Chennai",
+    "city": "Chennai",
+    "format": "In-Person",
+    "category": "Workshop",
+    "status": "completed",
+    "status_label": "Completed",
+    "series_id": "S05",
+    "series_name": "Java AI Day Series",
+    "source_posts": [
+      36,
+      38,
+      48,
+      63,
+      64,
+      76
+    ],
+    "image_asset_keys": [
+      "1769883997159",
+      "1769883989432",
+      "1769883993719",
+      "1769883993590",
+      "1769883993544",
+      "1769883994105",
+      "1769883994046",
+      "1769883994197",
+      "1768667517540",
+      "1768667514587",
+      "1768667514962",
+      "1776990571935",
+      "1768319350075"
+    ],
+    "image": "/images/archive/e05.jpg",
+    "image_alt": "Hands-on coding session during the Spring AI Workshop at Excelencia Taramani Chennai",
+    "speakers": [
+      {
+        "name": "Udayani V",
+        "role": "Broadcom"
+      },
+      {
+        "name": "Thamaraikanni P",
+        "role": "Last Minute"
+      },
+      {
+        "name": "Muthukumaran N",
+        "role": "KLA"
+      },
+      {
+        "name": "SHAAMA M",
+        "role": "Software Engineer"
+      }
+    ],
+    "description": "Intensive hands-on technical workshop kickstarting 2026 with practical Spring AI integration, prompt engineering from Java, and embedding local models, conducted at Excelencia Pinnacle Building in Taramani.",
+    "uncertainty_note": "None; confirmed conducted January 31, 2026 from 9:00 AM to 2:00 PM IST.",
+    "links": [],
+    "recap_url": "/past-events/spring-ai-hands-on-workshop-chennai/"
+  },
+  {
+    "id": "E04",
+    "title": "December Online Meetup — Spring Boot 4 New Features",
+    "date_display": "December 20, 2025",
+    "date_iso": "2025-12-20",
+    "year": "2025",
+    "has_date": true,
+    "venue": "Online",
+    "city": "Online",
+    "format": "Online",
+    "category": "Webinar",
+    "status": "completed",
+    "status_label": "Completed",
+    "series_id": null,
+    "series_name": null,
+    "source_posts": [
+      40,
+      59,
+      77
+    ],
+    "image_asset_keys": [
+      "1779446424143",
+      "1765338389307"
+    ],
+    "image": "/images/archive/e04.jpg",
+    "image_alt": "December Online Meetup poster featuring Siva Prasad Reddy K on Spring Boot 4",
+    "speakers": [
+      {
+        "name": "Siva Prasad Reddy K",
+        "role": "Developer Advocate, JetBrains"
+      }
+    ],
+    "description": "Virtual deep dive into upcoming features, architectural changes, and developer productivity enhancements in Spring Boot 4, delivered live by Siva Prasad Reddy K.",
+    "uncertainty_note": "None; confirmed conducted online on December 20, 2025 at 10:00 AM IST.",
+    "links": [],
+    "recap_url": "/past-events/december-online-meetup-spring-boot-4/"
+  },
+  {
+    "id": "E03",
+    "title": "Tamilnadu JUG November Meetup 2025",
+    "date_display": "November 2025",
+    "date_iso": "2025-11-15",
+    "year": "2025",
+    "has_date": true,
+    "venue": "Thoughtworks, Coimbatore",
+    "city": "Coimbatore",
+    "format": "In-Person",
+    "category": "Meetup",
+    "status": "completed",
+    "status_label": "Completed",
+    "series_id": null,
+    "series_name": null,
+    "source_posts": [
+      43,
+      79
+    ],
+    "image_asset_keys": [
+      "1762107108464",
+      "1762107110169",
+      "1762107108262",
+      "1762107108248",
+      "1762107108256",
+      "1762107109812",
+      "1762107110776",
+      "1762107109810",
+      "1762107111036",
+      "1762107109730",
+      "1761565445617"
+    ],
+    "image": "/images/archive/e03.jpg",
+    "image_alt": "Speakers and participants at the TNJUG November 2025 Meetup at Thoughtworks Coimbatore",
+    "speakers": [
+      {
+        "name": "Saravana",
+        "role": "Technical Speaker"
+      },
+      {
+        "name": "Sathish Kumar Thiyagarajan",
+        "role": "Community Lead & Speaker"
+      }
+    ],
+    "description": "In-person community meetup held at Thoughtworks Coimbatore focusing on Java architecture, reactive patterns, and enterprise best practices, featuring technical presentations and community networking.",
+    "uncertainty_note": "Exact day of November 2025 not explicitly stated in the post capture.",
+    "links": [],
+    "recap_url": "/past-events/november-meetup-2025/"
+  },
+  {
+    "id": "E02",
+    "title": "JAVAFEST’25",
+    "date_display": "2025 (Date not stated)",
+    "date_iso": "2025-01-01",
+    "year": "2025",
+    "has_date": true,
+    "venue": "Infosys Campus, Electronic City, Bangalore",
+    "city": "Bangalore",
+    "format": "In-Person",
+    "category": "Conference",
+    "status": "completed",
+    "status_label": "Held / Supported",
+    "series_id": "S07",
+    "series_name": "JavaFest Community Participation",
+    "source_posts": [
+      41,
+      53,
+      54,
+      55
+    ],
+    "image_asset_keys": [
+      "1762800928686",
+      "1762800929608",
+      "1762800933329",
+      "1762800928598",
+      "1762800929442",
+      "1762800933264",
+      "1762800933163",
+      "1762517281802",
+      "1762409983495",
+      "1762065969770"
+    ],
+    "image": "/images/archive/e02.jpg",
+    "image_alt": "TNJUG community delegation and attendees at JAVAFEST 2025 in Infosys Bangalore",
+    "speakers": [],
+    "description": "India's largest Java conference, JAVAFEST'25, hosted at Infosys Bangalore. Tamilnadu JUG organized a dedicated community bus delegation from Coimbatore to Bangalore led by Hari Nikesh R and Kishore G. Sri Eshwar College of Engineering joined as a proud sponsor, alongside the 'Ink of Inspiration' collaborative initiative.",
+    "uncertainty_note": "Exact calendar day and month not specified in post capture; conference held in 2025 at Infosys Bangalore.",
+    "links": [],
+    "recap_url": null
+  },
+  {
+    "id": "E01",
+    "title": "JavaFest 2024 — TNJUG community-ticket notice",
+    "date_display": "Date not stated",
+    "date_iso": null,
+    "year": null,
+    "has_date": false,
+    "venue": "Infosys Bangalore (JavaFest conference)",
+    "city": "Bangalore",
+    "format": "In-Person",
+    "category": "Notice / Conference",
+    "status": "announced",
+    "status_label": "Announced / Notice",
+    "series_id": "S07",
+    "series_name": "JavaFest Community Participation",
+    "source_posts": [
+      78
+    ],
+    "image_asset_keys": [
+      "1762278969333"
+    ],
+    "image": "/images/archive/e01.jpg",
+    "image_alt": "JavaFest 2024 Community Tickets notice graphic for Tamilnadu JUG members",
+    "speakers": [],
+    "description": "Notice announcing that the limited community passes allocated to Tamilnadu JUG for JavaFest were sold out, with details on remaining conference tickets. Mentions strong engagement within the Tamil Nadu Java ecosystem.",
+    "uncertainty_note": "Unresolved #JavaFest2024 year ambiguity; exact calendar date of the conference was not stated in the capture post.",
+    "links": [
+      {
+        "label": "JavaFest Conference",
+        "url": "https://www.javafest.org"
+      }
+    ],
+    "recap_url": null
+  },
+  {
+    "id": "E08",
+    "title": "Open Source Lab — second round",
+    "date_display": "Date not stated",
+    "date_iso": null,
+    "year": null,
+    "has_date": false,
+    "venue": "Kongu Engineering College, Perundurai",
+    "city": "Perundurai",
+    "format": "In-Person",
+    "category": "Lab Clinic",
+    "status": "completed",
+    "status_label": "Completed",
+    "series_id": "S02",
+    "series_name": "Open Source Labs",
+    "source_posts": [
+      33
+    ],
+    "image_asset_keys": [
+      "1772426246519",
+      "1772426246929",
+      "1772426246201",
+      "1772426248020",
+      "1772426246633",
+      "1772426246948"
+    ],
+    "image": "/images/archive/e08.jpg",
+    "image_alt": "Students participating in the Open Source Lab second round at Kongu Engineering College",
+    "speakers": [],
+    "description": "Successful completion of the second round of Tamilnadu JUG's Open Source Lab initiative at Kongu Engineering College, promoting real-world Java open-source development and Git workflows among undergraduate students.",
+    "uncertainty_note": "Specific calendar date not stated in the source post capture; completed second round.",
+    "links": [],
+    "recap_url": null
+  },
+  {
+    "id": "E09",
+    "title": "Ken Fogel discussion and SQL Builder review",
+    "date_display": "Date not stated",
+    "date_iso": null,
+    "year": null,
+    "has_date": false,
+    "venue": "Online / Virtual Review",
+    "city": "Online",
+    "format": "Online",
+    "category": "Code Review & Discussion",
+    "status": "completed",
+    "status_label": "Completed",
+    "series_id": "S02",
+    "series_name": "Open Source Labs",
+    "source_posts": [
+      16
+    ],
+    "image_asset_keys": [
+      "1789614099691"
+    ],
+    "image": null,
+    "image_alt": null,
+    "speakers": [
+      {
+        "name": "Ken Fogel",
+        "role": "Java Champion & Academic Leader"
+      }
+    ],
+    "description": "In-depth project review and mentorship discussion with Java Champion Ken Fogel, reviewing TNJUG's student-built open-source project SQL Builder alongside community students, professors, and organizers.",
+    "uncertainty_note": "Specific calendar date not stated in capture; session held online.",
+    "links": [],
+    "recap_url": null
+  },
+  {
+    "id": "E10",
+    "title": "Rameswaram Tech Tour and Coding Camp",
+    "date_display": "Date not stated",
+    "date_iso": null,
+    "year": null,
+    "has_date": false,
+    "venue": "Rameswaram",
+    "city": "Rameswaram",
+    "format": "In-Person",
+    "category": "Coding Camp",
+    "status": "completed",
+    "status_label": "Completed",
+    "series_id": "S06",
+    "series_name": "Industry-Academia Bridge Series",
+    "source_posts": [
+      28
+    ],
+    "image_asset_keys": [
+      "1777897281909",
+      "1777897287490",
+      "1777897295773",
+      "1777897273580",
+      "1777897295217"
+    ],
+    "image": "/images/archive/e10.jpg",
+    "image_alt": "TNJUG volunteers and student coders during the Tech Tour and Coding Camp in Rameswaram",
+    "speakers": [],
+    "description": "Immersive community retreat, tech tour, and coding camp bringing a cohort of passionate volunteers and engineering students to Rameswaram for hands-on programming, collaboration, and mentor sessions outside urban hubs.",
+    "uncertainty_note": "Exact calendar dates not stated in source capture; completed volunteer coding camp.",
+    "links": [],
+    "recap_url": null
+  },
+  {
+    "id": "E11",
+    "title": "10-Day In-Person Workshop — DSA to Spring Boot AI",
+    "date_display": "Starting May 10 (Year not stated)",
+    "date_iso": null,
+    "year": null,
+    "has_date": false,
+    "venue": "Rameswaram (Venue provided by Karthik S.)",
+    "city": "Rameswaram",
+    "format": "In-Person",
+    "category": "Workshop",
+    "status": "unconfirmed",
+    "status_label": "Completion not confirmed",
+    "series_id": null,
+    "series_name": null,
+    "source_posts": [
+      65
+    ],
+    "image_asset_keys": [
+      "1777795881045"
+    ],
+    "image": "/images/archive/e11.jpg",
+    "image_alt": "Poster announcing 10-Day In-Person Workshop on DSA to Spring Boot AI in Rameswaram",
+    "speakers": [
+      {
+        "name": "Hari Nikesh R",
+        "role": "Volunteer Lead"
+      },
+      {
+        "name": "Rohan J",
+        "role": "Volunteer Lead"
+      },
+      {
+        "name": "Sai Mounik",
+        "role": "Volunteer Lead"
+      }
+    ],
+    "description": "Announced intensive 10-day hands-on workshop in Rameswaram limited to 10 seats, designed to transition students from foundational data structures & algorithms into production backend development with Spring Boot AI.",
+    "uncertainty_note": "Announced workshop; exact calendar year and completion outcome are not confirmed in the capture.",
+    "links": [],
+    "recap_url": null
+  },
+  {
+    "id": "E13",
+    "title": "Innovation ecosystem panel discussion at VET Institute",
+    "date_display": "Date not stated",
+    "date_iso": null,
+    "year": null,
+    "has_date": false,
+    "venue": "VET Institute of Arts and Science (Co-ed) College, Erode",
+    "city": "Erode",
+    "format": "In-Person",
+    "category": "Panel Discussion",
+    "status": "completed",
+    "status_label": "Completed / Partner Panel",
+    "series_id": "S06",
+    "series_name": "Industry-Academia Bridge Series",
+    "source_posts": [
+      18,
+      42
+    ],
+    "image_asset_keys": [
+      "1782396415601",
+      "1782396417667",
+      "1782396416371",
+      "1782396417862",
+      "1782396417703"
+    ],
+    "image": "/images/archive/e13.jpg",
+    "image_alt": "Panel discussion on innovation ecosystems at VET Institute of Arts and Science Erode",
+    "speakers": [
+      {
+        "name": "Hari Nikesh R",
+        "role": "Panelist, TNJUG"
+      },
+      {
+        "name": "Thiru Murugan",
+        "role": "Panelist"
+      },
+      {
+        "name": "Sathish Kumar Thiyagarajan",
+        "role": "Panelist, TNJUG"
+      }
+    ],
+    "description": "Collaborative panel discussion organized alongside TN Startup Thiruvizha and Nanuri Labs at VET Institute in Erode, exploring how hackathons and developer ecosystems bridge academia and startup innovation.",
+    "uncertainty_note": "Exact calendar date not stated in the capture.",
+    "links": [],
+    "recap_url": null
+  },
+  {
+    "id": "E15",
+    "title": "Finding and Fixing Issues in Code Using AI-Based Tools",
+    "date_display": "August 6 (Year not stated)",
+    "date_iso": null,
+    "year": null,
+    "has_date": false,
+    "venue": "Thoughtworks, Coimbatore",
+    "city": "Coimbatore",
+    "format": "In-Person",
+    "category": "Meetup",
+    "status": "completed",
+    "status_label": "Completed",
+    "series_id": null,
+    "series_name": null,
+    "source_posts": [
+      17,
+      20,
+      21,
+      58
+    ],
+    "image_asset_keys": [
+      "1786029142243",
+      "1786029145857",
+      "1786029145633",
+      "1786029137941",
+      "1786029143465",
+      "1786029137789",
+      "1786029137752",
+      "1786029137885",
+      "1784029760404",
+      "1783681933428"
+    ],
+    "image": "/images/archive/e15.jpg",
+    "image_alt": "Thoughtworks Coimbatore meetup with Dr. Venkat Subramaniam on finding code issues with AI",
+    "speakers": [
+      {
+        "name": "Dr. Venkat Subramaniam",
+        "role": "Founder, Agile Developer Inc."
+      }
+    ],
+    "description": "Evening meetup at Thoughtworks Coimbatore exploring static analysis, race conditions, memory leaks, and leveraging AI tools to inspect and refactor legacy codebases.",
+    "uncertainty_note": "Conducted on August 6th; specific calendar year not stated in post capture.",
+    "links": [
+      {
+        "label": "Luma Event",
+        "url": "https://luma.com/uc832cgi"
+      }
+    ],
+    "recap_url": null
+  },
+  {
+    "id": "E16",
+    "title": "Five-Day Online Advanced Java Workshop with Anna University",
+    "date_display": "August 26–30 (Year not stated)",
+    "date_iso": null,
+    "year": null,
+    "has_date": false,
+    "venue": "Online",
+    "city": "Online",
+    "format": "Online",
+    "category": "Workshop",
+    "status": "completed",
+    "status_label": "Completed",
+    "series_id": "S04",
+    "series_name": "Faculty Enablement Series",
+    "source_posts": [
+      23,
+      39
+    ],
+    "image_asset_keys": [
+      "1789015296851",
+      "1787280315207"
+    ],
+    "image": "/images/archive/e16.jpg",
+    "image_alt": "Poster for the Five-Day Online Advanced Java Workshop in collaboration with Anna University",
+    "speakers": [
+      {
+        "name": "Raghavan alias Saravanan Muthu",
+        "role": "Big Data Engineer & Academic Coordinator"
+      }
+    ],
+    "description": "Marathon 5-day state-wide online technical workshop conducted in partnership with Anna University Chennai, training students across affiliated colleges on advanced Java concepts and modern application design.",
+    "uncertainty_note": "Conducted August 26–30; calendar year not explicitly stated in capture.",
+    "links": [],
+    "recap_url": null
+  },
+  {
+    "id": "E17",
+    "title": "Community discussion with Venkat Subramaniam on academia and industry",
+    "date_display": "Date not stated",
+    "date_iso": null,
+    "year": null,
+    "has_date": false,
+    "venue": "Online / Virtual Discussion",
+    "city": "Online",
+    "format": "Online",
+    "category": "Roundtable Discussion",
+    "status": "completed",
+    "status_label": "Completed",
+    "series_id": "S06",
+    "series_name": "Industry-Academia Bridge Series",
+    "source_posts": [
+      37
+    ],
+    "image_asset_keys": [
+      "1787713121489"
+    ],
+    "image": "/images/archive/e17.jpg",
+    "image_alt": "Online discussion screen with Dr. Venkat Subramaniam and TNJUG leads on academia-industry bridge",
+    "speakers": [
+      {
+        "name": "Dr. Venkat Subramaniam",
+        "role": "Educator & Software Architect"
+      }
+    ],
+    "description": "Special community roundtable with Dr. Venkat Subramaniam, joined by senior engineers and university faculty, addressing actionable ways to bridge curricula and real-world software engineering practices.",
+    "uncertainty_note": "Specific calendar date not stated in the capture.",
+    "links": [],
+    "recap_url": null
+  },
+  {
+    "id": "E18",
+    "title": "DevCarnival Kick-Off discussion",
+    "date_display": "Date not stated (Teacher's Day / September)",
+    "date_iso": null,
+    "year": null,
+    "has_date": false,
+    "venue": "Ramakrishna Math, Chennai",
+    "city": "Chennai",
+    "format": "In-Person",
+    "category": "Kick-Off Discussion",
+    "status": "completed",
+    "status_label": "Completed",
+    "series_id": "S08",
+    "series_name": "DevCarnival Community Partnership",
+    "source_posts": [
+      19
+    ],
+    "image_asset_keys": [
+      "1788626497195",
+      "1788626495983",
+      "1788626490709",
+      "1788626490659",
+      "1788626490496"
+    ],
+    "image": "/images/archive/e18.jpg",
+    "image_alt": "DevCarnival Kick-Off meeting and community discussion at Ramakrishna Math Chennai",
+    "speakers": [
+      {
+        "name": "Arun Prakash M",
+        "role": "Community Lead"
+      },
+      {
+        "name": "Dr. Baskaran Ramachandran",
+        "role": "Professor, Anna University"
+      },
+      {
+        "name": "Shyam Siddarth",
+        "role": "Industry Leader"
+      }
+    ],
+    "description": "Collaborative kick-off meeting at Ramakrishna Math Chennai aligning volunteers, educators, and industry leaders on making technology accessible to everyone ahead of DevCarnival.",
+    "uncertainty_note": "Conducted on Teacher's Day; full calendar date not stated in capture.",
+    "links": [],
+    "recap_url": null
+  },
+  {
+    "id": "E21",
+    "title": "JAVAFEST 2026 — event preparations",
+    "date_display": "Date not stated (Planning for 2026)",
+    "date_iso": null,
+    "year": null,
+    "has_date": false,
+    "venue": "Bengaluru / Community Organizing",
+    "city": "Bengaluru",
+    "format": "In-Person",
+    "category": "Conference Planning",
+    "status": "announced",
+    "status_label": "Announced / Planning",
+    "series_id": "S07",
+    "series_name": "JavaFest Community Participation",
+    "source_posts": [
+      29,
+      30
+    ],
+    "image_asset_keys": [
+      "1779437171273"
+    ],
+    "image": "/images/archive/e21.jpg",
+    "image_alt": "JAVAFEST 2026 core organizing team kickstart meeting",
+    "speakers": [],
+    "description": "Official kickstart announcement and organizing preparations for JAVAFEST 2026, driven by community organizers Tejesh R, Aditya Sharma, Hari Nikesh R, and Rohan J.",
+    "uncertainty_note": "Preparations announced; exact conference dates not yet finalized in capture.",
+    "links": [],
+    "recap_url": null
+  }
+]

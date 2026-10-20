@@ -86,12 +86,50 @@ Open `http://localhost:1313/` in your browser.
 
 ---
 
-## 3. Events Management
+## 3. Events Management & Past Event Recaps
 
-All community meetups, hackathons, and RSVPs are managed directly on the official **Luma Calendar Hub**:
-👉 [https://luma.com/tamilnadu-jug](https://luma.com/tamilnadu-jug)
+- **Upcoming Events & RSVPs**: Managed on the official **Luma Calendar Hub**: 👉 [https://luma.com/tamilnadu-jug](https://luma.com/tamilnadu-jug)
+- **Past Events Archive & Recaps**: Permanent repository of previous event summaries, speaker decks, highlights, and photo galleries accessible at `/past-events/`.
+
+### How to Add a Past Event Recap
+
+To publish a recap of a completed event, create a new Markdown file in `content/past-events/<event-slug>.md` (or run `hugo new past-events/<event-slug>.md`):
+
+```markdown
+---
+title: "Modern Java 21 & Virtual Threads"
+date: 2026-02-21
+event_date: "2026-02-21"
+event_time: "10:00 AM – 1:30 PM IST"
+location: "Coimbatore, Tamil Nadu"
+event_type: "In-Person Meetup"
+summary: "An interactive deep-dive into Project Loom and high-throughput virtual threads."
+banner: "/images/past-events/modern-java-21-virtual-threads/banner.svg"
+speakers:
+  - name: "Speaker Name"
+    role: "Lead Developer"
+    organization: "TNJUG"
+    photo: "/photos/speaker.png"
+highlights:
+  - "Virtual threads concurrency benchmarks"
+  - "Live Spring Boot 3 migration"
+gallery:
+  - image: "/images/past-events/modern-java-21-virtual-threads/photo-1.svg"
+    caption: "Technical session presentation"
+recording_url: ""
+slides_url: "https://github.com/tamilnadujug"
+draft: false
+---
+
+## About the Event
+Detailed overview of the event.
+
+## Sessions and Discussions
+Session notes and technical takeaways.
+```
 
 ---
+
 
 ## 4. How to Add a Chapter
 

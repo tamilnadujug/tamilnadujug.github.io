@@ -24,11 +24,9 @@
         <span>Find a Chapter ↓</span>
       </a>
 
-      {{ with .Site.Params.luma_url }}
-      <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="btn btn-luma btn-lg">
-        <span>Luma Events ↗</span>
+      <a href="{{ "/events/" | relURL }}" class="btn btn-luma btn-lg">
+        <span>Explore Events →</span>
       </a>
-      {{ end }}
 
       {{ with .Site.Params.social.whatsapp }}
       <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">

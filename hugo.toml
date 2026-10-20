@@ -38,10 +38,9 @@ url = "/"
 weight = 1
 
 [[menu.main]]
-name = "Events ↗"
-url = "https://luma.com/tamilnadu-jug"
+name = "Events"
+url = "/events/"
 weight = 2
-
 
 [[menu.main]]
 name = "Chapters"
@@ -62,3 +61,4 @@ weight = 5
 name = "Open Source"
 url = "/open-source/"
 weight = 6
+
