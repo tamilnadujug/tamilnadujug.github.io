@@ -9,6 +9,8 @@ event_status: "upcoming"
 summary: "The inaugural session of the Global Dev Wednesdays recurring online series by Tamil Nadu JUG, featuring Nitin Avula on new Java features and practical approaches to staying current."
 speakers:
   - name: "Nitin Avula"
+    role: "Senior Principal Staff Engineer"
+    linkedin: "https://www.linkedin.com/in/nitin-avula-22a14b40/"
 highlights:
   - "Inaugural session of the Global Dev Wednesdays virtual series by TNJUG"
   - "Exploring practical capabilities and early features in Java 26 and 27"

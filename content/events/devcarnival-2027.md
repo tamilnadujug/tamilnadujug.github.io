@@ -10,8 +10,10 @@ banner: "/images/archive/e22.jpg"
 speakers:
   - name: "Samir Kamerkar"
     organization: "Canonical"
+    linkedin: "https://www.linkedin.com/in/samirkamerkar/"
   - name: "Mutheeshwaran S"
     organization: "Infosys"
+    linkedin: "https://www.linkedin.com/in/mutheeshwaran/"
 highlights:
   - "8+ parallel technology tracks covering AI, cloud-native DevOps, Java, and backend architecture"
   - "50+ technical talks and practical engineering workshops"

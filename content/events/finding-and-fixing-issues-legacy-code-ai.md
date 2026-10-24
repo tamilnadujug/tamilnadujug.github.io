@@ -15,6 +15,7 @@ luma_url: "https://luma.com/uc832cgi"
 speakers:
   - name: "Dr. Venkat Subramaniam"
     role: "Java Champion & Founder, Agile Developer Inc."
+    linkedin: "https://www.linkedin.com/in/vsubramaniam/"
 highlights:
   - "Technical session: Finding and Fixing Issues with Legacy Code using AI by Dr. Venkat Subramaniam"
   - "Practical demonstrations on leveraging AI to navigate, inspect, and modernize complex legacy codebases"

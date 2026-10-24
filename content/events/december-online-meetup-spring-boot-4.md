@@ -16,6 +16,7 @@ speakers:
   - name: "Siva Prasad Reddy K"
     role: "Developer Advocate"
     organization: "JetBrains"
+    linkedin: "https://www.linkedin.com/in/ksivaprasadreddy/"
 draft: false
 ---
 

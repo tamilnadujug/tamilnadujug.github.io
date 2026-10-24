@@ -12,6 +12,7 @@ speakers:
     role: "Senior Java Engineer"
     organization: "Company or Institution"
     photo: "/photos/default-avatar.png"
+    linkedin: "https://www.linkedin.com/in/username"
 highlights:
   - "Technical presentation on modern JVM architectures"
   - "Hands-on code walkthrough and community discussion"

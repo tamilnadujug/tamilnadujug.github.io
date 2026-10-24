@@ -13,8 +13,10 @@ banner: "/images/archive/e03.jpg"
 speakers:
   - name: "Saravana"
     role: "Community Speaker"
+    linkedin: "https://www.linkedin.com/in/saravanakv/"
   - name: "Sathish Kumar Thiyagarajan"
     role: "Community Speaker"
+    linkedin: "https://www.linkedin.com/in/sathishkumarthiyagarajan/"
 highlights:
   - "Session: Spring AI — Practical Usage Notes"
   - "Session: Writing Better APIs with Java"

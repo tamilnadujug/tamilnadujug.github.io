@@ -14,11 +14,11 @@ banner: "/images/archive/e14.jpg"
 speakers:
   - name: "Sai Mounik"
     role: "Community Speaker"
-  - name: "Anki"
-    organization: "Contentstack"
+    linkedin: "https://www.linkedin.com/in/sai-mounik/"
   - name: "Yagapriyan G"
     role: "SDE II"
     organization: "Arcadia"
+    linkedin: "https://www.linkedin.com/in/yagapriyan-ganesh-031b29253/"
 highlights:
   - "Session: Local LLMs with Java + Ollama: Build Privacy-Focused AI Applications Without Cloud APIs"
   - "Practical local AI integration, architecture, use cases, and AI cost optimization"

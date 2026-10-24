@@ -2,7 +2,7 @@
   {
     "id": "E22",
     "title": "DevCarnival 2027",
-    "date_display": "January 8–9, 2027",
+    "date_display": "January 8\u20139, 2027",
     "date_iso": "2027-01-08",
     "year": "2027",
     "has_date": true,
@@ -33,21 +33,23 @@
     "speakers": [
       {
         "name": "Samir Kamerkar",
-        "role": "Canonical"
+        "role": "Canonical",
+        "linkedin": "https://www.linkedin.com/in/samirkamerkar/"
       },
       {
         "name": "Mutheeshwaran S",
-        "role": "Infosys"
+        "role": "Infosys",
+        "linkedin": "https://www.linkedin.com/in/mutheeshwaran/"
       }
     ],
     "description": "Major upcoming 2-day developer conference in Chennai bringing together 100+ projects across multiple tracks, with Tamilnadu JUG as official Community Partner. Call for Proposals (CFP) opened.",
-    "uncertainty_note": "Upcoming partner conference scheduled for January 8–9, 2027; TNJUG is Community Partner.",
+    "uncertainty_note": "Upcoming partner conference scheduled for January 8\u20139, 2027; TNJUG is Community Partner.",
     "links": [],
     "recap_url": null
   },
   {
     "id": "E23",
-    "title": "Global Dev Wednesdays — first session with Nitin Avula",
+    "title": "Global Dev Wednesdays \u2014 first session with Nitin Avula",
     "date_display": "October 14, 2026",
     "date_iso": "2026-10-14",
     "year": "2026",
@@ -73,7 +75,8 @@
     "speakers": [
       {
         "name": "Nitin Avula",
-        "role": "Featured Global Speaker"
+        "role": "Featured Global Speaker",
+        "linkedin": "https://www.linkedin.com/search/results/all/?keywords=Nitin%20Avula"
       }
     ],
     "description": "Inaugural session of the Global Dev Wednesdays series by Tamilnadu JUG, featuring Nitin Avula for an interactive virtual discussion accessible directly to community members.",
@@ -123,15 +126,18 @@
     "speakers": [
       {
         "name": "Vaibhav Choudhary",
-        "role": "Principal Engineer, JVM Engineering"
+        "role": "Principal Engineer, JVM Engineering",
+        "linkedin": "https://www.linkedin.com/in/vaibhavchoudhary/"
       },
       {
         "name": "Pawan Chawdhary",
-        "role": "Principal Engineer, Java Engineering"
+        "role": "Principal Engineer, Java Engineering",
+        "linkedin": "https://www.linkedin.com/search/results/all/?keywords=Pawan%20Chawdhary%20Java"
       },
       {
         "name": "Abdul Salam Mohamed Kani",
-        "role": "Engineering Director, Financial Services"
+        "role": "Engineering Director, Financial Services",
+        "linkedin": "https://www.linkedin.com/in/abdul-salam-mohamed-kani-92110913/"
       }
     ],
     "description": "Inaugural offline meetup marking the official launch of the TNJUG Madurai Chapter, organized in association with the Tamil Nadu AI Association (TNAIA) at Dot Com Infoway in the Temple City.",
@@ -141,7 +147,7 @@
   },
   {
     "id": "E19",
-    "title": "September Meetup — Modern Java Concurrency",
+    "title": "September Meetup \u2014 Modern Java Concurrency",
     "date_display": "September 19, 2026",
     "date_iso": "2026-09-19",
     "year": "2026",
@@ -168,7 +174,8 @@
     "speakers": [
       {
         "name": "A N M 'Bazlur' Rahman",
-        "role": "Java Champion & Author"
+        "role": "Java Champion & Author",
+        "linkedin": "https://www.linkedin.com/in/bazlur/"
       }
     ],
     "description": "Two-hour online masterclass by Java Champion A N M 'Bazlur' Rahman delving into Java 21+ virtual threads, Structured Concurrency, Scoped Values, and modern multi-threading design.",
@@ -199,16 +206,16 @@
       "1783399982359"
     ],
     "image": "/images/archive/e12.jpg",
-    "image_alt": "Banner for Java AI Hackathon 2026 hosted by Banfico with ₹85,000 prize pool",
+    "image_alt": "Banner for Java AI Hackathon 2026 hosted by Banfico with \u20b985,000 prize pool",
     "speakers": [],
-    "description": "FinTech and AI hackathon hosted by Banfico with a ₹85,000 prize pool, challenging builders to create banking solutions using Banking APIs, Java, Spring Boot, and AI. Promoted by Tamilnadu JUG as community partner.",
+    "description": "FinTech and AI hackathon hosted by Banfico with a \u20b985,000 prize pool, challenging builders to create banking solutions using Banking APIs, Java, Spring Boot, and AI. Promoted by Tamilnadu JUG as community partner.",
     "uncertainty_note": "Partner-hosted event by Banfico; promoted by TNJUG in this capture.",
     "links": [],
     "recap_url": null
   },
   {
     "id": "E14",
-    "title": "Tamilnadu JUG Chennai May Meetup — Java + AI",
+    "title": "Tamilnadu JUG Chennai May Meetup \u2014 Java + AI",
     "date_display": "May 30, 2026",
     "date_iso": "2026-05-30",
     "year": "2026",
@@ -246,11 +253,13 @@
     "speakers": [
       {
         "name": "Sai Mounik",
-        "role": "Software Engineer"
+        "role": "Software Engineer",
+        "linkedin": "https://www.linkedin.com/in/sai-mounik/"
       },
       {
         "name": "Yagapriyan G",
-        "role": "SDE II, Arcadia"
+        "role": "SDE II, Arcadia",
+        "linkedin": "https://www.linkedin.com/search/results/all/?keywords=Yagapriyan%20G%20Arcadia"
       }
     ],
     "description": "In-person meetup at Contentstack Chennai featuring sessions on running local LLMs with Java + Ollama for privacy-focused AI applications, followed by production engineering lessons in Spring Boot.",
@@ -260,7 +269,7 @@
   },
   {
     "id": "E07",
-    "title": "Java AI Day — March Edition",
+    "title": "Java AI Day \u2014 March Edition",
     "date_display": "March 7, 2026",
     "date_iso": "2026-03-07",
     "year": "2026",
@@ -312,23 +321,28 @@
     "speakers": [
       {
         "name": "Samir Kamerkar",
-        "role": "Canonical"
+        "role": "Canonical",
+        "linkedin": "https://www.linkedin.com/in/samirkamerkar/"
       },
       {
         "name": "Dinesh Kumar Ilangovan",
-        "role": "Senior Engineer"
+        "role": "Senior Engineer",
+        "linkedin": "https://www.linkedin.com/search/results/all/?keywords=Dinesh%20Kumar%20Ilangovan"
       },
       {
         "name": "Gireesh Punathil",
-        "role": "IBM Master Inventor"
+        "role": "IBM Master Inventor",
+        "linkedin": "https://www.linkedin.com/in/gireeshpunathil/"
       },
       {
         "name": "Muthukumaran N",
-        "role": "KLA"
+        "role": "KLA",
+        "linkedin": "https://www.linkedin.com/in/muthuishere"
       },
       {
         "name": "SHAAMA M",
-        "role": "Software Engineer"
+        "role": "Software Engineer",
+        "linkedin": "https://www.linkedin.com/in/shaama-m-030115237"
       }
     ],
     "description": "Full-day immersion in enterprise Java and AI hosted at EPAM Systems Coimbatore with speaker support from Bangalore JUG. Covered open-source contributions, autonomous engineering agents, Java's JEP evolution, and hands-on Spring AI exercises. Featured a 'Java 25 in Practice' quiz and community book distribution of engineering titles.",
@@ -390,7 +404,8 @@
     "speakers": [
       {
         "name": "Dr. Venkat Subramaniam",
-        "role": "Award-winning Author, Founder Agile Developer Inc."
+        "role": "Award-winning Author, Founder Agile Developer Inc.",
+        "linkedin": "https://www.linkedin.com/in/vsubramaniam/"
       }
     ],
     "description": "Keynote and deep technical session on 'OOP vs. Data-Oriented Programming' followed by an interactive Ask Me Anything (AMA) session, hosted at Sri Eshwar College of Engineering Coimbatore and broadcast live on YouTube.",
@@ -405,7 +420,7 @@
   },
   {
     "id": "E05",
-    "title": "Spring AI Hands-on Workshop — Chennai",
+    "title": "Spring AI Hands-on Workshop \u2014 Chennai",
     "date_display": "January 31, 2026",
     "date_iso": "2026-01-31",
     "year": "2026",
@@ -446,19 +461,23 @@
     "speakers": [
       {
         "name": "Udayani V",
-        "role": "Broadcom"
+        "role": "Broadcom",
+        "linkedin": "https://www.linkedin.com/in/udayani-v-56261a147"
       },
       {
         "name": "Thamaraikanni P",
-        "role": "Last Minute"
+        "role": "Last Minute",
+        "linkedin": "https://www.linkedin.com/in/thamaraikanni-p-951031107/"
       },
       {
         "name": "Muthukumaran N",
-        "role": "KLA"
+        "role": "KLA",
+        "linkedin": "https://www.linkedin.com/in/muthuishere"
       },
       {
         "name": "SHAAMA M",
-        "role": "Software Engineer"
+        "role": "Software Engineer",
+        "linkedin": "https://www.linkedin.com/in/shaama-m-030115237"
       }
     ],
     "description": "Intensive hands-on technical workshop kickstarting 2026 with practical Spring AI integration, prompt engineering from Java, and embedding local models, conducted at Excelencia Pinnacle Building in Taramani.",
@@ -468,7 +487,7 @@
   },
   {
     "id": "E04",
-    "title": "December Online Meetup — Spring Boot 4 New Features",
+    "title": "December Online Meetup \u2014 Spring Boot 4 New Features",
     "date_display": "December 20, 2025",
     "date_iso": "2025-12-20",
     "year": "2025",
@@ -495,7 +514,8 @@
     "speakers": [
       {
         "name": "Siva Prasad Reddy K",
-        "role": "Developer Advocate, JetBrains"
+        "role": "Developer Advocate, JetBrains",
+        "linkedin": "https://www.linkedin.com/in/ksivaprasadreddy/"
       }
     ],
     "description": "Virtual deep dive into upcoming features, architectural changes, and developer productivity enhancements in Spring Boot 4, delivered live by Siva Prasad Reddy K.",
@@ -540,11 +560,13 @@
     "speakers": [
       {
         "name": "Saravana",
-        "role": "Technical Speaker"
+        "role": "Technical Speaker",
+        "linkedin": "https://www.linkedin.com/in/saravanakv/"
       },
       {
         "name": "Sathish Kumar Thiyagarajan",
-        "role": "Community Lead & Speaker"
+        "role": "Community Lead & Speaker",
+        "linkedin": "https://www.linkedin.com/in/sathishkumarthiyagarajan/"
       }
     ],
     "description": "In-person community meetup held at Thoughtworks Coimbatore focusing on Java architecture, reactive patterns, and enterprise best practices, featuring technical presentations and community networking.",
@@ -554,7 +576,7 @@
   },
   {
     "id": "E02",
-    "title": "JAVAFEST’25",
+    "title": "JAVAFEST\u201925",
     "date_display": "2025 (Date not stated)",
     "date_iso": "2025-01-01",
     "year": "2025",
@@ -595,7 +617,7 @@
   },
   {
     "id": "E01",
-    "title": "JavaFest 2024 — TNJUG community-ticket notice",
+    "title": "JavaFest 2024 \u2014 TNJUG community-ticket notice",
     "date_display": "Date not stated",
     "date_iso": null,
     "year": null,
@@ -629,7 +651,7 @@
   },
   {
     "id": "E08",
-    "title": "Open Source Lab — second round",
+    "title": "Open Source Lab \u2014 second round",
     "date_display": "Date not stated",
     "date_iso": null,
     "year": null,
@@ -687,7 +709,8 @@
     "speakers": [
       {
         "name": "Ken Fogel",
-        "role": "Java Champion & Academic Leader"
+        "role": "Java Champion & Academic Leader",
+        "linkedin": "https://www.linkedin.com/in/kenfogel/"
       }
     ],
     "description": "In-depth project review and mentorship discussion with Java Champion Ken Fogel, reviewing TNJUG's student-built open-source project SQL Builder alongside community students, professors, and organizers.",
@@ -730,7 +753,7 @@
   },
   {
     "id": "E11",
-    "title": "10-Day In-Person Workshop — DSA to Spring Boot AI",
+    "title": "10-Day In-Person Workshop \u2014 DSA to Spring Boot AI",
     "date_display": "Starting May 10 (Year not stated)",
     "date_iso": null,
     "year": null,
@@ -754,15 +777,18 @@
     "speakers": [
       {
         "name": "Hari Nikesh R",
-        "role": "Volunteer Lead"
+        "role": "Volunteer Lead",
+        "linkedin": "https://www.linkedin.com/in/hari-nikesh-r-930bb723a/"
       },
       {
         "name": "Rohan J",
-        "role": "Volunteer Lead"
+        "role": "Volunteer Lead",
+        "linkedin": "https://www.linkedin.com/in/rohan-j-ba489b19b/"
       },
       {
         "name": "Sai Mounik",
-        "role": "Volunteer Lead"
+        "role": "Volunteer Lead",
+        "linkedin": "https://www.linkedin.com/in/sai-mounik/"
       }
     ],
     "description": "Announced intensive 10-day hands-on workshop in Rameswaram limited to 10 seats, designed to transition students from foundational data structures & algorithms into production backend development with Spring Boot AI.",
@@ -801,15 +827,18 @@
     "speakers": [
       {
         "name": "Hari Nikesh R",
-        "role": "Panelist, TNJUG"
+        "role": "Panelist, TNJUG",
+        "linkedin": "https://www.linkedin.com/in/hari-nikesh-r-930bb723a/"
       },
       {
         "name": "Thiru Murugan",
-        "role": "Panelist"
+        "role": "Panelist",
+        "linkedin": "https://www.linkedin.com/in/thiru-murugan-7597a677"
       },
       {
         "name": "Sathish Kumar Thiyagarajan",
-        "role": "Panelist, TNJUG"
+        "role": "Panelist, TNJUG",
+        "linkedin": "https://www.linkedin.com/in/sathishkumarthiyagarajan/"
       }
     ],
     "description": "Collaborative panel discussion organized alongside TN Startup Thiruvizha and Nanuri Labs at VET Institute in Erode, exploring how hackathons and developer ecosystems bridge academia and startup innovation.",
@@ -855,7 +884,8 @@
     "speakers": [
       {
         "name": "Dr. Venkat Subramaniam",
-        "role": "Founder, Agile Developer Inc."
+        "role": "Founder, Agile Developer Inc.",
+        "linkedin": "https://www.linkedin.com/in/vsubramaniam/"
       }
     ],
     "description": "Evening meetup at Thoughtworks Coimbatore exploring static analysis, race conditions, memory leaks, and leveraging AI tools to inspect and refactor legacy codebases.",
@@ -871,7 +901,7 @@
   {
     "id": "E16",
     "title": "Five-Day Online Advanced Java Workshop with Anna University",
-    "date_display": "August 26–30 (Year not stated)",
+    "date_display": "August 26\u201330 (Year not stated)",
     "date_iso": null,
     "year": null,
     "has_date": false,
@@ -900,7 +930,7 @@
       }
     ],
     "description": "Marathon 5-day state-wide online technical workshop conducted in partnership with Anna University Chennai, training students across affiliated colleges on advanced Java concepts and modern application design.",
-    "uncertainty_note": "Conducted August 26–30; calendar year not explicitly stated in capture.",
+    "uncertainty_note": "Conducted August 26\u201330; calendar year not explicitly stated in capture.",
     "links": [],
     "recap_url": null
   },
@@ -930,7 +960,8 @@
     "speakers": [
       {
         "name": "Dr. Venkat Subramaniam",
-        "role": "Educator & Software Architect"
+        "role": "Educator & Software Architect",
+        "linkedin": "https://www.linkedin.com/in/vsubramaniam/"
       }
     ],
     "description": "Special community roundtable with Dr. Venkat Subramaniam, joined by senior engineers and university faculty, addressing actionable ways to bridge curricula and real-world software engineering practices.",
@@ -968,7 +999,8 @@
     "speakers": [
       {
         "name": "Arun Prakash M",
-        "role": "Community Lead"
+        "role": "Community Lead",
+        "linkedin": "https://www.linkedin.com/in/arunprakashm/"
       },
       {
         "name": "Dr. Baskaran Ramachandran",
@@ -986,7 +1018,7 @@
   },
   {
     "id": "E21",
-    "title": "JAVAFEST 2026 — event preparations",
+    "title": "JAVAFEST 2026 \u2014 event preparations",
     "date_display": "Date not stated (Planning for 2026)",
     "date_iso": null,
     "year": null,

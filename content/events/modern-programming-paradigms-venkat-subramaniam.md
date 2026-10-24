@@ -18,6 +18,7 @@ ama_url: "https://lnkd.in/gpU6trx8"
 speakers:
   - name: "Venkat Subramaniam"
     role: "Java Champion, Award-winning Author, Educator & Founder of Agile Developer, Inc."
+    linkedin: "https://www.linkedin.com/in/vsubramaniam/"
 highlights:
   - "Keynote: OOP vs. Data-Oriented Programming: Which One to Choose? (10:00 AM – 11:30 AM)"
   - "Interactive Ask-Me-Anything (AMA) session on engineering practices and modern paradigms (11:30 AM – 1:30 PM)"

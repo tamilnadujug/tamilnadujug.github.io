@@ -15,6 +15,7 @@ banner: "/images/archive/e19.jpg"
 speakers:
   - name: "A N M 'Bazlur' Rahman"
     role: "Java Champion"
+    linkedin: "https://www.linkedin.com/in/bazlur/"
 highlights:
   - "Two-hour online masterclass on Modern Java Concurrency"
   - "Interactive architectural discussions and practical concurrent programming knowledge"
