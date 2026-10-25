@@ -16,6 +16,7 @@ speakers:
     linkedin: "https://www.linkedin.com/in/saravanakv/"
   - name: "Sathish Kumar Thiyagarajan"
     role: "Community Speaker"
+    photo: "/photos/sathish-kumar.png"
     linkedin: "https://www.linkedin.com/in/sathishkumarthiyagarajan/"
 highlights:
   - "Session: Spring AI — Practical Usage Notes"
