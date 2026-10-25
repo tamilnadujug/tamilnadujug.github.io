@@ -82,6 +82,9 @@
         {{ end }}
 
         {{ with .Params.location }}
+        {{ $loc := . }}
+        {{ $isOnline := or (strings.Contains (lower $loc) "online") (strings.Contains (lower $loc) "virtual") }}
+        {{ $mapUrl := $.Params.google_map_url | default ($.Params.map_url | default (printf "https://www.google.com/maps/search/?api=1&query=%s" ($loc | urlquery))) }}
         <div class="past-event-meta-item">
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
@@ -89,7 +92,16 @@
           </svg>
           <div>
             <span class="meta-label">Location / Venue</span>
-            <span class="meta-value">{{ . }}</span>
+            <span class="meta-value">
+              {{ if not $isOnline }}
+              <a href="{{ $mapUrl }}" target="_blank" rel="noopener noreferrer" class="meta-location-link" title="Open {{ $loc }} in Google Maps">
+                <span>{{ $loc }}</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-left: 2px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </a>
+              {{ else }}
+              {{ $loc }}
+              {{ end }}
+            </span>
           </div>
         </div>
         {{ end }}
@@ -247,9 +259,27 @@
         </div>
         {{ end }}
         {{ with .Params.location }}
+        {{ $loc := . }}
+        {{ $isOnline := or (strings.Contains (lower $loc) "online") (strings.Contains (lower $loc) "virtual") }}
+        {{ $mapUrl := $.Params.google_map_url | default ($.Params.map_url | default (printf "https://www.google.com/maps/search/?api=1&query=%s" ($loc | urlquery))) }}
         <div class="leader-meta-row">
           <dt>Venue</dt>
-          <dd>{{ . }}</dd>
+          <dd>
+            {{ if not $isOnline }}
+            <a href="{{ $mapUrl }}" target="_blank" rel="noopener noreferrer" class="sidebar-location-link" title="Open {{ $loc }} in Google Maps">
+              <span>{{ $loc }}</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-left: 2px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+            <div style="margin-top: 0.35rem;">
+              <a href="{{ $mapUrl }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" style="font-size: 0.75rem; padding: 0.2rem 0.55rem; display: inline-flex; align-items: center; gap: 0.3rem;" title="View on Google Maps">
+                <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Google Maps ↗</span>
+              </a>
+            </div>
+            {{ else }}
+            {{ $loc }}
+            {{ end }}
+          </dd>
         </div>
         {{ end }}
         {{ with .Params.event_type }}

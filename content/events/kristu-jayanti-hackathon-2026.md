@@ -3,6 +3,7 @@ title: "Hackathon at Kristu Jayanti University (Airport Road Campus) — Jury & 
 date: 2026-10-25
 event_date: "2026-10-25"
 location: "Kristu Jayanti University – Airport Road Campus, Bengaluru"
+google_map_url: "https://www.google.com/maps/search/?api=1&query=Kristu+Jayanti+University+Airport+Road+Campus+Bengaluru"
 event_type: "Hackathon & Community Keynote"
 event_status: "past"
 category: "Past Events"

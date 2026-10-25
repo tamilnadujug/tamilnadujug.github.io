@@ -2440,6 +2440,16 @@ button, input, select, textarea {
   font-weight: 500;
 }
 
+a.past-event-location-pill {
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+a.past-event-location-pill:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
 .past-event-card-title {
   font-size: 1.15rem;
   font-weight: 700;
@@ -2684,6 +2694,30 @@ button, input, select, textarea {
 .past-event-meta-item .meta-value {
   color: var(--text-primary);
   font-weight: 600;
+}
+
+.meta-location-link,
+.sidebar-location-link {
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-decoration-color: rgba(231, 111, 81, 0.45);
+  text-underline-offset: 3px;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.meta-location-link:hover,
+.sidebar-location-link:hover {
+  color: var(--color-primary);
+  text-decoration-color: var(--color-primary);
+}
+
+.meta-location-link svg,
+.sidebar-location-link svg {
+  color: var(--color-primary);
+  margin-top: 0 !important;
 }
 
 .past-event-detail-layout {

@@ -99,10 +99,20 @@
             <span class="badge badge-primary">{{ . }}</span>
             {{ end }}
             {{ with .Params.location }}
+            {{ $loc := . }}
+            {{ $isOnline := or (strings.Contains (lower $loc) "online") (strings.Contains (lower $loc) "virtual") }}
+            {{ $mapUrl := $.Params.google_map_url | default ($.Params.map_url | default (printf "https://www.google.com/maps/search/?api=1&query=%s" ($loc | urlquery))) }}
+            {{ if not $isOnline }}
+            <a href="{{ $mapUrl }}" target="_blank" rel="noopener noreferrer" class="past-event-location-pill" title="View {{ $loc }} on Google Maps">
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>{{ $loc }} ↗</span>
+            </a>
+            {{ else }}
             <span class="past-event-location-pill">
               <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-              <span>{{ . }}</span>
+              <span>{{ $loc }}</span>
             </span>
+            {{ end }}
             {{ end }}
           </div>
 
