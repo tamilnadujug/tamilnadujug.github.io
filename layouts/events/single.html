@@ -30,16 +30,11 @@
     </div>
 
     <div class="past-event-hero">
+      {{ with .Params.event_type }}
       <div class="past-event-header-badges">
-        {{ if $isUpcoming }}
-        <span class="badge badge-primary">Upcoming</span>
-        {{ else }}
-        <span class="badge badge-success">Completed Event</span>
-        {{ end }}
-        {{ with .Params.event_type }}
         <span class="badge badge-primary">{{ . }}</span>
-        {{ end }}
       </div>
+      {{ end }}
 
       <h1 class="article-title past-event-single-title">{{ .Title }}</h1>
 
@@ -288,16 +283,6 @@
           <dd>{{ . }}</dd>
         </div>
         {{ end }}
-        <div class="leader-meta-row">
-          <dt>Status</dt>
-          <dd>
-            {{ if $isUpcoming }}
-            <span class="badge badge-primary" style="font-size: 0.75rem;">Upcoming</span>
-            {{ else }}
-            <span class="badge badge-success" style="font-size: 0.75rem;">Completed</span>
-            {{ end }}
-          </dd>
-        </div>
       </dl>
 
       {{ if $lumaUrl }}
