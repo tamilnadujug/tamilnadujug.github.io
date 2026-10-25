@@ -26,11 +26,6 @@ speakers:
     role: "Community Coordinator"
     organization: "Tamil Nadu JUG"
     linkedin: "https://www.linkedin.com/search/results/all/?keywords=Geetha%20Elango"
-highlights:
-  - "Developer Ecosystems Keynote: Emphasized open collaboration, community engagement, and peer-to-peer mentorship"
-  - "Spotlight on Devcarnival & JavaFest: Ecosystem platforms for showcasing collegiate engineering talent"
-  - "Devcarnival Tech Pavilion Pipeline: Evaluated and shortlisted high-impact student projects for live demonstration"
-  - "Hands-on project reviews, architectural guidance, and student innovator mentorship"
 gallery:
   - image: "/images/past-events/kristu-jayanti-hackathon-2026/photo-01.jpg"
     caption: "Auditorium keynote and developer ecosystem address at Kristu Jayanti University"

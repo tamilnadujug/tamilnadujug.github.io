@@ -247,11 +247,7 @@
       <div class="past-event-gallery-grid">
         {{ range . }}
         <figure class="past-event-gallery-figure card">
-          <img src="{{ .image | relURL }}" alt="{{ .caption | default $.Title }}" class="past-event-gallery-img"
-            loading="lazy">
-          {{ with .caption }}
-          <figcaption class="past-event-gallery-caption">{{ . }}</figcaption>
-          {{ end }}
+          <img src="{{ .image | relURL }}" alt="{{ $.Title }}" class="past-event-gallery-img" loading="lazy">
         </figure>
         {{ end }}
       </div>
