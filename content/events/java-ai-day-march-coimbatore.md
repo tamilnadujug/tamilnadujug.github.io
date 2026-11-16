@@ -37,6 +37,11 @@ highlights:
   - "Technical talk on the progression from AI copilots to autonomous agents in software engineering"
   - "Community interactive quiz: 'Java 25 in Practice' with questions curated by Bangalore JUG contributors"
   - "Community book-distribution initiative distributing selected technical books based on survey responses"
+gallery:
+  - image: "/images/past-events/java-ai-day-march-coimbatore/photo-sqlbuilder-session.jpg"
+    caption: "TNJUG Coimbatore Meetup at EPAM Systems — SQLBuilder technical presentation and session"
+  - image: "/images/past-events/java-ai-day-march-coimbatore/photo-epam-appreciation.jpg"
+    caption: "Community Book of Appreciation presentation at EPAM Systems Coimbatore"
 draft: false
 ---
 

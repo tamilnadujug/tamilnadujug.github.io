@@ -29,6 +29,20 @@
   {{ end }}
   {{ $pastEvents = sort $pastEvents "Date" "desc" }}
 
+  {{/* Extract unique years */}}
+  {{ $uniqueYears := slice }}
+  {{ range $pastEvents }}
+    {{ $year := .Date.Format "2006" }}
+    {{ with .Params.event_date }}
+      {{ if (findRE `^\d{4}` .) }}
+        {{ $year = index (findRE `^\d{4}` .) 0 }}
+      {{ end }}
+    {{ end }}
+    {{ if not (in $uniqueYears $year) }}
+      {{ $uniqueYears = $uniqueYears | append $year }}
+    {{ end }}
+  {{ end }}
+
   {{/* TNJUG Luma Calendar / Organizer URL */}}
   {{ $lumaCalendarUrl := .Site.Params.luma_url | default "https://luma.com/tamilnadu-jug" }}
 
@@ -67,9 +81,86 @@
     </div>
 
     {{ if gt (len $pastEvents) 0 }}
+
+    <!-- Events Search & Year Filter Toolbar -->
+    <div class="events-toolbar card" role="search" aria-label="Search and filter past events">
+      <div class="events-toolbar-top">
+        <div class="events-search-wrap">
+          <svg class="events-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="search" id="events-search-input" class="events-search-input" placeholder="Search past events by title, topic, speaker, city, or venue..." aria-label="Search past events">
+          <button type="button" id="events-search-clear" class="events-search-clear-btn" aria-label="Clear search input" title="Clear search" style="display: none;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="events-toolbar-bottom">
+        <div class="events-year-filter-group">
+          <span class="events-filter-label">Filter by Year:</span>
+          <div class="events-year-filters" role="group" aria-label="Filter events by year">
+            <button type="button" class="events-year-filter-btn active" data-filter-year="all" aria-pressed="true">
+              <span>All Events</span>
+              <span class="filter-count">({{ len $pastEvents }})</span>
+            </button>
+            {{ range $year := $uniqueYears }}
+              {{ $count := 0 }}
+              {{ range $pastEvents }}
+                {{ $evYear := .Date.Format "2006" }}
+                {{ with .Params.event_date }}
+                  {{ if (findRE `^\d{4}` .) }}
+                    {{ $evYear = index (findRE `^\d{4}` .) 0 }}
+                  {{ end }}
+                {{ end }}
+                {{ if eq $evYear $year }}
+                  {{ $count = add $count 1 }}
+                {{ end }}
+              {{ end }}
+              <button type="button" class="events-year-filter-btn" data-filter-year="{{ $year }}" aria-pressed="false">
+                <span>{{ $year }}</span>
+                <span class="filter-count">({{ $count }})</span>
+              </button>
+            {{ end }}
+          </div>
+        </div>
+
+        <div class="events-results-info">
+          <span>Showing <strong id="events-visible-count">{{ len $pastEvents }}</strong> of {{ len $pastEvents }} events</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Past Events Grid -->
     <div class="grid grid-cols-3 past-events-grid" id="past-events-grid">
       {{ range $pastEvents }}
       {{ $eventTitle := .Title }}
+      {{ $eventYear := .Date.Format "2006" }}
+      {{ with .Params.event_date }}
+        {{ if (findRE `^\d{4}` .) }}
+          {{ $eventYear = index (findRE `^\d{4}` .) 0 }}
+        {{ end }}
+      {{ end }}
+
+      {{ $searchTokens := slice $eventTitle }}
+      {{ with .Params.location }}
+        {{ $searchTokens = $searchTokens | append . }}
+      {{ end }}
+      {{ with .Params.event_type }}
+        {{ $searchTokens = $searchTokens | append . }}
+      {{ end }}
+      {{ with .Params.summary }}
+        {{ $searchTokens = $searchTokens | append . }}
+      {{ end }}
+      {{ range .Params.speakers }}
+        {{ $searchTokens = $searchTokens | append .name }}
+      {{ end }}
+      {{ $searchBlob := delimit $searchTokens " " | lower }}
+
       {{ $lumaUrl := "" }}
       {{ if and .Params.luma_url (strings.Contains .Params.luma_url "luma") }}
         {{ $lumaUrl = .Params.luma_url }}
@@ -77,7 +168,7 @@
         {{ $lumaUrl = .Params.registration_url }}
       {{ end }}
 
-      <article class="card past-event-card">
+      <article class="card past-event-card" data-year="{{ $eventYear }}" data-search="{{ $searchBlob }}">
         <a href="{{ .RelPermalink }}" class="past-event-banner-link" aria-label="Read recap for {{ $eventTitle }}">
           {{ with .Params.banner }}
           <div class="past-event-banner-wrap">
@@ -155,6 +246,139 @@
       </article>
       {{ end }}
     </div>
+
+    <!-- No matching search/filter results message -->
+    <div id="events-no-results" class="card past-events-empty-state" style="display: none; margin-top: 2rem;">
+      <div class="empty-state-icon">
+        <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          <line x1="8" y1="11" x2="14" y2="11"></line>
+        </svg>
+      </div>
+      <h3>No Events Found</h3>
+      <p>No archived events match your current search and year filter criteria.</p>
+      <div style="margin-top: 1rem;">
+        <button type="button" id="reset-events-filters" class="btn btn-primary btn-sm">
+          <span>Reset Search &amp; Filters</span>
+        </button>
+      </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const searchInput = document.getElementById('events-search-input');
+      const clearBtn = document.getElementById('events-search-clear');
+      const yearBtns = document.querySelectorAll('.events-year-filter-btn');
+      const eventCards = document.querySelectorAll('.past-event-card');
+      const countEl = document.getElementById('events-visible-count');
+      const noResultsEl = document.getElementById('events-no-results');
+      const resetBtn = document.getElementById('reset-events-filters');
+      const gridEl = document.getElementById('past-events-grid');
+
+      if (!eventCards.length) return;
+
+      let currentYear = 'all';
+      let currentSearch = '';
+
+      function normalize(str) {
+        return (str || '').toLowerCase().trim();
+      }
+
+      function filterEvents() {
+        let visibleCount = 0;
+        const query = normalize(currentSearch);
+
+        eventCards.forEach(function (card) {
+          const cardYear = card.getAttribute('data-year') || '';
+          const cardSearch = normalize(card.getAttribute('data-search'));
+
+          const matchesYear = (currentYear === 'all' || cardYear === currentYear);
+          const matchesSearch = (!query || cardSearch.includes(query));
+
+          if (matchesYear && matchesSearch) {
+            card.style.display = '';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        if (countEl) {
+          countEl.textContent = visibleCount;
+        }
+
+        if (noResultsEl) {
+          noResultsEl.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+
+        if (gridEl) {
+          gridEl.style.display = visibleCount === 0 ? 'none' : 'grid';
+        }
+
+        if (clearBtn) {
+          clearBtn.style.display = query.length > 0 ? 'inline-flex' : 'none';
+        }
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener('input', function (e) {
+          currentSearch = e.target.value;
+          filterEvents();
+        });
+
+        searchInput.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') {
+            searchInput.value = '';
+            currentSearch = '';
+            filterEvents();
+          }
+        });
+      }
+
+      if (clearBtn) {
+        clearBtn.addEventListener('click', function () {
+          if (searchInput) {
+            searchInput.value = '';
+            searchInput.focus();
+          }
+          currentSearch = '';
+          filterEvents();
+        });
+      }
+
+      yearBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          yearBtns.forEach(function (b) {
+            b.classList.remove('active');
+            b.setAttribute('aria-pressed', 'false');
+          });
+          btn.classList.add('active');
+          btn.setAttribute('aria-pressed', 'true');
+          currentYear = btn.getAttribute('data-filter-year') || 'all';
+          filterEvents();
+        });
+      });
+
+      if (resetBtn) {
+        resetBtn.addEventListener('click', function () {
+          if (searchInput) {
+            searchInput.value = '';
+          }
+          currentSearch = '';
+          currentYear = 'all';
+
+          yearBtns.forEach(function (btn) {
+            const isAll = btn.getAttribute('data-filter-year') === 'all';
+            btn.classList.toggle('active', isAll);
+            btn.setAttribute('aria-pressed', isAll ? 'true' : 'false');
+          });
+
+          filterEvents();
+        });
+      }
+    });
+    </script>
     {{ else }}
     <div class="card past-events-empty-state">
       <div class="empty-state-icon">

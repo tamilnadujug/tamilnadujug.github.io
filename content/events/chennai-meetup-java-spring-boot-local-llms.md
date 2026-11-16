@@ -24,6 +24,9 @@ highlights:
   - "Practical local AI integration, architecture, use cases, and AI cost optimization"
   - "Session: AI-Driven Changes to the Software Development Lifecycle (SDLC)"
   - "Session: Production Engineering Lessons in Spring Boot"
+gallery:
+  - image: "/images/past-events/chennai-meetup-may-2026/photo-contentstack-meetup.jpg"
+    caption: "Attendees, speakers, and organizers gathered at Contentstack Chennai for the May Java & Local AI Meetup"
 draft: false
 ---
 
