@@ -11,7 +11,7 @@ linkedin: "https://www.linkedin.com/in/hari-nikesh-r-930bb723a/"
 github: "https://github.com/Hari-Nikesh-R"
 email: "hari.nikesh.r.cce@gmail.com"
 twitter: ""
-website: "https://hari-nikesh-r.github.io/portfolio/"
+website: "https://harinikeshr.dev"
 weight: 2
 ---
 
