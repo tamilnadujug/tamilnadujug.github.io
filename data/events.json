@@ -1,69 +1,7 @@
 [
   {
-    "id": "E22",
-    "title": "DevCarnival 2027",
-    "date_display": "January 8–9, 2027",
-    "date_iso": "2027-01-08",
-    "year": "2027",
-    "has_date": true,
-    "venue": "Infosys Mahindra City, Chennai",
-    "city": "Chennai",
-    "format": "In-Person",
-    "category": "Conference",
-    "status": "upcoming",
-    "status_label": "Upcoming / Partner Conference",
-    "series_id": "S08",
-    "series_name": "DevCarnival Community Partnership",
-    "source_posts": [
-      3,
-      5,
-      6,
-      7,
-      12
-    ],
-    "image_asset_keys": [
-      "1791709202572",
-      "1791478979286",
-      "1790923340645",
-      "1791092869099",
-      "1790243690045"
-    ],
-    "image": "/images/archive/e22.jpg",
-    "image_alt": "Official poster for DevCarnival 2027 at Infosys Mahindra City Chennai",
-    "speakers": [
-      {
-        "name": "Prof. Kamakoti Veezhinathan",
-        "role": "Director, IIT Madras (Keynote Speaker)",
-        "linkedin": "https://www.linkedin.com/in/kamakoti-veezhinathan-720a4414/"
-      },
-      {
-        "name": "Samir Kamerkar",
-        "role": "Canonical",
-        "linkedin": "https://www.linkedin.com/in/samirkamerkar/"
-      },
-      {
-        "name": "Mutheeshwaran S",
-        "role": "Infosys",
-        "linkedin": "https://www.linkedin.com/in/mutheeshwaran/"
-      }
-    ],
-    "description": "Major upcoming 2-day developer conference in Chennai bringing together 100+ projects across 8+ tracks, with Tamil Nadu JUG as official Community Partner. Keynote by Prof. Kamakoti Veezhinathan (Director, IIT Madras). Call for Papers (CFP) extended to November 6, 2026.",
-    "uncertainty_note": "Upcoming partner conference scheduled for January 8–9, 2027 at Infosys Mahindra City, Chennai. CFP open through November 6, 2026.",
-    "links": [
-      {
-        "label": "LinkedIn Keynote Announcement",
-        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7518292598546096130"
-      },
-      {
-        "label": "CFP Extended Notice",
-        "url": "https://www.linkedin.com/posts/dev-carnival_devcarnival2027-callforpapers-cfp-activity-7516372817399959553-MCvY"
-      }
-    ],
-    "recap_url": null
-  },
-  {
     "id": "E25",
-    "title": "Global Dev Wednesdays — How to Become a Better Software Engineer in the Age of AI",
+    "title": "Global Dev Wednesdays \u2014 How to Become a Better Software Engineer in the Age of AI",
     "date_display": "October 28, 2026",
     "date_iso": "2026-10-28",
     "year": "2026",
@@ -108,12 +46,12 @@
   },
   {
     "id": "E24",
-    "title": "Hackathon at Kristu Jayanti University (Airport Road Campus) — Organizer & Project Jury",
+    "title": "Hackathon at Kristu Jayanti University (Airport Road Campus) \u2014 Organizer & Project Jury",
     "date_display": "October 25, 2026",
     "date_iso": "2026-10-25",
     "year": "2026",
     "has_date": true,
-    "venue": "Kristu Jayanti University – Airport Road Campus, Bengaluru",
+    "venue": "Kristu Jayanti University \u2013 Airport Road Campus, Bengaluru",
     "city": "Bengaluru",
     "format": "In-Person",
     "category": "Hackathon & Community Keynote",
@@ -163,7 +101,7 @@
   },
   {
     "id": "E23",
-    "title": "Global Dev Wednesdays — first session with Nitin Avula",
+    "title": "Global Dev Wednesdays \u2014 first session with Nitin Avula",
     "date_display": "October 14, 2026",
     "date_iso": "2026-10-14",
     "year": "2026",
@@ -266,7 +204,7 @@
   },
   {
     "id": "E19",
-    "title": "September Meetup — Modern Java Concurrency",
+    "title": "September Meetup \u2014 Modern Java Concurrency",
     "date_display": "September 19, 2026",
     "date_iso": "2026-09-19",
     "year": "2026",
@@ -387,7 +325,7 @@
   {
     "id": "E16",
     "title": "Five-Day Online Advanced Java Workshop with Anna University",
-    "date_display": "August 26–30, 2026",
+    "date_display": "August 26\u201330, 2026",
     "date_iso": "2026-08-26",
     "year": "2026",
     "has_date": true,
@@ -416,7 +354,7 @@
       }
     ],
     "description": "Marathon 5-day state-wide online technical workshop conducted in partnership with Anna University Chennai, training students across affiliated colleges on advanced Java concepts and modern application design.",
-    "uncertainty_note": "Conducted August 26–30; calendar year not explicitly stated in capture.",
+    "uncertainty_note": "Conducted August 26\u201330; calendar year not explicitly stated in capture.",
     "links": [],
     "recap_url": null
   },
@@ -559,7 +497,7 @@
   },
   {
     "id": "E14",
-    "title": "Tamilnadu JUG Chennai May Meetup — Java + AI",
+    "title": "Tamilnadu JUG Chennai May Meetup \u2014 Java + AI",
     "date_display": "May 30, 2026",
     "date_iso": "2026-05-30",
     "year": "2026",
@@ -646,7 +584,7 @@
   },
   {
     "id": "E07",
-    "title": "Java AI Day — March Edition",
+    "title": "Java AI Day \u2014 March Edition",
     "date_display": "March 7, 2026",
     "date_iso": "2026-03-07",
     "year": "2026",
@@ -734,7 +672,7 @@
   },
   {
     "id": "E08",
-    "title": "Open Source Lab — second round",
+    "title": "Open Source Lab \u2014 second round",
     "date_display": "March 2, 2026",
     "date_iso": "2026-03-02",
     "year": "2026",
@@ -831,7 +769,7 @@
   },
   {
     "id": "E05",
-    "title": "Spring AI Hands-on Workshop — Chennai",
+    "title": "Spring AI Hands-on Workshop \u2014 Chennai",
     "date_display": "January 31, 2026",
     "date_iso": "2026-01-31",
     "year": "2026",
@@ -898,7 +836,7 @@
   },
   {
     "id": "E04",
-    "title": "December Online Meetup — Spring Boot 4 New Features",
+    "title": "December Online Meetup \u2014 Spring Boot 4 New Features",
     "date_display": "December 20, 2025",
     "date_iso": "2025-12-20",
     "year": "2025",
@@ -936,7 +874,7 @@
   },
   {
     "id": "E02",
-    "title": "JAVAFEST’25",
+    "title": "JAVAFEST\u201925",
     "date_display": "November 8, 2025",
     "date_iso": "2025-11-08",
     "year": "2025",
