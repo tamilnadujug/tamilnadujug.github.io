@@ -82,7 +82,22 @@ Reach out to our organizing committee at **[contact.us@tamilnadujug.org](mailto:
   <h3 style="margin-top: 0;">Community Partners &amp; Global Alliances</h3>
 </div>
 
-TNJUG actively collaborates with global developer conferences, open source bodies, and peer Java communities to connect developers and students in Tamil Nadu with international speakers and technical forums.
+TNJUG actively collaborates with regional developer festivals, global conferences, open source bodies, and peer Java communities to connect developers and students in Tamil Nadu with international speakers and technical forums.
+
+#### Featured Cohort Partner: DevCarnival 2027
+
+**[DevCarnival](https://devcarnival.com)** is a premier two-day developer festival uniting software engineers, students, researchers, and tech communities in Chennai. Held on **January 8–9, 2027 at Infosys Mahindra City**, the festival brings together distinguished keynotes, parallel technical tracks, and hands-on exhibits. TNJUG is proud to be an official **Cohort Partner**, co-curating JVM tracks and technical sessions.
+
+<div class="community-partner-banner">
+  <a href="https://devcarnival.com" target="_blank" rel="noopener noreferrer">
+    <img src="/logos/devcarnival-community-banner.png" alt="DevCarnival — Chennai Tech Festival Banner" width="1672" height="836" />
+  </a>
+</div>
+
+> 🌐 **Conference Website:** [https://devcarnival.com](https://devcarnival.com)  
+> 🎟️ **Get Dev Passport (KonfHub):** [https://konfhub.com/dev-carnival](https://konfhub.com/dev-carnival)
+
+---
 
 #### Featured Partner: jChampions Conference
 
