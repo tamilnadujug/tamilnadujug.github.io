@@ -5,6 +5,7 @@ event_date: "2025-12-20"
 location: "Online (Google Meet)"
 event_type: "Online Meetup"
 event_status: "past"
+event_mode: \"online"
 aliases:
   - /past-events/december-online-meetup-spring-boot-4/
 summary: "An online community session exploring upcoming Spring Boot 4 updates, runtime performance improvements, and implications for modern Java development."

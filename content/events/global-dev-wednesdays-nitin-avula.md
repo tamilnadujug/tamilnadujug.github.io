@@ -6,6 +6,7 @@ event_time: "9:00 PM IST"
 location: "Online"
 event_type: "Online Meetup"
 event_status: "past"
+event_mode: \"online"
 aliases:
   - /past-events/global-dev-wednesdays-nitin-avula/
 summary: "The inaugural session of the Global Dev Wednesdays recurring online series by Tamil Nadu JUG, featuring Nitin Avula on upcoming Java capabilities and practical strategies for staying current."

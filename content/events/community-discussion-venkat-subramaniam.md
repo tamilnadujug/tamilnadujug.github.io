@@ -5,6 +5,7 @@ event_date: "August 25, 2026"
 location: "Online"
 event_type: "Roundtable Discussion"
 event_status: "past"
+event_mode: \"online"
 aliases:
   - /past-events/community-discussion-venkat-subramaniam/
 summary: "Special community roundtable with Dr. Venkat Subramaniam, joined by senior engineers and university faculty, addressing actionable ways to bridge curricula and real-world software engineering."

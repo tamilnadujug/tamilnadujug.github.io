@@ -5,6 +5,7 @@ event_date: "September 5, 2026"
 location: "Ramakrishna Math, Chennai"
 event_type: "Kick-Off Discussion"
 event_status: "past"
+event_mode: \"offline"
 aliases:
   - /past-events/devcarnival-kick-off-discussion/
 summary: "Collaborative kick-off meeting at Ramakrishna Math Chennai aligning volunteers, educators, and industry leaders on making technology accessible to everyone ahead of DevCarnival."

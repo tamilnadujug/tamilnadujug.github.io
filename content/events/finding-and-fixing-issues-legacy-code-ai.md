@@ -6,6 +6,7 @@ event_time: "5:30 PM onwards"
 location: "Thoughtworks, Coimbatore"
 event_type: "Community Meetup"
 event_status: "past"
+event_mode: \"offline"
 aliases:
   - /past-events/finding-and-fixing-issues-legacy-code-ai/
 summary: "An in-person evening meetup at Thoughtworks Coimbatore featuring Java Champion Dr. Venkat Subramaniam on inspecting, understanding, and modernizing legacy codebases using AI-based tools."

@@ -6,6 +6,7 @@ event_time: "9:00 PM IST"
 location: "Online"
 event_type: "Webinar"
 event_status: "past"
+event_mode: \"online"
 aliases:
   - /past-events/global-dev-wednesdays-luiz-real-professor-isidro/
 summary: "A special joint session of the Global Dev Wednesdays series by Tamil Nadu JUG featuring Luiz Real (SouJava Leader) and Professor Isidro, PhD (Java Champion) on why engineering fundamentals still matter in the age of AI."

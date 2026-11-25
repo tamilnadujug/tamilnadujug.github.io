@@ -6,6 +6,7 @@ event_time: "10:00 AM – 1:30 PM"
 location: "Sri Eshwar College of Engineering, Coimbatore"
 event_type: "Community Meetup"
 event_status: "past"
+event_mode: \"offline"
 aliases:
   - /past-events/modern-programming-paradigms-venkat-subramaniam/
 summary: "A special community session featuring Dr. Venkat Subramaniam, Java Champion, examining Object-Oriented Programming vs. Data-Oriented Programming, followed by an open AMA."

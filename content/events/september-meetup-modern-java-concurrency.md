@@ -6,6 +6,7 @@ event_time: "10:00 AM – 12:00 PM IST"
 location: "Online"
 event_type: "Online Meetup"
 event_status: "past"
+event_mode: \"online"
 aliases:
   - /past-events/september-meetup-modern-java-concurrency/
 summary: "A two-hour deep-dive online session featuring Java Champion A N M 'Bazlur' Rahman exploring Modern Java Concurrency with practical knowledge, interactive discussions, and community participation."

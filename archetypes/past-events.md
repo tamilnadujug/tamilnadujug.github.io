@@ -4,6 +4,7 @@ date: {{ .Date.Format "2006-01-02" }}
 event_date: "{{ .Date.Format "2006-01-02" }}"
 event_time: "10:00 AM – 1:00 PM IST"
 location: "Coimbatore, Tamil Nadu"
+event_mode: "offline" # "offline" or "online"
 event_type: "Community Meetup"
 summary: "A concise overview of the event theme, target audience, and key technologies presented."
 banner: "/images/past-events/{{ .Name }}/banner.svg"

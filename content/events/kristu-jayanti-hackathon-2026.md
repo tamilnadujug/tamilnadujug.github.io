@@ -6,6 +6,7 @@ location: "Kristu Jayanti University – Airport Road Campus, Bengaluru"
 google_map_url: "https://www.google.com/maps/search/?api=1&query=Kristu+Jayanti+University+Airport+Road+Campus+Bengaluru"
 event_type: "Hackathon & Community Keynote"
 event_status: "past"
+event_mode: \"offline"
 category: "Past Events"
 tags: ["Hackathon", "Devcarnival", "JavaFest", "TNJUG", "Bangalore JUG"]
 summary: "TNJUG joined as an organizer and project jury at Kristu Jayanti University, mentoring student innovators and shortlisting top projects for the Devcarnival Tech Pavilion."

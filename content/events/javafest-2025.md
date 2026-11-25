@@ -5,6 +5,7 @@ event_date: "November 8, 2025"
 location: "Infosys Campus, Electronic City, Bangalore"
 event_type: "Conference Delegation"
 event_status: "past"
+event_mode: \"offline"
 aliases:
   - /past-events/javafest-2025/
 summary: "India's largest Java conference hosted at Infosys Bangalore. Tamilnadu JUG organized a dedicated community bus delegation from Coimbatore to Bangalore, joined by Sri Eshwar College of Engineering as sponsor."

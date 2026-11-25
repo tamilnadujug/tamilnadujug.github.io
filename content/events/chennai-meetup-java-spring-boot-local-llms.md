@@ -5,6 +5,7 @@ event_date: "2026-05-30"
 location: "Contentstack, Chennai"
 event_type: "Community Meetup"
 event_status: "past"
+event_mode: \"offline"
 aliases:
   - /past-events/chennai-meetup-java-spring-boot-local-llms/
 summary: "A Chennai community meetup at Contentstack featuring sessions on running local LLMs with Java & Ollama, AI cost optimization, and AI-driven changes across the software development lifecycle (SDLC)."

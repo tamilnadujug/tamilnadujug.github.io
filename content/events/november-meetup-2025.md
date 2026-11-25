@@ -5,6 +5,7 @@ event_date: "November 2025"
 location: "Thoughtworks, Coimbatore"
 event_type: "Community Meetup"
 event_status: "past"
+event_mode: \"offline"
 aliases:
   - /past-events/november-meetup-2025/
 summary: "Community meetup hosted by Tamilnadu JUG at Thoughtworks, Coimbatore in November 2025."

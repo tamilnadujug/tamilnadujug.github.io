@@ -5,6 +5,7 @@ event_date: "March 2, 2026"
 location: "Kongu Engineering College, Perundurai"
 event_type: "Open Source Lab Clinic"
 event_status: "past"
+event_mode: \"offline"
 aliases:
   - /past-events/open-source-lab-second-round-kongu/
 summary: "Successful completion of the second round of Tamilnadu JUG's Open Source Lab initiative at Kongu Engineering College, promoting real-world Java development and Git workflows."

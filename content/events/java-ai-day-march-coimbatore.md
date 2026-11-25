@@ -5,6 +5,7 @@ event_date: "2026-03-07"
 location: "EPAM Systems, Coimbatore"
 event_type: "Full-Day Community Event"
 event_status: "past"
+event_mode: \"offline"
 aliases:
   - /past-events/java-ai-day-march-coimbatore/
 summary: "A full-day community conference hosted by Tamilnadu JUG at EPAM Systems covering OpenJDK contributions, Hands-on Spring AI, Java's evolution in the AI era, autonomous AI agents, and a Java 25 quiz."

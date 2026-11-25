@@ -5,6 +5,7 @@ event_date: "June 25, 2026"
 location: "VET Institute of Arts and Science, Erode"
 event_type: "Panel Discussion"
 event_status: "past"
+event_mode: \"offline"
 aliases:
   - /past-events/innovation-ecosystem-panel-vet-institute/
 summary: "Collaborative panel discussion organized alongside TN Startup Thiruvizha and Nanuri Labs at VET Institute in Erode, exploring how hackathons bridge academia and startup innovation."

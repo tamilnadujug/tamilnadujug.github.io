@@ -6,6 +6,7 @@ event_time: "9:30 AM onwards"
 location: "Dot Com Infoway, Madurai"
 event_type: "Chapter Launch & Meetup"
 event_status: "past"
+event_mode: \"offline"
 aliases:
   - /past-events/madurai-chapter-launch/
 summary: "The official launch and inaugural meetup of the TNJUG Madurai Chapter, featuring deep-dive technical sessions on JVM performance at scale, modern garbage collection, and reliable agentic AI workflows."

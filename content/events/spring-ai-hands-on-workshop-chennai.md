@@ -6,6 +6,7 @@ event_time: "9:00 AM – 2:00 PM"
 location: "Excelencia, Pinnacle Building, Taramani, Chennai"
 event_type: "Hands-on Workshop"
 event_status: "past"
+event_mode: \"offline"
 aliases:
   - /past-events/spring-ai-hands-on-workshop-chennai/
 summary: "An in-person, hands-on workshop in Chennai covering Spring AI concepts, Model Context Protocol (MCP), and model security with Spring Boot."

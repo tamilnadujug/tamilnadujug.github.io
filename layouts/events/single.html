@@ -30,11 +30,23 @@
     </div>
 
     <div class="past-event-hero">
-      {{ with .Params.event_type }}
+      {{ $isOnline := or (eq .Params.event_mode "online") (or (strings.Contains (lower .Params.location) "online") (strings.Contains (lower .Params.location) "virtual")) }}
       <div class="past-event-header-badges">
+        {{ if $isOnline }}
+        <span class="badge badge-mode badge-mode-online">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+          <span>Online</span>
+        </span>
+        {{ else }}
+        <span class="badge badge-mode badge-mode-offline">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <span>In-Person</span>
+        </span>
+        {{ end }}
+        {{ with .Params.event_type }}
         <span class="badge badge-primary">{{ . }}</span>
+        {{ end }}
       </div>
-      {{ end }}
 
       <h1 class="article-title past-event-single-title">{{ .Title }}</h1>
 
@@ -277,6 +289,10 @@
           </dd>
         </div>
         {{ end }}
+        <div class="leader-meta-row">
+          <dt>Format</dt>
+          <dd>{{ if $isOnline }}Online (Virtual){{ else }}In-Person (Offline){{ end }}</dd>
+        </div>
         {{ with .Params.event_type }}
         <div class="leader-meta-row">
           <dt>Type</dt>

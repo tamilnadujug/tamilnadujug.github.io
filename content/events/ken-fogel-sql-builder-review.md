@@ -5,6 +5,7 @@ event_date: "September 17, 2026"
 location: "Online"
 event_type: "Code Review & Discussion"
 event_status: "past"
+event_mode: \"online"
 aliases:
   - /past-events/ken-fogel-sql-builder-review/
 summary: "In-depth project review and mentorship discussion with Java Champion Ken Fogel, reviewing TNJUG's student-built open-source project SQL Builder alongside community students and professors."

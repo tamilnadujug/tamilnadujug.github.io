@@ -5,6 +5,7 @@ event_date: "May 4, 2026"
 location: "Rameswaram"
 event_type: "Coding Camp & Retreat"
 event_status: "past"
+event_mode: \"offline"
 aliases:
   - /past-events/rameswaram-tech-tour-coding-camp/
 summary: "An immersive community retreat, tech tour, and coding camp bringing a cohort of passionate volunteers and engineering students to Rameswaram for hands-on programming and mentor sessions."

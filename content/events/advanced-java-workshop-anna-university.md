@@ -5,6 +5,7 @@ event_date: "August 26–30, 2026"
 location: "Online"
 event_type: "Workshop"
 event_status: "past"
+event_mode: \"online"
 aliases:
   - /past-events/advanced-java-workshop-anna-university/
 summary: "A marathon 5-day state-wide online technical workshop conducted in partnership with Anna University Chennai, training students across affiliated colleges on advanced Java concepts."

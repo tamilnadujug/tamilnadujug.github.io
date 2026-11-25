@@ -29,6 +29,18 @@
   {{ end }}
   {{ $pastEvents = sort $pastEvents "Date" "desc" }}
 
+  {{/* Partition into Offline and Online */}}
+  {{ $offlineEvents := slice }}
+  {{ $onlineEvents := slice }}
+  {{ range $pastEvents }}
+    {{ $isOnline := or (eq .Params.event_mode "online") (or (strings.Contains (lower .Params.location) "online") (strings.Contains (lower .Params.location) "virtual")) }}
+    {{ if $isOnline }}
+      {{ $onlineEvents = $onlineEvents | append . }}
+    {{ else }}
+      {{ $offlineEvents = $offlineEvents | append . }}
+    {{ end }}
+  {{ end }}
+
   {{/* Extract unique years */}}
   {{ $uniqueYears := slice }}
   {{ range $pastEvents }}
@@ -82,8 +94,42 @@
 
     {{ if gt (len $pastEvents) 0 }}
 
-    <!-- Events Search & Year Filter Toolbar -->
+    <!-- Events Search & Filters Toolbar -->
     <div class="events-toolbar card" role="search" aria-label="Search and filter past events">
+      <!-- Format Chip Toggle Bar -->
+      <div class="events-mode-filter-row">
+        <span class="events-filter-label">Event Format:</span>
+        <div class="events-mode-chips" role="group" aria-label="Filter events by format">
+          <button type="button" class="event-mode-chip active" data-filter-mode="all" aria-pressed="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <span>All Events</span>
+            <span class="chip-count">({{ len $pastEvents }})</span>
+          </button>
+          <button type="button" class="event-mode-chip" data-filter-mode="offline" aria-pressed="false">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>In-Person (Offline)</span>
+            <span class="chip-count">({{ len $offlineEvents }})</span>
+          </button>
+          <button type="button" class="event-mode-chip" data-filter-mode="online" aria-pressed="false">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polygon points="23 7 16 12 23 17 23 7"></polygon>
+              <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+            </svg>
+            <span>Online (Virtual)</span>
+            <span class="chip-count">({{ len $onlineEvents }})</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Search Input -->
       <div class="events-toolbar-top">
         <div class="events-search-wrap">
           <svg class="events-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -100,12 +146,13 @@
         </div>
       </div>
 
+      <!-- Year Filter & Results Count -->
       <div class="events-toolbar-bottom">
         <div class="events-year-filter-group">
           <span class="events-filter-label">Filter by Year:</span>
           <div class="events-year-filters" role="group" aria-label="Filter events by year">
             <button type="button" class="events-year-filter-btn active" data-filter-year="all" aria-pressed="true">
-              <span>All Events</span>
+              <span>All Years</span>
               <span class="filter-count">({{ len $pastEvents }})</span>
             </button>
             {{ range $year := $uniqueYears }}
@@ -135,116 +182,61 @@
       </div>
     </div>
 
-    <!-- Past Events Grid -->
-    <div class="grid grid-cols-3 past-events-grid" id="past-events-grid">
-      {{ range $pastEvents }}
-      {{ $eventTitle := .Title }}
-      {{ $eventYear := .Date.Format "2006" }}
-      {{ with .Params.event_date }}
-        {{ if (findRE `^\d{4}` .) }}
-          {{ $eventYear = index (findRE `^\d{4}` .) 0 }}
-        {{ end }}
-      {{ end }}
+    <!-- =========================================================================
+         Segregated Events Container
+         ========================================================================= -->
+    <div id="events-segregated-container">
 
-      {{ $searchTokens := slice $eventTitle }}
-      {{ with .Params.location }}
-        {{ $searchTokens = $searchTokens | append . }}
-      {{ end }}
-      {{ with .Params.event_type }}
-        {{ $searchTokens = $searchTokens | append . }}
-      {{ end }}
-      {{ with .Params.summary }}
-        {{ $searchTokens = $searchTokens | append . }}
-      {{ end }}
-      {{ range .Params.speakers }}
-        {{ $searchTokens = $searchTokens | append .name }}
-      {{ end }}
-      {{ $searchBlob := delimit $searchTokens " " | lower }}
-
-      {{ $lumaUrl := "" }}
-      {{ if and .Params.luma_url (strings.Contains .Params.luma_url "luma") }}
-        {{ $lumaUrl = .Params.luma_url }}
-      {{ else if and .Params.registration_url (strings.Contains .Params.registration_url "luma") }}
-        {{ $lumaUrl = .Params.registration_url }}
-      {{ end }}
-
-      <article class="card past-event-card" data-year="{{ $eventYear }}" data-search="{{ $searchBlob }}">
-        <a href="{{ .RelPermalink }}" class="past-event-banner-link" aria-label="Read recap for {{ $eventTitle }}">
-          {{ with .Params.banner }}
-          <div class="past-event-banner-wrap">
-            <img src="{{ . | relURL }}" alt="{{ $eventTitle }}" class="past-event-banner" loading="lazy">
-          </div>
-          {{ else }}
-          <div class="past-event-banner-wrap past-event-banner-fallback">
-            <div class="past-event-fallback-content">
-              <span class="badge badge-primary">TNJUG</span>
-              <div class="past-event-fallback-title">{{ $eventTitle }}</div>
+      <!-- Section: In-Person (Offline) Events -->
+      <section class="events-segregated-section" id="events-section-offline" data-section-mode="offline">
+        <div class="events-section-subhead">
+          <div class="events-section-title-wrap">
+            <div class="events-section-badge-icon badge-offline" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <div>
+              <h3 class="events-section-title">In-Person &amp; Offline Gatherings</h3>
+              <p class="events-section-subtext">Community meetups, campus workshops, and hackathons hosted on-site across Tamil Nadu and Bangalore.</p>
             </div>
           </div>
-          {{ end }}
-        </a>
-
-        <div class="past-event-card-body">
-          <div class="past-event-tags">
-            {{ with .Params.event_type }}
-            <span class="badge badge-primary">{{ . }}</span>
-            {{ end }}
-            {{ with .Params.location }}
-            {{ $loc := . }}
-            {{ $isOnline := or (strings.Contains (lower $loc) "online") (strings.Contains (lower $loc) "virtual") }}
-            {{ $mapUrl := $.Params.google_map_url | default ($.Params.map_url | default (printf "https://www.google.com/maps/search/?api=1&query=%s" ($loc | urlquery))) }}
-            {{ if not $isOnline }}
-            <a href="{{ $mapUrl }}" target="_blank" rel="noopener noreferrer" class="past-event-location-pill" title="View {{ $loc }} on Google Maps">
-              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-              <span>{{ $loc }} ↗</span>
-            </a>
-            {{ else }}
-            <span class="past-event-location-pill">
-              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-              <span>{{ $loc }}</span>
-            </span>
-            {{ end }}
-            {{ end }}
-          </div>
-
-          <h3 class="past-event-card-title">
-            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-          </h3>
-
-          {{ $displayDate := "" }}
-          {{ with .Params.event_date }}
-            {{ $displayDate = . }}
-          {{ else }}
-            {{ if not .Date.IsZero }}
-              {{ $displayDate = .Date.Format "January 2, 2006" }}
-            {{ end }}
-          {{ end }}
-
-          {{ if $displayDate }}
-          <div class="past-event-date-row">
-            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-            <time datetime="{{ with .Params.event_date }}{{ . }}{{ else }}{{ .Date.Format "2006-01-02" }}{{ end }}">
-              {{ if (findRE `^\d{4}-\d{2}-\d{2}$` $displayDate) }}
-                {{ time.Format "January 2, 2006" $displayDate }}
-              {{ else }}
-                {{ $displayDate }}
-              {{ end }}
-            </time>
-            {{ with .Params.event_time }}
-            <span class="past-event-time-sep">•</span>
-            <span>{{ . }}</span>
-            {{ end }}
-          </div>
-          {{ end }}
-
-          <div class="past-event-card-footer">
-            <a href="{{ .RelPermalink }}" class="btn btn-outline btn-sm past-event-card-btn">
-              <span>View Event Details →</span>
-            </a>
-          </div>
+          <span class="events-section-count-badge" id="offline-section-count">{{ len $offlineEvents }} Events</span>
         </div>
-      </article>
-      {{ end }}
+
+        <div class="grid grid-cols-3 past-events-grid" id="grid-offline">
+          {{ range $offlineEvents }}
+            {{ partial "past-event-card.html" . }}
+          {{ end }}
+        </div>
+      </section>
+
+      <!-- Section: Online (Virtual) Events -->
+      <section class="events-segregated-section" id="events-section-online" data-section-mode="online">
+        <div class="events-section-subhead">
+          <div class="events-section-title-wrap">
+            <div class="events-section-badge-icon badge-online" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+              </svg>
+            </div>
+            <div>
+              <h3 class="events-section-title">Online &amp; Virtual Sessions</h3>
+              <p class="events-section-subtext">Global developer webinars, virtual technical deep-dives, code reviews, and remote discussions.</p>
+            </div>
+          </div>
+          <span class="events-section-count-badge" id="online-section-count">{{ len $onlineEvents }} Events</span>
+        </div>
+
+        <div class="grid grid-cols-3 past-events-grid" id="grid-online">
+          {{ range $onlineEvents }}
+            {{ partial "past-event-card.html" . }}
+          {{ end }}
+        </div>
+      </section>
+
     </div>
 
     <!-- No matching search/filter results message -->
@@ -257,7 +249,7 @@
         </svg>
       </div>
       <h3>No Events Found</h3>
-      <p>No archived events match your current search and year filter criteria.</p>
+      <p>No archived events match your current format, search, and year filter criteria.</p>
       <div style="margin-top: 1rem;">
         <button type="button" id="reset-events-filters" class="btn btn-primary btn-sm">
           <span>Reset Search &amp; Filters</span>
@@ -269,15 +261,21 @@
     document.addEventListener('DOMContentLoaded', function () {
       const searchInput = document.getElementById('events-search-input');
       const clearBtn = document.getElementById('events-search-clear');
+      const modeChips = document.querySelectorAll('.event-mode-chip');
       const yearBtns = document.querySelectorAll('.events-year-filter-btn');
       const eventCards = document.querySelectorAll('.past-event-card');
       const countEl = document.getElementById('events-visible-count');
       const noResultsEl = document.getElementById('events-no-results');
       const resetBtn = document.getElementById('reset-events-filters');
-      const gridEl = document.getElementById('past-events-grid');
+
+      const sectionOffline = document.getElementById('events-section-offline');
+      const sectionOnline = document.getElementById('events-section-online');
+      const offlineCountBadge = document.getElementById('offline-section-count');
+      const onlineCountBadge = document.getElementById('online-section-count');
 
       if (!eventCards.length) return;
 
+      let currentMode = 'all';
       let currentYear = 'all';
       let currentSearch = '';
 
@@ -286,34 +284,57 @@
       }
 
       function filterEvents() {
-        let visibleCount = 0;
         const query = normalize(currentSearch);
+        let totalVisible = 0;
+        let visibleOffline = 0;
+        let visibleOnline = 0;
 
         eventCards.forEach(function (card) {
+          const cardMode = card.getAttribute('data-mode') || 'offline';
           const cardYear = card.getAttribute('data-year') || '';
           const cardSearch = normalize(card.getAttribute('data-search'));
 
+          const matchesMode = (currentMode === 'all' || cardMode === currentMode);
           const matchesYear = (currentYear === 'all' || cardYear === currentYear);
           const matchesSearch = (!query || cardSearch.includes(query));
 
-          if (matchesYear && matchesSearch) {
+          if (matchesMode && matchesYear && matchesSearch) {
             card.style.display = '';
-            visibleCount++;
+            totalVisible++;
+            if (cardMode === 'online') {
+              visibleOnline++;
+            } else {
+              visibleOffline++;
+            }
           } else {
             card.style.display = 'none';
           }
         });
 
+        // Manage Section Visibility based on mode toggle & visible cards
+        if (sectionOffline) {
+          const showOfflineSection = (currentMode === 'all' || currentMode === 'offline') && (visibleOffline > 0);
+          sectionOffline.style.display = showOfflineSection ? '' : 'none';
+          if (offlineCountBadge) {
+            offlineCountBadge.textContent = visibleOffline + (visibleOffline === 1 ? ' Event' : ' Events');
+          }
+        }
+
+        if (sectionOnline) {
+          const showOnlineSection = (currentMode === 'all' || currentMode === 'online') && (visibleOnline > 0);
+          sectionOnline.style.display = showOnlineSection ? '' : 'none';
+          if (onlineCountBadge) {
+            onlineCountBadge.textContent = visibleOnline + (visibleOnline === 1 ? ' Event' : ' Events');
+          }
+        }
+
+        // Manage overall visible count & empty state
         if (countEl) {
-          countEl.textContent = visibleCount;
+          countEl.textContent = totalVisible;
         }
 
         if (noResultsEl) {
-          noResultsEl.style.display = visibleCount === 0 ? 'block' : 'none';
-        }
-
-        if (gridEl) {
-          gridEl.style.display = visibleCount === 0 ? 'none' : 'grid';
+          noResultsEl.style.display = (totalVisible === 0) ? 'block' : 'none';
         }
 
         if (clearBtn) {
@@ -321,6 +342,7 @@
         }
       }
 
+      // Search Input Handling
       if (searchInput) {
         searchInput.addEventListener('input', function (e) {
           currentSearch = e.target.value;
@@ -347,6 +369,21 @@
         });
       }
 
+      // Format / Mode Chip Toggle Handling
+      modeChips.forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          modeChips.forEach(function (c) {
+            c.classList.remove('active');
+            c.setAttribute('aria-pressed', 'false');
+          });
+          chip.classList.add('active');
+          chip.setAttribute('aria-pressed', 'true');
+          currentMode = chip.getAttribute('data-filter-mode') || 'all';
+          filterEvents();
+        });
+      });
+
+      // Year Filter Handling
       yearBtns.forEach(function (btn) {
         btn.addEventListener('click', function () {
           yearBtns.forEach(function (b) {
@@ -360,6 +397,7 @@
         });
       });
 
+      // Reset All Filters Handling
       if (resetBtn) {
         resetBtn.addEventListener('click', function () {
           if (searchInput) {
@@ -367,6 +405,13 @@
           }
           currentSearch = '';
           currentYear = 'all';
+          currentMode = 'all';
+
+          modeChips.forEach(function (chip) {
+            const isAll = chip.getAttribute('data-filter-mode') === 'all';
+            chip.classList.toggle('active', isAll);
+            chip.setAttribute('aria-pressed', isAll ? 'true' : 'false');
+          });
 
           yearBtns.forEach(function (btn) {
             const isAll = btn.getAttribute('data-filter-year') === 'all';
