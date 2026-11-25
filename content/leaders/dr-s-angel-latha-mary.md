@@ -8,7 +8,7 @@ tenure_start: "2026"
 tenure_end: "Present"
 chapter: "SNS College of Technology"
 designation: "Professor & Head, Department of AIML"
-experience: "20+ years"
+experience: "30+ years"
 email: "hod.aiml@snsct.org"
 city: "Coimbatore"
 bio: "Professor and Head of the Department of Artificial Intelligence & Machine Learning at SNS College of Technology, championing enterprise Java, AI systems, student mentorship, and industry-academia initiatives."
@@ -23,7 +23,7 @@ website: ""
 
 Dr. S. Angel Latha Mary is the **Professional Chapter Leader for the SNS College of Technology Chapter** of TNJUG and serves as **Professor & Head of the Department of Artificial Intelligence and Machine Learning (AIML)** at SNS College of Technology (SNS Institutions) in Coimbatore.
 
-With over two decades of distinguished academic, research, and administrative leadership, Dr. Angel Latha Mary has authored numerous research publications in international journals and conferences across Artificial Intelligence, Data Mining, Neural Networks, and Wireless Sensor Networks. She is actively engaged with accelerated computing technologies, including NVIDIA deep learning ecosystems, and has spearheaded numerous technical symposiums, student hackathons, hands-on workshops, and faculty development programs.
+With over three decades (30+ years) of distinguished academic, research, and administrative leadership, Dr. Angel Latha Mary has authored numerous research publications in international journals and conferences across Artificial Intelligence, Data Mining, Neural Networks, and Wireless Sensor Networks. She is actively engaged with accelerated computing technologies, including NVIDIA deep learning ecosystems, and has spearheaded numerous technical symposiums, student hackathons, hands-on workshops, and faculty development programs.
 
 ### Vision for the Chapter
 
